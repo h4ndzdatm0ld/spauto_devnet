@@ -19,33 +19,25 @@ update-source Loopback0
 address-family ipv4 unicast
 route-policy PL-iBGP-RR-OUT out
 !
-neighbor 172.16.0.201
+{% for rr in host.DATA_INPUT.bgp.get('route_reflectors') %}
+neighbor {{ rr }}
 use neighbor-group RR
 !
-neighbor 172.16.0.202
-use neighbor-group RR
+{% endfor %}
 {% endif %}
 !
-{% if host.DATA_INPUT.bgp.get('add_pe_policy') %}
-route-policy PL-iBGP-RR-OUT
-set next-hop self
-end-policy
+{% if host.DATA_INPUT.bgp.get('neighbors') %}
+{% for nx in host.DATA_INPUT.bgp.get('neighbors') %}
+neighbor {{ nx.neighbor }}
+remote-as {{ nx.remote_as }}
+update-source {{ nx.update-source }}
+address-family {{ nx.afi }}
+{% for policy in nx.get('route_policy') %}
+route-policy {{ policy }}
+{% endfor %}
 !
-route-policy PL-eBGP-65001-IN
-pass
-end-policy
-!
+{% endfor %}
 {% endif %}
-{% if host.DATA_INPUT.bgp.get('add_asbr_policy') %}
-route-policy PL-eBGP-CE1-OUT
-set med 200
-pass
-end-policy
 !
-route-policy PL-eBGP-CE2-OUT
-set med 100
-pass
-end-policy
-!
-{% endif %}
+{% include 'bgp-route-policy.j2' %}
 {% endif %}

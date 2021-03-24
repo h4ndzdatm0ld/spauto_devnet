@@ -39,3 +39,14 @@ ip_interfaces:
     mask: "/32"
     ospf: true
     passive: true
+
+bgp:
+  asn: 65000
+  add_paths: true
+  route_reflector: false
+  route_reflectors:
+    - 172.16.0.201
+    - 172.16.0.202
+  cluster_id:
+  add_pe_policy: true
+  add_asbr_policy: false
