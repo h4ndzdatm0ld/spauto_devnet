@@ -1,0 +1,51 @@
+{% if host.DATA_INPUT.get('bgp') %}
+!
+router bgp {{ host.DATA_INPUT.bgp.get('asn') }}
+address-family ipv4 unicast
+{% if host.DATA_INPUT.bgp.get('add_paths') %}
+additional-paths receive
+additional-paths send
+{% endif %}
+!
+{% if host.DATA_INPUT.bgp.get('route_reflector') %}
+neighbor-group iBGP-CLIENTS
+cluster-id {{ host.DATA_INPUT.bgp.get('cluster_id') }}
+address-family ipv4 unicast
+route-reflector-client
+{% else %}
+neighbor-group RR
+remote-as {{ host.DATA_INPUT.bgp.get('asn') }}
+update-source Loopback0
+address-family ipv4 unicast
+route-policy PL-iBGP-RR-OUT out
+!
+neighbor 172.16.0.201
+use neighbor-group RR
+!
+neighbor 172.16.0.202
+use neighbor-group RR
+{% endif %}
+!
+{% if host.DATA_INPUT.bgp.get('add_pe_policy') %}
+route-policy PL-iBGP-RR-OUT
+set next-hop self
+end-policy
+!
+route-policy PL-eBGP-65001-IN
+pass
+end-policy
+!
+{% endif %}
+{% if host.DATA_INPUT.bgp.get('add_asbr_policy') %}
+route-policy PL-eBGP-CE1-OUT
+set med 200
+pass
+end-policy
+!
+route-policy PL-eBGP-CE2-OUT
+set med 100
+pass
+end-policy
+!
+{% endif %}
+{% endif %}

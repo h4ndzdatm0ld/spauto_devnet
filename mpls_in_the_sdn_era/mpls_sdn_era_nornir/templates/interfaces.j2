@@ -1,6 +1,7 @@
 {% for item in host.DATA_INPUT.ip_interfaces %}
-  interface {{ item.interface }}
-    description {{ item.description }}
-    ipv4 address {{ item.ip_address }}{{ item.mask }}
-    no shutdown
+interface {{ item.get('interface') }}
+description {{ item.get('description') }}
+ipv4 address {{ item.get('ip_address') }}{{ item.get('mask') }}
+no shutdown
+exit
 {% endfor %}
