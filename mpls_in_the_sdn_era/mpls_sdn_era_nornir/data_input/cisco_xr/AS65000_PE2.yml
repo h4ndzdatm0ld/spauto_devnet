@@ -1,0 +1,31 @@
+---
+base:
+  lldp: true
+  
+ip_interfaces:
+  - interface: Gi0/0/0/2
+    description: TO_CORE_PE1
+    ip_address: 10.0.0.1
+    mask: "/31"
+    ospf: true
+  - interface: Gi0/0/0/0
+    description: TO_CORE_P2
+    ip_address: 10.0.0.4
+    mask: "/31"
+    ospf: true
+  - interface: Gi0/0/0/1
+    description: TO_AS65001_CE1
+    ip_address: 10.1.0.5
+    mask: "/31"
+    ospf: true
+  - interface: Gi0/0/0/1
+    description: TO_AS65001_CE2
+    ip_address: 10.1.0.3
+    mask: "/31"
+    ospf: true
+  - interface: Loopback0
+    description: SYSTEM_LO_IP
+    ip_address: 172.16.0.22
+    mask: "/32"
+    ospf: true
+    passive: true

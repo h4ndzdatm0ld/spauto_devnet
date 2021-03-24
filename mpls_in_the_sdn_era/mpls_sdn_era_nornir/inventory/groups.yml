@@ -1,0 +1,22 @@
+## Nornir Groups File 
+---
+CORE_EDGE_ROUTER:
+  username: admin
+  password: admin
+  platform: cisco_xr
+  port: 22
+  connection_options:
+    napalm:
+      platform: cisco_xr
+      username: cisco
+      extras:
+        optional_args:
+          alt_host_keys: True
+          # key_file: ~/.ssh/id_rsa
+          alt_key_file: /home/cisco/.ssh/id_rsa
+          use_keys: True
+    netmiko:
+      extras:
+        timeout: 4
+XR:
+  data: 'nothing'

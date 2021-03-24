@@ -1,0 +1,6 @@
+{% for item in host.DATA_INPUT.ip_interfaces %}
+  interface {{ item.interface }}
+    description {{ item.description }}
+    ipv4 address {{ item.ip_address }}{{ item.mask }}
+    no shutdown
+{% endfor %}
