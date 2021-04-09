@@ -23,9 +23,11 @@ def assert_data():
     # Add schema enforcer
     # However, assert simple things like ip addresses, etc
 
+
 def load_all_data(task):
-    """Read all the data from the assosciated YAML files inside data_input folder.
-    Add all the variables into a DATA_INPUT dictionary for the individual task.host."""
+    """Read all the data from the assosciated YAML files inside data_input
+    folder. Add all the variables into a DATA_INPUT dictionary for the
+    individual task.host."""
 
     data = task.run(
         task=load_yaml, file=f"data_input/{task.host.platform}/{task.host}.yml"
@@ -37,7 +39,7 @@ def render_main(task):
 
     base = task.run(
         task=template_file,
-        path="templates",
+        path="templates/configs",
         template="main.j2",
     )
 

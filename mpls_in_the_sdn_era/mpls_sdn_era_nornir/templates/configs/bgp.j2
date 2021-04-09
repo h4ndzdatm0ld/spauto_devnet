@@ -30,7 +30,7 @@ use neighbor-group RR
 {% for nx in host.DATA_INPUT.bgp.get('neighbors') %}
 neighbor {{ nx.neighbor }}
 remote-as {{ nx.remote_as }}
-update-source {{ nx.update-source }}
+update-source {{ nx.update_source }}
 address-family {{ nx.afi }}
 {% for policy in nx.get('route_policy') %}
 route-policy {{ policy }}

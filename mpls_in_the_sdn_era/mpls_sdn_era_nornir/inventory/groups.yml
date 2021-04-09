@@ -18,5 +18,11 @@ CORE_EDGE_ROUTER:
     netmiko:
       extras:
         timeout: 4
+  data:
+    nso:
+      authgroup: labadmin
+      protocol: ssh
+      ned_id: cisco-iosxr-cli-3.5:cisco-iosxr-cli-3.5
+      host_key_verification: none
 XR:
   data: 'nothing'
