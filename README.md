@@ -1,7 +1,7 @@
 # MPLS in the SDN Era --> DevNet SPAUTO
 
 ## A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies.
-
+[Cisco Certified DevNet Specialist - Service Provider Automation and Programmability](https://developer.cisco.com/certification/devnet-sp-auto/)
 ## Why MPLS in the SDN Era?
 
 Simple. This is an incredible book for any and all Network Engineers interested

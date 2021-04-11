@@ -1,0 +1,26 @@
+router isis core
+ is-type level-2-only
+ net {{ host.DATA_INPUT.isis.get('net') }}
+ address-family ipv4 unicast
+  metric-style wide
+  mpls traffic-eng level-2-only
+  maximum-paths 8
+!
+{% for interface in host.DATA_INPUT.ip_interfaces %}
+{% if interface.get('isis') %}
+{% if interface.get('passive') %}
+interface {{ interface.get('interface') }}
+ passive
+ address-family ipv4 unicast
+ !
+{% else %}
+!
+interface {{interface.get('interface') }}
+ point-to-point
+ address-family ipv4 unicast
+{% if interface.get('metric') %}
+  metric {{interface.get('metric') }} level {{interface.get('level') }}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endfor %}
