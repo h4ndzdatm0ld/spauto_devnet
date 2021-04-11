@@ -1,17 +1,19 @@
 {
-    "name": "{{ host }}", 
-    "address": "{{ host.hostname }}",
-    "ssh": {
-    "host-key-verification": "{{ host.nso.host_key_verification }}"
-    },
-    "authgroup": "{{ host.nso.authgroup }}",
-    "device-type": {
-        "cli": {
-            "ned-id": "{{host.nso.ned_id}}",
-            "protocol": "{{host.nso.protocol}}",
-            }
-    },
-    "state": {
-        "admin-state": "unlocked"
-    }
+	"device": {
+		"name": "{{ host }}",
+		"address": "{{ host.hostname }}",
+		"ssh": {
+			"host-key-verification": "{{ host.nso.verification }}"
+		},
+		"authgroup": "{{ host.nso.authgroup }}",
+		"device-type": {
+			"cli": {
+				"ned-id": "{{host.nso.ned_id}}",
+				"protocol": "{{host.nso.protocol}}"
+			}
+		},
+		"state": {
+			"admin-state": "unlocked"
+		}
+	}
 }

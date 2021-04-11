@@ -23,6 +23,6 @@ CORE_EDGE_ROUTER:
       authgroup: labadmin
       protocol: ssh
       ned_id: cisco-iosxr-cli-3.5:cisco-iosxr-cli-3.5
-      host_key_verification: none
+      verification: none
 XR:
   data: 'nothing'

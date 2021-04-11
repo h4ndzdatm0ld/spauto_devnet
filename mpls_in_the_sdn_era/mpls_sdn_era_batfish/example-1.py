@@ -6,10 +6,10 @@ from pybatfish.datamodel.flow import *
 from pybatfish.question import *
 from pybatfish.question import bfq
 
-bf_session.host = 'localhost'
+bf_session.host = "localhost"
 
-bf_set_network('mplsinthesdnera')
+bf_set_network("mplsinthesdnera")
 
-SNAPSHOT_DIR = 'snapshots/mplsinthesdnera/'
+SNAPSHOT_DIR = "snapshots/mplsinthesdnera/"
 
-bf_init_snapshot(SNAPSHOT_DIR, name='snapshot-2021-03-22', overwrite=True)
+bf_init_snapshot(SNAPSHOT_DIR, name="snapshot-2021-03-22", overwrite=True)

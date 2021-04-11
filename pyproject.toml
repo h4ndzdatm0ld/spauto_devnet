@@ -13,6 +13,7 @@ nornir-netmiko = "^0.1.1"
 nornir-jinja2 = "^0.1.2"
 pynso = "^1.2.0"
 prettyprint = "^0.1.5"
+ipython = "^7.22.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
