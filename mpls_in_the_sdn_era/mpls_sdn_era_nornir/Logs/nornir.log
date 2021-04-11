@@ -11322,3 +11322,12 @@ Traceback (most recent call last):
     raise HTTPError(http_error_msg, response=self)
 requests.exceptions.HTTPError: 409 Client Error: Conflict for url: http://192.168.0.105:8080/restconf/data/tailf-ncs:devices
 
+2021-04-10 21:51:56,692 -  nornir.core -     INFO -        run() - Running task 'get_nso_devices' with args {} on 8 hosts
+2021-04-10 21:51:56,693 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'get_nso_devices'
+2021-04-10 21:51:56,696 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'get_nso_devices'
+2021-04-10 21:51:56,696 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'get_nso_devices'
+2021-04-10 21:51:56,699 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'get_nso_devices'
+2021-04-10 21:51:56,701 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'get_nso_devices'
+2021-04-10 21:51:56,701 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'get_nso_devices'
+2021-04-10 21:51:56,704 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'get_nso_devices'
+2021-04-10 21:51:56,706 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'get_nso_devices'

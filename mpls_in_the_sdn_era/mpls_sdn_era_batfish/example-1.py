@@ -1,3 +1,4 @@
+"""Example batfish script."""
 import pandas as pd
 from pybatfish.client.commands import *
 from pybatfish.datamodel import *

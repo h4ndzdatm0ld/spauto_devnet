@@ -1,7 +1,7 @@
 ---
 base:
   lldp: true
-  
+
 ip_interfaces:
   - interface: Gi0/0/0/2
     description: TO_CORE_PE1
@@ -39,7 +39,7 @@ bgp:
     - 172.16.0.202
   cluster_id:
   add_pe_policy: false
-  add_asbr_policy: false 
+  add_asbr_policy: false
   neighbors:
     - remote_as: 65001
       neighbor: 10.1.0.2

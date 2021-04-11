@@ -1,5 +1,3 @@
-
-## Nornir Config File 
 ---
 runner:
   plugin: threaded
@@ -8,7 +6,7 @@ runner:
 
 inventory:
   plugin: SimpleInventory
-  options: 
+  options:
     host_file: "inventory/hosts.yml"
     group_file: "inventory/groups.yml"
     defaults_file: "inventory/defaults.yml"

@@ -1,11 +1,11 @@
 #!/usr/bin/python3
+"""Script will collect device information from NSO via the API.
+
+We loop through our inventory and get data from the devices based on task.host.
+"""
+
 from nornir import InitNornir
-from nornir_utils.plugins.functions import print_result
-import pynso
-import json
 import requests
-from nornir_jinja2.plugins.tasks import template_file
-from nornir.core.exceptions import NornirExecutionError
 import pprint
 
 __author__ = "Hugo Tinoco"
@@ -18,25 +18,25 @@ pe_routers = nr.filter(type="PE_ROUTER")
 
 
 def get_nso_devices(task):
-
+    """Make a REST API call to our NSO instance to extract device information."""
     NSO = "192.168.0.105"
     url = f"http://{NSO}:8080/restconf/data"
     auth = ("admin", "admin")
     headers = {
         "Accept": "application/yang-data+json",
-        "Authorization": "Basic YWRtaW46YWRtaW4=",
     }
     payload = {}
     data = requests.get(
         f"{url}/tailf-ncs:devices/device={task.host}",
         headers=headers,
-        data=json.dumps(payload),
+        data=payload,
+        auth=auth,
     )
     pprint.pprint(data.content)
 
 
 def main():
-
+    """Execute the nornir runbook."""
     nr.run(task=get_nso_devices)
 
 

@@ -1,4 +1,3 @@
-## Nornir Groups File 
 ---
 CORE_EDGE_ROUTER:
   username: admin
@@ -11,10 +10,10 @@ CORE_EDGE_ROUTER:
       username: cisco
       extras:
         optional_args:
-          alt_host_keys: True
+          alt_host_keys: true
           # key_file: ~/.ssh/id_rsa
           alt_key_file: /home/cisco/.ssh/id_rsa
-          use_keys: True
+          use_keys: true
     netmiko:
       extras:
         timeout: 4
@@ -25,4 +24,4 @@ CORE_EDGE_ROUTER:
       ned_id: cisco-iosxr-cli-3.5:cisco-iosxr-cli-3.5
       verification: none
 XR:
-  data: 'nothing'
+  data: nothing

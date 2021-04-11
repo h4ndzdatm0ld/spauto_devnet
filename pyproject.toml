@@ -14,6 +14,11 @@ nornir-jinja2 = "^0.1.2"
 pynso = "^1.2.0"
 prettyprint = "^0.1.5"
 ipython = "^7.22.0"
+yamllint = "^1.26.1"
+PyYAML = "^5.4.1"
+pybatfish = "^2021.2.26"
+pydocstyle = "^6.0.0"
+pybandit = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

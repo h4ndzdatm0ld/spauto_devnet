@@ -1,7 +1,12 @@
 #!/usr/bin/python3
+"""This script will generate configurations by rendering our Jinja templates.
+
+Configurations are deployed via Netmiko/Nornir to our devices.
+Before using this script, make sure you update the inventory host file with
+the correct Out of Band IP devices assigned to your lab topology.
+"""
 from nornir import InitNornir
 from nornir_netmiko.tasks import (
-    netmiko_send_command,
     netmiko_send_config,
     netmiko_commit,
 )
@@ -19,16 +24,18 @@ pe_routers = nr.filter(type="PE_ROUTER")
 
 
 def assert_data():
+    """Error checking of input data."""
     pass
     # Add schema enforcer
     # However, assert simple things like ip addresses, etc
 
 
 def load_all_data(task):
-    """Read all the data from the assosciated YAML files inside data_input
-    folder. Add all the variables into a DATA_INPUT dictionary for the
-    individual task.host."""
+    """Read all the data from the assosciated YAML files inside data_input dir.
 
+    Add all the variables into a DATA_INPUT dictionary for the individual
+    task.host.
+    """
     data = task.run(
         task=load_yaml, file=f"data_input/{task.host.platform}/{task.host}.yml"
     )
@@ -36,7 +43,7 @@ def load_all_data(task):
 
 
 def render_main(task):
-
+    """Render device configuration using our Jinja2 Templates."""
     base = task.run(
         task=template_file,
         path="templates/configs",
@@ -48,7 +55,7 @@ def render_main(task):
 
 
 def main():
-
+    """Execute our Nornir runbook."""
     nr.run(task=load_all_data)
     print_result(nr.run(task=render_main))
 

@@ -1,7 +1,7 @@
 ---
 base:
   lldp: true
-  
+
 ip_interfaces:
   - interface: Gi0/0/0/0
     description: TO_CORE_RR2
@@ -55,15 +55,15 @@ acls:
   - name: "AL-LOCAL-PLANE-B-C"
     ipv4: true
     entry:
-        - seq: 10
-          action: "permit"
-          protocol: "ipv4"
-          ip: "172.16.1.0"
-          wildcard: "0.0.0.255"
-          target: "any"
-        - seq: 20
-          action: "permit"
-          protocol: "ipv4"
-          ip: "172.16.2.0"
-          wildcard: "0.0.0.255"
-          target: "any"
+      - seq: 10
+        action: "permit"
+        protocol: "ipv4"
+        ip: "172.16.1.0"
+        wildcard: "0.0.0.255"
+        target: "any"
+      - seq: 20
+        action: "permit"
+        protocol: "ipv4"
+        ip: "172.16.2.0"
+        wildcard: "0.0.0.255"
+        target: "any"
