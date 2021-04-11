@@ -27,7 +27,8 @@ My goal is to gather all of my self-training in this repostiroy and cover all th
 Cisco Certified DevNet Specialist (300-535 SPAUTO) topics. Starting with NSO because I have zero exposure to it professionally. 
 
 ## Extras:
-    There will be some extra material in this repository that can be an aid for other areas, including but not limited to:
+    There will be some extra material in this repository that can be an aid for other areas
+    including but not limited to:
         - Batfish
         - Nornir
 
@@ -43,5 +44,10 @@ A local or remote instance of NSO running to take advantage of all of the script
 A wiki will be created with study notes, material, etc.
 
 Explore the content, break the scripts and have fun with it. 
+
+# Why rely on this complicated lab topology?
+
+I learn better when I am doing, not just reading and specially when breaking things. Having this complicated topology, building all the services in an
+automated way will be key to our success in passing the certification. There will be tons of material in the end that will cover all the topics in the exam.
 
 TODO: "breakout sections for each major topic"
