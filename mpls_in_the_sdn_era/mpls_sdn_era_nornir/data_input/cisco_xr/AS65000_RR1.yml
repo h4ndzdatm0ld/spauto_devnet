@@ -13,7 +13,7 @@ ip_interfaces:
     ip_address: 10.0.0.14
     mask: "/31"
     isis: true
-  - interface: Gi0/0/0/4
+  - interface: Gi0/0/0/3
     description: TO_CORE_P2
     ip_address: 10.0.0.19
     mask: "/31"
