@@ -34,8 +34,8 @@ NSO.
 
 # How to use this to study?
 
-It would be expected for you to have access to a virtual lab environment which can run this 
-topology. It is quite resource heavy, so keep that in mind. 
+It would be expected for you to have access to a virtual lab environment that can run this 
+topology. 
     There are a total of 17 devices running in the lab scenario.
     8 of them are IOSXR devices, which can consume up to 3GB each.
 
@@ -45,3 +45,4 @@ A wiki will be created with study notes, material, etc.
 
 Explore the content, break the scripts and have fun with it. 
 
+TODO: "breakout sections for each major topic"
