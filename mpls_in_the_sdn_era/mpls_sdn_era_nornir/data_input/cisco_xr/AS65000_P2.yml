@@ -5,22 +5,22 @@ base:
 ip_interfaces:
   - interface: Gi0/0/0/0
     description: TO_CORE_PE2
-    ip_address: 10.1.0.5
+    ip_address: 10.0.0.5
     mask: "/31"
     isis: true
   - interface: Gi0/0/0/1
     description: TO_CORE_RR1
-    ip_address: 10.1.0.18
+    ip_address: 10.0.0.18
     mask: "/31"
     isis: true
   - interface: Gi0/0/0/2
     description: TO_CORE_P2_1
-    ip_address: 10.1.0.7
+    ip_address: 10.0.0.7
     mask: "/31"
     isis: true
   - interface: Gi0/0/0/3
     description: TO_CORE_P1
-    ip_address: 10.1.0.25
+    ip_address: 10.0.0.25
     mask: "/31"
     isis: true
   - interface: Gi0/0/0/4

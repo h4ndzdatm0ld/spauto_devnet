@@ -12455,3 +12455,577 @@ nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_commit (failed)
 2021-04-11 00:50:06,023 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'netmiko_commit'
 2021-04-11 00:50:06,106 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'netmiko_commit'
 2021-04-11 00:50:06,295 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'netmiko_commit'
+2021-04-11 01:06:44,813 -  nornir.core -     INFO -        run() - Running task 'load_all_data' with args {} on 8 hosts
+2021-04-11 01:06:44,814 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_all_data'
+2021-04-11 01:06:44,814 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_yaml'
+2021-04-11 01:06:44,814 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_all_data'
+2021-04-11 01:06:44,814 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_yaml'
+2021-04-11 01:06:44,815 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_all_data'
+2021-04-11 01:06:44,815 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_yaml'
+2021-04-11 01:06:44,815 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_all_data'
+2021-04-11 01:06:44,816 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_yaml'
+2021-04-11 01:06:44,816 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_all_data'
+2021-04-11 01:06:44,816 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_all_data'
+2021-04-11 01:06:44,818 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_all_data'
+2021-04-11 01:06:44,818 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_all_data'
+2021-04-11 01:06:44,820 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_yaml'
+2021-04-11 01:06:44,820 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_yaml'
+2021-04-11 01:06:44,820 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_yaml'
+2021-04-11 01:06:44,822 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_yaml'
+2021-04-11 01:06:44,829 -  nornir.core -     INFO -        run() - Running task 'render_main' with args {} on 8 hosts
+2021-04-11 01:06:44,830 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'render_main'
+2021-04-11 01:06:44,830 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'render_main'
+2021-04-11 01:06:44,830 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'template_file'
+2021-04-11 01:06:44,830 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'render_main'
+2021-04-11 01:06:44,830 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'render_main'
+2021-04-11 01:06:44,830 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'template_file'
+2021-04-11 01:06:44,830 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'render_main'
+2021-04-11 01:06:44,830 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'render_main'
+2021-04-11 01:06:44,831 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'render_main'
+2021-04-11 01:06:44,831 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'render_main'
+2021-04-11 01:06:44,831 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'template_file'
+2021-04-11 01:06:44,831 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'template_file'
+2021-04-11 01:06:44,833 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'template_file'
+2021-04-11 01:06:44,833 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'template_file'
+2021-04-11 01:06:44,835 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'template_file'
+2021-04-11 01:06:44,835 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'template_file'
+2021-04-11 01:06:44,870 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'netmiko_send_config'
+2021-04-11 01:06:44,876 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'netmiko_send_config'
+2021-04-11 01:06:44,905 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'netmiko_send_config'
+2021-04-11 01:06:44,915 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'netmiko_send_config'
+2021-04-11 01:06:44,928 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'netmiko_send_config'
+2021-04-11 01:06:44,935 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'netmiko_send_config'
+2021-04-11 01:06:44,941 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'netmiko_send_config'
+2021-04-11 01:06:44,947 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'netmiko_send_config'
+2021-04-11 01:06:55,893 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'netmiko_commit'
+2021-04-11 01:06:55,900 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'netmiko_commit'
+2021-04-11 01:06:56,224 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'netmiko_commit'
+2021-04-11 01:06:56,225 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'netmiko_commit'
+2021-04-11 01:06:56,523 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'netmiko_commit'
+2021-04-11 01:06:58,440 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'netmiko_commit'
+2021-04-11 01:06:59,028 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'netmiko_commit'
+2021-04-11 01:06:59,124 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'netmiko_commit'
+2021-04-11 01:11:31,795 -  nornir.core -     INFO -        run() - Running task 'load_all_data' with args {} on 8 hosts
+2021-04-11 01:11:31,796 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_all_data'
+2021-04-11 01:11:31,796 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_all_data'
+2021-04-11 01:11:31,796 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_yaml'
+2021-04-11 01:11:31,796 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_all_data'
+2021-04-11 01:11:31,796 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_all_data'
+2021-04-11 01:11:31,796 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_yaml'
+2021-04-11 01:11:31,797 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_all_data'
+2021-04-11 01:11:31,797 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_all_data'
+2021-04-11 01:11:31,797 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_all_data'
+2021-04-11 01:11:31,797 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_yaml'
+2021-04-11 01:11:31,797 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_all_data'
+2021-04-11 01:11:31,798 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_yaml'
+2021-04-11 01:11:31,798 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_yaml'
+2021-04-11 01:11:31,800 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_yaml'
+2021-04-11 01:11:31,800 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_yaml'
+2021-04-11 01:11:31,800 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_yaml'
+2021-04-11 01:11:31,810 -  nornir.core -     INFO -        run() - Running task 'render_main' with args {} on 8 hosts
+2021-04-11 01:11:31,810 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'render_main'
+2021-04-11 01:11:31,811 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'render_main'
+2021-04-11 01:11:31,811 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'template_file'
+2021-04-11 01:11:31,811 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'render_main'
+2021-04-11 01:11:31,811 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'render_main'
+2021-04-11 01:11:31,811 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'render_main'
+2021-04-11 01:11:31,811 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'template_file'
+2021-04-11 01:11:31,811 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'render_main'
+2021-04-11 01:11:31,811 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'render_main'
+2021-04-11 01:11:31,811 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'render_main'
+2021-04-11 01:11:31,812 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'template_file'
+2021-04-11 01:11:31,812 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'template_file'
+2021-04-11 01:11:31,812 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'template_file'
+2021-04-11 01:11:31,812 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'template_file'
+2021-04-11 01:11:31,814 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'template_file'
+2021-04-11 01:11:31,814 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'template_file'
+2021-04-11 01:11:31,838 - nornir.core.task -    ERROR -      start() - Host 'AS65000_RR2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "templates/configs/main.j2", line 1, in top-level template code
+    {% include 'base.j2' %}
+  File "templates/configs/base.j2", line 5, in top-level template code
+    hostname {{host.host}}
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'host'
+
+2021-04-11 01:11:31,839 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "templates/configs/main.j2", line 1, in top-level template code
+    {% include 'base.j2' %}
+  File "templates/configs/base.j2", line 5, in top-level template code
+    hostname {{host.host}}
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'host'
+
+2021-04-11 01:11:31,839 - nornir.core.task -    ERROR -      start() - Host 'AS65000_P1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "templates/configs/main.j2", line 1, in top-level template code
+    {% include 'base.j2' %}
+  File "templates/configs/base.j2", line 5, in top-level template code
+    hostname {{host.host}}
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'host'
+
+2021-04-11 01:11:31,839 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "templates/configs/main.j2", line 1, in top-level template code
+    {% include 'base.j2' %}
+  File "templates/configs/base.j2", line 5, in top-level template code
+    hostname {{host.host}}
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'host'
+
+2021-04-11 01:11:31,839 - nornir.core.task -    ERROR -      start() - Host 'AS65000_RR1': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "templates/configs/main.j2", line 1, in top-level template code
+    {% include 'base.j2' %}
+  File "templates/configs/base.j2", line 5, in top-level template code
+    hostname {{host.host}}
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'host'
+
+2021-04-11 01:11:31,839 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE3': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "templates/configs/main.j2", line 1, in top-level template code
+    {% include 'base.j2' %}
+  File "templates/configs/base.j2", line 5, in top-level template code
+    hostname {{host.host}}
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'host'
+
+2021-04-11 01:11:31,840 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE4': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "templates/configs/main.j2", line 1, in top-level template code
+    {% include 'base.j2' %}
+  File "templates/configs/base.j2", line 5, in top-level template code
+    hostname {{host.host}}
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'host'
+
+2021-04-11 01:11:31,840 - nornir.core.task -    ERROR -      start() - Host 'AS65000_RR2': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 47, in render_main
+    base = task.run(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2021-04-11 01:11:31,840 - nornir.core.task -    ERROR -      start() - Host 'AS65000_P2': task 'template_file' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_jinja2/plugins/tasks/template_file.py", line 43, in template_file
+    text = t.render(host=task.host, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "templates/configs/main.j2", line 1, in top-level template code
+    {% include 'base.j2' %}
+  File "templates/configs/base.j2", line 5, in top-level template code
+    hostname {{host.host}}
+jinja2.exceptions.UndefinedError: 'nornir.core.inventory.Host object' has no attribute 'host'
+
+2021-04-11 01:11:31,840 - nornir.core.task -    ERROR -      start() - Host 'AS65000_P1': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 47, in render_main
+    base = task.run(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2021-04-11 01:11:31,840 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE1': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 47, in render_main
+    base = task.run(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2021-04-11 01:11:31,840 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE2': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 47, in render_main
+    base = task.run(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2021-04-11 01:11:31,840 - nornir.core.task -    ERROR -      start() - Host 'AS65000_RR1': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 47, in render_main
+    base = task.run(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2021-04-11 01:11:31,841 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE3': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 47, in render_main
+    base = task.run(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2021-04-11 01:11:31,841 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE4': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 47, in render_main
+    base = task.run(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2021-04-11 01:11:31,841 - nornir.core.task -    ERROR -      start() - Host 'AS65000_P2': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 47, in render_main
+    base = task.run(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: template_file (failed)
+
+
+2021-04-11 01:11:48,983 -  nornir.core -     INFO -        run() - Running task 'load_all_data' with args {} on 8 hosts
+2021-04-11 01:11:48,983 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_all_data'
+2021-04-11 01:11:48,983 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_all_data'
+2021-04-11 01:11:48,983 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_yaml'
+2021-04-11 01:11:48,984 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_all_data'
+2021-04-11 01:11:48,984 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_all_data'
+2021-04-11 01:11:48,984 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_yaml'
+2021-04-11 01:11:48,984 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_all_data'
+2021-04-11 01:11:48,984 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_all_data'
+2021-04-11 01:11:48,984 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_all_data'
+2021-04-11 01:11:48,985 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_all_data'
+2021-04-11 01:11:48,985 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_yaml'
+2021-04-11 01:11:48,985 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_yaml'
+2021-04-11 01:11:48,987 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_yaml'
+2021-04-11 01:11:48,987 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_yaml'
+2021-04-11 01:11:48,987 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_yaml'
+2021-04-11 01:11:48,988 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_yaml'
+2021-04-11 01:11:48,997 -  nornir.core -     INFO -        run() - Running task 'render_main' with args {} on 8 hosts
+2021-04-11 01:11:48,997 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'render_main'
+2021-04-11 01:11:48,998 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'render_main'
+2021-04-11 01:11:48,998 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'template_file'
+2021-04-11 01:11:48,998 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'render_main'
+2021-04-11 01:11:48,998 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'template_file'
+2021-04-11 01:11:48,998 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'render_main'
+2021-04-11 01:11:48,998 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'render_main'
+2021-04-11 01:11:48,999 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'render_main'
+2021-04-11 01:11:48,999 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'template_file'
+2021-04-11 01:11:48,999 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'render_main'
+2021-04-11 01:11:48,999 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'render_main'
+2021-04-11 01:11:48,999 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'template_file'
+2021-04-11 01:11:49,001 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'template_file'
+2021-04-11 01:11:49,001 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'template_file'
+2021-04-11 01:11:49,002 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'template_file'
+2021-04-11 01:11:49,002 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'template_file'
+2021-04-11 01:11:49,074 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'netmiko_send_config'
+2021-04-11 01:11:49,080 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'netmiko_send_config'
+2021-04-11 01:11:49,080 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'netmiko_send_config'
+2021-04-11 01:11:49,096 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'netmiko_send_config'
+2021-04-11 01:11:49,111 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'netmiko_send_config'
+2021-04-11 01:11:49,111 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'netmiko_send_config'
+2021-04-11 01:11:49,117 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'netmiko_send_config'
+2021-04-11 01:11:49,123 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'netmiko_send_config'
+2021-04-11 01:11:59,970 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'netmiko_commit'
+2021-04-11 01:12:00,119 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'netmiko_commit'
+2021-04-11 01:12:00,195 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'netmiko_commit'
+2021-04-11 01:12:00,397 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'netmiko_commit'
+2021-04-11 01:12:00,638 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'netmiko_commit'
+2021-04-11 01:12:01,054 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'netmiko_commit'
+2021-04-11 01:12:02,169 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'netmiko_commit'
+2021-04-11 01:12:03,156 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'netmiko_commit'
+2021-04-11 01:12:11,764 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE4': task 'netmiko_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_commit.py", line 18, in netmiko_commit
+    result = conn.commit(**kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/cisco/cisco_xr.py", line 99, in commit
+    output += self.send_command_expect(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/base_connection.py", line 1576, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/utilities.py", line 430, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/base_connection.py", line 1529, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: RP/0/0/CPU0:PE4\(config\-bgp\-nbr\)\#
+
+2021-04-11 01:12:11,765 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE4': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 54, in render_main
+    task.run(netmiko_commit)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_commit (failed)
+
+
+2021-04-11 01:12:12,195 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE3': task 'netmiko_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_commit.py", line 18, in netmiko_commit
+    result = conn.commit(**kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/cisco/cisco_xr.py", line 99, in commit
+    output += self.send_command_expect(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/base_connection.py", line 1576, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/utilities.py", line 430, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/base_connection.py", line 1529, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: RP/0/0/CPU0:PE3\(config\-bgp\-nbr\)\#
+
+2021-04-11 01:12:12,196 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE3': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 54, in render_main
+    task.run(netmiko_commit)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_commit (failed)
+
+
+2021-04-11 01:12:12,897 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE1': task 'netmiko_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_commit.py", line 18, in netmiko_commit
+    result = conn.commit(**kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/cisco/cisco_xr.py", line 99, in commit
+    output += self.send_command_expect(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/base_connection.py", line 1576, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/utilities.py", line 430, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/base_connection.py", line 1529, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: RP/0/0/CPU0:PE1\(config\-bgp\-nbr\-af\)\#
+
+2021-04-11 01:12:12,897 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE1': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 54, in render_main
+    task.run(netmiko_commit)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_commit (failed)
+
+
+2021-04-11 01:12:13,943 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE2': task 'netmiko_commit' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir_netmiko/tasks/netmiko_commit.py", line 18, in netmiko_commit
+    result = conn.commit(**kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/cisco/cisco_xr.py", line 99, in commit
+    output += self.send_command_expect(
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/base_connection.py", line 1576, in send_command_expect
+    return self.send_command(*args, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/utilities.py", line 430, in wrapper_decorator
+    return func(self, *args, **kwargs)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/netmiko/base_connection.py", line 1529, in send_command
+    raise IOError(
+OSError: Search pattern never detected in send_command: RP/0/0/CPU0:PE2\(config\-bgp\-nbr\-af\)\#
+
+2021-04-11 01:12:13,943 - nornir.core.task -    ERROR -      start() - Host 'AS65000_PE2': task 'render_main' failed with traceback:
+Traceback (most recent call last):
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 99, in start
+    r = self.task(self, **self.params)
+  File "nr_deploy_configs.py", line 54, in render_main
+    task.run(netmiko_commit)
+  File "/Users/htinoco/Library/Caches/pypoetry/virtualenvs/mpls-in-the-sdn-era-HQ-Dk_---py3.8/lib/python3.8/site-packages/nornir/core/task.py", line 174, in run
+    raise NornirSubTaskError(task=run_task, result=r)
+nornir.core.exceptions.NornirSubTaskError: Subtask: netmiko_commit (failed)
+
+
+2021-04-11 01:20:31,351 -  nornir.core -     INFO -        run() - Running task 'load_all_data' with args {} on 8 hosts
+2021-04-11 01:20:31,351 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_all_data'
+2021-04-11 01:20:31,351 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_yaml'
+2021-04-11 01:20:31,351 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_all_data'
+2021-04-11 01:20:31,351 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_yaml'
+2021-04-11 01:20:31,353 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_all_data'
+2021-04-11 01:20:31,353 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_yaml'
+2021-04-11 01:20:31,353 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_all_data'
+2021-04-11 01:20:31,353 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_yaml'
+2021-04-11 01:20:31,353 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_all_data'
+2021-04-11 01:20:31,353 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_yaml'
+2021-04-11 01:20:31,354 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_all_data'
+2021-04-11 01:20:31,354 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_all_data'
+2021-04-11 01:20:31,354 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_yaml'
+2021-04-11 01:20:31,354 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_all_data'
+2021-04-11 01:20:31,355 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_yaml'
+2021-04-11 01:20:31,356 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_yaml'
+2021-04-11 01:20:31,363 -  nornir.core -     INFO -        run() - Running task 'render_main' with args {} on 8 hosts
+2021-04-11 01:20:31,363 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'render_main'
+2021-04-11 01:20:31,363 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'render_main'
+2021-04-11 01:20:31,363 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'template_file'
+2021-04-11 01:20:31,363 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'render_main'
+2021-04-11 01:20:31,363 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'render_main'
+2021-04-11 01:20:31,363 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'template_file'
+2021-04-11 01:20:31,364 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'render_main'
+2021-04-11 01:20:31,364 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'render_main'
+2021-04-11 01:20:31,364 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'render_main'
+2021-04-11 01:20:31,364 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'render_main'
+2021-04-11 01:20:31,364 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'template_file'
+2021-04-11 01:20:31,364 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'template_file'
+2021-04-11 01:20:31,365 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'template_file'
+2021-04-11 01:20:31,366 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'template_file'
+2021-04-11 01:20:31,367 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'template_file'
+2021-04-11 01:20:31,368 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'template_file'
+2021-04-11 01:20:31,399 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'netmiko_send_config'
+2021-04-11 01:20:31,424 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'netmiko_send_config'
+2021-04-11 01:20:31,435 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'netmiko_send_config'
+2021-04-11 01:20:31,439 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'netmiko_send_config'
+2021-04-11 01:20:31,458 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'netmiko_send_config'
+2021-04-11 01:20:31,464 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'netmiko_send_config'
+2021-04-11 01:20:31,473 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'netmiko_send_config'
+2021-04-11 01:20:31,480 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'netmiko_send_config'
+2021-04-11 01:20:42,987 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'netmiko_commit'
+2021-04-11 01:20:43,010 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'netmiko_commit'
+2021-04-11 01:20:44,682 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'netmiko_commit'
+2021-04-11 01:20:44,855 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'netmiko_commit'
+2021-04-11 01:20:44,944 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'netmiko_commit'
+2021-04-11 01:20:44,993 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'netmiko_commit'
+2021-04-11 01:20:45,289 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'netmiko_commit'
+2021-04-11 01:20:45,753 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'netmiko_commit'
+2021-04-11 01:22:59,414 -  nornir.core -     INFO -        run() - Running task 'load_all_data' with args {} on 8 hosts
+2021-04-11 01:22:59,414 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_all_data'
+2021-04-11 01:22:59,414 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'load_yaml'
+2021-04-11 01:22:59,414 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_all_data'
+2021-04-11 01:22:59,415 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_all_data'
+2021-04-11 01:22:59,415 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'load_yaml'
+2021-04-11 01:22:59,415 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_all_data'
+2021-04-11 01:22:59,415 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'load_yaml'
+2021-04-11 01:22:59,416 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'load_yaml'
+2021-04-11 01:22:59,416 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_all_data'
+2021-04-11 01:22:59,416 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_all_data'
+2021-04-11 01:22:59,417 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'load_yaml'
+2021-04-11 01:22:59,417 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_all_data'
+2021-04-11 01:22:59,417 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_all_data'
+2021-04-11 01:22:59,417 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'load_yaml'
+2021-04-11 01:22:59,420 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'load_yaml'
+2021-04-11 01:22:59,420 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'load_yaml'
+2021-04-11 01:22:59,427 -  nornir.core -     INFO -        run() - Running task 'render_main' with args {} on 8 hosts
+2021-04-11 01:22:59,427 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'render_main'
+2021-04-11 01:22:59,427 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'render_main'
+2021-04-11 01:22:59,427 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'template_file'
+2021-04-11 01:22:59,427 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'render_main'
+2021-04-11 01:22:59,427 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'template_file'
+2021-04-11 01:22:59,427 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'render_main'
+2021-04-11 01:22:59,427 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'render_main'
+2021-04-11 01:22:59,428 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'render_main'
+2021-04-11 01:22:59,428 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'render_main'
+2021-04-11 01:22:59,428 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'render_main'
+2021-04-11 01:22:59,428 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'template_file'
+2021-04-11 01:22:59,428 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'template_file'
+2021-04-11 01:22:59,429 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'template_file'
+2021-04-11 01:22:59,430 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'template_file'
+2021-04-11 01:22:59,430 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'template_file'
+2021-04-11 01:22:59,432 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'template_file'
+2021-04-11 01:22:59,469 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'netmiko_send_config'
+2021-04-11 01:22:59,477 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'netmiko_send_config'
+2021-04-11 01:22:59,510 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'netmiko_send_config'
+2021-04-11 01:22:59,515 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'netmiko_send_config'
+2021-04-11 01:22:59,522 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'netmiko_send_config'
+2021-04-11 01:22:59,528 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'netmiko_send_config'
+2021-04-11 01:22:59,534 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'netmiko_send_config'
+2021-04-11 01:22:59,544 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'netmiko_send_config'
+2021-04-11 01:23:10,294 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR1': running task 'netmiko_commit'
+2021-04-11 01:23:10,393 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE4': running task 'netmiko_commit'
+2021-04-11 01:23:10,437 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P2': running task 'netmiko_commit'
+2021-04-11 01:23:10,814 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE3': running task 'netmiko_commit'
+2021-04-11 01:23:11,122 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_P1': running task 'netmiko_commit'
+2021-04-11 01:23:11,563 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE1': running task 'netmiko_commit'
+2021-04-11 01:23:12,888 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_PE2': running task 'netmiko_commit'
+2021-04-11 01:23:14,521 - nornir.core.task -    DEBUG -      start() - Host 'AS65000_RR2': running task 'netmiko_commit'

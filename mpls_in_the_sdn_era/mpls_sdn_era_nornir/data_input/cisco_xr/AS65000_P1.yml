@@ -5,7 +5,7 @@ base:
 ip_interfaces:
   - interface: Gi0/0/0/1
     description: TO_CORE_PE1
-    ip_address: 10.1.0.3
+    ip_address: 10.0.0.3
     mask: "/31"
     isis: true
   - interface: Gi0/0/0/2
