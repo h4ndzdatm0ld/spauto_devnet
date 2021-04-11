@@ -6,7 +6,7 @@ We loop through our inventory and get data from the devices based on task.host.
 
 from nornir import InitNornir
 import requests
-import pprint
+import json
 
 __author__ = "Hugo Tinoco"
 __email__ = "hugotinoco@icloud.com"
@@ -26,13 +26,14 @@ def get_nso_devices(task):
         "Accept": "application/yang-data+json",
     }
     payload = {}
-    data = requests.get(
+    resp = requests.get(
         f"{url}/tailf-ncs:devices/device={task.host}",
         headers=headers,
         data=payload,
         auth=auth,
     )
-    pprint.pprint(data.content)
+    # Get JSON output
+    print(json.loads(resp.content))
 
 
 def main():
