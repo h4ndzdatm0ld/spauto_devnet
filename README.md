@@ -23,9 +23,8 @@ Cisco Certification.*
 
 # What does this repository include & cover?
 
-My goal is to gather all of my self-training to fully in this repostiroy and cover all the major 
-Cisco Certified DevNet Specialist (300-535 SPAUTO) topics. However, the focus will be heavily on 
-NSO.
+My goal is to gather all of my self-training in this repostiroy and cover all the major 
+Cisco Certified DevNet Specialist (300-535 SPAUTO) topics. Starting with NSO because I have zero exposure to it professionally. 
 
 ## Extras:
     There will be some extra material in this repository that can be an aid for other areas, including but not limited to:
