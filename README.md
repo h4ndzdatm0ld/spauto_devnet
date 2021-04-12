@@ -1,4 +1,5 @@
 # MPLS in the SDN Era --> DevNet SPAUTO
+ Get right to the study material: [Checkout the Wiki!](https://github.com/h4ndzdatm0ld/mpls_in_the_sdn_era/wiki)
 
 ## A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies.
 [Cisco Certified DevNet Specialist - Service Provider Automation and Programmability](https://developer.cisco.com/certification/devnet-sp-auto/)
@@ -33,20 +34,23 @@ Cisco Certified DevNet Specialist (300-535 SPAUTO) topics. Starting with NSO bec
 
 There will be some extra material in this repository that can be an aid for other areas
 including but not limited to:
+
     - Batfish
     - Nornir
-# How to use this to study?
+# How can I use this repo to study?
 
-It would be expected for you to have access to a virtual lab environment that can run this
-topology.
-There are a total of 17 devices running in the lab scenario.
-8 of them are IOSXR devices, which can consume up to 3GB each.
+I recommend for you to have access to a virtual lab environment that can run this
+topology. There are a total of 17 devices running in the lab scenario. 8 of them are IOSXR devices, 
+which can consume up to 3GB each.
 
-A local or remote instance of NSO running to take advantage of all of the scripts.
+At this time, the lab configurations are not fully built. Once that is complete, I will be including 
+a lab topology file with all the necessary information, etc. to import into a EVE-NG.
 
-A wiki will be created with study notes, material, etc.
+[Checkout the Wiki!](https://github.com/h4ndzdatm0ld/mpls_in_the_sdn_era/wiki)
 
-Explore the content, break the scripts and have fun with it.
+30% of the SPAUTO exam is around Automation and Orchestration platforms, such as NSO. I can't stress enough the importance of taking the time to 
+setup an NSO instance to explore and take advantage of the many examples in this repository.
+
 
 # Why rely on this complicated lab topology?
 
