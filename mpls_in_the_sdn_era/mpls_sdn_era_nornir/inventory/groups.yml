@@ -18,6 +18,7 @@ CORE_EDGE_ROUTER:
       protocol: ssh
       ned_id: cisco-iosxr-cli-7.33:cisco-iosxr-cli-7.33
       verification: none
+    asn: 65000
 XR:
   data: nothing
 

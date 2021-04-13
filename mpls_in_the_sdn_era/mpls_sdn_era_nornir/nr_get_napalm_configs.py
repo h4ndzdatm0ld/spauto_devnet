@@ -30,15 +30,17 @@ def write_facts_config(task):
     facts = task.host["facts"]
     config = task.host["config"]
 
+    asn = task.host["asn"]
+
     write_file(
         task,
-        filename=f"napalm_getters/facts/AS65000/{task.host}.cfg",
+        filename=f"napalm_getters/facts/ASN{asn}/{task.host}.cfg",
         content=str(facts),
     )
 
     write_file(
         task,
-        filename=f"napalm_getters/configs/AS65000/{task.host}.cfg",
+        filename=f"napalm_getters/configs/ASN{asn}/{task.host}.cfg",
         content=str(config),
     )
 
