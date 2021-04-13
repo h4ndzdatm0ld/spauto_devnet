@@ -5,17 +5,21 @@ end-policy
 !
 {% endif %}
 {% if host.DATA_INPUT.bgp.get('add_asbr_policy') %}
-route-policy PL-eBGP-CE1-OUT
-set med 200
-pass
+route-policy PL-EBGP-CE1-OUT
+  set med 200
+  pass
 end-policy
 !
-route-policy PL-eBGP-CE2-OUT
-set med 100
-pass
+route-policy PL-EBGP-CE2-OUT
+  set med 100
+  pass
 end-policy
 !
-route-policy PL-eBGP-65001-IN
-pass
+route-policy PL-EBGP-65001-IN
+  pass
+end-policy
+!
+route-policy PL-EBGP-65001-OUT
+  pass
 end-policy
 {% endif %}

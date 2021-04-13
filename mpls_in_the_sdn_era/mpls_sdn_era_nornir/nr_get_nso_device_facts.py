@@ -39,8 +39,7 @@ def get_nso_devices(task):
 
 
 def write_restconf_data(task):
-    """Dump facts to a file. This is helpful to review NSO returned data"""
-
+    """Dump facts to a file. This is helpful to review NSO returned data."""
     # Take the stored content response from the rest call to NSO. Load JSOn
     # And dump it to a string. Pass this into our write_file plugin task.
     loaded = json.loads(task.host["device-data"])

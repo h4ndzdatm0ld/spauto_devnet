@@ -1,4 +1,5 @@
 {% for interface in host.DATA_INPUT.ip_interfaces %}
+!
 {% if interface.get('sub_int') %}
 interface {{ interface.get('interface') }}
 description {{ interface.get('description') }}
@@ -10,6 +11,5 @@ description {{ interface.get('description') }}
 ipv4 address {{ interface.get('ip_address') }}{{ interface.get('mask') }}
 no shutdown
 exit
-!
 {% endif %}
 {% endfor %}

@@ -5,8 +5,8 @@ base:
 ip_interfaces:
   - interface: Gi0/0/0/0
     description: Border Interface
-    ip_address: 10.2.0.1
-    mask: "/24"
+    ip_address: 10.2.0.0
+    mask: "/31"
   - interface: Gi0/0/0/0.1001
     description: TO_AS65001_CE2
     ip_address: 10.1.0.3
@@ -26,11 +26,13 @@ ip_interfaces:
     isis: true
     metric: 200
     level: 2
+    mpls: true
   - interface: Gi0/0/0/3
     description: TO_CORE_P2
     ip_address: 10.0.0.4
     mask: "/31"
     isis: true
+    mpls: true
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.22
@@ -55,12 +57,15 @@ bgp:
       update_source: Loopback0
       afi: ipv4 unicast
       route_policy:
-        - PL-eBGP-65001-IN in
-        - PL-eBGP-CE2-OUT out
+        - PL-EBGP-65001-IN in
+        - PL-EBGP-CE2-OUT out
     - remote_as: 65001
       neighbor: 10.1.0.1
       update_source: Loopback0
       afi: ipv4 unicast
       route_policy:
-        - PL-eBGP-65001-IN in
-        - PL-eBGP-CE1-OUT out
+        - PL-EBGP-65001-IN in
+        - PL-EBGP-CE1-OUT out
+static_routes:
+  - dst: 0.0.0.0/0
+    next_hop: Null0
