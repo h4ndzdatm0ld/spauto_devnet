@@ -1,8 +1,15 @@
-{% for item in host.DATA_INPUT.ip_interfaces %}
-interface {{ item.get('interface') }}
-description {{ item.get('description') }}
-ipv4 address {{ item.get('ip_address') }}{{ item.get('mask') }}
+{% for interface in host.DATA_INPUT.ip_interfaces %}
+{% if interface.get('sub_int') %}
+interface {{ interface.get('interface') }}
+description {{ interface.get('description') }}
+ipv4 address {{ interface.get('ip_address') }}{{ interface.get('mask') }}
+encapsulation dot1q {{ interface.get('vlan') }}
+{% else %}
+interface {{ interface.get('interface') }}
+description {{ interface.get('description') }}
+ipv4 address {{ interface.get('ip_address') }}{{ interface.get('mask') }}
 no shutdown
 exit
 !
+{% endif %}
 {% endfor %}
