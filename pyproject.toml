@@ -23,6 +23,10 @@ flake8 = "^3.9.0"
 black = "^20.8b1"
 bandit = "^1.7.0"
 pytest = "^6.2.3"
+napalm = "^3.2.0"
+nornir-napalm = "^0.1.2"
+pyIOSXR = "^0.53"
+enum34 = "^1.1.10"
 
 [tool.poetry.dev-dependencies]
 

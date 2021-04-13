@@ -15,9 +15,6 @@ __email__ = "hugotinoco@icloud.com"
 
 nr = InitNornir(config_file="config.yml", core={"raise_on_error": True})
 
-# Filter the hosts by the 'PE' router type.
-pe_routers = nr.filter(type="PE_ROUTER")
-
 
 def update_nso_devices(task):
     """This runbook will generate a Jinja2 Template to add a device to NSO."""

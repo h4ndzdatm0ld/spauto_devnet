@@ -4,4 +4,5 @@ description {{ item.get('description') }}
 ipv4 address {{ item.get('ip_address') }}{{ item.get('mask') }}
 no shutdown
 exit
+!
 {% endfor %}

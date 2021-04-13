@@ -13,9 +13,6 @@ __email__ = "hugotinoco@icloud.com"
 
 nr = InitNornir("config.yml")
 
-# Filter the hosts by the 'PE' router type.
-pe_routers = nr.filter(type="PE_ROUTER")
-
 
 def get_nso_devices(task):
     """Make a REST API call to our NSO instance to extract device information."""

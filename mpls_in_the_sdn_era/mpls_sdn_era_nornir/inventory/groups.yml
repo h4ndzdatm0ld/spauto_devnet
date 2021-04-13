@@ -6,14 +6,9 @@ CORE_EDGE_ROUTER:
   port: 22
   connection_options:
     napalm:
-      platform: cisco_xr
-      username: cisco
-      extras:
-        optional_args:
-          alt_host_keys: true
-          # key_file: ~/.ssh/id_rsa
-          alt_key_file: /home/cisco/.ssh/id_rsa
-          use_keys: true
+      platform: iosxr
+      username: admin
+      password: admin
     netmiko:
       extras:
         timeout: 4

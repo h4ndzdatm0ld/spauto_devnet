@@ -5,3 +5,15 @@ exit
 hostname {{host}}
 !
 {% endif %}
+line console
+ exec-timeout 0 0
+ session-timeout 0
+!
+line default
+ exec-timeout 0 0
+ session-timeout 0
+!
+exit
+!
+xml agent tty iteration off
+

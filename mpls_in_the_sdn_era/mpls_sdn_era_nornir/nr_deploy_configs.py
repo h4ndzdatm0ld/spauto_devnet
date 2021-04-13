@@ -19,9 +19,6 @@ __email__ = "hugotinoco@icloud.com"
 
 nr = InitNornir("config.yml")
 
-# Filter the hosts by the 'PE' router type.
-pe_routers = nr.filter(type="PE_ROUTER")
-
 
 def assert_data():
     """Error checking of input data."""
