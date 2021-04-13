@@ -25,7 +25,7 @@ def update_nso_devices(task):
         template="device_update.j2",
     )
 
-    NSO = "192.168.0.105"
+    NSO = "192.168.0.54"
     url = f"http://{NSO}:8080/restconf/data"
     # url = "http://192.168.0.105:8080/restconf/data/tailf-ncs:devices"
 

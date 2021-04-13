@@ -14,9 +14,10 @@ CORE_EDGE_ROUTER:
         timeout: 4
   data:
     nso:
-      authgroup: labadmin
+      authgroup: nso-auth
       protocol: ssh
-      ned_id: cisco-iosxr-cli-3.5:cisco-iosxr-cli-3.5
+      ned_id: cisco-iosxr-cli-7.33:cisco-iosxr-cli-7.33
       verification: none
 XR:
   data: nothing
+
