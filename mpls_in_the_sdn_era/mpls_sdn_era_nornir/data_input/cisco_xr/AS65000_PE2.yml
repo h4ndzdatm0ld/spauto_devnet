@@ -20,7 +20,7 @@ ip_interfaces:
     sub_int: true
     vlan: 1001
   - interface: Gi0/0/0/2
-    description: TO_CORE_PE1
+    description: TO_EDGE_PE1
     ip_address: 10.0.0.1
     mask: "/31"
     isis: true
@@ -51,6 +51,8 @@ bgp:
   cluster_id:
   add_pe_policy: true
   add_asbr_policy: true
+  CE1_MED: 200
+  CE2_MED: 100
   neighbors:
     - remote_as: 65001
       neighbor: 10.1.0.2

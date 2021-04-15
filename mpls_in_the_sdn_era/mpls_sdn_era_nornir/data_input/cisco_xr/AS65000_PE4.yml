@@ -8,15 +8,21 @@ ip_interfaces:
     ip_address: 10.0.0.11
     mask: "/31"
     isis: true
+    mpls: true
   - interface: Gi0/0/0/1
     description: TO_CORE_PE3
     ip_address: 10.0.0.13
     mask: "/31"
+    metric: 100
+    level: 2
     isis: true
-  - interface: Gi0/0/0/2
+    mpls: true
+  - interface: Gi0/0/0/2.1001
     description: TO_CDN_SW1
     ip_address: 10.2.0.44
     mask: "/24"
+    sub_int: true
+    vlan: 1001
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.44
@@ -35,3 +41,12 @@ bgp:
   cluster_id:
   add_pe_policy: true
   add_asbr_policy: false
+  add_65001_in_out: true
+  neighbors:
+    - remote_as: 65002
+      neighbor: 10.2.0.4
+      update_source: Loopback0
+      afi: ipv4 unicast
+      route_policy:
+        - PL-EBGP-65001-IN in
+        - PL-EBGP-65001-OUT out
