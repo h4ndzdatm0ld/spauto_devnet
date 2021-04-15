@@ -39,4 +39,4 @@ jobs:
         poetry run bandit --recursive ./ --configfile .bandit.yml
     - name: Test with pytest
       run: |
-        pytest
+        poetry run pytest
