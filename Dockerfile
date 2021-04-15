@@ -48,7 +48,7 @@ RUN echo 'Running Flake8' && \
     echo 'Running Bandit' && \
     bandit --recursive ./ --configfile .bandit.yml
 
-############
+#############
 FROM base as spauto
 
 WORKDIR /usr/src/app/
