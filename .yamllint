@@ -60,3 +60,4 @@ rules:
 extends: default
 ignore: |
   mpls_in_the_sdn_era/mpls_sdn_era_batfish/
+  .github/
