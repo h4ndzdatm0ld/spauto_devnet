@@ -1,6 +1,7 @@
 {% if host.DATA_INPUT.get('bgp') %}
 !
 router bgp {{ host.DATA_INPUT.bgp.get('asn') }}
+bgp router-id {{ host.DATA_INPUT.bgp.get('router_id') }}
 address-family ipv4 unicast
 {% if host.DATA_INPUT.bgp.get('add_paths') %}
 additional-paths receive
@@ -8,16 +9,18 @@ additional-paths send
 {% endif %}
 !
 {% if host.DATA_INPUT.bgp.get('route_reflector') %}
-neighbor-group iBGP-CLIENTS
-cluster-id {{ host.DATA_INPUT.bgp.get('cluster_id') }}
-address-family ipv4 unicast
-route-reflector-client
+neighbor-group CLIENTS
+ remote-as 65000
+ cluster-id {{ host.DATA_INPUT.bgp.get('cluster_id') }}
+ update-source Loopback0
+ address-family ipv4 unicast
+  route-reflector-client
 {% else %}
 neighbor-group RR
-remote-as {{ host.DATA_INPUT.bgp.get('asn') }}
-update-source Loopback0
-address-family ipv4 unicast
-route-policy PL-iBGP-RR-OUT out
+ remote-as {{ host.DATA_INPUT.bgp.get('asn') }}
+ update-source Loopback0
+ address-family ipv4 unicast
+ route-policy PL-iBGP-RR-OUT out
 !
 {% for rr in host.DATA_INPUT.bgp.get('route_reflectors') %}
 neighbor {{ rr }}
@@ -28,13 +31,20 @@ use neighbor-group RR
 !
 {% if host.DATA_INPUT.bgp.get('neighbors') %}
 {% for nx in host.DATA_INPUT.bgp.get('neighbors') %}
-neighbor {{ nx.neighbor }}
-remote-as {{ nx.remote_as }}
-update-source {{ nx.update_source }}
-address-family {{ nx.afi }}
+{% if nx.get('group') %}
+neighbor {{ nx.get('neighbor') }}
+ use neighbor-group {{ nx.get('group') }}
+{% else %}
+neighbor {{ nx.get('neighbor') }}
+ remote-as {{ nx.get('remote_as') }}
+ update-source {{ nx.get('update_source') }}
+ address-family {{ nx.get('afi') }}
+{% if nx.get('route_policy') %}
 {% for policy in nx.get('route_policy') %}
-route-policy {{ policy }}
+ route-policy {{ policy }}
 {% endfor %}
+{% endif%}
+{% endif %}
 !
 {% endfor %}
 {% endif %}

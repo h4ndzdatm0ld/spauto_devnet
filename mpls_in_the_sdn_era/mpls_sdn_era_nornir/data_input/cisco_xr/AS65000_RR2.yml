@@ -28,11 +28,19 @@ isis:
   net: 49.0000.1720.1600.0202.00
 bgp:
   asn: 65000
+  router_id: 172.16.0.202
   add_paths: true
   route_reflector: true
   cluster_id: 172.16.0.202
-  route_reflectors:
-    - 172.16.0.201
-    - 172.16.0.202
-  add_pe_policy: false
-  add_asbr_policy: false
+  neighbors:
+    - neighbor: 172.16.0.11
+      group: CLIENTS
+    - neighbor: 172.16.0.22
+      group: CLIENTS
+    - neighbor: 172.16.0.33
+      group: CLIENTS
+    - neighbor: 172.16.0.44
+      group: CLIENTS
+static_routes:
+  - dst: 0.0.0.0/0
+    next_hop: Null0

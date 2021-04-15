@@ -33,6 +33,7 @@ isis:
   net: 49.0000.1720.1600.0044.00
 bgp:
   asn: 65000
+  router_id: 172.16.0.44
   add_paths: true
   route_reflector: false
   route_reflectors:
