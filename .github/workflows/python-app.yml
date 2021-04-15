@@ -28,15 +28,15 @@ jobs:
     - name: Lint & Code Format
       run: |
         echo 'Running Flake8' && \
-        flake8 . && \
+        poetry run flake8 . && \
         echo 'Running Black' && \
-        black --check --diff . && \
+        poetry run black --check --diff . && \
         echo 'Running Yamllint' && \
-        yamllint . && \
+        poetry run yamllint . && \
         echo 'Running pydocstyle' && \
-        pydocstyle . && \
+        poetry run pydocstyle . && \
         echo 'Running Bandit' && \
-        bandit --recursive ./ --configfile .bandit.yml
+        poetry run bandit --recursive ./ --configfile .bandit.yml
     - name: Test with pytest
       run: |
         pytest
