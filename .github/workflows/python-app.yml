@@ -16,27 +16,27 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.9
+    - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: 3.8
     - name: Install dependencies
       run: |
         pip install poetry
-        poetry install
-        poetry shell
+        poetry install --no-interaction --no-dev
+        
     - name: Lint & Code Format
       run: |
         echo 'Running Flake8' && \
-        flake8 . && \
+        poetry run flake8 . && \
         echo 'Running Black' && \
-        black --check --diff . && \
+        poetry run black --check --diff . && \
         echo 'Running Yamllint' && \
-        yamllint . && \
+        poetry run yamllint . && \
         echo 'Running pydocstyle' && \
-        pydocstyle . && \
+        poetry run pydocstyle . && \
         echo 'Running Bandit' && \
-        bandit --recursive ./ --configfile .bandit.yml
+        poetry run bandit --recursive ./ --configfile .bandit.yml
     - name: Test with pytest
       run: |
         pytest
