@@ -8,21 +8,25 @@ ip_interfaces:
     ip_address: 10.0.0.5
     mask: "/31"
     isis: true
+    mpls: true
   - interface: Gi0/0/0/1
     description: TO_CORE_RR1
     ip_address: 10.0.0.18
     mask: "/31"
     isis: true
+    mpls: true
   - interface: Gi0/0/0/2
     description: TO_CORE_P2_1
     ip_address: 10.0.0.7
     mask: "/31"
     isis: true
+    mpls: true
   - interface: Gi0/0/0/3
     description: TO_CORE_P1
     ip_address: 10.0.0.25
     mask: "/31"
     isis: true
+    mpls: true
   - interface: Gi0/0/0/4
     description: TO_CORE_RR2
     ip_address: 10.0.0.22
@@ -41,18 +45,6 @@ ip_interfaces:
     passive: true
 isis:
   net: 49.0000.1720.1600.0002.00
-bgp:
-  asn: 65000
-  router_id: 172.16.0.2
-  add_paths: true
-  route_reflector: false
-  route_reflectors:
-    - 172.16.0.201
-    - 172.16.0.202
-  cluster_id:
-  add_pe_policy: true
-  add_asbr_policy: false
-
 acls:
   - name: "AL-LOCAL-PLANE-B-C"
     ipv4: true
@@ -69,3 +61,6 @@ acls:
         ip: "172.16.2.0"
         wildcard: "0.0.0.255"
         target: "any"
+static_routes:
+  - dst: 0.0.0.0/0
+    next_hop: Null0

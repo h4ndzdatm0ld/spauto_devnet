@@ -8,11 +8,13 @@ ip_interfaces:
     ip_address: 10.0.0.9
     mask: "/31"
     isis: true
+    mpls: true
   - interface: Gi0/0/0/2
     description: TO_CORE_PE4
     ip_address: 10.0.0.12
     mask: "/31"
     isis: true
+    mpls: true
   - interface: Gi0/0/0/3
     description: TO_CDN_SW1
     ip_address: 10.2.0.33
