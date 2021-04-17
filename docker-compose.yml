@@ -1,12 +1,12 @@
 ---
 version: "3"
 services:
-  # batfish:
-  #   container_name: "batfish"
-  #   image: "batfish/batfish"
-  #   ports:
-  #     - "9996:9996"
-  #     - "9997:9997"
+  spauto_batfish:
+    container_name: "batfish"
+    image: "batfish/batfish"
+    ports:
+      - "9996:9996"
+      - "9997:9997"
 
   spauto:
     container_name: "spauto"
