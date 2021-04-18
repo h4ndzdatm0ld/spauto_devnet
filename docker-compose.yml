@@ -1,7 +1,7 @@
 ---
 version: "3"
 services:
-  spauto_batfish:
+  batfish:
     container_name: "batfish"
     image: "batfish/batfish"
     ports:
