@@ -3,7 +3,7 @@ import pytest
 from nornir_utils.plugins.tasks.data import load_yaml
 from nornir_jinja2.plugins.tasks import template_file
 from nornir_utils.plugins.tasks.files import write_file
-
+import docker
 from pybatfish.client.commands import (
     bf_init_snapshot,
     bf_set_network,
@@ -15,8 +15,30 @@ from pybatfish.question import load_questions
 # # Tell nornir where our inventory data is
 nornir_path = "mpls_in_the_sdn_era/mpls_sdn_era_nornir"
 
-# Identify where the Batfish service is running
-bf_session.host = "localhost"  # when running in compose
+
+####################################
+# Evaluate wether running this locally or not to allow pipeline to execute
+# properly and as well as local testing with docker-compose. The batfish
+# initializing takes a long time to time out and completely errors out if it
+# can't reach the batfish host.
+
+# Get all containers running in our environment.
+# This is a try block, as docker service won't be installed in our pipeline
+# container and well resort to our exception and know were running this locally
+# and connect to our batfish docker service by name.
+try:
+    client = docker.from_env()
+    containers = client.containers.list()
+    # Loop through all our container and extract the container names and create a
+    # list to work with.
+    container_names = [container.name for container in containers]
+    # Simple python conditional to ensure we use the correct batfish host
+    if "batfish" in container_names:
+        bf_session.host = "localhost"
+except docker.errors.DockerException:
+    bf_session.host = "batfish"
+####################################
+
 # Tell batfish which network we are working with
 bf_set_network("mpls_sdn_era")
 # Load Questions
@@ -50,7 +72,7 @@ def nornir():
 
 
 def load_data(task):
-    """Read all the data from the assosciated YAML files inside data_input dir.
+    """Read all the data from the associated YAML files inside data_input dir.
 
     Add all the variables into a DATA_INPUT dictionary for the individual
     task.host.

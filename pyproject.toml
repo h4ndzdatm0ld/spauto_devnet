@@ -26,6 +26,7 @@ pytest = "^6.2.3"
 napalm = "^3.2.0"
 nornir-napalm = "^0.1.2"
 pyIOSXR = "^0.53"
+docker = "^5.0.0"
 
 [tool.poetry.dev-dependencies]
 
