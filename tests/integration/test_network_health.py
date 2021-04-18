@@ -1,185 +1,191 @@
-# # from conftest import snapshot_loader
-# # from pybatfish.question import bfq
-# # import pytest
-# # from pybatfish.client.asserts import (
-# #     assert_no_incompatible_bgp_sessions,
-# #     assert_no_unestablished_bgp_sessions,
-# # )
+from tests.conftest import (
+    load_data,
+    devices,
+    render_configs,
+    snapshot_loader,
+)
+import os
 import pytest
-import os.path
-
-# from nornir.core.state import GlobalState
-from nornir_jinja2.plugins.tasks import template_file
-from nornir_utils.plugins.tasks.data import load_yaml
-from nornir_utils.plugins.tasks.files import write_file
-from nornir.core import task
+from pybatfish.client.commands import bf_upload_diagnostics
+from pybatfish.question import bfq
+from pybatfish.client.asserts import (
+    assert_no_incompatible_bgp_sessions,
+    assert_no_unestablished_bgp_sessions,
+    assert_no_duplicate_router_ids,
+    assert_no_forwarding_loops,
+    assert_no_undefined_references,
+)
 
 # # ######################################################################
 # # #   Example Configuration Compliance Checks to use within Pipeline   #
 # # ######################################################################
 
-# # """ We process our network configuration files with the latest snapshot
-# # of our network.
-# # TODO: 'review statements'
+""" We process our network configuration files with the latest snapshot
+of our network.
 
-# # - Initiate a instance of Nornir to generate all configs and create a proper
-# #   snapshot folder to provide Batfish via the pybatfish client.
-# # - BGP Assertions to ensure all peers will be established.
-# # - Ensure Device as3core1 and as1core1 have all sessions established, according
-# # to their configurations and parameters.
-# # - With an external network inventory, ensure each and every node has their
-# # bgp configuration within this particular network in the default VRF.
-# # - Validate all core-routers are configured to be route-reflectors.
-# # - Ensure all Loopback interfaces are set to MTU 1500. Here we pass in an
-# # external network inventory and check all interfaces across the network.
-# # """
+- Initiate a instance of Nornir to generate all configs and create a proper
+  snapshot folder to provide Batfish via the pybatfish client.
+- BGP Assertions to ensure all peers will be established.
+- Ensure Device as3core1 and as1core1 have all sessions established, according
+to their configurations and parameters.
+- With an external network inventory, ensure each and every node has their
+bgp configuration within this particular network in the default VRF.
+- Validate all core-routers are configured to be route-reflectors.
+- Ensure all Loopback interfaces are set to MTU 1500. Here we pass in an
+external network inventory and check all interfaces across the network.
+"""
 
-# global_data = GlobalState(dry_run=True)
-# Tell nornir where our inventory data is
-nornir_path = "mpls_in_the_sdn_era/mpls_sdn_era_nornir"
+
+class TestNornirConfigs(object):
+    @pytest.mark.parametrize("node", devices)
+    def test_load_yaml(self, nornir, node):
+        """Assert all devices exist in the loaded yaml keys."""
+        data = nornir.run(task=load_data)
+        assert node in data.keys()
+
+    @pytest.mark.parametrize("node", devices)
+    def test_config_gen(self, nornir, node):
+        """Render J2 Templates/Configs."""
+        nornir.run(task=render_configs)
+        configs_dir = "tests/network_data/mpls_sdn_era/ASN65000/configs"
+        files = os.listdir(configs_dir)
+        assert f"{node}.cfg" in files
 
 
 @pytest.fixture(scope="class")
-def batfish_nornir_test(nr):
-    """Read all the data from the assosciated YAML files inside data_input dir.
-
-    Add all the variables into a DATA_INPUT dictionary for the individual
-    task.host.
-    """
-
-    data = task.run(
-        task=load_yaml, file=f"data_input/{task.host.platform}/{task.host}.yml"
-    )
-    task.host["DATA_INPUT"] = data.result
-
-    """Render device configuration using our Jinja2 Templates.
-
-    Write staged config to file for preview/debugging.
-    """
-    config = task.run(
-        task=template_file,
-        path="{nornir_path}/templates/configs",
-        template="main.j2",
-    )
-
-    task.host["staged"] = config.result
-
-    asn = task.host["asn"]
-    write_file(
-        task,
-        filename=f"tests/nework_data/mpls_sdn_era/configs/ASN{asn}/{task.host}.cfg",
-        content=f"{task.host['staged']}",
-    )
+def batfish_setup():
+    """Initialize the test setup with correctly setting the snapshot
+    into memory"""
+    configs_dir = "tests/network_data/mpls_sdn_era/ASN65000"
+    # configs_dir = "mpls_in_the_sdn_era/mpls_sdn_era_nornir/napalm_getters/ASN65000"
+    SNAPSHOT_PATH = configs_dir
+    snapshot_loader(SNAPSHOT_PATH, "mpls_sdn_era")
+    yield
+    # At the moment, there is no tear down necessary.
 
 
-@pytest.mark.usefixtures("batfish_nornir_test")
-class TestNornirBatfish:
-    # Assert our network directory folder exists.
-    assert os.path.exists("tests/network_data/mpls_sdn_era/configs/")
+@pytest.mark.usefixtures("batfish_setup")
+class TestBgpConfig:
+    def test_assert_no_incompatible_bgp_session(self):
+        """Built in assertion to ensure there are no incompatible BGP sessions.
+        This looks at the BGP Configuration between all nodes."""
 
+        assert_no_incompatible_bgp_sessions(snapshot="mpls_sdn_era")
 
-# # @pytest.fixture(scope="class")
-# # def bgp_setup_teardown():
-# #     """Initialize the test setup with correctly setting the snapshot
-# #     into memory"""
-# #     SNAPSHOT_PATH = "batfish-cicd/data/networks/dc-network/stable-dc-network"
-# #     snapshot_loader(SNAPSHOT_PATH, "stable-dc-network")
-# #     yield
-# #     # At the moment, there is no tear down necessary.
+    def test_assert_no_unestablished_bgp_session(self):
+        """Assert there are no unestablished bgp sessions in our network. """
 
+        assert_no_unestablished_bgp_sessions(snapshot="mpls_sdn_era")
 
-# # @pytest.mark.usefixtures("bgp_setup_teardown")
-# # class TestBgpConfig:
-# #     @pytest.fixture
-# #     def bgp_config(self):
-# #         """Use the pybatfish SDK to extract Panda Data frame answer
-# #         to our network's BGP configuration"""
+    @pytest.fixture
+    def bgp_config(self):
+        """Use the pybatfish SDK to extract Panda Data frame answer
+        to our network's BGP configuration"""
 
-# #         return bfq.bgpProcessConfiguration().answer().frame()
+        return bfq.bgpProcessConfiguration().answer().frame()
 
-# #     def test_parse_status(self):
-# #         """Validate all files in the current snapshot have been parsed
-# #         sucessfully"""
+    def test_parse_status(self):
+        """Validate all files in the current snapshot have been parsed
+        successfully. If a file is parsed but parsially unrecognized,
+        upload diagnostics and skip it. Unfortunately, not always does
+        batfish recognize a full config correctly."""
 
-# #         result = bfq.fileParseStatus().answer().frame()
-# #         for i, row in result.iterrows():
-# #             assert row.get("Status") == "PASSED"
+        result = bfq.fileParseStatus().answer().frame()
+        for i, row in result.iterrows():
+            if row.get("Status") == "PARTIALLY_UNRECOGNIZED":
+                bf_upload_diagnostics
+            else:
+                assert row.get("Status") == "PASSED"
 
-# #     @pytest.mark.parametrize("node", network_inventory)
-# #     def test_multipath_ebg_compliance(self, node):
-# #         """ Testing to ensure configuration compliance of eBGP Multipath """
+    def test_unused_structures(self):
+        """This tests checks if configuration lines are not used such as ACLs
+        or route-maps"""
+        # TODO: "go through this"
+        result = bfq.unusedStructures().answer().frame()
+        for i, x in result.iterrows():
+            structure = x.get("Structure_Name")
+            if structure == "CLIENTS":
+                pass
+            else:
+                pass
 
-# #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
-# #         for i, row in conf.iterrows():
-# #             assert row.get("Multipath_EBGP")
+    def test_no_duplicate_routerids(self):
+        """ Built in assertion, validate router-ids."""
+        assert assert_no_duplicate_router_ids()
 
-# #     @pytest.mark.parametrize("node", network_inventory)
-# #     def test_multipath_ibg_compliance(self, node):
-# #         """ Testing to ensure configuration compliance of iBGP Multipath """
+    def test_no_fw_loops(self):
+        """"Built in assertion, no forwarding loops"""
+        assert assert_no_forwarding_loops()
 
-# #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
-# #         for i, row in conf.iterrows():
-# #             assert row.get("Multipath_IBGP")
+    def test_no_undefined_ref(self):
+        """Validate no unused ref, such as route-maps are present, but unused."""
+        assert assert_no_undefined_references()
 
-# #     established_nodes = [("as3core1", "ESTABLISHED"), ("as1core1", "ESTABLISHED")]
+    # #     @pytest.mark.parametrize("node", network_inventory)
+    # #     def test_multipath_ebg_compliance(self, node):
+    # #         """ Testing to ensure configuration compliance of eBGP Multipath """
 
-# #     @pytest.mark.parametrize("node, status", established_nodes)
-# #     def test_bgp_state_as2core_routers(self, node, status):
-# #         """Testing to ensure BGP Sessions are in an Established state.
-# #         This is only testing against as3core1 and as1core1. The reason
-# #         is because we know for sure these two routers have all
-# #         sessions 'established'"""
+    # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
+    # #         for i, row in conf.iterrows():
+    # #             assert row.get("Multipath_EBGP")
 
-# #         bgp_sess_status = bfq.bgpSessionStatus(nodes=node).answer().frame()
-# #         for i, row in bgp_sess_status.iterrows():
-# #             assert row.get("Established_Status") == status
+    # #     @pytest.mark.parametrize("node", network_inventory)
+    # #     def test_multipath_ibg_compliance(self, node):
+    # #         """ Testing to ensure configuration compliance of iBGP Multipath """
 
-# #     @pytest.mark.parametrize("node", network_inventory)
-# #     def test_default_vrf(self, node):
-# #         """Testing to ensure configuration compliance of all
-# #         BGP configurations are under the default VRF."""
+    # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
+    # #         for i, row in conf.iterrows():
+    # #             assert row.get("Multipath_IBGP")
 
-# #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
-# #         for i, row in conf.iterrows():
-# #             assert row.get("VRF") == "default"
+    # #     established_nodes = [("as3core1", "ESTABLISHED"), ("as1core1", "ESTABLISHED")]
 
-# #     @pytest.mark.parametrize("node", core_routers)
-# #     def test_core_is_rr(self, node):
-# #         """Testing to ensure configuration compliance against core routers.
-# #         These devices must always be BGP route-reflectors.
-# #         Our test is only checking against devices from our inventory
-# #         belonging to the 'core_routers' group."""
+    # #     @pytest.mark.parametrize("node, status", established_nodes)
+    # #     def test_bgp_state_as2core_routers(self, node, status):
+    # #         """Testing to ensure BGP Sessions are in an Established state.
+    # #         This is only testing against as3core1 and as1core1. The reason
+    # #         is because we know for sure these two routers have all
+    # #         sessions 'established'"""
 
-# #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
-# #         for i, row in conf.iterrows():
-# #             assert row.get("Route_Reflector")
+    # #         bgp_sess_status = bfq.bgpSessionStatus(nodes=node).answer().frame()
+    # #         for i, row in bgp_sess_status.iterrows():
+    # #             assert row.get("Established_Status") == status
 
-# #     @pytest.mark.parametrize("node", network_inventory)
-# #     def test_interface_mtu(self, node):
-# #         """Testing to ensure network standards on MTU for x-type of interfaces.
-# #         This could be helpful, to ensure OSPF compliance on interfaces which are
-# #         expected to have neighborships. Interface Properties Question returns a
-# #         lot of different information on single or all interfaces in the network.
-# #         """
+    # #     @pytest.mark.parametrize("node", network_inventory)
+    # #     def test_default_vrf(self, node):
+    # #         """Testing to ensure configuration compliance of all
+    # #         BGP configurations are under the default VRF."""
 
-# #         mtu = (
-# #             bfq.interfaceProperties(nodes=node, interfaces="/Loop/", properties="MTU")
-# #             .answer()
-# #             .frame()
-# #         )
-# #         for i, row in mtu.iterrows():
-# #             assert row.get("MTU") == 1500
+    # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
+    # #         for i, row in conf.iterrows():
+    # #             assert row.get("VRF") == "default"
 
-# #     def test_assert_no_incompatible_bgp_session(self):
-# #         """Built in assertion to ensure there are no incompatible BGP sessions.
-# #         This looks at the BGP Configuration between all nodes."""
+    # #     @pytest.mark.parametrize("node", core_routers)
+    # #     def test_core_is_rr(self, node):
+    # #         """Testing to ensure configuration compliance against core routers.
+    # #         These devices must always be BGP route-reflectors.
+    # #         Our test is only checking against devices from our inventory
+    # #         belonging to the 'core_routers' group."""
 
-# #         assert_no_incompatible_bgp_sessions(snapshot="stable-dc-network")
+    # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
+    # #         for i, row in conf.iterrows():
+    # #             assert row.get("Route_Reflector")
 
-# #     def test_assert_no_unestablished_bgp_session(self):
-# #         """Assert there are no unestablished bgp sessions in our network. """
+    # #     @pytest.mark.parametrize("node", network_inventory)
+    # #     def test_interface_mtu(self, node):
+    # #         """Testing to ensure network standards on MTU for x-type of interfaces.
+    # #         This could be helpful, to ensure OSPF compliance on interfaces which are
+    # #         expected to have neighborships. Interface Properties Question returns a
+    # #         lot of different information on single or all interfaces in the network.
+    # #         """
 
-# #         assert_no_unestablished_bgp_sessions(snapshot="stable-dc-network")
+    # #         mtu = (
+    # #             bfq.interfaceProperties(nodes=node, interfaces="/Loop/", properties="MTU")
+    # #             .answer()
+    # #             .frame()
+    # #         )
+    # #         for i, row in mtu.iterrows():
+    # #             assert row.get("MTU") == 1500
+
 
 # #     def test_undefined_refs(self):
 # #         """Returns nodes with structures such as ACLs, routemaps, etc. that are

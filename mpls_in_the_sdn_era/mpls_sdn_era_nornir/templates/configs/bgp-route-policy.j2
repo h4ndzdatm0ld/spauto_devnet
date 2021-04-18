@@ -1,3 +1,4 @@
+{% if host.DATA_INPUT.get('bgp') %}
 {% if host.DATA_INPUT.bgp.get('add_pe_policy') %}
 route-policy PL-iBGP-RR-OUT
 set next-hop self
@@ -32,4 +33,5 @@ end-policy
 route-policy PL-EBGP-65001-OUT
   pass
 end-policy
+{% endif %}
 {% endif %}
