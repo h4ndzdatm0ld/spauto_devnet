@@ -26,13 +26,10 @@ of our network.
 - Initiate a instance of Nornir to generate all configs and create a proper
   snapshot folder to provide Batfish via the pybatfish client.
 - BGP Assertions to ensure all peers will be established.
-- Ensure Device as3core1 and as1core1 have all sessions established, according
-to their configurations and parameters.
-- With an external network inventory, ensure each and every node has their
-bgp configuration within this particular network in the default VRF.
 - Validate all core-routers are configured to be route-reflectors.
-- Ensure all Loopback interfaces are set to MTU 1500. Here we pass in an
-external network inventory and check all interfaces across the network.
+- Validate BGP is healthy, no unestablished peers, etc.
+- Validate no undefined references.
+- Validate no duplicate router-ids.
 """
 
 
@@ -185,12 +182,3 @@ class TestBgpConfig:
     # #         )
     # #         for i, row in mtu.iterrows():
     # #             assert row.get("MTU") == 1500
-
-
-# #     def test_undefined_refs(self):
-# #         """Returns nodes with structures such as ACLs, routemaps, etc. that are
-# #         defined but not used.
-# #         Or it could be harmless extra configuration generated from a master
-# #         template that is not meant to be used on those nodes."""
-
-# #         bfq.undefinedReferences().answer().frame()
