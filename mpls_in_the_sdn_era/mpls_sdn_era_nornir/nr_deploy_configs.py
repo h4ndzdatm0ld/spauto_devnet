@@ -29,7 +29,7 @@ def assert_data():
 
 
 def load_all_data(task):
-    """Read all the data from the assosciated YAML files inside data_input dir.
+    """Read all the data from the associated YAML files inside data_input dir.
 
     Add all the variables into a DATA_INPUT dictionary for the individual
     task.host.
@@ -47,7 +47,7 @@ def render_main(task):
     """
     config = task.run(
         task=template_file,
-        path="templates/configs",
+        path=f"templates/configs/{task.host.platform}",
         template="main.j2",
     )
 

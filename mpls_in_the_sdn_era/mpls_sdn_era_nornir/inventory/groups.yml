@@ -21,3 +21,23 @@ CORE_EDGE_ROUTER:
     asn: 65000
 XR:
   data: nothing
+CSR:
+  username: admin
+  password: admin
+  platform: ios
+  port: 22
+  connection_options:
+    napalm:
+      platform: ios
+      username: admin
+      password: admin
+    netmiko:
+      extras:
+        timeout: 4
+  data:
+    nso:
+      authgroup: nso-auth
+      protocol: ssh
+      ned_id: cisco-ios-cli-6.69:cisco-ios-cli-6.69
+      verification: none
+    asn: 65001
