@@ -1,19 +1,9 @@
 {% if host.DATA_INPUT.base.lldp %}
-lldp
-exit
+lldp run
 !
 hostname {{host}}
 !
 {% endif %}
-line console
- exec-timeout 0 0
- session-timeout 0
-!
-line default
- exec-timeout 0 0
- session-timeout 0
-!
-exit
 !
 interface gi1
 no shutdown

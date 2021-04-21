@@ -63,15 +63,23 @@ def render_main(task):
 
 def push_config(task):
     """Push configurations to devices."""
-    task.run(
-        netmiko_send_config, config_commands=f"{task.host['staged']}", cmd_verify=False
-    )
-    task.run(netmiko_commit)
+    if task.host.platform == "cisco_xr":
+        task.run(
+            netmiko_send_config,
+            config_commands=f"{task.host['staged']}",
+            cmd_verify=False,
+        )
+        task.run(netmiko_commit)
+    elif task.host.platform == "cisco_xe":
+        task.run(
+            netmiko_send_config,
+            config_commands=f"{task.host['staged']}".split("\n"),
+        )
 
 
 def main():
     """Execute our Nornir runbook."""
-    nr.run(task=load_all_data)
+    print_result(nr.run(task=load_all_data))
     print_result(nr.run(task=render_main))
     print_result(nr.run(task=push_config))
 

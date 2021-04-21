@@ -24,16 +24,13 @@ XR:
 CSR:
   username: admin
   password: admin
-  platform: ios
+  platform: cisco_xe
   port: 22
   connection_options:
     napalm:
-      platform: ios
+      platform: cisco_xe
       username: admin
       password: admin
-    netmiko:
-      extras:
-        timeout: 4
   data:
     nso:
       authgroup: nso-auth
