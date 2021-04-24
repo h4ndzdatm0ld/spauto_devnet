@@ -13,3 +13,5 @@ services:
     build:
       context: "."
       target: spauto
+    depends_on:
+      - batfish
