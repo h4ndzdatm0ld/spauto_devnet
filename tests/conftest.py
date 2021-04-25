@@ -93,13 +93,12 @@ def render_configs(task):
     """
     config = task.run(
         task=template_file,
-        path=f"{nornir_path}/templates/configs",
+        path=f"{nornir_path}/templates/configs/{task.host.platform}",
         template="main.j2",
     )
 
     task.host["staged"] = config.result
 
-    asn = task.host["asn"]
     write_file(
         task,
         filename=f"tests/network_data/mpls_sdn_era/configs/{task.host}.cfg",

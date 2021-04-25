@@ -12,4 +12,6 @@ services:
     container_name: "spauto"
     build:
       context: "."
-      target: spauto
+      target: "spauto"
+    depends_on:
+      - "batfish"
