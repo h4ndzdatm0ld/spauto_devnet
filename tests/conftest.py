@@ -102,11 +102,11 @@ def render_configs(task):
     asn = task.host["asn"]
     write_file(
         task,
-        filename=f"tests/network_data/mpls_sdn_era/ASN{asn}/configs/{task.host}.cfg",
+        filename=f"tests/network_data/mpls_sdn_era/configs/{task.host}.cfg",
         content=f"{task.host['staged']}",
     )
 
-
+# TODO: generate this list and compare
 devices = [
     "AS65000_P1",
     "AS65000_P2",
@@ -116,4 +116,6 @@ devices = [
     "AS65000_PE2",
     "AS65000_PE3",
     "AS65000_PE4",
+    "AS65001_CE1",
+    "AS65001_CE2",
 ]

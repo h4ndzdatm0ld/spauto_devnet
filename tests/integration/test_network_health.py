@@ -44,7 +44,7 @@ class TestNornirConfigs(object):
     def test_config_gen(self, nornir, node):
         """Render J2 Templates/Configs."""
         nornir.run(task=render_configs)
-        configs_dir = "tests/network_data/mpls_sdn_era/ASN65000/configs"
+        configs_dir = "tests/network_data/mpls_sdn_era/configs"
         files = os.listdir(configs_dir)
         assert f"{node}.cfg" in files
 
@@ -53,7 +53,7 @@ class TestNornirConfigs(object):
 def batfish_setup():
     """Initialize the test setup with correctly setting the snapshot
     into memory"""
-    configs_dir = "tests/network_data/mpls_sdn_era/ASN65000"
+    configs_dir = "tests/network_data/mpls_sdn_era"
     # configs_dir = "mpls_in_the_sdn_era/mpls_sdn_era_nornir/napalm_getters/ASN65000"
     SNAPSHOT_PATH = configs_dir
     snapshot_loader(SNAPSHOT_PATH, "mpls_sdn_era")
