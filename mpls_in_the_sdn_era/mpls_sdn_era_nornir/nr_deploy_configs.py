@@ -29,7 +29,7 @@ def assert_data():
 
 
 def load_all_data(task):
-    """Read all the data from the assosciated YAML files inside data_input dir.
+    """Read all the data from the associated YAML files inside data_input dir.
 
     Add all the variables into a DATA_INPUT dictionary for the individual
     task.host.
@@ -47,7 +47,7 @@ def render_main(task):
     """
     config = task.run(
         task=template_file,
-        path="templates/configs",
+        path=f"templates/configs/{task.host.platform}",
         template="main.j2",
     )
 
@@ -63,15 +63,23 @@ def render_main(task):
 
 def push_config(task):
     """Push configurations to devices."""
-    task.run(
-        netmiko_send_config, config_commands=f"{task.host['staged']}", cmd_verify=False
-    )
-    task.run(netmiko_commit)
+    if task.host.platform == "cisco_xr":
+        task.run(
+            netmiko_send_config,
+            config_commands=f"{task.host['staged']}",
+            cmd_verify=False,
+        )
+        task.run(netmiko_commit)
+    elif task.host.platform == "cisco_xe":
+        task.run(
+            netmiko_send_config,
+            config_commands=f"{task.host['staged']}".split("\n"),
+        )
 
 
 def main():
     """Execute our Nornir runbook."""
-    nr.run(task=load_all_data)
+    print_result(nr.run(task=load_all_data))
     print_result(nr.run(task=render_main))
     print_result(nr.run(task=push_config))
 

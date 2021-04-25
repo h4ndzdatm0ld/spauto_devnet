@@ -56,7 +56,7 @@ def write_restconf_data(task):
 
 def main():
     """Execute the nornir runbook."""
-    nr.run(task=get_nso_devices)
+    print_result(nr.run(task=get_nso_devices))
     print_result(nr.run(task=write_restconf_data))
 
 
