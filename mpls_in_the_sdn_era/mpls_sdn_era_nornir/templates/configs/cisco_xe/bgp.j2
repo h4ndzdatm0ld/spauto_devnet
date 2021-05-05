@@ -9,8 +9,10 @@ address-family ipv4 unicast
 {% for nx in host.DATA_INPUT.bgp.get('neighbors') %}
 neighbor {{ nx.get('neighbor') }}  remote-as {{ nx.get('remote_as') }}
  address-family {{ nx.get('afi') }}
+ redistribute connected
 {% if nx.get('route_policy') %}
 {% for route_map in nx.get('route_policy') %}
+ neighbor {{ nx.get('neighbor') }} send-community both
  neighbor {{ nx.get('neighbor') }} route-map {{ route_map }}
 {% endfor %}
 {% endif %}
