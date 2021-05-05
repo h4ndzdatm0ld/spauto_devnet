@@ -105,6 +105,7 @@ def render_configs(task):
         content=f"{task.host['staged']}",
     )
 
+
 # TODO: generate this list and compare
 devices = [
     "AS65000_P1",
