@@ -15,3 +15,13 @@ services:
       target: "spauto"
     depends_on:
       - "batfish"
+  # nso:
+  #   container_name: "nso"
+  #   image: "h4ndzdatm0ld/mpls-sdn-era-nso:5.5-neds"
+  #   ports:
+  #     - "2024:22"
+  #   environment:
+  #     - ADMIN_PASSWORD="admin"
+  #     - HTTP_ENABLE="True"
+  #     - HTTPS_ENABLE="True"
+  #   tty: true
