@@ -2,15 +2,6 @@
 lldp run
 !
 hostname {{host}}
-line console
- exec-timeout 0 0
- session-timeout 0
-!
-line default
- exec-timeout 0 0
- session-timeout 0
- transport input ssh
-!
 {% endif %}
 !
 interface gi1
