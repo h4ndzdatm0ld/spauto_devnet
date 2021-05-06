@@ -20,9 +20,6 @@ route-policy PL-EBGP-65001-IN
   pass
 end-policy
 !
-route-policy PL-EBGP-65001-OUT
-  pass
-end-policy
 {% endif %}
 {% if host.DATA_INPUT.bgp.get('add_65001_in_out') %}
 !
@@ -30,8 +27,16 @@ route-policy PL-EBGP-65001-IN
   pass
 end-policy
 !
-route-policy PL-EBGP-65001-OUT
+{% endif %}
+{% if host.DATA_INPUT.bgp.get('add_65002_in_out') %}
+!
+route-policy PL-EBGP-65002-IN
   pass
 end-policy
+!
+route-policy PL-EBGP-65002-OUT
+  pass
+end-policy
+!
 {% endif %}
 {% endif %}

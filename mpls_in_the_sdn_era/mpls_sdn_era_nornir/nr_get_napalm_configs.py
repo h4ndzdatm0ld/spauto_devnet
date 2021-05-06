@@ -31,7 +31,7 @@ def write_facts_config(task):
     config = task.host["config"]
 
     asn = task.host["asn"]
-    
+
     # Capture NAPALM FACTS
     write_file(
         task,
@@ -50,6 +50,7 @@ def write_facts_config(task):
         filename=f"napalm_getters/mpls_sdn_era/configs/{task.host}.cfg",
         content=str(config),
     )
+
 
 def main():
     """Execute the nornir runbook."""

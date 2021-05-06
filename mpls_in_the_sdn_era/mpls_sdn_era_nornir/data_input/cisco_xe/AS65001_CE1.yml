@@ -35,13 +35,13 @@ bgp:
   neighbors:
     - remote_as: 65000
       neighbor: 10.1.0.1
-      update_source: 10.1.0.0
+      update_source: Gi2.1001
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE1-OUT out
     - remote_as: 65000
       neighbor: 10.1.0.5
-      update_source: 10.1.0.4
+      update_source: Gi3.1001
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE2-OUT out
@@ -66,5 +66,3 @@ bgp:
 static_routes:
   - dst: 0.0.0.0/0
     next_hop: Null0
-
-    # Add metric outbound from CE1/CE2 towards PE Devices.

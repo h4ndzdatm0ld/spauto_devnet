@@ -16,7 +16,13 @@ from pybatfish.client.commands import (
     bf_set_snapshot,
 )
 
-CONFIGS = "../../mpls_in_the_sdn_era/mpls_sdn_era_nornir/napalm_getters/mpls_sdn_era/"
+# At the moment this doesn't work. NAPALM Getters is extracting these configurations, however
+# the top line of the config is being stipped out, which identifies the IOSXR version - this is how
+# Batfish determines this is an iosxr device. (One method at least)
+# CONFIGS = "../../mpls_in_the_sdn_era/mpls_sdn_era_nornir/napalm_getters/mpls_sdn_era/"
+
+# Run 'pytest' from root dir to rebuild the latest configs before running interactive
+CONFIGS = "../../tests/network_data/mpls_sdn_era"
 
 
 def snapshot_loader(snap_path, name, overwrite=True):
@@ -37,10 +43,10 @@ def main():
     snapshot_loader(CONFIGS, "MPLS_SDN_ERA")
     bf_set_snapshot("MPLS_SDN_ERA")
 
-    config_process = bfq.bgpProcessConfiguration().answer().frame()
-    refs = bfq.unusedStructures().answer().frame()
-    parse = bfq.fileParseStatus().answer().frame()
-
+    bfq.bgpProcessConfiguration().answer().frame()
+    bfq.unusedStructures().answer().frame()
+    bfq.fileParseStatus().answer().frame()
     bfq.initIssues().answer()
+
 
 main()

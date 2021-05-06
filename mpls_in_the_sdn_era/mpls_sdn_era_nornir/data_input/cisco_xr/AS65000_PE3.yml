@@ -38,3 +38,4 @@ bgp:
   cluster_id:
   add_pe_policy: true
   add_asbr_policy: false
+  # add_65002_in_out: true
