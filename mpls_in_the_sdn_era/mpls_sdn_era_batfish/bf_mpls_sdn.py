@@ -16,8 +16,7 @@ from pybatfish.client.commands import (
     bf_set_snapshot,
 )
 
-# CONFIGS = "../../tests/network_data/mpls_sdn_era"
-CONFIGS = "../../mpls_in_the_sdn_era/mpls_sdn_era_nornir/napalm_getters/ASN65000/"
+CONFIGS = "../../mpls_in_the_sdn_era/mpls_sdn_era_nornir/napalm_getters/mpls_sdn_era/"
 
 
 def snapshot_loader(snap_path, name, overwrite=True):
@@ -42,5 +41,6 @@ def main():
     refs = bfq.unusedStructures().answer().frame()
     parse = bfq.fileParseStatus().answer().frame()
 
+    bfq.initIssues().answer()
 
 main()

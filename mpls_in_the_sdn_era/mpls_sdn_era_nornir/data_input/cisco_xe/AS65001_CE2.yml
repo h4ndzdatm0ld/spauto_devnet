@@ -32,17 +32,17 @@ ip_interfaces:
     passive: true
 bgp:
   asn: 65001
-  router_id: 192.168.10.1
+  router_id: 192.168.10.2
   neighbors:
     - remote_as: 65000
       neighbor: 10.1.0.7
-      update_source: Gi2.1001
+      update_source: GigabitEthernet2.1001
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE1-OUT out
     - remote_as: 65000
       neighbor: 10.1.0.3
-      update_source: Gi3.1001
+      update_source: GigabitEthernet3.1001
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE2-OUT out
