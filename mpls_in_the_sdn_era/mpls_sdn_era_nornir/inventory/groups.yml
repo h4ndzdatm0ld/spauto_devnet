@@ -28,7 +28,7 @@ CSR:
   port: 22
   connection_options:
     napalm:
-      platform: cisco_xe
+      platform: ios
       username: admin
       password: admin
   data:

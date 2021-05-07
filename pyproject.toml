@@ -27,6 +27,10 @@ napalm = "^3.2.0"
 nornir-napalm = "^0.1.2"
 pyIOSXR = "^0.53"
 docker = "^5.0.0"
+ntc-templates = "^2.0.0"
+ansible = "^3.3.0"
+xmltodict = "^0.12.0"
+jxmlease = "^1.0.3"
 
 [tool.poetry.dev-dependencies]
 

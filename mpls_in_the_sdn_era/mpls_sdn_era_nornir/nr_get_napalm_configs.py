@@ -32,15 +32,22 @@ def write_facts_config(task):
 
     asn = task.host["asn"]
 
+    # Capture NAPALM FACTS
     write_file(
         task,
         filename=f"napalm_getters/ASN{asn}/facts/{task.host}.cfg",
         content=str(facts),
     )
-
+    # CAPTURE CONFIGS PER ASN
     write_file(
         task,
         filename=f"napalm_getters/ASN{asn}/configs/{task.host}.cfg",
+        content=str(config),
+    )
+    # CAPTURE A FULL VIEW OF THE NETWORK FOR BATFISH
+    write_file(
+        task,
+        filename=f"napalm_getters/mpls_sdn_era/configs/{task.host}.cfg",
         content=str(config),
     )
 

@@ -1,7 +1,6 @@
 ---
 base:
   lldp: true
-
 ip_interfaces:
   - interface: Gi1.1001
     description: TO_H1
@@ -30,6 +29,40 @@ ip_interfaces:
     ip_address: 192.168.10.1
     mask: 255.255.255.255
     passive: true
+bgp:
+  asn: 65001
+  router_id: 192.168.10.1
+  neighbors:
+    - remote_as: 65000
+      neighbor: 10.1.0.1
+      update_source: Gi2.1001
+      afi: ipv4 unicast
+      route_policy:
+        - PL-EBGP-PE1-OUT out
+    - remote_as: 65000
+      neighbor: 10.1.0.5
+      update_source: Gi3.1001
+      afi: ipv4 unicast
+      route_policy:
+        - PL-EBGP-PE2-OUT out
+  prefix:
+    - description: PL-EBGP-PE-OUT-PREFIX-LIST
+      option: permit
+      prefix: 192.168.10.1/32
+      seq: 10
+    - description: PL-EBGP-PE-OUT-PREFIX-LIST
+      option: permit
+      prefix: 10.1.12.0/24
+      seq: 15
+  route_map:
+    - name: PL-EBGP-PE1-OUT
+      option: permit
+      num: 1
+      match: PL-EBGP-PE-OUT-PREFIX-LIST
+    - name: PL-EBGP-PE2-OUT
+      option: permit
+      num: 1
+      match: PL-EBGP-PE-OUT-PREFIX-LIST
 static_routes:
   - dst: 0.0.0.0/0
     next_hop: Null0

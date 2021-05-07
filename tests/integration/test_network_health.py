@@ -98,12 +98,15 @@ class TestBgpConfig:
         or route-maps"""
         # TODO: "go through this"
         result = bfq.unusedStructures().answer().frame()
-        for i, x in result.iterrows():
-            structure = x.get("Structure_Name")
-            if structure == "CLIENTS":
-                pass
-            else:
-                pass
+        assert len(result) == 0
+
+    @pytest.mark.parametrize("node", ["AS65000_RR1", "AS65000_RR2"])
+    def test_rr(self, node):
+        """Testing to ensure configuration compliance against route reflectors."""
+
+        conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
+        for i, row in conf.iterrows():
+            assert row.get("Route_Reflector")
 
     def test_no_duplicate_routerids(self):
         """ Built in assertion, validate router-ids."""
@@ -117,67 +120,41 @@ class TestBgpConfig:
         """Validate no unused ref, such as route-maps are present, but unused."""
         assert assert_no_undefined_references()
 
-    # #     @pytest.mark.parametrize("node", network_inventory)
-    # #     def test_multipath_ebg_compliance(self, node):
-    # #         """ Testing to ensure configuration compliance of eBGP Multipath """
+    @pytest.mark.parametrize("node", devices)
+    def test_bgp_state_as2core_routers(self, node):
+        """Testing to ensure BGP Sessions are in an Established state."""
 
-    # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
-    # #         for i, row in conf.iterrows():
-    # #             assert row.get("Multipath_EBGP")
+        bgp_sess_status = bfq.bgpSessionStatus(nodes=node).answer().frame()
+        for i, row in bgp_sess_status.iterrows():
+            if node == "AS65000_PE4":
+                pass  # TODO: Remove this conditional, after configs built
+            else:
+                assert row.get("Established_Status") == "ESTABLISHED"
 
-    # #     @pytest.mark.parametrize("node", network_inventory)
-    # #     def test_multipath_ibg_compliance(self, node):
-    # #         """ Testing to ensure configuration compliance of iBGP Multipath """
+        # #     @pytest.mark.parametrize("node", network_inventory)
+        # #     def test_default_vrf(self, node):
+        # #         """Testing to ensure configuration compliance of all
+        # #         BGP configurations are under the default VRF."""
 
-    # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
-    # #         for i, row in conf.iterrows():
-    # #             assert row.get("Multipath_IBGP")
+        # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
+        # #         for i, row in conf.iterrows():
+        # #             assert row.get("VRF") == "default"
 
-    # #     established_nodes = [("as3core1", "ESTABLISHED"), ("as1core1", "ESTABLISHED")]
+    ce_devices = ["AS65001_CE2", "AS65001_CE1"]
 
-    # #     @pytest.mark.parametrize("node, status", established_nodes)
-    # #     def test_bgp_state_as2core_routers(self, node, status):
-    # #         """Testing to ensure BGP Sessions are in an Established state.
-    # #         This is only testing against as3core1 and as1core1. The reason
-    # #         is because we know for sure these two routers have all
-    # #         sessions 'established'"""
+    @pytest.mark.parametrize("node", ce_devices)
+    def test_interface_vrrp(self, node):
+        """Testing to ensure our CE Devices have at least 1 VRRP group, as expected."""
 
-    # #         bgp_sess_status = bfq.bgpSessionStatus(nodes=node).answer().frame()
-    # #         for i, row in bgp_sess_status.iterrows():
-    # #             assert row.get("Established_Status") == status
-
-    # #     @pytest.mark.parametrize("node", network_inventory)
-    # #     def test_default_vrf(self, node):
-    # #         """Testing to ensure configuration compliance of all
-    # #         BGP configurations are under the default VRF."""
-
-    # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
-    # #         for i, row in conf.iterrows():
-    # #             assert row.get("VRF") == "default"
-
-    # #     @pytest.mark.parametrize("node", core_routers)
-    # #     def test_core_is_rr(self, node):
-    # #         """Testing to ensure configuration compliance against core routers.
-    # #         These devices must always be BGP route-reflectors.
-    # #         Our test is only checking against devices from our inventory
-    # #         belonging to the 'core_routers' group."""
-
-    # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
-    # #         for i, row in conf.iterrows():
-    # #             assert row.get("Route_Reflector")
-
-    # #     @pytest.mark.parametrize("node", network_inventory)
-    # #     def test_interface_mtu(self, node):
-    # #         """Testing to ensure network standards on MTU for x-type of interfaces.
-    # #         This could be helpful, to ensure OSPF compliance on interfaces which are
-    # #         expected to have neighborships. Interface Properties Question returns a
-    # #         lot of different information on single or all interfaces in the network.
-    # #         """
-
-    # #         mtu = (
-    # #             bfq.interfaceProperties(nodes=node, interfaces="/Loop/", properties="MTU")
-    # #             .answer()
-    # #             .frame()
-    # #         )
-    # #         for i, row in mtu.iterrows():
-    # #             assert row.get("MTU") == 1500
+        vrrp = (
+            bfq.interfaceProperties(
+                nodes=node,
+                interfaces="GigabitEthernet1.1001",
+                properties="VRRP_Groups",
+            )
+            .answer()
+            .frame()
+        )
+        for i, row in vrrp.iterrows():
+            print(row.get("Vrrp"))
+            print(row.get(len("VRRP_Groups")))

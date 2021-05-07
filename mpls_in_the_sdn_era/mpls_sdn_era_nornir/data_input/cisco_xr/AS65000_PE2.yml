@@ -14,7 +14,7 @@ ip_interfaces:
     sub_int: true
     vlan: 1001
   - interface: Gi0/0/0/1.1001
-    description: TO_AS65001_CE2
+    description: TO_AS65001_CE1
     ip_address: 10.1.0.5
     mask: "/31"
     sub_int: true
@@ -56,19 +56,19 @@ bgp:
   CE2_MED: 100
   neighbors:
     - remote_as: 65001
-      neighbor: 10.1.0.2
-      update_source: Loopback0
-      afi: ipv4 unicast
-      route_policy:
-        - PL-EBGP-65001-IN in
-        - PL-EBGP-CE2-OUT out
-    - remote_as: 65001
-      neighbor: 10.1.0.1
-      update_source: Loopback0
+      neighbor: 10.1.0.4
+      update_source: Gi0/0/0/1.1001
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-65001-IN in
         - PL-EBGP-CE1-OUT out
+    - remote_as: 65001
+      neighbor: 10.1.0.2
+      update_source: Gi0/0/0/0.1001
+      afi: ipv4 unicast
+      route_policy:
+        - PL-EBGP-65001-IN in
+        - PL-EBGP-CE2-OUT out
 static_routes:
   - dst: 0.0.0.0/0
     next_hop: Null0

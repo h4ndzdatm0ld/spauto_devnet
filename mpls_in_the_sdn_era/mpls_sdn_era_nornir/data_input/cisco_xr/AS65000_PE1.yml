@@ -51,14 +51,14 @@ bgp:
   neighbors:
     - remote_as: 65001
       neighbor: 10.1.0.6
-      update_source: Loopback0
+      update_source: Gi0/0/0/2.1001
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-65001-IN in
         - PL-EBGP-CE2-OUT out
     - remote_as: 65001
       neighbor: 10.1.0.0
-      update_source: Loopback0
+      update_source: Gi0/0/0/1.1001
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-65001-IN in

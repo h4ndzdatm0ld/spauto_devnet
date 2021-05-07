@@ -39,15 +39,14 @@ bgp:
   route_reflectors:
     - 172.16.0.201
     - 172.16.0.202
-  cluster_id:
   add_pe_policy: true
   add_asbr_policy: false
-  add_65001_in_out: true
+  add_65002_in_out: true
   neighbors:
     - remote_as: 65002
       neighbor: 10.2.0.4
       update_source: Loopback0
       afi: ipv4 unicast
       route_policy:
-        - PL-EBGP-65001-IN in
-        - PL-EBGP-65001-OUT out
+        - PL-EBGP-65002-IN in
+        - PL-EBGP-65002-OUT out
