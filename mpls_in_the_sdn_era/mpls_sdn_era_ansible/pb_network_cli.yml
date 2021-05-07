@@ -1,0 +1,16 @@
+---
+- name: "EXAMPLE NETWORK_CLI PLAYBOOK"
+  hosts: "CORE_EDGE_ROUTER"
+
+  tasks:
+
+    - name: "BACKUP NETCONF CONFIG FROM DEVICES"
+      netconf_get:
+        source: running
+        display: "json"
+        filter: <isis xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-clns-isis-cfg"/>
+      register: "netconf_config"
+
+    - name: "SHOW CONFIG"
+      debug:
+        msg: "{{ netconf_config['output'] }}"

@@ -1,0 +1,30 @@
+---
+- name: "EXAMPLE RESTCONF API PLAYBOOK"
+  hosts: "CSR"
+
+  tasks:
+    - name: "VALIDATE INTERFACES AND ENABLE IF NECESSARY"
+      block:
+        - name: "GET INTERFACE CONFIGURATION VIA RESTCONF API"
+          ansible.netcommon.restconf_get:
+            path: ietf-interfaces:interfaces
+          register: "int"
+
+        - name: "ASSERT ALL INTERFACES ARE ENABLED"
+          assert:
+            that: "{{ item['enabled'] == True }}"
+            fail_msg: "ASSERTION ERROR, INTERFACE DOWN: {{ item['name'] }}"
+            success_msg: "ASSERTION PASSED. INTERFACE ENABLED: {{ item['name'] }}"
+          loop: "{{ int['response']['ietf-interfaces:interfaces']['interface'] }}"
+      rescue:
+        - name: "ENABLE INTERFACE"
+          ansible.netcommon.restconf_config:
+            path: "ietf-interfaces:interfaces/interface={{ item['name'] }}"
+            method: patch
+            content: |
+              {
+                "ietf-interfaces:interface": {
+                  "enabled": true
+                }
+              }
+          loop: "{{ int['response']['ietf-interfaces:interfaces']['interface'] }}"

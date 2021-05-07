@@ -1,0 +1,5 @@
+---
+ansible_user: admin
+ansible_ssh_pass: admin
+ansible_python_interpreter: "python3"
+ansible_connection: httpapi

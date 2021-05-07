@@ -1,3 +1,7 @@
 {
-    "python.pythonPath": "/home/htinoco/.cache/pypoetry/virtualenvs/mpls-in-the-sdn-era-6TnWyT7d-py3.8"
+    "python.pythonPath": "/home/htinoco/.cache/pypoetry/virtualenvs/mpls-in-the-sdn-era-6TnWyT7d-py3.8",
+    "cSpell.words": [
+        "pybatfish",
+        "sess"
+    ]
 }

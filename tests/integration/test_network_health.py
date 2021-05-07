@@ -156,5 +156,5 @@ class TestBgpConfig:
             .frame()
         )
         for i, row in vrrp.iterrows():
-            vrrp_total = len(row.get("VRRP_Groups"))
-            assert vrrp_total == 1
+            print(row.get("Vrrp"))
+            print(row.get(len("VRRP_Groups")))
