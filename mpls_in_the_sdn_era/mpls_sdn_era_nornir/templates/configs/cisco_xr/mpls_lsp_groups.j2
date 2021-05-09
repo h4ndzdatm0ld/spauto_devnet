@@ -1,0 +1,18 @@
+{% if host.mpls_full_mesh %}
+group GR-LSP
+interface 'tunnel-te.*'
+ipv4 unnumbered Loopback0
+autoroute announce
+exit
+record-route
+path-option 1 dynamic
+no shutdown
+exit
+exit
+{% for loopback in host.get('loopbacks') %}
+interface tunnel-te{{ host.tunnel.get(loopback)}}
+ apply-group GR-LSP
+ signalled-name {{ host.local.get(loopback) }}—>{{ host.far_end.get(loopback) }}
+ destination {{ loopback }}
+{% endfor %}
+{% endif %}

@@ -19,8 +19,27 @@ CORE_EDGE_ROUTER:
       ned_id: cisco-iosxr-cli-7.33:cisco-iosxr-cli-7.33
       verification: none
     asn: 65000
-XR:
-  data: nothing
+
+XR_650001:
+  username: admin
+  password: admin
+  platform: cisco_xr
+  port: 22
+  connection_options:
+    napalm:
+      platform: iosxr
+      username: admin
+      password: admin
+    netmiko:
+      extras:
+        timeout: 4
+  data:
+    nso:
+      authgroup: nso-auth
+      protocol: ssh
+      ned_id: cisco-iosxr-cli-7.33:cisco-iosxr-cli-7.33
+      verification: none
+    asn: 65001
 CSR:
   username: admin
   password: admin
@@ -29,6 +48,23 @@ CSR:
   connection_options:
     napalm:
       platform: ios
+      username: admin
+      password: admin
+  data:
+    nso:
+      authgroup: nso-auth
+      protocol: ssh
+      ned_id: cisco-ios-cli-6.69:cisco-ios-cli-6.69
+      verification: none
+    asn: 65001
+IOS:
+  username: admin
+  password: admin
+  platform: cisco_ios
+  port: 22
+  connection_options:
+    napalm:
+      platform: cisco_ios
       username: admin
       password: admin
   data:

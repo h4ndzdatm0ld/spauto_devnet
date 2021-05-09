@@ -2,8 +2,6 @@ mpls oam
 !
 mpls ldp
 {% for interface in host.DATA_INPUT.ip_interfaces %}
-{% if interface.get('mpls') %}
 interface {{interface.get('interface') }}
 !
-{% endif %}
 {% endfor%}
