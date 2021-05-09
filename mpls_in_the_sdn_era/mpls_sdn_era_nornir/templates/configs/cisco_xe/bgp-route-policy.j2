@@ -8,7 +8,10 @@ ip prefix-list {{ pl.get('description') }} seq {{ pl.get('seq') }} {{ pl.get('op
 {% if host.DATA_INPUT.bgp.get('route_map') %}
 {% for map in host.DATA_INPUT.bgp.get('route_map') %}
 !
-route-map {{ map.get('name') }} {{ map.get('option') }} {{ map.get('num') }} 
+route-map {{ map.get('name') }} {{ map.get('option') }} {{ map.get('num') }}
+ {% if map.get('metric') %}
+ set metric {{ map.get('metric') }}
+ {% endif %}
  match ip address prefix-list {{ map.get('match') }}
 {% endfor %}
 {% endif %}
