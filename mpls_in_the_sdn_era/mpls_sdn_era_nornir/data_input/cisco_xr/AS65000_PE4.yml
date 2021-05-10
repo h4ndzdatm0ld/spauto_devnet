@@ -9,6 +9,8 @@ ip_interfaces:
     mask: "/31"
     isis: true
     mpls: true
+    metric: 100
+    level: 2
   - interface: Gi0/0/0/1
     description: TO_CORE_PE3
     ip_address: 10.0.0.13

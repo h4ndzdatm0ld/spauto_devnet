@@ -32,6 +32,7 @@ ip_interfaces:
     ip_address: 10.0.0.4
     mask: "/31"
     isis: true
+    level: 2
     mpls: true
   - interface: Loopback0
     description: SYSTEM_LO_IP

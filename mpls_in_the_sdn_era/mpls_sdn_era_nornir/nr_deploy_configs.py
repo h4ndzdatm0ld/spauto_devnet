@@ -97,7 +97,6 @@ def generate_full_mesh_list(task):
         # print(task.host['mpls_full_mesh'])
         task.host["loopbacks"] = loopbacks
         # print(task.host["loopbacks"])
-        print(task.host.keys())
 
 
 def render_main(task):
@@ -113,10 +112,9 @@ def render_main(task):
 
     task.host["staged"] = config.result
 
-    asn = task.host["asn"]
     write_file(
         task,
-        filename=f"staged/configs/ASN{asn}/{task.host}.cfg",
+        filename=f"staged/configs/ASN{task.host.get('asn')}/{task.host}.cfg",
         content=f"{task.host['staged']}",
     )
 

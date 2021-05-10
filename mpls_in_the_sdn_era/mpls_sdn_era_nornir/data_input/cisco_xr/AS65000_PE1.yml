@@ -20,12 +20,16 @@ ip_interfaces:
     ip_address: 10.0.0.0
     mask: "/31"
     isis: true
+    level: 2
+    metric: 100
     mpls: true
   - interface: Gi0/0/0/4
     description: TO_CORE_P1
     ip_address: 10.0.0.2
     mask: "/31"
     isis: true
+    level: 2
+    metric: 100
     mpls: true
   - interface: Loopback0
     description: SYSTEM_LO_IP

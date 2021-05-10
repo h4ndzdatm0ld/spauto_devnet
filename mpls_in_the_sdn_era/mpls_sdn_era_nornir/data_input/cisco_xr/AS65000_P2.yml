@@ -9,18 +9,24 @@ ip_interfaces:
     mask: "/31"
     isis: true
     mpls: true
+    level: 2
+    metric: 100
   - interface: Gi0/0/0/1
     description: TO_CORE_RR1
     ip_address: 10.0.0.18
     mask: "/31"
     isis: true
     mpls: true
+    metric: 100
+    level: 2
   - interface: Gi0/0/0/2
     description: TO_CORE_P2_1
     ip_address: 10.0.0.7
     mask: "/31"
     isis: true
     mpls: true
+    metric: 100
+    level: 2
   - interface: Gi0/0/0/3
     description: TO_CORE_P1
     ip_address: 10.0.0.25
