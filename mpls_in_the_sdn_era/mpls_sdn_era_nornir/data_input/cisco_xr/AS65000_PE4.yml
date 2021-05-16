@@ -25,6 +25,20 @@ ip_interfaces:
     mask: "/24"
     sub_int: true
     vlan: 1001
+  - interface: Gi0/0/0/2.1002
+    vrf: VRF-A
+    description: TO_CDN_SW1
+    ip_address: 10.2.0.44
+    mask: "/24"
+    sub_int: true
+    vlan: 1002
+  - interface: Gi0/0/0/2.1003
+    vrf: VRF-B
+    description: TO_CDN_SW1
+    ip_address: 10.20.0.44
+    mask: "/24"
+    sub_int: true
+    vlan: 1003
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.44
@@ -43,12 +57,12 @@ bgp:
     - 172.16.0.202
   add_pe_policy: true
   add_asbr_policy: false
-  add_65002_in_out: true
+  add_65001_in_out: true
   neighbors:
-    - remote_as: 65002
+    - remote_as: 65001
       neighbor: 10.2.0.4
       update_source: Loopback0
       afi: ipv4 unicast
       route_policy:
-        - PL-EBGP-65002-IN in
-        - PL-EBGP-65002-OUT out
+        - PL-EBGP-65001-IN in
+        - PL-EBGP-65001-OUT out
