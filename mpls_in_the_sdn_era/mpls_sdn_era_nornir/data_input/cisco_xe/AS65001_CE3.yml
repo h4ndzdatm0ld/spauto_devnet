@@ -4,20 +4,8 @@ base:
 ip_interfaces:
   - interface: Gi1.1001
     description: TO_H1
-    ip_address: 10.1.12.1
+    ip_address: 10.2.0.3
     mask: 255.255.255.0
-    sub_int: true
-    vlan: 1001
-  - interface: Gi2.1001
-    description: TO_PE1
-    ip_address: 10.1.0.0
-    mask: 255.255.255.254
-    sub_int: true
-    vlan: 1001
-  - interface: Gi3.1001
-    description: TO_PE2
-    ip_address: 10.1.0.4
-    mask: 255.255.255.254
     sub_int: true
     vlan: 1001
   - interface: Loopback0
@@ -30,8 +18,8 @@ bgp:
   router_id: 192.168.10.3
   neighbors:
     - remote_as: 65000
-      neighbor: 10.1.0.1
-      update_source: Gi2.1001
+      neighbor: 10.2.0.33
+      update_source: Gi1.1001
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE1-OUT out

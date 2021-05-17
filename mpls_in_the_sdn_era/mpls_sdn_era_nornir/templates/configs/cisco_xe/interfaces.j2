@@ -1,11 +1,10 @@
 {% for interface in host.DATA_INPUT.ip_interfaces %}
 !
 {% if interface.get('sub_int') %}
-
 interface {{ interface.get('interface') }}
  description {{ interface.get('description') }}
- ip address {{ interface.get('ip_address') }} {{ interface.get('mask') }}
  encapsulation dot1q {{ interface.get('vlan') }}
+ ip address {{ interface.get('ip_address') }} {{ interface.get('mask') }}
  no shutdown
 {% else %}
 interface {{ interface.get('interface') }}

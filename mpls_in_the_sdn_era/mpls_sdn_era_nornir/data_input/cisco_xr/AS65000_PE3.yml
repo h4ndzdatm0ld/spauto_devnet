@@ -1,7 +1,9 @@
 ---
 base:
   lldp: true
-
+vrfs:
+  - name: VRF-A
+    family: address-family ipv4 unicast
 ip_interfaces:
   - interface: Gi0/0/0/1
     description: TO_CORE_P1
@@ -17,10 +19,13 @@ ip_interfaces:
     isis: true
     mpls: true
     level: 2
-  - interface: Gi0/0/0/3
-    description: TO_CDN_SW1
+  - interface: Gi0/0/0/3.1001
+    vrf: VRF-A
+    description: TO_CPE_3
     ip_address: 10.2.0.33
     mask: "/24"
+    sub_int: true
+    vlan: 1001
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.33
@@ -41,11 +46,13 @@ bgp:
   add_pe_policy: true
   add_asbr_policy: false
   add_65001_in_out: true
-  neighbors:
+  vrf_neighbors:
     - remote_as: 65001
+      vrf: VRF-A
+      update_source: Gi0/0/0/3.1001
+      RD: 1001
       neighbor: 10.2.0.3
-      update_source: Loopback0
-      afi: ipv4 unicast
+      as_override: true
       route_policy:
         - PL-EBGP-65001-IN in
         - PL-EBGP-65001-OUT out
