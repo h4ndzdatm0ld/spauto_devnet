@@ -18,9 +18,7 @@ CORE_EDGE_ROUTER:
       protocol: ssh
       ned_id: cisco-iosxr-cli-7.33:cisco-iosxr-cli-7.33
       verification: none
-    asn: 65000
-
-XR_650001:
+XR_65001:
   username: admin
   password: admin
   platform: cisco_xr
@@ -39,7 +37,6 @@ XR_650001:
       protocol: ssh
       ned_id: cisco-iosxr-cli-7.33:cisco-iosxr-cli-7.33
       verification: none
-    asn: 65001
 CSR:
   username: admin
   password: admin
@@ -56,7 +53,6 @@ CSR:
       protocol: ssh
       ned_id: cisco-ios-cli-6.69:cisco-ios-cli-6.69
       verification: none
-    asn: 65001
 IOS:
   username: admin
   password: admin
@@ -73,4 +69,3 @@ IOS:
       protocol: ssh
       ned_id: cisco-ios-cli-6.69:cisco-ios-cli-6.69
       verification: none
-    asn: 65001

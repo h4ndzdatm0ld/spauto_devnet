@@ -1,4 +1,5 @@
 {% include 'base.j2' %}
+{% include 'vrf.j2' %}
 {% include 'interfaces.j2' %}
 {% include 'bgp-route-policy.j2' %}
 {% include 'isis.j2' %}
@@ -6,7 +7,3 @@
 {% include 'static-routes.j2' %}
 {% include 'mpls.j2' %}
 {% include 'mpls_lsp_groups.j2' %}
-
-{# {% if host.DATA_INPUT.get('acls') %}
-{% include 'acl.j2' %}
-{% endif %} #}

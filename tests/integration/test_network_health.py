@@ -35,15 +35,20 @@ of our network.
 
 class TestNornirConfigs(object):
     @pytest.mark.parametrize("node", devices)
-    def test_load_yaml(self, nornir, node):
+    def test_load_yaml(self, nr, node):
         """Assert all devices exist in the loaded yaml keys."""
-        data = nornir.run(task=load_data)
+        data = nr.run(task=load_data)
         assert node in data.keys()
 
+    # def test_generate_loopbacks(self, nr):
+    #     """Test full-mesh loopback."""
+    #     print("HEEeeeeEEEeEeE----------------->>>")
+    #     nr.run(task=generate_full_mesh_list, nr=nr)
+
     @pytest.mark.parametrize("node", devices)
-    def test_config_gen(self, nornir, node):
+    def test_config_gen(self, nr, node):
         """Render J2 Templates/Configs."""
-        nornir.run(task=render_configs)
+        nr.run(task=render_configs)
         configs_dir = "tests/network_data/mpls_sdn_era/configs"
         files = os.listdir(configs_dir)
         assert f"{node}.cfg" in files
@@ -121,15 +126,12 @@ class TestBgpConfig:
         assert assert_no_undefined_references()
 
     @pytest.mark.parametrize("node", devices)
-    def test_bgp_state_as2core_routers(self, node):
+    def test_bgp_state_routers(self, node):
         """Testing to ensure BGP Sessions are in an Established state."""
 
         bgp_sess_status = bfq.bgpSessionStatus(nodes=node).answer().frame()
         for i, row in bgp_sess_status.iterrows():
-            if node == "AS65000_PE4":
-                pass  # TODO: Remove this conditional, after configs built
-            else:
-                assert row.get("Established_Status") == "ESTABLISHED"
+            assert row.get("Established_Status") == "ESTABLISHED"
 
         # #     @pytest.mark.parametrize("node", network_inventory)
         # #     def test_default_vrf(self, node):

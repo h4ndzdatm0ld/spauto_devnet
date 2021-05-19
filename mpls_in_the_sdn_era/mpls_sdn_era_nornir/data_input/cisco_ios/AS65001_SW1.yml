@@ -6,3 +6,5 @@ interfaces:
     trunk: true
   - name: Gi0/2
     trunk: true
+  - name: Gi0/3
+    trunk: true

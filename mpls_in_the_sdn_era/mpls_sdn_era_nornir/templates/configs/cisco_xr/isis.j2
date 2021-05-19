@@ -1,4 +1,5 @@
 !
+{% if host.DATA_INPUT.get('isis') %}
 router isis core
  is-type level-2-only
  net {{ host.DATA_INPUT.isis.get('net') }}
@@ -7,6 +8,7 @@ router isis core
   mpls traffic-eng level-2-only
   maximum-paths 8
  !
+ {% endif %}
 {% for interface in host.DATA_INPUT.ip_interfaces %}
 {% if interface.get('isis') %}
 {% if interface.get('passive') %}

@@ -1,0 +1,44 @@
+---
+base:
+  lldp: true
+ip_interfaces:
+  - interface: Gi1.1001
+    description: TO_PE
+    ip_address: 10.2.0.3
+    mask: 255.255.255.0
+    sub_int: true
+    vlan: 1001
+  - interface: Loopback0
+    description: SYSTEM_LO_IP
+    ip_address: 192.168.10.3
+    mask: 255.255.255.255
+    passive: true
+bgp:
+  asn: 65001
+  router_id: 192.168.10.3
+  neighbors:
+    - remote_as: 65000
+      neighbor: 10.2.0.33
+      update_source: Gi1.1001
+      afi: ipv4 unicast
+      route_policy:
+        - PL-EBGP-PE3-OUT out
+  prefix:
+    - description: PL-EBGP-PE-OUT-PREFIX-LIST
+      option: permit
+      prefix: 192.168.10.3/32
+      seq: 10
+  route_map:
+    - name: PL-EBGP-PE3-OUT
+      metric: 100
+      option: permit
+      num: 1
+      match: PL-EBGP-PE-OUT-PREFIX-LIST
+    - name: PL-EBGP-PE3-OUT
+      metric: 200
+      option: permit
+      num: 1
+      match: PL-EBGP-PE-OUT-PREFIX-LIST
+static_routes:
+  - dst: 0.0.0.0/0
+    next_hop: Null0

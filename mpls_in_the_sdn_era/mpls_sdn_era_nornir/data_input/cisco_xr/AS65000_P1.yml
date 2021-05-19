@@ -9,6 +9,8 @@ ip_interfaces:
     mask: "/31"
     isis: true
     mpls: true
+    level: 2
+    metric: 100
   - interface: Gi0/0/0/2
     description: TO_CORE_RR1
     ip_address: 10.0.0.16
@@ -25,6 +27,8 @@ ip_interfaces:
     mask: "/31"
     isis: true
     mpls: true
+    level: 2
+    metric: 100
   - interface: Gi0/0/0/5
     description: TO_CORE_RR2
     ip_address: 10.0.0.20
@@ -36,6 +40,8 @@ ip_interfaces:
     mask: "/31"
     isis: true
     mpls: true
+    level: 2
+    metric: 100
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.1
