@@ -23,23 +23,19 @@ bgp:
       update_source: Gi1.1001
       afi: ipv4 unicast
       route_policy:
-        - PL-EBGP-PE1-OUT out
+        - PL-EBGP-PE4-OUT out
   prefix:
     - description: PL-EBGP-PE-OUT-PREFIX-LIST
       option: permit
       prefix: 192.168.10.4/32
       seq: 10
-    - description: PL-EBGP-PE-OUT-PREFIX-LIST
-      option: permit
-      prefix: 10.1.12.0/24
-      seq: 15
   route_map:
-    - name: PL-EBGP-PE1-OUT
+    - name: PL-EBGP-PE4-OUT
       metric: 100
       option: permit
       num: 1
       match: PL-EBGP-PE-OUT-PREFIX-LIST
-    - name: PL-EBGP-PE2-OUT
+    - name: PL-EBGP-PE4-OUT
       metric: 200
       option: permit
       num: 1

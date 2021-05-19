@@ -1,19 +1,23 @@
 ---
 base:
   lldp: true
-
+vrfs:
+  - name: VRF-A
+    family: address-family ipv4 unicast
 ip_interfaces:
   - interface: Gi0/0/0/0
     description: Border Interface
     ip_address: 10.2.0.0
     mask: "/31"
   - interface: Gi0/0/0/0.1001
+    vrf: VRF-A
     description: TO_AS65001_CE2
     ip_address: 10.1.0.3
     mask: "/31"
     sub_int: true
     vlan: 1001
   - interface: Gi0/0/0/1.1001
+    vrf: VRF-A
     description: TO_AS65001_CE1
     ip_address: 10.1.0.5
     mask: "/31"
@@ -55,18 +59,18 @@ bgp:
   add_asbr_policy: true
   CE1_MED: 200
   CE2_MED: 100
-  neighbors:
+  vrf_neighbors:
     - remote_as: 65001
       neighbor: 10.1.0.4
+      RD: 1001
       update_source: Gi0/0/0/1.1001
-      afi: ipv4 unicast
       route_policy:
         - PL-EBGP-65001-IN in
         - PL-EBGP-CE1-OUT out
     - remote_as: 65001
+      RD: 1001
       neighbor: 10.1.0.2
       update_source: Gi0/0/0/0.1001
-      afi: ipv4 unicast
       route_policy:
         - PL-EBGP-65001-IN in
         - PL-EBGP-CE2-OUT out

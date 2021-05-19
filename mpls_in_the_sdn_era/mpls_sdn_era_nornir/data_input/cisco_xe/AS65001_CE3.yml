@@ -3,7 +3,7 @@ base:
   lldp: true
 ip_interfaces:
   - interface: Gi1.1001
-    description: TO_H1
+    description: TO_PE
     ip_address: 10.2.0.3
     mask: 255.255.255.0
     sub_int: true

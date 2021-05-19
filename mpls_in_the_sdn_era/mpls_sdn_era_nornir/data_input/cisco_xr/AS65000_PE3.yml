@@ -42,9 +42,7 @@ bgp:
   route_reflectors:
     - 172.16.0.201
     - 172.16.0.202
-  cluster_id:
-  add_pe_policy: true
-  add_asbr_policy: true
+  add_pe_policy: true 
   add_65001_in_out: true
   vrf_neighbors:
     - remote_as: 65001

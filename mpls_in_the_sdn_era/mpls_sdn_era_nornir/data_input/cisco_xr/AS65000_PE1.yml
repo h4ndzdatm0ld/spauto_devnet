@@ -1,7 +1,9 @@
 ---
 base:
   lldp: true
-
+vrfs:
+  - name: VRF-A
+    family: address-family ipv4 unicast
 ip_interfaces:
   - interface: Gi0/0/0/1.1001
     description: TO_AS65001_CE1
@@ -47,23 +49,24 @@ bgp:
   route_reflectors:
     - 172.16.0.201
     - 172.16.0.202
-  cluster_id:
   add_pe_policy: true
   add_asbr_policy: true
   CE1_MED: 100
   CE2_MED: 200
-  neighbors:
+  vrf_neighbors:
     - remote_as: 65001
+      vrf: VRF-A
+      RD: 1001
       neighbor: 10.1.0.6
       update_source: Gi0/0/0/2.1001
-      afi: ipv4 unicast
       route_policy:
         - PL-EBGP-65001-IN in
         - PL-EBGP-CE2-OUT out
     - remote_as: 65001
+      RD: 1001
+      vrf: VRF-A
       neighbor: 10.1.0.0
       update_source: Gi0/0/0/1.1001
-      afi: ipv4 unicast
       route_policy:
         - PL-EBGP-65001-IN in
         - PL-EBGP-CE1-OUT out
