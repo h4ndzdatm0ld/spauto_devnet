@@ -51,24 +51,27 @@ neighbor {{ nx.get('neighbor') }}
 !
 {% endfor %}
 {% endif %}
+
 {% if host.DATA_INPUT.bgp.get('vrf_neighbors') %}
-{% for vrf in host.DATA_INPUT.bgp.get('vrf_neighbors') %}
- vrf {{ vrf.get('vrf') }}
- rd {{ host.DATA_INPUT.bgp.get('router_id') }}:{{ vrf.get('RD')}}
+{% for vrf in host.DATA_INPUT.bgp.get( 'vrf_neighbors') %}
+vrf {{ vrf.get('vrf') }}
+ bgp router-id {{ vrf.get('router_id') }}
+ rd {{ host.DATA_INPUT.bgp.get('router_id') }}:{{ vrf.get('RD') }}
  address-family ipv4 unicast
-  label mode per-vrf
  !
- neighbor {{ vrf.get('neighbor') }}
-  remote-as {{ vrf.get('remote_as') }}
-  update-source {{ vrf.get('update_source') }}
+{% for nx in vrf.get('neighbors') %}
+ neighbor {{ nx.get('neighbor') }}
+  remote-as {{ nx.get('remote_as') }}
+  update-source {{ nx.get('update_source') }}
   address-family ipv4 unicast
-{% for policy in vrf.get('route_policy') %}
+{% for policy in nx.get('route_policy') %}
    route-policy {{ policy }}
 {% endfor %}
-{% if vrf.get('as_override') %}
+{% if nx.get('as_override') %}
    as-override
   !
 {% endif %}
+{% endfor %}
 {% endfor %}
 {% endif %}
 !

@@ -11,6 +11,7 @@ path-option 1 dynamic
 no shutdown
 exit
 exit
+{% if host.get('loopbacks') %}
 {% for loopback in host.get('loopbacks') %}
 interface tunnel-te{{ host['tunnel'].get(loopback)}}
  apply-group GR-LSP
@@ -18,4 +19,5 @@ interface tunnel-te{{ host['tunnel'].get(loopback)}}
  destination {{ loopback }}
  no shutdown
 {% endfor %}
+{% endif %}
 {% endif %}

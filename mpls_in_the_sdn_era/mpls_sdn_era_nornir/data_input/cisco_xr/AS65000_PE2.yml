@@ -57,23 +57,27 @@ bgp:
   cluster_id:
   add_pe_policy: true
   add_asbr_policy: true
+  add_65001_in_out: false
+  add_65001_in: true
   CE1_MED: 200
   CE2_MED: 100
   vrf_neighbors:
-    - remote_as: 65001
-      neighbor: 10.1.0.4
+    - vrf: VRF-A
+      router_id: 100.1.1.2
       RD: 1001
-      update_source: Gi0/0/0/1.1001
-      route_policy:
-        - PL-EBGP-65001-IN in
-        - PL-EBGP-CE1-OUT out
-    - remote_as: 65001
-      RD: 1001
-      neighbor: 10.1.0.2
-      update_source: Gi0/0/0/0.1001
-      route_policy:
-        - PL-EBGP-65001-IN in
-        - PL-EBGP-CE2-OUT out
+      neighbors:
+        - remote_as: 65001
+          neighbor: 10.1.0.4
+          update_source: Gi0/0/0/1.1001
+          route_policy:
+            - PL-EBGP-65001-IN in
+            - PL-EBGP-CE1-OUT out
+        - remote_as: 65001
+          neighbor: 10.1.0.2
+          update_source: Gi0/0/0/0.1001
+          route_policy:
+            - PL-EBGP-65001-IN in
+            - PL-EBGP-CE2-OUT out
 static_routes:
   - dst: 0.0.0.0/0
     next_hop: Null0

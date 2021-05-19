@@ -11,12 +11,11 @@ from pybatfish.client.commands import (
 )
 from pybatfish.question import load_questions
 
+# import itertools
 
 # # Tell nornir where our inventory data is
 nornir_path = "mpls_in_the_sdn_era/mpls_sdn_era_nornir"
 
-
-####################################
 # Evaluate wether running this locally or not to allow pipeline to execute
 # properly and as well as local testing with docker-compose. The batfish
 # initializing takes a long time to time out and completely errors out if it
@@ -54,7 +53,7 @@ def snapshot_loader(snap_path, name, overwrite=True):
 
 
 @pytest.fixture(scope="class", autouse=True)
-def nornir():
+def nr():
     """Initializes Nornir. Disable Logging to avoid pytest warnings."""
 
     nornir = InitNornir(
@@ -66,7 +65,7 @@ def nornir():
                 "defaults_file": f"{nornir_path}/inventory/defaults.yml",
             },
         },
-        logging={"enabled": False},
+        logging={"enabled": True},
     )
     return nornir
 
@@ -84,6 +83,61 @@ def load_data(task):
     )
 
     task.host["DATA_INPUT"] = data.result
+
+
+# # def generate_full_mesh_list(task):
+# #     """Loop through inventory hosts which are MPLS enabled devices.
+
+# #     Generate a list of Loopback IP far-end addresses and add to a task_host[dict]
+# #     to reference later as we deploy our full-mesh MPLS LSP Configuration.
+
+# #     This task 100% depends on the success of "load_all_data" task.
+# #     """
+# #     # Create a list of devices from our inventory which are MPLS enabled.
+# #     # List comprehension will be ran on each host to gather a list and access the
+# #     # host loopback IP, which will be used as the far-end IP for the MPLS LSP.
+# #     FULL_MESH_DEVICES = [
+# #         host
+# #         for host in nornir.inventory.hosts.keys()
+# #         if "AS65000" in host and "RR" not in host and "P1" not in host
+# #         if "P2" not in host
+# #     ]
+# #     # Remove the current task host out of the list. We don't need our local device in this
+# #     # List as our goal is to gather data from the rest of the inventory from each device.
+# #     # We wrap in a try/block as we are popping items we KNOW are not in that list (CE devices)
+# #     # from our previous filtering.
+# #     try:
+# #         FULL_MESH_DEVICES.remove(f"{task.host}")
+# #     except ValueError:
+# #         pass
+
+# #     # The only reason we are able to access some of these external data values is because
+# #     # we loaded the external data in a previous task and added to the task.host['DATA_INPUT] dict.
+# #     # We use some more list comprehension to extract all the interfaces from each host.
+# #     all_hosts_interfaces = [
+# #         nornir.inventory.hosts[device]["DATA_INPUT"]["ip_interfaces"]
+# #         for device in FULL_MESH_DEVICES
+# #     ]
+
+# #     # Combine lists of lists into one list. We compile ALL interfaces from ALL devices besides
+# #     # The current task host. We need this so we can now create one final list of all the actual
+# #     # IP Addresses from the Loopbacks.
+# #     interfaces = list(itertools.chain.from_iterable(all_hosts_interfaces))
+
+# #     # Finally! Create a list of all the far-end system IP addresses (Loopbacks) to use as our
+# #     # Far-END destination for configuring our full-mesh of MPLS LSPs from the current task.host.
+# #     loopbacks = [
+# #         ip.get("ip_address")
+# #         for ip in interfaces
+# #         if ip.get("description") == "SYSTEM_LO_IP"
+# #     ]
+
+#     # Check the task.host vars and ensure ifull_mesh key is True under the MPLS dict
+#     # Take the newly created list and add it to a task.host[dictionary] for us to access in a different task.
+#     if task.host.get("mpls_full_mesh"):
+#         # print(task.host['mpls_full_mesh'])
+#         task.host["loopbacks"] = loopbacks
+#         # print(task.host["loopbacks"])
 
 
 def render_configs(task):
@@ -118,4 +172,6 @@ devices = [
     "AS65000_PE4",
     "AS65001_CE1",
     "AS65001_CE2",
+    "AS65001_CE3",
+    "AS65001_CE4",
 ]

@@ -7,12 +7,14 @@ vrfs:
 ip_interfaces:
   - interface: Gi0/0/0/1.1001
     description: TO_AS65001_CE1
+    vrf: VRF-A
     ip_address: 10.1.0.1
     mask: "/31"
     sub_int: true
     vlan: 1001
   - interface: Gi0/0/0/2.1001
     description: TO_AS65001_CE2
+    vrf: VRF-A
     ip_address: 10.1.0.7
     mask: "/31"
     sub_int: true
@@ -51,25 +53,27 @@ bgp:
     - 172.16.0.202
   add_pe_policy: true
   add_asbr_policy: true
+  add_65001_in_out: false
+  add_65001_in: true
   CE1_MED: 100
   CE2_MED: 200
   vrf_neighbors:
-    - remote_as: 65001
-      vrf: VRF-A
+    - vrf: VRF-A
+      router_id: 100.1.1.1
       RD: 1001
-      neighbor: 10.1.0.6
-      update_source: Gi0/0/0/2.1001
-      route_policy:
-        - PL-EBGP-65001-IN in
-        - PL-EBGP-CE2-OUT out
-    - remote_as: 65001
-      RD: 1001
-      vrf: VRF-A
-      neighbor: 10.1.0.0
-      update_source: Gi0/0/0/1.1001
-      route_policy:
-        - PL-EBGP-65001-IN in
-        - PL-EBGP-CE1-OUT out
+      neighbors:
+        - remote_as: 65001
+          neighbor: 10.1.0.6
+          update_source: Gi0/0/0/2.1001
+          route_policy:
+            - PL-EBGP-65001-IN in
+            - PL-EBGP-CE2-OUT out
+        - remote_as: 65001
+          neighbor: 10.1.0.0
+          update_source: Gi0/0/0/1.1001
+          route_policy:
+            - PL-EBGP-65001-IN in
+            - PL-EBGP-CE1-OUT out
 static_routes:
   - dst: 0.0.0.0/0
     next_hop: Null0

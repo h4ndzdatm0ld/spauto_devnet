@@ -3,7 +3,7 @@ version: "3"
 services:
   batfish:
     container_name: "batfish"
-    image: "batfish/batfish:latest"
+    image: "batfish/batfish:test-919"
     ports:
       - "9996:9996"
       - "9997:9997"

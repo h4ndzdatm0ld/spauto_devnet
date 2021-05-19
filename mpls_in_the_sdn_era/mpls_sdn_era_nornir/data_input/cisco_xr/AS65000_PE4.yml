@@ -45,15 +45,16 @@ bgp:
     - 172.16.0.201
     - 172.16.0.202
   add_pe_policy: true
-  add_asbr_policy: false
   add_65001_in_out: true
   vrf_neighbors:
-    - remote_as: 65001
-      vrf: VRF-A
-      update_source: Gi0/0/0/2.1001
+    - vrf: VRF-A
+      router_id: 100.1.1.4
       RD: 1001
-      neighbor: 10.2.0.4
-      as_override: true
-      route_policy:
-        - PL-EBGP-65001-IN in
-        - PL-EBGP-65001-OUT out
+      neighbors:
+        - remote_as: 65001
+          update_source: Gi0/0/0/2.1001
+          neighbor: 10.2.0.4
+          as_override: true
+          route_policy:
+            - PL-EBGP-65001-IN in
+            - PL-EBGP-65001-OUT out
