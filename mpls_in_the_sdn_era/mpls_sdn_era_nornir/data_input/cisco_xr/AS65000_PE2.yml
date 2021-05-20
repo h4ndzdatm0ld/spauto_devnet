@@ -4,6 +4,8 @@ base:
 vrfs:
   - name: VRF-A
     family: address-family ipv4 unicast
+    import_rt: 65000:1001
+    export_rt: 65000:1001
 ip_interfaces:
   - interface: Gi0/0/0/0
     description: Border Interface
@@ -64,7 +66,7 @@ bgp:
   vrf_neighbors:
     - vrf: VRF-A
       router_id: 100.1.1.2
-      RD: 1001
+      RD: 1002
       neighbors:
         - remote_as: 65001
           neighbor: 10.1.0.4

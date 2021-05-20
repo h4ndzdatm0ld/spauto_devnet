@@ -4,6 +4,8 @@ base:
 vrfs:
   - name: VRF-A
     family: address-family ipv4 unicast
+    import_rt: 65000:1001
+    export_rt: 65000:1001
 ip_interfaces:
   - interface: Gi0/0/0/1.1001
     description: TO_AS65001_CE1

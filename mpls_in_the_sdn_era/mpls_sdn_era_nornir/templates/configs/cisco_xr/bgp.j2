@@ -16,6 +16,8 @@ neighbor-group CLIENTS
  update-source Loopback0
  address-family ipv4 unicast
   route-reflector-client
+ address-family vpnv4 unicast 
+
 {% else %}
 neighbor-group RR
  remote-as {{ host.DATA_INPUT.bgp.get('asn') }}
@@ -23,6 +25,7 @@ neighbor-group RR
  address-family ipv4 unicast
  route-policy PL-iBGP-RR-OUT out
  soft-reconfiguration inbound always
+ address-family vpnv4 unicast 
 !
 {% for rr in host.DATA_INPUT.bgp.get('route_reflectors') %}
 neighbor {{ rr }}
