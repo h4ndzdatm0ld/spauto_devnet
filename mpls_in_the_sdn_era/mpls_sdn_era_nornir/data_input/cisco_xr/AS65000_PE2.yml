@@ -4,11 +4,14 @@ base:
 vrfs:
   - name: VRF-A
     family: address-family ipv4 unicast
+    import_rt: 65000:1001
+    export_rt: 65000:1001
 ip_interfaces:
   - interface: Gi0/0/0/0
     description: Border Interface
     ip_address: 10.2.0.0
     mask: "/31"
+    mpls: true
   - interface: Gi0/0/0/0.1001
     vrf: VRF-A
     description: TO_AS65001_CE2
@@ -28,6 +31,7 @@ ip_interfaces:
     ip_address: 10.0.0.1
     mask: "/31"
     isis: true
+    isis_domain: core
     metric: 200
     level: 2
     mpls: true
@@ -36,16 +40,43 @@ ip_interfaces:
     ip_address: 10.0.0.4
     mask: "/31"
     isis: true
+    isis_domain: core
     level: 2
     mpls: true
+  - interface: Gi0/0/0/4
+    description: TO_CORE_PE100
+    ip_address: 11.0.0.1
+    mask: "/31"
+    isis: true
+    isis_domain: 100
+    mpls: true
+    metric: 100
+    level: 2
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.22
     mask: "/32"
     isis: true
+    isis_domain: core
     passive: true
+    system: true
+  - interface: Loopback100
+    ip_address: 172.16.100.22
+    description: ISIS_100_SYSTEM_ADDRESS
+    mask: "/32"
+    isis: true
+    isis_domain: 100
+    passive: true
+    system: true
 isis:
-  net: 49.0000.1720.1600.0022.00
+  - domain: core
+    net: 49.0000.1720.1600.0022.00
+    sid_index: 1002
+  - domain: 100
+    net: 49.0000.1720.1610.0022.00
+    link_state: true
+    sid_index: 1022
+    router_id: 172.16.100.22
 bgp:
   asn: 65000
   router_id: 172.16.0.22
@@ -64,7 +95,7 @@ bgp:
   vrf_neighbors:
     - vrf: VRF-A
       router_id: 100.1.1.2
-      RD: 1001
+      RD: 1002
       neighbors:
         - remote_as: 65001
           neighbor: 10.1.0.4

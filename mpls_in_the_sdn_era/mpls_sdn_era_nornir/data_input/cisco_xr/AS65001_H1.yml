@@ -1,19 +1,6 @@
 ---
 base:
   lldp: true
-vrfs:
-  - name: H1
-    family: address-family ipv4 unicast
-  - name: H1_A
-    family: address-family ipv4 unicast
-  - name: H1_B
-    family: address-family ipv4 unicast
-  - name: H3
-    family: address-family ipv4 unicast
-  - name: H3_A
-    family: address-family ipv4 unicast
-  - name: H3_B
-    family: address-family ipv4 unicast
 ip_interfaces:
   - interface: Gi0/0/0/1
     admin_status: true

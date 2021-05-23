@@ -4,6 +4,8 @@ base:
 vrfs:
   - name: VRF-A
     family: address-family ipv4 unicast
+    import_rt: 65000:1001
+    export_rt: 65000:1001
 ip_interfaces:
   - interface: Gi0/0/0/1.1001
     description: TO_AS65001_CE1
@@ -24,6 +26,7 @@ ip_interfaces:
     ip_address: 10.0.0.0
     mask: "/31"
     isis: true
+    isis_domain: core
     level: 2
     metric: 100
     mpls: true
@@ -32,6 +35,7 @@ ip_interfaces:
     ip_address: 10.0.0.2
     mask: "/31"
     isis: true
+    isis_domain: core
     level: 2
     metric: 100
     mpls: true
@@ -40,9 +44,13 @@ ip_interfaces:
     ip_address: 172.16.0.11
     mask: "/32"
     isis: true
+    isis_domain: core
     passive: true
+    system: true
 isis:
-  net: 49.0000.1720.1600.0011.00
+  - domain: core
+    net: 49.0000.1720.1600.0011.00
+    sid_index: 1001
 bgp:
   asn: 65000
   router_id: 172.16.0.11
