@@ -160,7 +160,6 @@ def render_configs(task):
     )
 
 
-# TODO: generate this list and compare
 devices = [
     "AS65000_P1",
     "AS65000_P2",
@@ -169,6 +168,8 @@ devices = [
     "AS65000_PE1",
     "AS65000_PE2",
     "AS65000_PE3",
+    "AS65000_PE100",
+    "AS65000_PE101",
     "AS65000_PE4",
     "AS65001_CE1",
     "AS65001_CE2",

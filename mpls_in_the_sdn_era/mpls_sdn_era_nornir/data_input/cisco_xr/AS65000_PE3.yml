@@ -12,6 +12,7 @@ ip_interfaces:
     ip_address: 10.0.0.9
     mask: "/31"
     isis: true
+    isis_domain: core
     mpls: true
     level: 2
   - interface: Gi0/0/0/2
@@ -19,6 +20,7 @@ ip_interfaces:
     ip_address: 10.0.0.12
     mask: "/31"
     isis: true
+    isis_domain: core
     mpls: true
     level: 2
   - interface: Gi0/0/0/3.1001
@@ -33,9 +35,14 @@ ip_interfaces:
     ip_address: 172.16.0.33
     mask: "/32"
     isis: true
+    isis_domain: core
     passive: true
+    system: true
 isis:
-  net: 49.0000.1720.1600.0033.00
+  - domain: core
+    net: 49.0000.1720.1600.0033.00
+    sid_index: 1003
+    link_state: true
 bgp:
   asn: 65000
   router_id: 172.16.0.33

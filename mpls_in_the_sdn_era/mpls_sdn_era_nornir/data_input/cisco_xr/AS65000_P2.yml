@@ -8,6 +8,7 @@ ip_interfaces:
     ip_address: 10.0.0.5
     mask: "/31"
     isis: true
+    isis_domain: core
     mpls: true
     level: 2
     metric: 100
@@ -16,6 +17,7 @@ ip_interfaces:
     ip_address: 10.0.0.18
     mask: "/31"
     isis: true
+    isis_domain: core
     mpls: true
     metric: 100
     level: 2
@@ -24,6 +26,7 @@ ip_interfaces:
     ip_address: 10.0.0.7
     mask: "/31"
     isis: true
+    isis_domain: core
     mpls: true
     metric: 100
     level: 2
@@ -32,25 +35,34 @@ ip_interfaces:
     ip_address: 10.0.0.25
     mask: "/31"
     isis: true
+    isis_domain: core
     mpls: true
   - interface: Gi0/0/0/4
     description: TO_CORE_RR2
     ip_address: 10.0.0.22
     mask: "/31"
     isis: true
+    isis_domain: core
   - interface: Gi0/0/0/5
     description: TO_CORE_PE4
     ip_address: 10.0.0.10
     mask: "/31"
     isis: true
+    isis_domain: core
+    mpls: true
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.2
     mask: "/32"
     isis: true
+    isis_domain: core
     passive: true
+    system: true
 isis:
-  net: 49.0000.1720.1600.0002.00
+  - domain: core
+    net: 49.0000.1720.1600.0002.00
+    sid_index: 102
+    link_state: true
 static_routes:
   - dst: 0.0.0.0/0
     next_hop: Null0

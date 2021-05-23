@@ -59,7 +59,7 @@ def generate_full_mesh_list(task):
         host
         for host in nr.inventory.hosts.keys()
         if "AS65000" in host and "RR" not in host and "P1" not in host
-        if "P2" not in host
+        if "P2" not in host and "101" not in host and "100" not in host
     ]
     # Remove the current task host out of the list. We don't need our local device in this
     # List as our goal is to gather data from the rest of the inventory from each device.
@@ -77,12 +77,10 @@ def generate_full_mesh_list(task):
         nr.inventory.hosts[device]["DATA_INPUT"]["ip_interfaces"]
         for device in FULL_MESH_DEVICES
     ]
-
     # Combine lists of lists into one list. We compile ALL interfaces from ALL devices besides
     # The current task host. We need this so we can now create one final list of all the actual
     # IP Addresses from the Loopbacks.
     interfaces = list(itertools.chain.from_iterable(all_hosts_interfaces))
-
     # Finally! Create a list of all the far-end system IP addresses (Loopbacks) to use as our
     # Far-END destination for configuring our full-mesh of MPLS LSPs from the current task.host.
     loopbacks = [
@@ -90,13 +88,12 @@ def generate_full_mesh_list(task):
         for ip in interfaces
         if ip.get("description") == "SYSTEM_LO_IP"
     ]
-
     # Check the task.host vars and ensure ifull_mesh key is True under the MPLS dict
     # Take the newly created list and add it to a task.host[dictionary] for us to access in a different task.
     if task.host.get("mpls_full_mesh"):
         # print(task.host['mpls_full_mesh'])
         task.host["loopbacks"] = loopbacks
-        # print(task.host["loopbacks"])
+        # print(f"{task.host} : {task.host['loopbacks']}")
 
 
 def render_main(task):

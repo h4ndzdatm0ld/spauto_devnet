@@ -1,9 +1,10 @@
 mpls oam
 !
 mpls ldp
+segment-routing global-block 16000 17000
+mpls traffic-eng
 {% for interface in host.DATA_INPUT.ip_interfaces %}
 {% if interface.get('mpls') %}
-mpls traffic-eng
 interface {{ interface.get('interface')}}
 {% endif %}
 !

@@ -2,7 +2,10 @@
 !
 router bgp {{ host.DATA_INPUT.bgp.get('asn') }}
 bgp router-id {{ host.DATA_INPUT.bgp.get('router_id') }}
+address-family link-state link-state
+exit
 address-family ipv4 unicast
+exit
 address-family vpnv4 unicast
 {% if host.DATA_INPUT.bgp.get('add_paths') %}
 additional-paths receive
@@ -17,7 +20,9 @@ neighbor-group CLIENTS
  address-family ipv4 unicast
   route-reflector-client
  address-family vpnv4 unicast 
-
+  route-reflector-client
+address-family link-state link-state
+  route-reflector-client
 {% else %}
 neighbor-group RR
  remote-as {{ host.DATA_INPUT.bgp.get('asn') }}
@@ -26,6 +31,7 @@ neighbor-group RR
  route-policy PL-iBGP-RR-OUT out
  soft-reconfiguration inbound always
  address-family vpnv4 unicast 
+ address-family link-state link-state
 !
 {% for rr in host.DATA_INPUT.bgp.get('route_reflectors') %}
 neighbor {{ rr }}

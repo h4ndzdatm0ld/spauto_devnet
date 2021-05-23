@@ -1,13 +1,13 @@
 ---
 base:
   lldp: true
-
 ip_interfaces:
   - interface: Gi0/0/0/1
     description: TO_CORE_PE1
     ip_address: 10.0.0.3
     mask: "/31"
     isis: true
+    isis_domain: core
     mpls: true
     level: 2
     metric: 100
@@ -16,16 +16,20 @@ ip_interfaces:
     ip_address: 10.0.0.16
     mask: "/31"
     isis: true
+    isis_domain: core
   - interface: Gi0/0/0/3
     description: TO_CORE_P2_1
     ip_address: 10.0.0.6
     mask: "/31"
     isis: true
+    isis_domain: core
+    mpls: true
   - interface: Gi0/0/0/4
     description: TO_CORE_P2_2
     ip_address: 10.1.0.24
     mask: "/31"
     isis: true
+    isis_domain: core
     mpls: true
     level: 2
     metric: 100
@@ -34,11 +38,13 @@ ip_interfaces:
     ip_address: 10.0.0.20
     mask: "/31"
     isis: true
+    isis_domain: core
   - interface: Gi0/0/0/6
     description: TO_CORE_PE3
     ip_address: 10.0.0.8
     mask: "/31"
     isis: true
+    isis_domain: core
     mpls: true
     level: 2
     metric: 100
@@ -47,9 +53,14 @@ ip_interfaces:
     ip_address: 172.16.0.1
     mask: "/32"
     isis: true
+    isis_domain: core
     passive: true
+    system: true
 isis:
-  net: 49.0000.1720.1600.0001.00
+  - domain: core
+    net: 49.0000.1720.1600.0001.00
+    sid_index: 100
+    link_state: true
 static_routes:
   - dst: 0.0.0.0/0
     next_hop: Null0
