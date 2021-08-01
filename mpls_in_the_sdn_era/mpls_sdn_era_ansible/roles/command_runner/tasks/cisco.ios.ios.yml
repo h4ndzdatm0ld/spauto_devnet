@@ -1,0 +1,5 @@
+---
+- name: "COMMAND_RUNNER: ISSUE COMMANDS ON IOS DEVICE: {{item}}"
+  cisco.ios.ios_command:
+    commands: "{{ commands }}"
+  register: "command_results"

@@ -1,0 +1,13 @@
+---
+- name: "PAIRED NETWORK DEVICE CNFIG DIFFER"
+  hosts: localhost
+  gather_facts: true
+  connection: network_cli
+  vars:
+    some_var: "Hello Hugo"
+  tasks:
+    - name: "TEST"
+      set_fact:
+        some_var: "{{ lookup('env', 'RD_OPTION_ANSIBLE_USER') | default('my cool variable', True)}}"
+      debug:
+        msg: "{{ some_var }}"

@@ -1,0 +1,24 @@
+---
+- name: "EXAMPLE TEST PLAYBOOK"
+  hosts: AS65000_P1
+  connection: local
+
+  vars:
+    supported_features:
+      ap_rules: access-policies
+      cgnat_pools: nat_stuff
+
+  tasks:
+    - name: EXAMPLE
+      debug:
+        msg: "{{ supported_features }}"
+
+    - name: FILTER
+      set_fact:
+        actual_supported: "{{ actual_supported|default({}) | combine({item.key: item.value}) | dict2items }}"
+      when: "item.key in hostvars[inventory_hostname]"
+      with_dict: "{{ supported_features }}"
+
+    - name: GET FEATURES
+      debug:
+        msg: "{{actual_supported}}"

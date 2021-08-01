@@ -1,0 +1,3 @@
+---
+- name: "INCLUDE TASKS BASED ON ANSIBLE_NETWORK_OS VARIABLE"
+  include_tasks: "{{ ansible_network_os }}.yml"

@@ -1,0 +1,18 @@
+# https://docs.ansible.com/ansible/latest/network/user_guide/cli_parsing.html#parsing-with-ntc-templates
+---
+- name: "EXAMPLE TTP PLAYBOOK"
+  hosts: R1
+  connection: network_cli
+
+  tasks:
+
+    - name: "Run command and parse with ttp"
+      ansible.netcommon.cli_parse:
+        command: show lldp neighbors
+        parser:
+          name: ansible.netcommon.ttp
+        set_fact: lldp
+
+    - name: DEBUG
+      debug:
+        msg: "{{ lldp }}"
