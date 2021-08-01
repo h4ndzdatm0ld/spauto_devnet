@@ -58,8 +58,6 @@ ip_interfaces:
     mask: "/32"
     isis: true
     isis_domain: core
-<<<<<<< HEAD
-=======
     passive: true
     system: true
   - interface: Loopback100
@@ -68,7 +66,6 @@ ip_interfaces:
     mask: "/32"
     isis: true
     isis_domain: 100
->>>>>>> main
     passive: true
     system: true
 isis:
@@ -78,13 +75,8 @@ isis:
   - domain: 100
     net: 49.0000.1720.1610.0022.00
     link_state: true
-<<<<<<< HEAD
-    sid_index: 1002
-    router_id: Loopback0
-=======
     sid_index: 1022
     router_id: 172.16.100.22
->>>>>>> main
 bgp:
   asn: 65000
   router_id: 172.16.0.22
