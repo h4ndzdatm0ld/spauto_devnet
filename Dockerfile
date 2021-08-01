@@ -57,5 +57,3 @@ WORKDIR /usr/src/app/
 COPY --from=test /usr/src/app /usr/src/app
 
 ENTRYPOINT ["pytest", "--disable-pytest-warnings", "tests"]
-
-

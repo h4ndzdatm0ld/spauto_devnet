@@ -1,0 +1,52 @@
+---
+- name: "PAIRED NETWORK DEVICE CNFIG DIFFER"
+  hosts: "{{ lookup('env', 'RD_OPTION_HOST_1') | default('R1', True) }},{{ lookup('env', 'RD_OPTION_HOST_2') | default('AS65001_CE1', True) }}"
+  gather_facts: false
+  connection: network_cli
+  vars:
+    ansible_host_key_checking: false
+    HOST1: "{{ lookup('env', 'RD_OPTION_HOST_1') | default('R1', True) }}"
+    HOST2: "{{ lookup('env', 'RD_OPTION_HOST_2') | default('AS65001_CE1', True) }}"
+    HOST1_OS: "{{ hostvars[HOST1].ansible_network_os }}"
+    HOST2_OS: "{{ hostvars[HOST2].ansible_network_os }}"
+    # ansible_user: "{{ lookup('env', 'RD_OPTION_ANSIBLE_USER') }}"
+    # ansible_password: "{{ lookup('env', 'RD_OPTION_ANSIBLE_PASSWORD') }}"
+    # ansible_become_password: "{{ lookup('env', 'RD_OPTION_IOS_ENABLE_PASS') }}"
+
+  tasks:
+    - name: "ASSERT: {{ HOST1 }} & {{ HOST2 }} ARE OF EQUAL OS"
+      assert:
+        that:
+          - "{{ HOST1_OS  ==  HOST2_OS }}"
+        fail_msg: "Cannot compare {{ HOST1_OS }} with {{ HOST2_OS }}"
+        success_msg: "SUCCESS! {{ HOST1 }} and {{ HOST2 }} are of the same OS: {{ HOST1_OS }}"
+
+    - name: "10. CREATING LOCAL DIRECTORY FOR OUTPUT"
+      ansible.builtin.file:
+        path: output
+        state: directory
+        mode: "0755"
+      connection: local
+      run_once: true
+
+    - name: "20. GET DEVICE OUTPUT USING SUBSET COMMANDS: {{ cmds }}"
+      include_role:
+        name: command_runner
+      vars:
+        commands: "{{ show_commands[cmds] }}"
+
+    - name: "30. DUMP CONTENTS TO FILE"
+      copy:
+        dest: "output/{{inventory_hostname}}.txt"
+        content: "{{ command_results['stdout'][0] }}"
+      connection: local
+
+    - name: "40. SHOW DIFFS ONLY, GREEN {{ lookup('env', 'RD_OPTION_HOST_1') | default('NXOS1', True) }} RED {{ lookup('env', 'RD_OPTION_HOST_2') | default('NXOS2', True) }}"
+      copy:
+        src: output/{{ HOST1 }}.txt
+        dest: output/{{ HOST2 }}.txt
+      check_mode: true
+      diff: true
+      run_once: true
+      connection: local
+      ignore_errors: true

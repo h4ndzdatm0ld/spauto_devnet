@@ -1,13 +1,10 @@
 ---
-# ansible_network_os: restconf
-ansible_network_os: "cisco.ios.ios"
-ansible_httpapi_validate_certs: false
-ansible_httpapi_port: 443
-ansible_httpapi_restconf_root: "/restconf/data/"  # default
-ansible_httpapi_use_ssl: true
-# ansible_connection: "httpapi"
+ansible_user: admin
+ansible_ssh_pass: admin
+ansible_python_interpreter: "python3"
 ansible_connection: network_cli
-
+ansible_network_os: "cisco.ios.ios"
+# These commands are vendor specific. Adjust according depending on ansible_network_os/Group.
 show_commands:
   redundancy_protocols:
     - show glbp
