@@ -22,10 +22,7 @@ router isis {{ domain.get('domain') }}
  !
 {% for interface in host.DATA_INPUT.ip_interfaces %}
 {% if interface.get('isis') %}
-<<<<<<< HEAD
-=======
 {% if interface.get('isis_domain') == domain.get('domain') %}
->>>>>>> main
 {% if interface.get('system') %}
 interface {{ interface.get('interface') }}
  passive
@@ -33,15 +30,8 @@ interface {{ interface.get('interface') }}
 {% if domain.get('sid_index') %}
  prefix-sid index {{ domain.get('sid_index') }}
 {% endif %}
-<<<<<<< HEAD
-{% endif %}
-{% if interface.get('isis_domain') == domain.get('domain') %}
-!
-{% if not interface.get('system') %}
-=======
 !
 {% else %}
->>>>>>> main
 interface {{ interface.get('interface') }}
  point-to-point
  address-family ipv4 unicast
