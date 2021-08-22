@@ -3,7 +3,7 @@ ansible_user: admin
 ansible_ssh_pass: admin
 ansible_python_interpreter: "python3"
 ansible_connection: network_cli
-ansible_network_os: "cisco.ios.ios"
+ansible_network_os: "ios"
 # These commands are vendor specific. Adjust according depending on ansible_network_os/Group.
 show_commands:
   redundancy_protocols:

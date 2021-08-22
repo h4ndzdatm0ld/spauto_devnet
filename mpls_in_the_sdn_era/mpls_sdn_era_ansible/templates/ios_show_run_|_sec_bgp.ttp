@@ -1,0 +1,27 @@
+<macro>
+def to_bool(captured_data):
+    represent_as_bools = ["activate", "log-neighbor-changes"]
+    if captured_data in represent_as_bools:
+      return captured_data, {captured_data: True}
+</macro>
+
+<group name="bgp">
+router bgp {{ asn | DIGIT }}
+ bgp router-id {{ router-id }}
+ bgp {{ log-neighbor-changes | macro("to_bool") }}
+ <group name="neighbor.{{ neighbor }}">
+ neighbor {{ neighbor | is_ip }} remote-as {{ remote-as }}
+ neighbor 10.1.0.1 update-source {{ update-source }}
+ </group>
+ ! {{ ignore }}
+ <group name="afi.{{ afi }}">
+ address-family {{ afi }}
+  redistribute {{ redistribute }}
+  <group name="neighbor">
+  neighbor {{ neighbor | is_ip }} {{ activate | macro("to_bool") }}
+  neighbor 10.1.0.1 send-community {{ send-community }}
+  neighbor 10.1.0.1 route-map {{ route-map }} {{ route-map-direction }}
+  </group>
+ exit-address-family {{ ignore }}
+ </group>
+</group>

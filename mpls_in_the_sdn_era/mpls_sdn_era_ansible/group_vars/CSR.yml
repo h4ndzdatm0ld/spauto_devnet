@@ -1,6 +1,6 @@
 ---
 # ansible_network_os: restconf
-ansible_network_os: "cisco.ios.ios"
+ansible_network_os: "ios"
 ansible_httpapi_validate_certs: false
 ansible_httpapi_port: 443
 ansible_httpapi_restconf_root: "/restconf/data/"  # default

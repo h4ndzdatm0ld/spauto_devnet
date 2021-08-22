@@ -1,0 +1,54 @@
+---
+- name: "EXAMPLE NETCONF TASKS"
+  hosts: "XR_NETCONF_HOSTS"
+
+  vars:
+    NETCONF_BACKUPS: "configs/{{ inventory_hostname }}/{{ inventory_hostname }}.xml"
+
+  tasks:
+    - name: "BACKUP NETCONF CONFIG FROM DEVICES"
+      ansible.netcommon.netconf_config:
+        backup: true
+        backup_options:
+          dir_path: "{{ NETCONF_BACKUPS }}"
+
+    - name: "EDIT LOOPBACK"
+      ansible.netcommon.netconf_config:
+        datastore: candidate
+        xml: |
+          <config>
+            <lldp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-lldp-cfg">
+              <enable>true</enable>
+            </lldp>
+          </config>
+
+    - name: "get configuration with direct native filter type"
+      ansible.netcommon.netconf_get:
+        filter: {
+                "interface-configurations": {
+                "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-cfg",
+                "interface-configuration": null
+          }
+        }
+        display: native
+      register: result
+
+    - name: "DEBUG BGP CONFIG"
+      debug:
+        msg: "{{ result.stdout }}"
+
+    - name: "GET CONFIG WITH FILTER - BGP"
+      ansible.netcommon.netconf_get:
+        filter: {
+                "bgp": {
+                "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg",
+                "instance": null
+          }
+        }
+        display: json
+      register: "bgp_config"
+
+    - name: "DEBUG BGP CONFIG"
+      debug:
+        msg: "{{ bgp_config.stdout_lines }}"
+

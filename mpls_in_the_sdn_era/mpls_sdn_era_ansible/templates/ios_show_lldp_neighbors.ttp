@@ -1,0 +1,7 @@
+<group name="LLDP_NEIGHBORS" method="table">
+Device ID           Local Intf     Hold-time  Capability      Port ID {{ignore}}
+{{DEVICE_ID}} {{LOCAL_INT}} {{HOLD_TIME | DIGIT}} {{CAPABILITY}} {{ PORT_ID }}
+</group>
+<group name="TOTAL_ENTRIES">
+Total entries displayed: {{ COUNT | DIGIT}}
+</group>
