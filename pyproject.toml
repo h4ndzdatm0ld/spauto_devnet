@@ -31,6 +31,7 @@ ntc-templates = "^2.0.0"
 ansible = "^3.3.0"
 xmltodict = "^0.12.0"
 jxmlease = "^1.0.3"
+ttp = "^0.7.2"
 
 [tool.poetry.dev-dependencies]
 

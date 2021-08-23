@@ -2,16 +2,7 @@
 - name: "EXAMPLE NETCONF TASKS"
   hosts: "XR_NETCONF_HOSTS"
 
-  vars:
-    NETCONF_BACKUPS: "configs/{{ inventory_hostname }}/{{ inventory_hostname }}.xml"
-
   tasks:
-    - name: "BACKUP NETCONF CONFIG FROM DEVICES"
-      ansible.netcommon.netconf_config:
-        backup: true
-        backup_options:
-          dir_path: "{{ NETCONF_BACKUPS }}"
-
     - name: "EDIT LOOPBACK"
       ansible.netcommon.netconf_config:
         datastore: candidate
@@ -22,7 +13,7 @@
             </lldp>
           </config>
 
-    - name: "get configuration with direct native filter type"
+    - name: "GET CONFIG WITH FILTER - INTERFACES"
       ansible.netcommon.netconf_get:
         filter: {
                 "interface-configurations": {
@@ -33,7 +24,7 @@
         display: native
       register: result
 
-    - name: "DEBUG BGP CONFIG"
+    - name: "DEBUG INT CONFIG"
       debug:
         msg: "{{ result.stdout }}"
 
@@ -52,3 +43,18 @@
       debug:
         msg: "{{ bgp_config.stdout_lines }}"
 
+    - name: "GET ALL SCHEMAS ON DEVICE"
+      ansible.netcommon.netconf_rpc:
+        rpc: get
+        content: |
+          <filter>
+            <netconf-state xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring">
+              <schemas/>
+            </netconf-state>
+          </filter>
+        display: json
+      register: "schemas"
+
+    - name: "SHOW SCHEMAS"
+      debug:
+        msg: "{{schemas['output']['rpc-reply']['data']['netconf-state']['schemas']['schema']}}"
