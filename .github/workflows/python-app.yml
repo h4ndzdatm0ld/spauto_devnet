@@ -5,39 +5,36 @@ name: Python application
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-    - name: Docker Compose 
-      run: docker-compose up -d batfish
-    - name: Install dependencies
-      run: |
-        pip install poetry
-        poetry install --no-interaction --no-dev
-    - name: Lint & Code Format
-      run: |
-        echo 'Running Flake8' && \
-        poetry run flake8 . && \
-        echo 'Running Black' && \
-        poetry run black --check --diff . && \
-        echo 'Running Yamllint' && \
-        poetry run yamllint . && \
-        echo 'Running pydocstyle' && \
-        poetry run pydocstyle . && \
-        echo 'Running Bandit' && \
-        poetry run bandit --recursive ./ --configfile .bandit.yml
-    - name: Test with pytest
-      run: |
-        poetry run pytest
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Docker Compose
+        run: docker-compose up -d batfish
+      - name: Install dependencies
+        run: |
+          pip install poetry
+          poetry install --no-interaction --no-dev
+      - name: Lint & Code Format
+        run: |
+          echo 'Running Flake8' && \
+          poetry run flake8 . && \
+          echo 'Running Black' && \
+          poetry run black --check --diff . && \
+          echo 'Running Yamllint' && \
+          poetry run yamllint . && \
+          echo 'Running pydocstyle' && \
+          poetry run pydocstyle .
+      - name: Test with pytest
+        run: |
+          poetry run pytest
