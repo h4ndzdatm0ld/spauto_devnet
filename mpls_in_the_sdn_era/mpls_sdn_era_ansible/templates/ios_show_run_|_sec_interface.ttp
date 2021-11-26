@@ -1,0 +1,4 @@
+<group name="interface">
+interface {{interface}}
+ ip address {{address}} {{mask}}
+</group>

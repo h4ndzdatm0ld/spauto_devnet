@@ -1,9 +1,0 @@
----
-- name: "EXAMPLE NETCONF BACKUP PB"
-  hosts: "CORE_EDGE_ROUTER"
-
-  tasks:
-
-    - name: "BACKUP NETCONF CONFIG FROM DEVICES"
-      netconf_config:
-        backup: true

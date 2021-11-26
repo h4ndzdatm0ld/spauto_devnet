@@ -4,11 +4,10 @@ Please update the NSO IP / Port information to match your environment.
 Please review the payload that's rendered from the Jinja2 template.
 """
 
-from nornir import InitNornir
-from nornir_utils.plugins.functions import print_result
 import requests
+from nornir import InitNornir
 from nornir_jinja2.plugins.tasks import template_file
-
+from nornir_utils.plugins.functions import print_result
 
 __author__ = "Hugo Tinoco"
 __email__ = "hugotinoco@icloud.com"

@@ -1,0 +1,60 @@
+---
+- name: "EXAMPLE NETCONF TASKS"
+  hosts: "XR_NETCONF_HOSTS"
+
+  tasks:
+    - name: "EDIT LLDP"
+      ansible.netcommon.netconf_config:
+        datastore: candidate
+        xml: |
+          <config>
+            <lldp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-ethernet-lldp-cfg">
+              <enable>true</enable>
+            </lldp>
+          </config>
+
+    - name: "GET CONFIG WITH FILTER - INTERFACES"
+      ansible.netcommon.netconf_get:
+        filter: {
+          "interface-configurations": {
+            "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-cfg",
+            "interface-configuration": null
+          }
+        }
+        display: native
+      register: result
+
+    - name: "DEBUG INT CONFIG"
+      debug:
+        msg: "{{ result.stdout }}"
+
+    - name: "GET CONFIG WITH FILTER - BGP"
+      ansible.netcommon.netconf_get:
+        filter: {
+          "bgp": {
+            "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg",
+            "instance": null
+          }
+        }
+        display: json
+      register: "bgp_config"
+
+    - name: "DEBUG BGP CONFIG"
+      debug:
+        msg: "{{ bgp_config.stdout_lines }}"
+
+    - name: "GET ALL SCHEMAS ON DEVICE"
+      ansible.netcommon.netconf_rpc:
+        rpc: get
+        content: |
+          <filter>
+            <netconf-state xmlns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring">
+              <schemas/>
+            </netconf-state>
+          </filter>
+        display: json
+      register: "schemas"
+
+    - name: "SHOW SCHEMAS"
+      debug:
+        msg: "{{schemas['output']['rpc-reply']['data']['netconf-state']['schemas']['schema']}}"

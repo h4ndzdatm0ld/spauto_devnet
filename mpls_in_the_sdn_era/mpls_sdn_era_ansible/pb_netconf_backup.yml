@@ -1,0 +1,13 @@
+---
+- name: "EXAMPLE NETCONF BACKUP PB"
+  hosts: "XR_NETCONF_HOSTS"
+
+  vars:
+    NETCONF_BACKUPS: "configs/{{ inventory_hostname }}/{{ inventory_hostname }}.xml"
+
+  tasks:
+    - name: "BACKUP NETCONF CONFIG FROM DEVICES"
+      ansible.netcommon.netconf_config:
+        backup: true
+        backup_options:
+          dir_path: "{{ NETCONF_BACKUPS }}"

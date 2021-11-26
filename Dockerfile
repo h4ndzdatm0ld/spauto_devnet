@@ -17,7 +17,7 @@ RUN poetry config virtualenvs.create false
 COPY poetry.lock pyproject.toml ./
 
 # Install production dependencies
-RUN poetry install --no-dev
+RUN poetry install --no-dev --no-root
 
 ############
 # Unit Tests
@@ -25,7 +25,7 @@ RUN poetry install --no-dev
 # This test stage runs true unit tests (no outside services) at build time, as
 # well as enforcing codestyle and performing fast syntax checks. It is built
 # into an image with docker-compose for running the full test suite.
-FROM base AS test
+FROM base AS test_spauto
 
 COPY . .
 # # Install full dependencies
@@ -44,16 +44,16 @@ RUN echo 'Running Flake8' && \
     echo 'Running Yamllint' && \
     yamllint . && \
     echo 'Running pydocstyle' && \
-    pydocstyle . && \
-    echo 'Running Bandit' && \
-    bandit --recursive ./ --configfile .bandit.yml
+    pydocstyle .
 
 #############
 FROM base as spauto
 
 WORKDIR /usr/src/app/
 
+COPY pyproject.toml poetry.lock ./
+
 # Get a copy of all the files from the test stage
-COPY --from=test /usr/src/app /usr/src/app
+COPY --from=test_spauto /usr/src/app /usr/src/app
 
 ENTRYPOINT ["pytest", "--disable-pytest-warnings", "tests"]

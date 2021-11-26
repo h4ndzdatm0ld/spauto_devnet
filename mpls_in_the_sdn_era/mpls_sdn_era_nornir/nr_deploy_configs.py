@@ -5,16 +5,14 @@ Configurations are deployed via Netmiko/Nornir to our devices.
 Before using this script, make sure you update the inventory host file with
 the correct Out of Band IP devices assigned to your lab topology.
 """
+import itertools
+
 from nornir import InitNornir
-from nornir_netmiko.tasks import (
-    netmiko_send_config,
-    netmiko_commit,
-)
-from nornir_utils.plugins.functions import print_result
 from nornir_jinja2.plugins.tasks import template_file
+from nornir_netmiko.tasks import netmiko_commit, netmiko_send_config
+from nornir_utils.plugins.functions import print_result
 from nornir_utils.plugins.tasks.data import load_yaml
 from nornir_utils.plugins.tasks.files import write_file
-import itertools
 
 __author__ = "Hugo Tinoco"
 __email__ = "hugotinoco@icloud.com"

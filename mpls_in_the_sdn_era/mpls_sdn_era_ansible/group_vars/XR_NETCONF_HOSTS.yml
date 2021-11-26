@@ -1,0 +1,5 @@
+---
+ansible_network_os: "cisco.iosxr.iosxr"
+ansible_connection: "ansible.netcommon.netconf"
+ansible_user: admin
+ansible_ssh_pass: admin
