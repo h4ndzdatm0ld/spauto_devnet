@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
-          poetry install --no-interaction --no-dev
+          poetry install --no-interaction
       - name: Lint & Code Format
         run: |
           echo 'Running Flake8' && \
