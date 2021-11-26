@@ -1,3 +1,4 @@
+"""TTP."""
 from ttp import ttp
 
 data_to_parse = """
@@ -51,5 +52,5 @@ parser = ttp(data=data_to_parse, template=ttp_template)
 parser.parse()
 
 # print result in JSON format
-results = parser.result(format='json')[0]
+results = parser.result(format="json")[0]
 print(results)

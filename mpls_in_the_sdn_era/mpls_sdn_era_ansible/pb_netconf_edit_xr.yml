@@ -16,9 +16,9 @@
     - name: "GET CONFIG WITH FILTER - INTERFACES"
       ansible.netcommon.netconf_get:
         filter: {
-                "interface-configurations": {
-                "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-cfg",
-                "interface-configuration": null
+          "interface-configurations": {
+            "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XR-ifmgr-cfg",
+            "interface-configuration": null
           }
         }
         display: native
@@ -31,9 +31,9 @@
     - name: "GET CONFIG WITH FILTER - BGP"
       ansible.netcommon.netconf_get:
         filter: {
-                "bgp": {
-                "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg",
-                "instance": null
+          "bgp": {
+            "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XR-ipv4-bgp-cfg",
+            "instance": null
           }
         }
         display: json

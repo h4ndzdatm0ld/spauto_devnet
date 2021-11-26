@@ -1,14 +1,10 @@
-from nornir import InitNornir
-import pytest
-from nornir_utils.plugins.tasks.data import load_yaml
-from nornir_jinja2.plugins.tasks import template_file
-from nornir_utils.plugins.tasks.files import write_file
 import docker
-from pybatfish.client.commands import (
-    bf_init_snapshot,
-    bf_set_network,
-    bf_session,
-)
+import pytest
+from nornir import InitNornir
+from nornir_jinja2.plugins.tasks import template_file
+from nornir_utils.plugins.tasks.data import load_yaml
+from nornir_utils.plugins.tasks.files import write_file
+from pybatfish.client.commands import bf_init_snapshot, bf_session, bf_set_network
 from pybatfish.question import load_questions
 
 # import itertools

@@ -4,11 +4,12 @@
 We loop through our inventory and get data from the devices based on task.host.
 """
 
-from nornir import InitNornir
-import requests
 import json
-from nornir_utils.plugins.tasks.files import write_file
+
+import requests
+from nornir import InitNornir
 from nornir_utils.plugins.functions import print_result
+from nornir_utils.plugins.tasks.files import write_file
 
 __author__ = "Hugo Tinoco"
 __email__ = "hugotinoco@icloud.com"

@@ -1,20 +1,17 @@
-from tests.conftest import (
-    load_data,
-    devices,
-    render_configs,
-    snapshot_loader,
-)
 import os
+
 import pytest
-from pybatfish.client.commands import bf_upload_diagnostics
-from pybatfish.question import bfq
 from pybatfish.client.asserts import (
-    assert_no_incompatible_bgp_sessions,
-    assert_no_unestablished_bgp_sessions,
     assert_no_duplicate_router_ids,
     assert_no_forwarding_loops,
+    assert_no_incompatible_bgp_sessions,
     assert_no_undefined_references,
+    assert_no_unestablished_bgp_sessions,
 )
+from pybatfish.client.commands import bf_upload_diagnostics
+from pybatfish.question import bfq
+
+from tests.conftest import devices, load_data, render_configs, snapshot_loader
 
 # # ######################################################################
 # # #   Example Configuration Compliance Checks to use within Pipeline   #
@@ -74,7 +71,7 @@ class TestBgpConfig:
         assert_no_incompatible_bgp_sessions(snapshot="mpls_sdn_era")
 
     def test_assert_no_unestablished_bgp_session(self):
-        """Assert there are no unestablished bgp sessions in our network. """
+        """Assert there are no unestablished bgp sessions in our network."""
 
         assert_no_unestablished_bgp_sessions(snapshot="mpls_sdn_era")
 
@@ -114,11 +111,11 @@ class TestBgpConfig:
             assert row.get("Route_Reflector")
 
     def test_no_duplicate_routerids(self):
-        """ Built in assertion, validate router-ids."""
+        """Built in assertion, validate router-ids."""
         assert assert_no_duplicate_router_ids()
 
     def test_no_fw_loops(self):
-        """"Built in assertion, no forwarding loops"""
+        """ "Built in assertion, no forwarding loops"""
         assert assert_no_forwarding_loops()
 
     def test_no_undefined_ref(self):
