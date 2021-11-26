@@ -3,7 +3,7 @@
   hosts: "XR_NETCONF_HOSTS"
 
   tasks:
-    - name: "EDIT LOOPBACK"
+    - name: "EDIT LLDP"
       ansible.netcommon.netconf_config:
         datastore: candidate
         xml: |
