@@ -6,19 +6,12 @@ Using the hier-config library and nornir-hier-config plugin.
 import itertools
 
 from nornir import InitNornir
+from nornir_hier_config.plugins.tasks import remediation
 from nornir_jinja2.plugins.tasks import template_file
-from nornir_netmiko.tasks import netmiko_commit, netmiko_send_config
+from nornir_napalm.plugins.tasks import napalm_get
 from nornir_utils.plugins.functions import print_result
 from nornir_utils.plugins.tasks.data import load_yaml
 from nornir_utils.plugins.tasks.files import write_file
-from nornir_hier_config.plugins.tasks import remediation
-from nornir_napalm.plugins.tasks import napalm_get
-
-# from mpls_in_the_sdn_era.mpls_sdn_era_nornir.nr_deploy_configs import (
-#     load_all_data,
-#     generate_full_mesh_list,
-#     render_main,
-# )
 
 __author__ = "Hugo Tinoco"
 __email__ = "hugotinoco@icloud.com"
