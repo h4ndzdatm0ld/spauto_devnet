@@ -24,8 +24,9 @@ Study Notes
 
 .. toctree::
    :glob:
+   :reversed:
 
-   Study Notes <SPAUTO/*>
+   SPAUTO/*
 
 Changelog
 =========

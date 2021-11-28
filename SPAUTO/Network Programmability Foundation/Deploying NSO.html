@@ -235,7 +235,7 @@ instance.</p>
 <p>It’s important to navigate to the folder of the new NSO instance.
 From our example above, we created a new directory called ‘example-nso-instance’</p>
 <p>cd into this directory and run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ncs</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ncs
 </pre></div>
 </div>
 <p>That’s it!</p>
@@ -243,15 +243,14 @@ From our example above, we created a new directory called ‘example-nso-instanc
 <section id="access-the-nso-instance">
 <h2>Access the NSO Instance<a class="headerlink" href="#access-the-nso-instance" title="Permalink to this headline"></a></h2>
 <p>If you don’t remember the IP of the server, simply do the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ip</span> <span class="n">addr</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">inet</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip addr <span class="p">|</span> grep inet
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-htinoco@nso-dev-example:~/ncs-run$ ip addr | grep inet
-    inet 127.0.0.1/8 scope host lo
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>htinoco@nso-dev-example:~/ncs-run$ ip addr <span class="p">|</span> grep inet
+    inet <span class="m">127</span>.0.0.1/8 scope host lo
     inet6 ::1/128 scope host 
-    inet 192.168.0.54/23 brd 192.168.1.255 scope global dynamic ens160
+    inet <span class="m">192</span>.168.0.54/23 brd <span class="m">192</span>.168.1.255 scope global dynamic ens160
 </pre></div>
 </div>
 <p>The local install should be reachable at http://x.x.x.x:8080/login.html.</p>
