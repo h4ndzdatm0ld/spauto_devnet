@@ -18,7 +18,14 @@ Contents
 
    Home <self>
    Readme <README>
-   Study Notes <SPAUTO>
+
+Study Notes
+========
+
+.. toctree::
+   :glob:
+
+   Study Notes <SPAUTO/*>
 
 Changelog
 =========
