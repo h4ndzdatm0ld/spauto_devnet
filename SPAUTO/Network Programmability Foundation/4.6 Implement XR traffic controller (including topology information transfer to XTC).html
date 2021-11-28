@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PRE-REQs: &mdash; Devnet SPAUTO 0.1.0 documentation</title>
+  <title>Implementing XR Traffic Controller &mdash; Devnet SPAUTO 0.1.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -44,10 +44,11 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="4.1%20Describe%20ETSI%20NFV.html">ETSI NFV</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PRE-REQs:</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#lsp-configuration-inter-domain-lsp">LSP Configuration (Inter-Domain LSP)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#mpls-lsp-from-xtc-with-segment-routing-as-transport">MPLS LSP From XTC with Segment Routing as Transport</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#troubleshooting-commands">Troubleshooting commands</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implementing XR Traffic Controller</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pre-reqs">PRE-REQs:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lsp-configuration-inter-domain-lsp">LSP Configuration (Inter-Domain LSP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mpls-lsp-from-xtc-with-segment-routing-as-transport">MPLS LSP From XTC with Segment Routing as Transport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting-commands">Troubleshooting commands</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s Next?!</a></li>
 </ul>
@@ -78,7 +79,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>PRE-REQs:</li>
+      <li>Implementing XR Traffic Controller</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/SPAUTO/Network Programmability Foundation/4.6 Implement XR traffic controller (including topology information transfer to XTC).md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -88,7 +89,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <p>Hello! Thank you for taking the time to view my blog and (possibly) follow along! I have been spending time preparing for the DEVNET SPAUTO specialist certification and I hope to create some great content thats publically available for those trying to achieve this cert.
+  <section class="tex2jax_ignore mathjax_ignore" id="implementing-xr-traffic-controller">
+<h1>Implementing XR Traffic Controller<a class="headerlink" href="#implementing-xr-traffic-controller" title="Permalink to this headline"></a></h1>
+<p>Hello! Thank you for taking the time to view my blog and (possibly) follow along! I have been spending time preparing for the DEVNET SPAUTO specialist certification and I hope to create some great content thats publically available for those trying to achieve this cert.
 I’ve been gathering all the lab materials and automation I’ve created at the following personal repository:</p>
 <p><a class="reference external" href="https://github.com/h4ndzdatm0ld/spauto_devnet.git">SPAUTO DEVNET REPO</a></p>
 <p>This material will also be included inside the WIKI pages for the repo.</p>
@@ -111,34 +114,34 @@ I’ve been gathering all the lab materials and automation I’ve created at the
 <p><strong>XTC</strong>
 XR Traffic Controller will be an IOSXRv device in our network. This device will have full PCE Server capabilities.</p>
 <section id="pre-reqs">
-<h1>PRE-REQs:<a class="headerlink" href="#pre-reqs" title="Permalink to this headline"></a></h1>
+<h2>PRE-REQs:<a class="headerlink" href="#pre-reqs" title="Permalink to this headline"></a></h2>
 <p>There will be some basic information pertaining to Segment - Routing, but we will not go into great detail on how to configure SR in our network.</p>
 <ol class="simple">
 <li><p>Ensure your BGP sessions to the predetermined IOSXR device that will become the XTC Controller have BGP-LS enabled.</p></li>
 <li><p>Ensure link-state information is being distributed from your IGP. In our case, we are using IS-IS. From the topology map, we are redistributing link-state information from our Provider Edge devices PE4 and PE2 as they are the edge devices between this Multi-Domain (ISIS) topology. This information is all propagated back to the Route-Reflector which is going to be our XTC/PCE controller.</p></li>
 <li><p>Example IS-IS link-state distribution:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="n">t</span>
-<span class="n">router</span> <span class="n">isis</span> <span class="n">core</span>
-<span class="n">distribute</span> <span class="n">link</span><span class="o">-</span><span class="n">state</span> <span class="n">level</span> <span class="mi">2</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>config t
+router isis core
+distribute link-state level 2
 </pre></div>
 </div>
 <ol class="simple">
 <li><p>Enable the link-state address family inside the BGP instance. Since I am enabling this on a Route-Reflector with a CLIENTS group, I will also add the family to the neighbor group. It’s important to add the address-family to the main BGP configuration otherwise the commit will fail. This family will also be added to the remote clients peering with this group.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="n">t</span>
-<span class="n">router</span> <span class="n">bgp</span> <span class="mi">65000</span>
-<span class="n">address</span><span class="o">-</span><span class="n">family</span> <span class="n">link</span><span class="o">-</span><span class="n">state</span> <span class="n">link</span><span class="o">-</span><span class="n">state</span>
-<span class="n">exit</span>
-<span class="n">neighbor</span><span class="o">-</span><span class="n">group</span> <span class="n">CLIENTS</span>
-<span class="n">address</span><span class="o">-</span><span class="n">family</span> <span class="n">link</span><span class="o">-</span><span class="n">state</span> <span class="n">link</span><span class="o">-</span><span class="n">state</span>
-<span class="n">commit</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>config t
+router bgp 65000
+address-family link-state link-state
+exit
+neighbor-group CLIENTS
+address-family link-state link-state
+commit
 </pre></div>
 </div>
 <ol class="simple">
 <li><p>Enable XTC On the virtualized IOSXR Route Reflectors with state-sync to neighboring RR. I chose to use a RR for the sake of resources and ease to start as all BGP-LS information is readily available within this device.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>pce
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pce
 address ipv4 {{loopback0}}
 logging no-path
 !
@@ -149,76 +152,76 @@ end
 </pre></div>
 </div>
 <p>Verify there is BGP LS information available at the RRs posing as the XTC PCE Server. This is a must before moving forward!</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show</span> <span class="n">bgp</span> <span class="n">link</span><span class="o">-</span><span class="n">state</span> <span class="n">link</span><span class="o">-</span><span class="n">state</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>show bgp link-state link-state
 </pre></div>
 </div>
 <p>Verify that link-state topology is available for the PCE. This command is being performed from the PCE/XR Traffic Controller (IOSXR RR)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show</span> <span class="n">pce</span> <span class="n">ipv4</span> <span class="n">topology</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>show pce ipv4 topology
 </pre></div>
 </div>
 <p>All of the hosts within our topology should be available in the link-state data. Visualizing the topology is easy, by piping the command in the following way:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RP</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="mi">0</span><span class="o">/</span><span class="n">CPU0</span><span class="p">:</span><span class="n">AS65000_RR2</span><span class="c1">#show pce ipv4 topology | include Host</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>RP/0/0/CPU0:AS65000_RR2#show pce ipv4 topology | include Host
 
-<span class="n">Sat</span> <span class="n">May</span> <span class="mi">22</span> <span class="mi">21</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mf">24.507</span> <span class="n">UTC</span>
+Sat May 22 21:03:24.507 UTC
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_P1</span>
+  Host name: AS65000_P1
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE1</span>
+      Host name: AS65000_PE1
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE3</span>
+      Host name: AS65000_PE3
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_P2</span>
+  Host name: AS65000_P2
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="mf">1720.1610.0022</span>
+      Host name: 1720.1610.0022
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_P1</span>
+      Host name: AS65000_P1
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_RR1</span>
+      Host name: AS65000_RR1
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE1</span>
+  Host name: AS65000_PE1
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="mf">1720.1610.0022</span>
+      Host name: 1720.1610.0022
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_P1</span>
+      Host name: AS65000_P1
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE3</span>
+  Host name: AS65000_PE3
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_P1</span>
+      Host name: AS65000_P1
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE4</span>
+      Host name: AS65000_PE4
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="mf">1720.1610.0022</span>
+  Host name: 1720.1610.0022
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE1</span>
+      Host name: AS65000_PE1
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_P2</span>
+      Host name: AS65000_P2
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE100</span>
+      Host name: AS65000_PE100
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE4</span>
+  Host name: AS65000_PE4
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_P2</span>
+      Host name: AS65000_P2
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE3</span>
+      Host name: AS65000_PE3
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_RR1</span>
+  Host name: AS65000_RR1
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_RR2</span>
+  Host name: AS65000_RR2
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE100</span>
+  Host name: AS65000_PE100
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="mf">1720.1610.0022</span>
+      Host name: 1720.1610.0022
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE101</span>
+      Host name: AS65000_PE101
 
-  <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE101</span>
+  Host name: AS65000_PE101
 
-      <span class="n">Host</span> <span class="n">name</span><span class="p">:</span> <span class="n">AS65000_PE100</span>
+      Host name: AS65000_PE100
 </pre></div>
 </div>
 </section>
 <section id="lsp-configuration-inter-domain-lsp">
-<h1>LSP Configuration (Inter-Domain LSP)<a class="headerlink" href="#lsp-configuration-inter-domain-lsp" title="Permalink to this headline"></a></h1>
+<h2>LSP Configuration (Inter-Domain LSP)<a class="headerlink" href="#lsp-configuration-inter-domain-lsp" title="Permalink to this headline"></a></h2>
 <p>Lets create an example LSP from our node AS65000_PE1 to our FOREIGN ISIS DOMAIN 100, PE101.
 We will provide the traffic-eng configuration within MPLS to use our PCE peer (RR2). We will source our connection from our Loopback0 address at PE1.</p>
 <p>Before we begin, lets check the computed path is available at the PCE XTC. If the path is not available, there could be some BGP-LS data missing or further troubleshooting is necessary before continuing. If there is no path, the LSP will not form at the PE.</p>
@@ -374,7 +377,7 @@ RP/0/0/CPU0:AS65000_PE101#
 </div>
 </section>
 <section id="mpls-lsp-from-xtc-with-segment-routing-as-transport">
-<h1>MPLS LSP From XTC with Segment Routing as Transport<a class="headerlink" href="#mpls-lsp-from-xtc-with-segment-routing-as-transport" title="Permalink to this headline"></a></h1>
+<h2>MPLS LSP From XTC with Segment Routing as Transport<a class="headerlink" href="#mpls-lsp-from-xtc-with-segment-routing-as-transport" title="Permalink to this headline"></a></h2>
 <p>This scenario is almost identical, but we take full advantage of Segment-Routing as the transport. We have already configured our MPLS Traffic-Engineering to contact the PCE server for Path-Computation and everything has been verified. Now, while creating our Tunnel Interfaces, our Path-Options will be Dynamic from PCE but with Segment Routing. Lets take a look at what a tunnel will look like from PE1 to PE4 within the same IS-IS Domain:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>RP/0/0/CPU0:AS65000_PE1#show run interface tunnel-te10044
 Sun May 23 20:45:28.282 UTC
@@ -453,26 +456,17 @@ interface tunnel-te10044
 </div>
 <p>Looks like everything is working! We could now deploy VPN services across this multi-domain network, as we have fully established a bi-directional LSP path from IS-IS Domain CORE and IS-IS Domain 100.</p>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="troubleshooting-commands">
-<h1>Troubleshooting commands<a class="headerlink" href="#troubleshooting-commands" title="Permalink to this headline"></a></h1>
+<section id="troubleshooting-commands">
+<h2>Troubleshooting commands<a class="headerlink" href="#troubleshooting-commands" title="Permalink to this headline"></a></h2>
 <ul class="simple">
-<li><p>show mpls traffic-eng pce peer</p>
-<ul>
+<li><p>show mpls traffic-eng pce peer</p></li>
 <li><p>Validate the session establishment with the XR Traffic Controller.</p></li>
-</ul>
-</li>
-<li><p>show mpls traffic-eng tunnels {tunnel_name}</p>
-<ul>
+<li><p>show mpls traffic-eng tunnels {tunnel_name}</p></li>
 <li><p>View MPLS tunnel information in detail, such as PCE computated path.</p></li>
-</ul>
-</li>
-<li><p>traceroute mpls traffic-eng tunnel-te {tunel id}</p>
-<ul>
+<li><p>traceroute mpls traffic-eng tunnel-te {tunel id}</p></li>
 <li><p>MPLS traceroute</p></li>
-<li></li>
 </ul>
-</li>
-</ul>
+</section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h2>
 <p>The power of the XR Controller to allow you dynamically create IP/MPLS or Segment-Routing Traffic Engineered tunnels is incredible. We have only scratched the surface, but this is enough to understand the concept of what XTC is providing for a large SP Network. There are some use-cases that have been shared by networks who are using this feature in production and it looks very promising. I can think of a specific merger in my career that we could have benefited greatly from this. As XTC has been fully implemented to be a feature of the IOSXR Family, it’s going to become incredibly easy to adopt in production networks. One thing to note is that BGP-LS is playing a KEY role in the success of XTC. Hopefully this has covered enough grounds for the SPAUTO exam and look forward to taking the exam and being prepared in this topic!</p>
