@@ -5,7 +5,7 @@ description = "Playground to study for Cisco Devnet Service Provider Automation 
 authors = ["h4ndzdatm0ld <hugotinoco@icloud.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8,<3.10"
 ncclient = "^0.6.10"
 netmiko = "^3.3.3"
 nornir-utils = "^0.1.2"
@@ -27,6 +27,9 @@ xmltodict = "^0.12.0"
 jxmlease = "^1.0.3"
 ttp = "^0.7.2"
 pytest = "^6.2.5"
+nornir = "^3.2.0"
+hier-config = "^2.2.0"
+nornir-hier-config = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
 isort = "^5.10.1"
@@ -34,6 +37,10 @@ flake8 = "^4.0.1"
 pydocstyle = "^6.1.1"
 black = "^21.11b1"
 yamllint = "^1.26.3"
+sphinx-autoapi = "^1.8.4"
+sphinx-rtd-theme = "^1.0.0"
+myst-parser = "^0.15.2"
+sphinx = "^4.3.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

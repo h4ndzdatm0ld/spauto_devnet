@@ -12,5 +12,5 @@ inventory:
     defaults_file: "inventory/defaults.yml"
 
 logging:
-  log_file: Logs/nornir.log
+  log_file: logs/nornir.log
   level: DEBUG
