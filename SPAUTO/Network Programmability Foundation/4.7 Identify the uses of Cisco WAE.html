@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cisco WAN Automation Engine &mdash; Devnet SPAUTO 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Devnet SPAUTO
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Readme</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Devnet SPAUTO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Cisco WAN Automation Engine</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/SPAUTO/Network Programmability Foundation/4.7 Identify the uses of Cisco WAE.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="cisco-wan-automation-engine">
+<h1>Cisco WAN Automation Engine<a class="headerlink" href="#cisco-wan-automation-engine" title="Permalink to this headline"></a></h1>
+<p>Multi vendor SDN platform for Network optimization and service delivery across enterprise and SP networks.</p>
+<p>Links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developer.cisco.com/docs/wan-automation-engine/#%21wae-design-quick-start-guide/wae-design-quick-start-guide">WAE Quick Start</a></p></li>
+<li><p><a class="reference external" href="https://developer.cisco.com/docs/wan-automation-engine/#%21overview/wae-and-sr-pce">WAE SR PCE</a></p></li>
+<li><p><a class="reference external" href="https://developer.cisco.com/docs/wan-automation-engine/#wan-automation-engine-api-overview-wan-automation-engine-api-overview">WAE API Overview</a></p></li>
+</ul>
+<section id="intro">
+<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this headline"></a></h2>
+<p>The WAN Automation Engine is a powerful, flexible software-defined networking (SDN) platform. It abstracts and simplifies your WAN environment while making it fully open and programmable. You can deploy innovative services such as Coordinated Maintenance, bandwidth calendaring, and premium network-routing solutions.</p>
+<p>Wan Planning Application: WAE Design
+Programmatic Interfaces: Python: NETCONF/RESTCONF</p>
+<p>WAE Server:</p>
+<ul class="simple">
+<li><p>Abstracts Network Model (Multivendor/Multilayer)</p></li>
+</ul>
+<p>WAE Design:</p>
+<ul class="simple">
+<li><p>A planning tool that runs on your desktop. In WAE Design you can retrieve a network model from the server and view the topology. You can quickly filter and drill down, simulate “what if“ scenarios and run tools to evaluate potential risks, find optimal paths/IGP metrics or suggest changes in capacity.</p></li>
+</ul>
+<p>The WAE engine on the server is not a controller. The WAE engine can be asked to evaluate a scenario or run an optimization via the APIs and WAE will return a response based on the model it has.</p>
+<p>WAE has a tool called Demand Deduction that uses measured data from the network to determine what the demand traffic values should be.</p>
+<p>WAE Can provide Capacity Planning with Resiliency Analysis</p>
+</section>
+<section id="wae-api">
+<h2>WAE API:<a class="headerlink" href="#wae-api" title="Permalink to this headline"></a></h2>
+<p>The operations and capabilities of the WAE Design planning tool can be automated using the WAE Design RPC python API.</p>
+<p>Snippet:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">com.cisco.wae.design</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+  <span class="c1"># Get input variables</span>
+  <span class="n">srcPlanFile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;-plan-file&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+
+  <span class="c1"># This is like starting the Design client</span>
+  <span class="n">conn</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">wae</span><span class="o">.</span><span class="n">design</span><span class="o">.</span><span class="n">ServiceConnectionManager</span><span class="o">.</span><span class="n">newService</span><span class="p">()</span>
+
+  <span class="c1"># This is like opening a plan file</span>
+  <span class="nb">id</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getPlanManager</span><span class="p">()</span><span class="o">.</span><span class="n">newPlanFromFileSystem</span><span class="p">(</span><span class="n">srcPlanFile</span><span class="p">)</span>
+
+  <span class="c1">###</span>
+  <span class="c1"># In this section, do all the cool stuff you want the script to do</span>
+  <span class="c1">###</span>
+
+  <span class="c1"># Do this if you want to save the output plan file with name &#39;out.pln&#39;</span>
+  <span class="nb">id</span><span class="o">.</span><span class="n">serializeToFileSystem</span><span class="p">(</span><span class="s1">&#39;out.pln&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The simplest way to run a WAE Design API Python script is to use the design_api_python tool. It will set the correct environment and call the correct Python interpreter for your system. (Instructions for installing the required Python interpreter are given in the platform-dependent secsions below.)</p>
+<p>When it’s time to run the script, go to the WAE Design bin directory and use the <strong>design_api_python</strong> utility</p>
+</section>
+<section id="the-optimization-and-prediction-module-opm-api-wrapper">
+<h2>The Optimization and Prediction Module (OPM) API Wrapper<a class="headerlink" href="#the-optimization-and-prediction-module-opm-api-wrapper" title="Permalink to this headline"></a></h2>
+<p>To make things simple, the WAE solutions team has developed the OPM API which provides a more “pythonic” way of working with the API where the user does not need a complete understanding of the WAE relational model</p>
+</section>
+<section id="netconf-restconf-apis-using-the-wae-server">
+<h2>NETCONF/RESTCONF APIs using the WAE server<a class="headerlink" href="#netconf-restconf-apis-using-the-wae-server" title="Permalink to this headline"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>GET /restconf/data/networks/network<span class="o">=</span>sr_dare/model/circuits HTTP/1.1
+Host: &lt;WAE Server IP&gt;:8080
+Accept: application/yang-data+json
+Authorization: Basic username / password
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The WAE server runtime has access to the Design RPC and OPM modules as well.</p></li>
+</ul>
+<p>In this example, there is a sample OPM module on the WAE server that will compute disjoint paths.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>POST /restconf/data/networks/network<span class="o">=</span>sr_dare/opm/path-compute-disjoint/run HTTP/1.1
+Host: &lt;WAE Server IP&gt;:8080
+Content-Type: application/yang-data+json
+Authorization: Basic username / password
+
+<span class="o">{</span>  
+   <span class="s2">&quot;input&quot;</span>:<span class="o">{</span>  
+      <span class="s2">&quot;source-node1&quot;</span>:<span class="s2">&quot;Node-1&quot;</span>,
+      <span class="s2">&quot;source-node2&quot;</span>:<span class="s2">&quot;Node-2&quot;</span>,
+      <span class="s2">&quot;destination-node1&quot;</span>:<span class="s2">&quot;Node-3&quot;</span>,
+      <span class="s2">&quot;destination-node2&quot;</span>:<span class="s2">&quot;Node-4&quot;</span>,
+      <span class="s2">&quot;te-type&quot;</span>:<span class="s2">&quot;segment_routing&quot;</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Hugo Tinoco.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
