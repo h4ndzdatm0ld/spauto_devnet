@@ -1,4 +1,5 @@
 # Installing NSO Evaluation Version (5.5)
+
 For my studies, I decided to deploy an Ubuntu VM to host an NSO instance. Keep in mind there are several ways to take advantage of NSO. Within a CI/CD pipeline, as a docker container, a full blown production server and as a local install. An evaluation version has recently been released and is free to download.
 
 Head on over to the following site and get the installer files.
@@ -16,16 +17,19 @@ At this point, you should have downloaded a local copy of the eval version on yo
 Our VM will have 2 CPU's and 4GB of ram. This should be plenty for our operations, although more RAM may be required if we add all 17 routers, as documentation suggests. We will be doing a Local Install on our remote server which allows the creation of multiple, unrelated NSO instances in one host.
 
 ## Getting started
+
 I won't bore you with the details, but the first step is to SCP the .bin file for the NSO appliance and any other NEDs you may have downloaded to our VM.
 
 Start with a system package update and then lets make sure we have the following installed:
 
-```
+```bash
 sudo apt-get install default-jdk &&\
 python3-pip &&\
 ```
+
 Now install paramiko via pip
-```	
+
+```	bash
 pip3 install paramiko 
 ```
 
@@ -33,18 +37,19 @@ It's recommended to install our NSO instance in our HOME directory. But we must 
 
 Change directory to where you SCP'd the files onto the remote server and perform the following:
 
-```
+```bash
 sh nso-5.5.linux.x86_64.signed.bin --skip-verification
 ```
 
 Now that the files are unpacked, lets go ahead and install a local instance in our home directory. We are able to install several different instances this way. Only one of our instances can be running at any given time, but if you would like to have more than one, just simply create more with different names. 
 
-```
+```bash
 sh nso-5.5.linux.x86_64.installer.bin $HOME/ncs-5.5 --local-install
 ```
 
 Finally, set up our env
-```
+
+```bash
 source $HOME/ncs-5.5/ncsrc
 ncs-setup --dest $HOME/ncs-run
 ```
@@ -81,7 +86,8 @@ htinoco@nso-dev-example:~$ cd ncs-run/
 htinoco@nso-dev-example:~/ncs-run$ ncs
 htinoco@nso-dev-example:~/ncs-run$ 
 ```
-# Installing Additional NEDS
+
+## Installing Additional NEDS
 
 Although NSO instance comes pre-packaged with several NEDs available, there are a couple different free eval versions available for download through the DevNet website as well.
 
@@ -166,7 +172,7 @@ htinoco@nso-dev-example:~/ncs-5.5/packages/neds$ tree -L 1
 
 We have successfully installed our NEDs.
 
-# Creating Local Instance of NSO
+## Creating Local Instance of NSO
 
 Our local installation allows us to have several NSO instances. We will create an example
 instance.
@@ -174,11 +180,13 @@ instance.
 Use the 'ncs-setup' command to create a new NSO instance.
 --package is used to specify the NEDS
 --dest flag is used to specifcy a directory for the new nso-instance.
-```
+
+```bash
 ncs-setup --package ~/ncs-5.5/packages/neds/cisco-ios-cli-6.69/ \
 --package ~/ncs-5.5/packages/neds/cisco-iosxr-cli-7.33/ \
 --dest example-nso-instance
 ```
+
 ## Starting NSO Instance
 
 It's important to navigate to the folder of the new NSO instance.
