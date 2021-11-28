@@ -3,6 +3,8 @@
 All of the study notes have now been moved to use auto-generated documentation to build a static site with Github Pages.
 Alongside all the code documentation, you will find a folder structure for notes in markdown broken down by test categories.
 
+[Documentation + Study Notes](https://h4ndzdatm0ld.github.io/spauto_devnet/index.html)
+
 ## A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies
 
 [Cisco Certified DevNet Specialist - Service Provider Automation and Programmability](https://developer.cisco.com/certification/devnet-sp-auto/)
