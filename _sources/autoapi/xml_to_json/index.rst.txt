@@ -1,0 +1,51 @@
+:py:mod:`xml_to_json`
+=====================
+
+.. py:module:: xml_to_json
+
+.. autoapi-nested-parse::
+
+   XML TO JSON.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   xml_to_json.FilterModule
+
+
+
+
+.. py:class:: FilterModule
+
+   Bases: :py:obj:`object`
+
+   Filter Module.
+
+   .. py:method:: etree_to_dict(self, t)
+
+      Etree to Dict.
+
+
+   .. py:method:: filters(self)
+
+      Filters.
+
+
+   .. py:method:: from_xml(self, data)
+
+      From XML.
+
+
+   .. py:method:: xml_to_json(self, data)
+
+      XML TO JSON.
+
+
+

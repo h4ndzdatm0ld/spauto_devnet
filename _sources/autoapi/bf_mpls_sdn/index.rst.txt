@@ -1,0 +1,51 @@
+:py:mod:`bf_mpls_sdn`
+=====================
+
+.. py:module:: bf_mpls_sdn
+
+.. autoapi-nested-parse::
+
+   Interactive Batfish Script.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   bf_mpls_sdn.snapshot_loader
+   bf_mpls_sdn.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   bf_mpls_sdn.CONFIGS
+
+
+.. py:data:: CONFIGS
+   :annotation: = ../../tests/network_data/mpls_sdn_era
+
+   
+
+.. py:function:: snapshot_loader(snap_path, name, overwrite=True)
+
+   Simple function to load a snapshot into Batfish.
+
+   This function allows up to use a setup fixture and extend to multiple
+   test cases against thedifferent snapshots of the network.
+
+
+.. py:function:: main()
+
+   Execute Batfish Interactive.
+
+

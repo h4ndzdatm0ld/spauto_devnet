@@ -1,0 +1,68 @@
+:py:mod:`nr_get_nso_device_facts`
+=================================
+
+.. py:module:: nr_get_nso_device_facts
+
+.. autoapi-nested-parse::
+
+   Script will collect device information from NSO via the API.
+
+   We loop through our inventory and get data from the devices based on task.host.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_get_nso_device_facts.get_nso_devices
+   nr_get_nso_device_facts.write_restconf_data
+   nr_get_nso_device_facts.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_get_nso_device_facts.__author__
+   nr_get_nso_device_facts.__email__
+   nr_get_nso_device_facts.nr
+
+
+.. py:data:: __author__
+   :annotation: = Hugo Tinoco
+
+   
+
+.. py:data:: __email__
+   :annotation: = hugotinoco@icloud.com
+
+   
+
+.. py:data:: nr
+   
+
+   
+
+.. py:function:: get_nso_devices(task)
+
+   Make a REST API call to our NSO instance to extract device information.
+
+
+.. py:function:: write_restconf_data(task)
+
+   Dump facts to a file. This is helpful to review NSO returned data.
+
+
+.. py:function:: main()
+
+   Execute the nornir runbook.
+
+

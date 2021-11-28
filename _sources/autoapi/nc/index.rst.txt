@@ -1,0 +1,11 @@
+:py:mod:`nc`
+============
+
+.. py:module:: nc
+
+.. autoapi-nested-parse::
+
+   Example NETCONF Python Script.
+
+
+

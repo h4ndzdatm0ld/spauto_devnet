@@ -1,0 +1,63 @@
+:py:mod:`nr_add_device_nso`
+===========================
+
+.. py:module:: nr_add_device_nso
+
+.. autoapi-nested-parse::
+
+   This script will utilize the Nornir inventory to add devices into NSO.
+
+   Please update the NSO IP / Port information to match your environment.
+   Please review the payload that's rendered from the Jinja2 template.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_add_device_nso.update_nso_devices
+   nr_add_device_nso.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_add_device_nso.__author__
+   nr_add_device_nso.__email__
+   nr_add_device_nso.nr
+
+
+.. py:data:: __author__
+   :annotation: = Hugo Tinoco
+
+   
+
+.. py:data:: __email__
+   :annotation: = hugotinoco@icloud.com
+
+   
+
+.. py:data:: nr
+   
+
+   
+
+.. py:function:: update_nso_devices(task)
+
+   This runbook will generate a Jinja2 Template to add a device to NSO.
+
+
+.. py:function:: main()
+
+   Execute all nornir tasks.
+
+

@@ -1,0 +1,98 @@
+:py:mod:`nr_deploy_configs`
+===========================
+
+.. py:module:: nr_deploy_configs
+
+.. autoapi-nested-parse::
+
+   This script will generate configurations by rendering our Jinja templates.
+
+   Configurations are deployed via Netmiko/Nornir to our devices.
+   Before using this script, make sure you update the inventory host file with
+   the correct Out of Band IP devices assigned to your lab topology.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_deploy_configs.assert_data
+   nr_deploy_configs.load_all_data
+   nr_deploy_configs.generate_full_mesh_list
+   nr_deploy_configs.render_main
+   nr_deploy_configs.push_config
+   nr_deploy_configs.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_deploy_configs.__author__
+   nr_deploy_configs.__email__
+   nr_deploy_configs.nr
+
+
+.. py:data:: __author__
+   :annotation: = Hugo Tinoco
+
+   
+
+.. py:data:: __email__
+   :annotation: = hugotinoco@icloud.com
+
+   
+
+.. py:data:: nr
+   
+
+   
+
+.. py:function:: assert_data()
+
+   Error checking of input data.
+
+
+.. py:function:: load_all_data(task)
+
+   Read all the data from the associated YAML files inside data_input dir.
+
+   Add all the variables into a DATA_INPUT dictionary for the individual
+   task.host.
+
+
+.. py:function:: generate_full_mesh_list(task)
+
+   Loop through inventory hosts which are MPLS enabled devices.
+
+   Generate a list of Loopback IP far-end addresses and add to a task_host[dict]
+   to reference later as we deploy our full-mesh MPLS LSP Configuration.
+
+   This task 100% depends on the success of "load_all_data" task.
+
+
+.. py:function:: render_main(task)
+
+   Render device configuration using our Jinja2 Templates.
+
+   Write staged config to file for preview/debugging.
+
+
+.. py:function:: push_config(task)
+
+   Push configurations to devices.
+
+
+.. py:function:: main()
+
+   Execute our Nornir runbook.
+
+

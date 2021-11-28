@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ttp-ex &mdash; Devnet SPAUTO 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Devnet SPAUTO
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Readme</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Devnet SPAUTO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">ttp-ex</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/autoapi/ttpex/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-ttp-ex">
+<span id="ttp-ex"></span><h1><a class="reference internal" href="#module-ttp-ex" title="ttp-ex"><code class="xref py py-mod docutils literal notranslate"><span class="pre">ttp-ex</span></code></a><a class="headerlink" href="#module-ttp-ex" title="Permalink to this headline"></a></h1>
+<p>TTP.</p>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="ttp-ex.data_to_parse">
+<span class="sig-prename descclassname"><span class="pre">ttp-ex.</span></span><span class="sig-name descname"><span class="pre">data_to_parse</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">Multiline-String</span></em><a class="headerlink" href="#ttp-ex.data_to_parse" title="Permalink to this definition"></a></dt>
+<dd><blockquote>
+<div><details><summary>Show Value</summary><div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>router bgp 65001
+<span class="linenos"> 2</span> bgp router-id 192.168.10.1
+<span class="linenos"> 3</span> bgp log-neighbor-changes
+<span class="linenos"> 4</span> neighbor 10.1.0.1 remote-as 65000
+<span class="linenos"> 5</span> neighbor 10.1.0.1 update-source GigabitEthernet2.1001
+<span class="linenos"> 6</span> neighbor 10.1.0.5 remote-as 65000
+<span class="linenos"> 7</span> neighbor 10.1.0.5 update-source GigabitEthernet3.1001
+<span class="linenos"> 8</span> !
+<span class="linenos"> 9</span> address-family ipv4
+<span class="linenos">10</span>  redistribute connected
+<span class="linenos">11</span>  neighbor 10.1.0.1 activate
+<span class="linenos">12</span>  neighbor 10.1.0.1 send-community both
+<span class="linenos">13</span>  neighbor 10.1.0.1 route-map PL-EBGP-PE1-OUT out
+<span class="linenos">14</span>  neighbor 10.1.0.5 activate
+<span class="linenos">15</span>  neighbor 10.1.0.5 send-community both
+<span class="linenos">16</span>  neighbor 10.1.0.5 route-map PL-EBGP-PE2-OUT out
+<span class="linenos">17</span> exit-address-family
+</pre></div>
+</div>
+</details></div></blockquote>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ttp-ex.ttp_template">
+<span class="sig-prename descclassname"><span class="pre">ttp-ex.</span></span><span class="sig-name descname"><span class="pre">ttp_template</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">Multiline-String</span></em><a class="headerlink" href="#ttp-ex.ttp_template" title="Permalink to this definition"></a></dt>
+<dd><blockquote>
+<div><details><summary>Show Value</summary><div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>&lt;macro&gt;
+<span class="linenos"> 2</span>def to_bool(captured_data):
+<span class="linenos"> 3</span>    represent_as_bools = [&quot;activate&quot;, &quot;log-neighbor-changes&quot;]
+<span class="linenos"> 4</span>    if captured_data in represent_as_bools:
+<span class="linenos"> 5</span>        return captured_data, {captured_data: True}
+<span class="linenos"> 6</span>&lt;/macro&gt;
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>&lt;group name=&quot;bgp&quot;&gt;
+<span class="linenos"> 9</span>router bgp {{ asn }}
+<span class="linenos">10</span> bgp router-id {{ router-id }}
+<span class="linenos">11</span> bgp {{ log-neighbor-changes | macro(&#39;to_bool&#39;)}}
+<span class="linenos">12</span> &lt;group name=&quot;neighbor.{{ neighbor }}&quot;&gt;
+<span class="linenos">13</span> neighbor {{ neighbor }} remote-as {{ remote-as }}
+<span class="linenos">14</span> neighbor 10.1.0.1 update-source {{ update-source }}
+<span class="linenos">15</span> &lt;/group&gt;
+<span class="linenos">16</span> ! {{ ignore }}
+<span class="linenos">17</span> &lt;group name=&quot;afi.{{ afi }}&quot;&gt;
+<span class="linenos">18</span> address-family {{ afi }}
+<span class="linenos">19</span>  redistribute {{ redistribute }}
+<span class="linenos">20</span>  &lt;extend template=&quot;templates/bgp_neighbors.txt&quot;/&gt;
+<span class="linenos">21</span> exit-address-family {{ ignore }}
+<span class="linenos">22</span> &lt;/group&gt;
+<span class="linenos">23</span>&lt;/group&gt;
+</pre></div>
+</div>
+</details></div></blockquote>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ttp-ex.parser">
+<span class="sig-prename descclassname"><span class="pre">ttp-ex.</span></span><span class="sig-name descname"><span class="pre">parser</span></span><a class="headerlink" href="#ttp-ex.parser" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="ttp-ex.results">
+<span class="sig-prename descclassname"><span class="pre">ttp-ex.</span></span><span class="sig-name descname"><span class="pre">results</span></span><a class="headerlink" href="#ttp-ex.results" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Hugo Tinoco.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

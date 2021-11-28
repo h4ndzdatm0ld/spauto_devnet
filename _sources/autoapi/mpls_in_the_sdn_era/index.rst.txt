@@ -1,0 +1,14 @@
+:py:mod:`mpls_in_the_sdn_era`
+=============================
+
+.. py:module:: mpls_in_the_sdn_era
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   :annotation: = 0.1.0
+
+   
+

@@ -1,0 +1,68 @@
+:py:mod:`nr_get_napalm_configs`
+===============================
+
+.. py:module:: nr_get_napalm_configs
+
+.. autoapi-nested-parse::
+
+   Extract configuration from devices using NAPALM.
+
+   We loop through our inventory and get data from the devices based on task.host.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_get_napalm_configs.get_device_facts_config
+   nr_get_napalm_configs.write_facts_config
+   nr_get_napalm_configs.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_get_napalm_configs.__author__
+   nr_get_napalm_configs.__email__
+   nr_get_napalm_configs.nr
+
+
+.. py:data:: __author__
+   :annotation: = Hugo Tinoco
+
+   
+
+.. py:data:: __email__
+   :annotation: = hugotinoco@icloud.com
+
+   
+
+.. py:data:: nr
+   
+
+   
+
+.. py:function:: get_device_facts_config(task)
+
+   Extract facts & configuration from devices with NAPALM's help.
+
+
+.. py:function:: write_facts_config(task)
+
+   Dump facts & configuration to file.
+
+
+.. py:function:: main()
+
+   Execute the nornir runbook.
+
+

@@ -1,0 +1,102 @@
+:py:mod:`nr_remediate`
+======================
+
+.. py:module:: nr_remediate
+
+.. autoapi-nested-parse::
+
+   This script will create remediation configurations if necessary.
+
+   Using the hier-config library and nornir-hier-config plugin.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_remediate.load_all_data
+   nr_remediate.generate_full_mesh_list
+   nr_remediate.render_main
+   nr_remediate.get_device_facts_config
+   nr_remediate.configuation_remediation
+   nr_remediate.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   nr_remediate.__author__
+   nr_remediate.__email__
+   nr_remediate.nornir
+   nr_remediate.nr
+
+
+.. py:data:: __author__
+   :annotation: = Hugo Tinoco
+
+   
+
+.. py:data:: __email__
+   :annotation: = hugotinoco@icloud.com
+
+   
+
+.. py:data:: nornir
+   
+
+   
+
+.. py:data:: nr
+   
+
+   
+
+.. py:function:: load_all_data(task)
+
+   Read all the data from the associated YAML files inside data_input dir.
+
+   Add all the variables into a DATA_INPUT dictionary for the individual
+   task.host.
+
+
+.. py:function:: generate_full_mesh_list(task)
+
+   Loop through inventory hosts which are MPLS enabled devices.
+
+   Generate a list of Loopback IP far-end addresses and add to a task_host[dict]
+   to reference later as we deploy our full-mesh MPLS LSP Configuration.
+
+   This task 100% depends on the success of "load_all_data" task.
+
+
+.. py:function:: render_main(task)
+
+   Render device configuration using our Jinja2 Templates.
+
+   Write staged config to file for preview/debugging.
+
+
+.. py:function:: get_device_facts_config(task)
+
+   Extract facts & configuration from devices with NAPALM's help.
+
+
+.. py:function:: configuation_remediation(task)
+
+   Config Remediation with hier-config.
+
+
+.. py:function:: main()
+
+   Execute our Nornir runbook.
+
+
