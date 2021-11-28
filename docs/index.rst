@@ -19,6 +19,15 @@ Contents
    Home <self>
    Readme <README>
 
+Study Notes
+========
+
+.. toctree::
+   :glob:
+   :maxdepth: 1
+
+   SPAUTO/Network Programmability Foundation/*
+
 Changelog
 =========
 .. toctree::
