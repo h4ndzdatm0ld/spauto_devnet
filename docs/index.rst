@@ -18,6 +18,7 @@ Contents
 
    Home <self>
    Readme <README>
+   Study Notes <SPAUTO>
 
 Changelog
 =========
