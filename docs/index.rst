@@ -24,9 +24,8 @@ Study Notes
 
 .. toctree::
    :glob:
-   :reversed:
 
-   SPAUTO/*
+   SPAUTO/Network Programmability Foundation/*
 
 Changelog
 =========
