@@ -185,20 +185,24 @@ It's important to navigate to the folder of the new NSO instance.
 From our example above, we created a new directory called 'example-nso-instance'
 
 cd into this directory and run the following command:
-```
+
+```bash
 ncs
 ```
+
 That's it!
+
 ## Access the NSO Instance
+
 If you don't remember the IP of the server, simply do the following:
 
-```
+```bash
 ip addr | grep inet
 ```
 
 Example:
-```
 
+```bash
 htinoco@nso-dev-example:~/ncs-run$ ip addr | grep inet
     inet 127.0.0.1/8 scope host lo
     inet6 ::1/128 scope host 
@@ -214,4 +218,3 @@ http://192.168.0.54:8080/login.html
 ## Credentials
 
 Default credentials are admin/admin.
-
