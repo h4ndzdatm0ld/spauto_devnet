@@ -67,27 +67,23 @@ class TestBgpConfig:
     def test_assert_no_incompatible_bgp_session(self):
         """Built in assertion to ensure there are no incompatible BGP sessions.
         This looks at the BGP Configuration between all nodes."""
-
-        assert_no_incompatible_bgp_sessions(snapshot="mpls_sdn_era")
-
+        test = assert_no_incompatible_bgp_sessions(snapshot="mpls_sdn_era")
+    
     def test_assert_no_unestablished_bgp_session(self):
         """Assert there are no unestablished bgp sessions in our network."""
-
         assert_no_unestablished_bgp_sessions(snapshot="mpls_sdn_era")
 
     @pytest.fixture
     def bgp_config(self):
         """Use the pybatfish SDK to extract Panda Data frame answer
         to our network's BGP configuration"""
-
         return bfq.bgpProcessConfiguration().answer().frame()
 
     def test_parse_status(self):
         """Validate all files in the current snapshot have been parsed
-        successfully. If a file is parsed but parsially unrecognized,
+        successfully. If a file is parsed but partially unrecognized,
         upload diagnostics and skip it. Unfortunately, not always does
         batfish recognize a full config correctly."""
-
         result = bfq.fileParseStatus().answer().frame()
         for i, row in result.iterrows():
             if row.get("Status") == "PARTIALLY_UNRECOGNIZED":
@@ -105,7 +101,6 @@ class TestBgpConfig:
     @pytest.mark.parametrize("node", ["AS65000_RR1", "AS65000_RR2"])
     def test_rr(self, node):
         """Testing to ensure configuration compliance against route reflectors."""
-
         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
         for i, row in conf.iterrows():
             assert row.get("Route_Reflector")
@@ -125,7 +120,6 @@ class TestBgpConfig:
     @pytest.mark.parametrize("node", devices)
     def test_bgp_state_routers(self, node):
         """Testing to ensure BGP Sessions are in an Established state."""
-
         bgp_sess_status = bfq.bgpSessionStatus(nodes=node).answer().frame()
         for i, row in bgp_sess_status.iterrows():
             assert row.get("Established_Status") == "ESTABLISHED"

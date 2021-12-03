@@ -1,3 +1,4 @@
+---
 name: "spauto-mpls-sdn.yml"
 
 mgmt:
@@ -8,7 +9,7 @@ mgmt:
 topology:
   defaults:
   kinds:
-    vr-xrv: #clab/clab@123
+    vr-xrv:  # clab/clab@123
       image: "h4ndzdatm0ld/vr-xrv:6.1.3"
 
   nodes:

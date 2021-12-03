@@ -86,7 +86,29 @@ The status should say (healthy)
 
 Unfortunately, these vrnetlab based nodes don't support providing a startup-config via ContainerLab. However, I've provided a Nornir job to simply deploy all the configs to each one of the devices.
 
-After starting the lab and waiting around 7 Minutes,
+After starting the lab and waiting around 7 Minutes, launch off the Nornir script to deploy the configurations.
+
+Install the project venv
+```
+poetry install
+```
+
+Activate venv
+```
+poetry shell
+```
+
+Locate the Nornir playground
+```
+cd mpls_in_the_sdn_era/mpls_sdn_era_nornir
+```
+
+Automate
+```
+python nr_deploy_configs.py
+```
+
+
 ### Destroying the lab
 
 To destroy the lab, simply override the docker-compose service command and destroy it.
