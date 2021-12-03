@@ -9,6 +9,56 @@ Alongside all the code documentation, you will find a folder structure for notes
 
 [Cisco Certified DevNet Specialist - Service Provider Automation and Programmability](https://developer.cisco.com/certification/devnet-sp-auto/)
 
+## Why MPLS in the SDN Era?
+
+Simple. This is an incredible book for any and all Network Engineers interested
+in learning technologies used in Service Provider environments. The book is heavily focused
+on MPLS, SDN, Segment-Routing, BGP, L2VPN/L3VPNs, over-all traffic engineering and much more. These are common terms within SP networks and the book does an incredible job in guiding the readers while exploring the device configurations in this topology. However, many other topics are not covered by the book and this REPO will hopefully fill in the gaps. This book lays the foundation for our lab topology, but it has increased and grown over time. Other material that has been helpful in studying is the Network Programmability with YANG book, which does cover a lot of the topics in the blueprint!
+
+![MPLS IN THE SDN ERA](mpls_in_the_sdn_era/images/mpls_sdn_era_topology.png)
+This book goes through a number of device configurations in a multi-vendor lab topology
+(Cisco IOSXR && Juniper). However, *For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a
+Cisco Certification.*
+
+### To fully automate Service Provider Networks, you must understand Service Provider Networks.
+
+[MPLS in the SDN Era](https://www.amazon.com/MPLS-SDN-Era-Interoperable-Scenarios/dp/149190545X/ref=sr_1_1?dchild=1&keywords=mpls+in+the+sdn+era&qid=1618100065&s=books&sr=1-1)
+
+[Network Programmability with YANG](https://www.amazon.com/Network-Programmability-YANG-Modeling-driven-Management/dp/0135180392)
+
+## What does this repository include & cover
+
+My goal is to gather all of my self-training in this repository and cover all the major
+Cisco Certified DevNet Specialist (300-535 SPAUTO) topics.
+
+## Extras
+
+There will be some extra material in this repository that can be an aid for other areas
+including but not limited to:
+
+    - Batfish
+    - Nornir
+
+## How can I use this repo to study?
+
+I recommend you read the Documentation for my study notes and if you want to play around creating scripts with Nornir, Ansible using SSH/NETCONF, etc.
+Go ahead and start the topology using ContainerLab and have fun automating the network!
+
+[Checkout the Wiki!](https://github.com/h4ndzdatm0ld/mpls_in_the_sdn_era/wiki)
+
+30% of the SPAUTO exam is around Automation and Orchestration platforms, such as NSO. I can't stress enough the importance of taking the time to setup an NSO instance to explore and take advantage of the many examples in this repository. Containerizing NSO for CI/CD is also part of the blueprint, which we will cover.
+
+## Why rely on this complicated lab topology?
+
+I learn better when I am doing, not just reading and specially when breaking things. Having this complicated topology, building all the services in an automated way will be key to our success in passing the certification. There will be tons of material in the end that will cover all the topics in the exam.
+
+## Study Material & Resources
+
+    - MPLS in the SDN Era
+    - Network Programmability with YANG
+    - Nicholas Russo DEVNET Material (Pluralsight)
+
+
 ## Container Lab
 
 After exploring [ContainerLab](https://containerlab.srlinux.dev/), I have begun to move away from EVE-NG and completely dockerize this entire topology. The default branch on this project is now `containerlab`. Initially, I thought I would share an exported lab from EVE-NG, but including the CLAB topology in this lab makes it so much more portable. 
@@ -129,52 +179,3 @@ c83b2faa5ea8   clab-spauto-mpls-sdn.yml-xrv-pe2    2.02%     1.796GiB / 62.71GiB
 35fcceedc92a   clab-spauto-mpls-sdn.yml-xrv-rr-2   4.33%     1.744GiB / 62.71GiB   2.78%     185kB / 186kB    0B / 60.5MB   13
 3f62259d2ae9   clab-spauto-mpls-sdn.yml-xrv-rr-1   1.45%     1.745GiB / 62.71GiB   2.78%     190kB / 190kB    0B / 59.5MB   13
 ```
-
-## Why MPLS in the SDN Era?
-
-Simple. This is an incredible book for any and all Network Engineers interested
-in learning technologies used in Service Provider environments. The book is heavily focused
-on MPLS, SDN, Segment-Routing, BGP, L2VPN/L3VPNs, over-all traffic engineering and much more. These are common terms within SP networks and the book does an incredible job in guiding the readers while exploring the device configurations in this topology. However, many other topics are not covered by the book and this REPO will hopefully fill in the gaps. This book lays the foundation for our lab topology, but it has increased and grown over time. Other material that has been helpful in studying is the Network Programmability with YANG book, which does cover a lot of the topics in the blueprint!
-
-![MPLS IN THE SDN ERA](mpls_in_the_sdn_era/images/mpls_sdn_era_topology.png)
-This book goes through a number of device configurations in a multi-vendor lab topology
-(Cisco IOSXR && Juniper). However, *For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a
-Cisco Certification.*
-
-### To fully automate Service Provider Networks, you must understand Service Provider Networks.
-
-[MPLS in the SDN Era](https://www.amazon.com/MPLS-SDN-Era-Interoperable-Scenarios/dp/149190545X/ref=sr_1_1?dchild=1&keywords=mpls+in+the+sdn+era&qid=1618100065&s=books&sr=1-1)
-
-[Network Programmability with YANG](https://www.amazon.com/Network-Programmability-YANG-Modeling-driven-Management/dp/0135180392)
-
-## What does this repository include & cover
-
-My goal is to gather all of my self-training in this repository and cover all the major
-Cisco Certified DevNet Specialist (300-535 SPAUTO) topics.
-
-## Extras
-
-There will be some extra material in this repository that can be an aid for other areas
-including but not limited to:
-
-    - Batfish
-    - Nornir
-
-## How can I use this repo to study?
-
-I recommend you read the Documentation for my study notes and if you want to play around creating scripts with Nornir, Ansible using SSH/NETCONF, etc.
-Go ahead and start the topology using ContainerLab and have fun automating the network!
-
-[Checkout the Wiki!](https://github.com/h4ndzdatm0ld/mpls_in_the_sdn_era/wiki)
-
-30% of the SPAUTO exam is around Automation and Orchestration platforms, such as NSO. I can't stress enough the importance of taking the time to setup an NSO instance to explore and take advantage of the many examples in this repository. Containerizing NSO for CI/CD is also part of the blueprint, which we will cover.
-
-## Why rely on this complicated lab topology?
-
-I learn better when I am doing, not just reading and specially when breaking things. Having this complicated topology, building all the services in an automated way will be key to our success in passing the certification. There will be tons of material in the end that will cover all the topics in the exam.
-
-## Study Material & Resources
-
-    - MPLS in the SDN Era
-    - Network Programmability with YANG
-    - Nicholas Russo DEVNET Material (Pluralsight)
