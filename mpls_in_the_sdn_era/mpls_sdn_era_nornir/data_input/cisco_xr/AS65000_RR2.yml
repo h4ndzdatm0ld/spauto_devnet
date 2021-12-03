@@ -5,22 +5,28 @@ base:
 ip_interfaces:
   - interface: Gi0/0/0/0
     description: TO_CORE_P1
-    ip_address: 10.0.0.21
+    ip_address: 10.0.100.21
     mask: "/31"
     isis: true
     isis_domain: core
+    admin_status: true
+
   - interface: Gi0/0/0/1
     description: TO_CORE_P2
-    ip_address: 10.0.0.15
+    ip_address: 10.0.100.15
     mask: "/31"
     isis: true
     isis_domain: core
+    admin_status: true
+
   - interface: Gi0/0/0/2
     description: TO_CORE_RR2
-    ip_address: 10.0.0.23
+    ip_address: 10.0.100.23
     mask: "/31"
     isis: true
     isis_domain: core
+    admin_status: true
+
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.202
@@ -29,6 +35,8 @@ ip_interfaces:
     isis_domain: core
     passive: true
     system: true
+    admin_status: true
+
 isis:
   - domain: core
     net: 49.0000.1720.1600.0202.00

@@ -9,6 +9,7 @@ import itertools
 
 from nornir import InitNornir
 from nornir_jinja2.plugins.tasks import template_file
+from nornir_napalm.plugins.tasks.napalm_configure import napalm_configure
 from nornir_netmiko.tasks import netmiko_commit, netmiko_send_config
 from nornir_utils.plugins.functions import print_result
 from nornir_utils.plugins.tasks.data import load_yaml
@@ -117,30 +118,32 @@ def render_main(task):
 def push_config(task):
     """Push configurations to devices."""
     if task.host.platform == "cisco_xr":
+        # task.run(
+        #     netmiko_send_config,
+        #     config_commands=f"{task.host['staged']}",
+        #     cmd_verify=False,
+        # )
+        # task.run(netmiko_commit)
         task.run(
-            netmiko_send_config,
-            config_commands=f"{task.host['staged']}",
-            cmd_verify=False,
+            napalm_configure,
+            dry_run=False,
+            configuration=f"{task.host['staged']}",
+            replace=False,
         )
-        task.run(netmiko_commit)
-    elif task.host.platform == "cisco_xe":
+    else:
         task.run(
             netmiko_send_config,
             config_commands=f"{task.host['staged']}".split("\n"),
         )
-    elif task.host.platform == "cisco_ios":
-        task.run(
-            netmiko_send_config,
-            config_commands=f"{task.host['staged']}".split("\n"),
-        )
-
 
 def main():
     """Execute our Nornir runbook."""
     nr.run(task=load_all_data)
     print_result(nr.run(task=generate_full_mesh_list))
-    print_result(nr.run(task=render_main))
-    print_result(nr.run(task=push_config))
+    # print_result(nr.run(task=render_main))
+    nr.run(task=render_main)
+    # print_result(nr.run(task=push_config))
+    nr.run(task=push_config)
 
 
 if __name__ == "__main__":

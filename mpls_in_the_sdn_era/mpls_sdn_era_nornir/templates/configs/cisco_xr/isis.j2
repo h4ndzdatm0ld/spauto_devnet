@@ -3,7 +3,7 @@
 {% for domain in host.DATA_INPUT.get('isis') %}
 router isis {{ domain.get('domain') }}
 {% if domain.get('link_state') %}
- distribute link-state
+ distribute bgp-ls
 {% endif %}
  is-type level-2-only
  net {{ domain.get('net') }}

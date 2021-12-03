@@ -7,6 +7,9 @@ vrfs:
     import_rt: 65000:1001
     export_rt: 65000:1001
 ip_interfaces:
+  - interface: Gi0/0/0/1
+    description: "Parent INT to CE1"
+    admin_status: true
   - interface: Gi0/0/0/1.1001
     description: TO_AS65001_CE1
     vrf: VRF-A
@@ -14,6 +17,11 @@ ip_interfaces:
     mask: "/31"
     sub_int: true
     vlan: 1001
+    admin_status: true
+
+  - interface: Gi0/0/0/2
+    description: "Parent INT to CE2"
+    admin_status: true
   - interface: Gi0/0/0/2.1001
     description: TO_AS65001_CE2
     vrf: VRF-A
@@ -21,24 +29,30 @@ ip_interfaces:
     mask: "/31"
     sub_int: true
     vlan: 1001
+    admin_status: true
+
   - interface: Gi0/0/0/3
     description: TO_EDGE_PE2
-    ip_address: 10.0.0.0
+    ip_address: 10.0.100.0
     mask: "/31"
     isis: true
     isis_domain: core
     level: 2
     metric: 100
     mpls: true
+    admin_status: true
+
   - interface: Gi0/0/0/4
     description: TO_CORE_P1
-    ip_address: 10.0.0.2
+    ip_address: 10.0.100.2
     mask: "/31"
     isis: true
     isis_domain: core
     level: 2
     metric: 100
     mpls: true
+    admin_status: true
+
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.11
@@ -47,6 +61,8 @@ ip_interfaces:
     isis_domain: core
     passive: true
     system: true
+    admin_status: true
+
 isis:
   - domain: core
     net: 49.0000.1720.1600.0011.00

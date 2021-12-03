@@ -4,52 +4,71 @@ base:
 
 ip_interfaces:
   - interface: Gi0/0/0/0
+    description: "Parent INT to PE2"
+    admin_status: true
+  - interface: Gi0/0/0/0
     description: TO_CORE_PE2
-    ip_address: 10.0.0.5
+    ip_address: 10.0.100.5
     mask: "/31"
     isis: true
     isis_domain: core
     mpls: true
     level: 2
     metric: 100
+    admin_status: true
+
+  - interface: Gi0/0/0/1
+    description: "Parent INT to RR1"
+    admin_status: true
+
   - interface: Gi0/0/0/1
     description: TO_CORE_RR1
-    ip_address: 10.0.0.18
+    ip_address: 10.0.100.18
     mask: "/31"
     isis: true
     isis_domain: core
     mpls: true
     metric: 100
     level: 2
+    admin_status: true
+
   - interface: Gi0/0/0/2
     description: TO_CORE_P2_1
-    ip_address: 10.0.0.7
+    ip_address: 10.0.100.7
     mask: "/31"
     isis: true
     isis_domain: core
     mpls: true
     metric: 100
     level: 2
+    admin_status: true
+
   - interface: Gi0/0/0/3
     description: TO_CORE_P1
-    ip_address: 10.0.0.25
+    ip_address: 10.0.100.25
     mask: "/31"
     isis: true
     isis_domain: core
     mpls: true
+    admin_status: true
+
   - interface: Gi0/0/0/4
     description: TO_CORE_RR2
-    ip_address: 10.0.0.22
+    ip_address: 10.0.100.22
     mask: "/31"
     isis: true
     isis_domain: core
+    admin_status: true
+
   - interface: Gi0/0/0/5
     description: TO_CORE_PE4
-    ip_address: 10.0.0.10
+    ip_address: 10.0.100.10
     mask: "/31"
     isis: true
     isis_domain: core
     mpls: true
+    admin_status: true
+
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.2
@@ -58,6 +77,8 @@ ip_interfaces:
     isis_domain: core
     passive: true
     system: true
+    admin_status: true
+
 isis:
   - domain: core
     net: 49.0000.1720.1600.0002.00

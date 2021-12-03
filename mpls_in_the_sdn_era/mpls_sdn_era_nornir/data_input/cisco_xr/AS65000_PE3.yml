@@ -6,23 +6,31 @@ vrfs:
     family: address-family ipv4 unicast
     import_rt: 65000:1001
     export_rt: 65000:1001
+
 ip_interfaces:
   - interface: Gi0/0/0/1
     description: TO_CORE_P1
-    ip_address: 10.0.0.9
+    ip_address: 10.0.100.9
     mask: "/31"
     isis: true
     isis_domain: core
     mpls: true
     level: 2
+    admin_status: true
+
   - interface: Gi0/0/0/2
     description: TO_CORE_PE4
-    ip_address: 10.0.0.12
+    ip_address: 10.0.100.12
     mask: "/31"
     isis: true
     isis_domain: core
     mpls: true
     level: 2
+    admin_status: true
+
+  - interface: Gi0/0/0/3
+    description: "Parent INT to CPE-3"
+    admin_status: true
   - interface: Gi0/0/0/3.1001
     vrf: VRF-A
     description: TO_CPE_3
@@ -30,6 +38,7 @@ ip_interfaces:
     mask: "/24"
     sub_int: true
     vlan: 1001
+
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.33
@@ -38,6 +47,8 @@ ip_interfaces:
     isis_domain: core
     passive: true
     system: true
+    admin_status: true
+
 isis:
   - domain: core
     net: 49.0000.1720.1600.0033.00

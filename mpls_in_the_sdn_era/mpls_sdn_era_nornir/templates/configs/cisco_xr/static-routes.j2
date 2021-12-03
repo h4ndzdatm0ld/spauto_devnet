@@ -7,5 +7,4 @@ router static
  address-family ipv4 unicast
   {{ route.get('dst') }} {{ route.get('next_hop') }}
  !
-{% endfor %} 
-{% endif %}
+{% endfor %}{% endif %}

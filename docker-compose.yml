@@ -19,6 +19,20 @@ services:
       target: "spauto"
     depends_on:
       - "batfish"
+  clab:
+    image: ghcr.io/srl-labs/clab
+    network_mode: host
+    working_dir: "/src"
+    volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock"
+        - "/var/run/netns:/var/run/netns"
+        - "/etc/hosts:/etc/hosts"
+        - "./:/src"
+        - "./clab-spauto-mpls-sdn.yml:/src/clab-spauto-mpls-sdn.yml"
+    pid: host
+    command: containerlab deploy -t spauto-mpls-sdn.yml
+    privileged: true
+    tty: true
 
       # nso:
       #   container_name: "nso"

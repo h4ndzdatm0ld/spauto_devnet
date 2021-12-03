@@ -7,17 +7,18 @@ CORE_EDGE_ROUTER:
   connection_options:
     napalm:
       platform: iosxr
-      username: admin
-      password: admin
+      username: clab
+      password: clab@123
     netmiko:
       extras:
-        timeout: 4
+        fast_cli: false
   data:
     nso:
       authgroup: nso-auth
       protocol: ssh
       ned_id: cisco-iosxr-cli-7.33:cisco-iosxr-cli-7.33
       verification: none
+
 XR_65001:
   username: admin
   password: admin
@@ -30,6 +31,7 @@ XR_65001:
       password: admin
     netmiko:
       extras:
+        fast_cli: false
         timeout: 4
   data:
     nso:

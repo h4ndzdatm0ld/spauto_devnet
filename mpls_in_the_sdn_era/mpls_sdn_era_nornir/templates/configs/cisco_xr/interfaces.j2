@@ -1,4 +1,3 @@
-!
 ipv4 unnumbered mpls traffic-eng Loopback0
 {% for interface in host.DATA_INPUT.ip_interfaces %}
 !
@@ -12,7 +11,6 @@ interface {{ interface.get('interface') }}
  encapsulation dot1q {{ interface.get('vlan') }}
  no shutdown
 {% else %}
-!
 interface {{ interface.get('interface') }}
 {% if interface.get('description')%}
  description {{ interface.get('description') }}

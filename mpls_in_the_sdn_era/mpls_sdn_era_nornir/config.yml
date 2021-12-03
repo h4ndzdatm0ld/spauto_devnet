@@ -7,7 +7,7 @@ runner:
 inventory:
   plugin: SimpleInventory
   options:
-    host_file: "inventory/hosts.yml"
+    host_file: "inventory/hosts-container-lab.yml"
     group_file: "inventory/groups.yml"
     defaults_file: "inventory/defaults.yml"
 

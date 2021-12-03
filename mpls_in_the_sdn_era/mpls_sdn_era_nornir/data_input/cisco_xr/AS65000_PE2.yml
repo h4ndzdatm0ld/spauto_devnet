@@ -6,12 +6,18 @@ vrfs:
     family: address-family ipv4 unicast
     import_rt: 65000:1001
     export_rt: 65000:1001
+
 ip_interfaces:
   - interface: Gi0/0/0/0
     description: Border Interface
     ip_address: 10.2.0.0
     mask: "/31"
     mpls: true
+    admin_status: true
+
+  - interface: Gi0/0/0/1
+    description: "Parent INT to CE2"
+    admin_status: true
   - interface: Gi0/0/0/0.1001
     vrf: VRF-A
     description: TO_AS65001_CE2
@@ -19,6 +25,8 @@ ip_interfaces:
     mask: "/31"
     sub_int: true
     vlan: 1001
+    admin_status: true
+
   - interface: Gi0/0/0/1.1001
     vrf: VRF-A
     description: TO_AS65001_CE1
@@ -26,23 +34,29 @@ ip_interfaces:
     mask: "/31"
     sub_int: true
     vlan: 1001
+    admin_status: true
+
   - interface: Gi0/0/0/2
     description: TO_EDGE_PE1
-    ip_address: 10.0.0.1
+    ip_address: 10.0.100.1
     mask: "/31"
     isis: true
     isis_domain: core
     metric: 200
     level: 2
     mpls: true
+    admin_status: true
+
   - interface: Gi0/0/0/3
     description: TO_CORE_P2
-    ip_address: 10.0.0.4
+    ip_address: 10.0.100.4
     mask: "/31"
     isis: true
     isis_domain: core
     level: 2
     mpls: true
+    admin_status: true
+
   - interface: Gi0/0/0/4
     description: TO_CORE_PE100
     ip_address: 11.0.0.1
@@ -52,6 +66,8 @@ ip_interfaces:
     mpls: true
     metric: 100
     level: 2
+    admin_status: true
+
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 172.16.0.22
@@ -60,6 +76,8 @@ ip_interfaces:
     isis_domain: core
     passive: true
     system: true
+    admin_status: true
+
   - interface: Loopback100
     ip_address: 172.16.100.22
     description: ISIS_100_SYSTEM_ADDRESS
@@ -68,6 +86,8 @@ ip_interfaces:
     isis_domain: 100
     passive: true
     system: true
+    admin_status: true
+
 isis:
   - domain: core
     net: 49.0000.1720.1600.0022.00

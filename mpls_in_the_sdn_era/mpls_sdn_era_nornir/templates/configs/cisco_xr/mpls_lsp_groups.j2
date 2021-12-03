@@ -1,3 +1,4 @@
+
 {% set hostname = host | string %}
 {% if host.get('loopbacks') %}
 {% if host.get('mpls_full_mesh') %}
@@ -16,7 +17,7 @@ exit
 {% for loopback in host.get('loopbacks') %}
 interface tunnel-te{{ host['tunnel'].get(loopback) }}
  apply-group GR-LSP
- signalled-name {{ host['local_tunn'].get(hostname) }}—>{{ host['far_end'].get(loopback) }}
+ signalled-name "{{ host['local_tunn'].get(hostname) }}—to-{{ host['far_end'].get(loopback) }}"
  destination {{ loopback }}
  no shutdown
 {% endfor %}
