@@ -6,7 +6,6 @@
 # IGNORE ALL ENV VARIABLE FILES
 *.env
 
-
 # Docs
 docs/README.md
 docs/public
