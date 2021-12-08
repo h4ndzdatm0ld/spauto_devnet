@@ -7,14 +7,14 @@ This page contains auto-generated API reference documentation [#f1]_.
    :titlesonly:
 
    /autoapi/mpls_in_the_sdn_era/index
-   /autoapi/bf_mpls_sdn/index
    /autoapi/nc/index
    /autoapi/ttpex/index
    /autoapi/xml_to_json/index
-   /autoapi/nr_get_napalm_configs/index
-   /autoapi/nr_get_nso_device_facts/index
-   /autoapi/nr_remediate/index
+   /autoapi/bf_mpls_sdn/index
    /autoapi/nr_add_device_nso/index
+   /autoapi/nr_get_nso_device_facts/index
+   /autoapi/nr_get_napalm_configs/index
    /autoapi/nr_deploy_configs/index
+   /autoapi/nr_remediate/index
 
 .. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

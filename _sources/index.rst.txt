@@ -24,7 +24,7 @@ Study Notes
 
 .. toctree::
    :glob:
-   :maxdepth: 1
+   :maxdepth: 3
 
    SPAUTO/Network Programmability Foundation/*
 

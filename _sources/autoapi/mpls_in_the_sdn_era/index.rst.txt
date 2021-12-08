@@ -4,6 +4,15 @@
 .. py:module:: mpls_in_the_sdn_era
 
 
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   mpls_sdn_era_nso/index.rst
+
+
 Package Contents
 ----------------
 

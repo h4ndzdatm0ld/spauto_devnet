@@ -1,0 +1,78 @@
+# 3.7 Construct Xpath notation for a given node or instance of a node
+
+## Nodes
+
+What is an XPath node? Basically, everything pertaining to a single XML document, starting from the root element. The primary XPath building block is a node. There are seven node types defined for XPath, [more info here]([XPath Nodes](https://www.w3schools.com/xml/xpath_nodes.asp).
+
+```text
+Element
+Attribute
+Text
+Namespace
+Processing Instruction
+Comment
+Document
+```
+
+Every XML document is a tree of nodes, they all start from a root element. Between the nodes the connectivity is defined by various types of relationships.
+
+- Parent: Each node besides the root element has a parent node. Each node can have only one parent node.
+- Children: Each node, including the root element, may have one or more children.
+- Siblings: All the children of the same parent are the siblings to each other.
+- Ancestors: All the parent nodes up to the root element (for example, parent, parent’s parent) are ancestors.
+- Descendants: All the nested children down to the all leafs (for example, children, children’s children) are descendants.
+
+When we speak of nodes, we must not think of network devices, as that was my original thought before I started to research this topic.
+
+Now, there are a lot of concepts that we must know about XML, xpath to make sense. We must understand that all XML files start with a `root element`. This is a requirement. All documents start with this root element and form a Tree structure, by branching off into child elements which can then have more sub/child elements.
+
+Another important term to get familiar with is Namespaces. XML provides Namespaces to avoid conflicts in duplicate nodes. Most likely namespaces carry a prefix behind it, like so:
+
+```xml
+<prefix:duplicate-nodename></prefix:duplicate-nodename>
+
+<different-prefix:duplicate-nodename></different-prefix:duplicate-nodename>
+```
+
+Typically, namespaces will carry xmnls attributes about the namespace, with a URI declaration.
+
+```xml
+<prefix:duplicate-nodename xmlns:f="https://www.spauto.com/node-information"></prefix:duplicate-nodename>
+```
+
+There are a lot of different terms to learn about XML, a refresher is always good. Some information can be found at [W3 - XML](https://www.w3schools.com/xml/default.asp).
+
+## Why XPath
+
+I've worked at places where some of the core routers have easily crossed over 100,000 lines of configuration. The configuration adds up quick, when we are talking about hundreds of L3/L2VPNs, MPLS, Traffic Engineering, Segment Routing, BGP, dozens of line-cards on Service based routers such as Nokia 7x50's or Cisco 8000s. Using xpath is a simple way to filter through all the noise and only get what you need out of all the different elements in an incredibly large (or not) configuration.
+
+## NSO
+
+If you want to use the NSO available in this repository, feel free to do so to try this out.
+You will need to have loaded device and synced them with NSO, before you access the configuration of the routers. NSO provides a output modifier to return a command as an `xpath expression.`
+
+The following example is from Devnet Labs
+
+```text
+developer@ncs# show running-config devices device core-rtr01 config interface GigabitEthernet 0/0/0/1 ipv4 address | display xpath
+/devices/device[name='core-rtr01']/config/cisco-ios-xr:interface/GigabitEthernet[id='0/0/0/1']/ipv4/address/ip 172.16.253.2
+/devices/device[name='core-rtr01']/config/cisco-ios-xr:interface/GigabitEthernet[id='0/0/0/1']/ipv4/address/mask 255.255.255.248
+developer@ncs#show
+```
+
+There is an additional tool to evaluate XPath expressions against the CDB data of NSO. You must enable it by turning on the `devtools`
+
+```bash
+developer@ncs# devtools true
+```
+
+Now you can use `xpath eval`.
+
+## XPath Expressions
+
+We will be using XPath expressions in a way that an engineer would actually use them while crafting NETCONF rpc calls. A simple `containerlab` topology is provided to spin up an iosxr device.
+
+All of this material will be stored in a folder called `xpath_scripts` in our project folder.
+We'll be using a NETCONF library that I developed for Nornir, [Nornir Netconf](https://github.com/h4ndzdatm0ld/nornir_netconf)
+
+Lets get started!
