@@ -3,6 +3,6 @@
 .. toctree::
    :glob:
    :maxdepth: 1
+   :titlesonly:
 
    *
-   SPAUTO/Network Programmability Foundation/*
