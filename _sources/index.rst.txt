@@ -27,7 +27,7 @@ Study Notes
    :maxdepth: 2
 
    SPAUTO/Network Device Programmability/*
-   SPAUTO/Network Programmability Foundation/*
+   SPAUTO/Network Programmability Foundation/index.rst
 
 Changelog
 =========
