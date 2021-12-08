@@ -4,10 +4,10 @@ name: "Documentation"
 on:
   push:
     branches:
-      - "main"
+      - "containerlab"
   pull_request:
     branches:
-      - "main"
+      - "containerlab"
 
 jobs:
   documentation:
