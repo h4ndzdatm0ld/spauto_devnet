@@ -20,7 +20,7 @@ This book goes through a number of device configurations in a multi-vendor lab t
 (Cisco IOSXR && Juniper). However, *For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a
 Cisco Certification.*
 
-### To fully automate Service Provider Networks, you must understand Service Provider Networks.
+### To fully automate Service Provider Networks, you must understand Service Provider Networks
 
 [MPLS in the SDN Era](https://www.amazon.com/MPLS-SDN-Era-Interoperable-Scenarios/dp/149190545X/ref=sr_1_1?dchild=1&keywords=mpls+in+the+sdn+era&qid=1618100065&s=books&sr=1-1)
 
@@ -58,14 +58,14 @@ I learn better when I am doing, not just reading and specially when breaking thi
     - Network Programmability with YANG
     - Nicholas Russo DEVNET Material (Pluralsight)
 
-
 ## Container Lab
 
-After exploring [ContainerLab](https://containerlab.srlinux.dev/), I have begun to move away from EVE-NG and completely dockerize this entire topology. The default branch on this project is now `containerlab`. Initially, I thought I would share an exported lab from EVE-NG, but including the CLAB topology in this lab makes it so much more portable. 
+After exploring [ContainerLab](https://containerlab.srlinux.dev/), I have begun to move away from EVE-NG and completely dockerize this entire topology. The default branch on this project is now `containerlab`. Initially, I thought I would share an exported lab from EVE-NG, but including the CLAB topology in this lab makes it so much more portable.
 
 I've created a simple to use docker-compose service to start the lab. ContainerLab it's self is pulled down as a docker container, so you don't need a local installation of ContainerLab unless you want to have one. I recommend you deploy this lab in a Linux environment, as docker virtualization will prevent you from starting in a Mac or Windows env.
 
 ### Requirements
+
 - Docker
 - Docker-Compose
 - Roughly 32Gb of available RAM, give or take a few depending on usage.
@@ -74,12 +74,13 @@ I've created a simple to use docker-compose service to start the lab. ContainerL
 
 Simply run the service using docker-compose
 
-```
+```bash
 docker-compose run clab
 ```
 
 You should see something similar to this
-```
+
+```text
 ➜  spauto_devnet git:(containerlab) ✗ docker-compose run clab
 Creating spauto_devnet_clab_run ... done
 INFO[0000] Parsing & checking topology file: spauto-mpls-sdn.yml 
@@ -139,25 +140,28 @@ Unfortunately, these vrnetlab based nodes don't support providing a startup-conf
 After starting the lab and waiting around 7 Minutes, launch off the Nornir script to deploy the configurations.
 
 Install the project venv
+
 ```
 poetry install
 ```
 
 Activate venv
+
 ```
 poetry shell
 ```
 
 Locate the Nornir playground
+
 ```
 cd mpls_in_the_sdn_era/mpls_sdn_era_nornir
 ```
 
 Automate
+
 ```
 python nr_deploy_configs.py
 ```
-
 
 ### Destroying the lab
 
@@ -167,7 +171,8 @@ To destroy the lab, simply override the docker-compose service command and destr
 docker-compose run clab containerlab destroy -t spauto-mpls-sdn.yml
 ```
 
-Example stats of running all 8 core XR Routers simultaneously. 
+Example stats of running all 8 core XR Routers simultaneously.
+
 ```
 CONTAINER ID   NAME                                CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
 9d6acb79bcbe   clab-spauto-mpls-sdn.yml-xrv-pe4    2.56%     1.769GiB / 62.71GiB   2.82%     259kB / 207kB    0B / 82.8MB   13
@@ -179,3 +184,33 @@ c83b2faa5ea8   clab-spauto-mpls-sdn.yml-xrv-pe2    2.02%     1.796GiB / 62.71GiB
 35fcceedc92a   clab-spauto-mpls-sdn.yml-xrv-rr-2   4.33%     1.744GiB / 62.71GiB   2.78%     185kB / 186kB    0B / 60.5MB   13
 3f62259d2ae9   clab-spauto-mpls-sdn.yml-xrv-rr-1   1.45%     1.745GiB / 62.71GiB   2.78%     190kB / 190kB    0B / 59.5MB   13
 ```
+
+## NSO
+
+A pre-packaged NSO Docker container is available. This will be a fresh docker container with the following NEDs:
+
+```text
+cisco-ios-cli-6.69
+cisco-iosxr-cli-7.33
+```
+
+To spin up the NSO instance
+
+```
+docker-compose up -d nso
+```
+
+To access via UI (admin/admin) get the IP address of the NSO instance and open it in your browser
+
+```
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+```
+
+If you want to simply ssh from the same machine that's hosting the container
+
+```
+ssh admin@localhost -p 2024
+```
+
+The docker-compose service is mapping port 2024 to 22.
+More to come!

@@ -35,14 +35,13 @@ services:
     # docker-compose run clab containerlab destroy -t spauto-mpls-sdn.yml
     privileged: true
     tty: true
-
-    # nso:
-    #   container_name: "nso"
-    #   image: "h4ndzdatm0ld/mpls-sdn-era-nso:latest"
-    #   ports:
-    #     - "2024:22"
-    #   environment:
-    #     - ADMIN_PASSWORD=admin
-    #     - HTTP_ENABLE=true
-    #     - HTTPS_ENABLE=true
-    #   tty: true
+  nso: # docker-compose up -d nso // Accessible via web w/ neds (iosxr/xe)
+    container_name: "nso"
+    image: "h4ndzdatm0ld/nso-spauto:5.5-neds"
+    ports:
+      - "2024:22"
+    environment:
+      - ADMIN_PASSWORD=admin
+      - HTTP_ENABLE=true
+      - HTTPS_ENABLE=true
+    tty: true
