@@ -1,4 +1,4 @@
-# Network Programmability Foundation
+Network Programmability Foundation
 
 .. toctree::
    :glob:
