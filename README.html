@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3.7 Construct Xpath notation for a given node or instance of a node" href="SPAUTO/Network%20Device%20Programmability/3.7%20Construct%20Xpath%20notation%20for%20a%20given%20node%20or%20instance%20of%20a%20node.html" />
+    <link rel="next" title="Automation APIs and Protocols" href="SPAUTO/Automation%20APIs%20and%20Protocols/index.html" />
     <link rel="prev" title="Welcome to DevNet SPATUO - documentation!" href="index.html" /> 
 </head>
 
@@ -63,11 +63,10 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Network%20Device%20Programmability/3.7%20Construct%20Xpath%20notation%20for%20a%20given%20node%20or%20instance%20of%20a%20node.html">3.7 Construct Xpath notation for a given node or instance of a node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Network%20Programmability%20Foundation/4.1%20Describe%20ETSI%20NFV.html">ETSI NFV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Network%20Programmability%20Foundation/4.6%20Implement%20XR%20traffic%20controller%20%28including%20topology%20information%20transfer%20to%20XTC%29.html">Implementing XR Traffic Controller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Network%20Programmability%20Foundation/4.7%20Identify%20the%20uses%20of%20Cisco%20WAE.html">Cisco WAN Automation Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Network%20Programmability%20Foundation/Deploying%20NSO.html">Installing NSO Evaluation Version (5.5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Automation%20APIs%20and%20Protocols/index.html">Automation APIs and Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Network%20Device%20Programmability/index.html">Network Device Programmability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Network%20Programmability%20Foundation/index.html">Network Programmability Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Extras/index.html">Extras</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -105,6 +104,13 @@
 <p>All of the study notes have now been moved to use auto-generated documentation to build a static site with Github Pages.
 Alongside all the code documentation, you will find a folder structure for notes in markdown broken down by test categories.</p>
 <p><a class="reference external" href="https://h4ndzdatm0ld.github.io/spauto_devnet/index.html">Documentation + Study Notes</a></p>
+<p>Build local</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../..
+sphinx-build -vvv -b html ./docs ./docs/public
+<span class="nb">cd</span> docs/public
+python -m http.server
+</pre></div>
+</div>
 <section id="a-lab-topology-based-on-mpls-in-the-sdn-era-book-used-for-300-535-spauto-studies">
 <h2>A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies<a class="headerlink" href="#a-lab-topology-based-on-mpls-in-the-sdn-era-book-used-for-300-535-spauto-studies" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="https://developer.cisco.com/certification/devnet-sp-auto/">Cisco Certified DevNet Specialist - Service Provider Automation and Programmability</a></p>
@@ -295,7 +301,7 @@ More to come!</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to DevNet SPATUO - documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="SPAUTO/Network%20Device%20Programmability/3.7%20Construct%20Xpath%20notation%20for%20a%20given%20node%20or%20instance%20of%20a%20node.html" class="btn btn-neutral float-right" title="3.7 Construct Xpath notation for a given node or instance of a node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="SPAUTO/Automation%20APIs%20and%20Protocols/index.html" class="btn btn-neutral float-right" title="Automation APIs and Protocols" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

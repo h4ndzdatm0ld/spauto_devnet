@@ -76,3 +76,7 @@ All of this material will be stored in a folder called `xpath_scripts` in our pr
 We'll be using a NETCONF library that I developed for Nornir, [Nornir Netconf](https://github.com/h4ndzdatm0ld/nornir_netconf)
 
 Lets get started!
+
+sphinx-build -vvv -b html ./docs ./docs/public
+cd docs/public
+python -m http.server

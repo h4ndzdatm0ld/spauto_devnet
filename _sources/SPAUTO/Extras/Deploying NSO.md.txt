@@ -1,4 +1,6 @@
-# Installing NSO Evaluation Version (5.5)
+# Deploying NSO (Local install)
+
+## Installing NSO Evaluation Version (v5.5)
 
 For my studies, I decided to deploy an Ubuntu VM to host an NSO instance. Keep in mind there are several ways to take advantage of NSO. Within a CI/CD pipeline, as a docker container, a full blown production server and as a local install. An evaluation version has recently been released and is free to download.
 

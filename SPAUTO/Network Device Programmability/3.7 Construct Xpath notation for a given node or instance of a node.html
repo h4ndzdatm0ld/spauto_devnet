@@ -19,8 +19,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ETSI NFV" href="../Network%20Programmability%20Foundation/4.1%20Describe%20ETSI%20NFV.html" />
-    <link rel="prev" title="MPLS in the SDN Era –&gt; DevNet SPAUTO" href="../../README.html" /> 
+    <link rel="next" title="Network Programmability Foundation" href="../Network%20Programmability%20Foundation/index.html" />
+    <link rel="prev" title="Network Device Programmability" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,11 +43,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">Readme</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3.7 Construct Xpath notation for a given node or instance of a node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Network%20Programmability%20Foundation/4.1%20Describe%20ETSI%20NFV.html">ETSI NFV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Network%20Programmability%20Foundation/4.6%20Implement%20XR%20traffic%20controller%20%28including%20topology%20information%20transfer%20to%20XTC%29.html">Implementing XR Traffic Controller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Network%20Programmability%20Foundation/4.7%20Identify%20the%20uses%20of%20Cisco%20WAE.html">Cisco WAN Automation Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Network%20Programmability%20Foundation/Deploying%20NSO.html">Installing NSO Evaluation Version (5.5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Automation%20APIs%20and%20Protocols/index.html">Automation APIs and Protocols</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Network Device Programmability</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.7 Construct Xpath notation for a given node or instance of a node</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Network%20Programmability%20Foundation/index.html">Network Programmability Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Extras/index.html">Extras</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
@@ -70,6 +72,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Network Device Programmability</a> &raquo;</li>
       <li>3.7 Construct Xpath notation for a given node or instance of a node</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/SPAUTO/Network Device Programmability/3.7 Construct Xpath notation for a given node or instance of a node.md.txt" rel="nofollow"> View page source</a>
@@ -143,6 +146,9 @@ developer@ncs#show
 <p>All of this material will be stored in a folder called <code class="docutils literal notranslate"><span class="pre">xpath_scripts</span></code> in our project folder.
 We’ll be using a NETCONF library that I developed for Nornir, <a class="reference external" href="https://github.com/h4ndzdatm0ld/nornir_netconf">Nornir Netconf</a></p>
 <p>Lets get started!</p>
+<p>sphinx-build -vvv -b html ./docs ./docs/public
+cd docs/public
+python -m http.server</p>
 </section>
 </section>
 
@@ -150,8 +156,8 @@ We’ll be using a NETCONF library that I developed for Nornir, <a class="refere
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../../README.html" class="btn btn-neutral float-left" title="MPLS in the SDN Era –&gt; DevNet SPAUTO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../Network%20Programmability%20Foundation/4.1%20Describe%20ETSI%20NFV.html" class="btn btn-neutral float-right" title="ETSI NFV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Network Device Programmability" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Network%20Programmability%20Foundation/index.html" class="btn btn-neutral float-right" title="Network Programmability Foundation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

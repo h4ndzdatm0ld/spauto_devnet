@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installing NSO Evaluation Version (5.5) &mdash; Devnet SPAUTO 0.1.0 documentation</title>
+  <title>Deploying NSO (Local install) &mdash; Devnet SPAUTO 0.1.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Changelog" href="../../changelog.html" />
-    <link rel="prev" title="Cisco WAN Automation Engine" href="4.7%20Identify%20the%20uses%20of%20Cisco%20WAE.html" /> 
+    <link rel="prev" title="Extras" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,11 +43,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">Readme</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../Network%20Device%20Programmability/3.7%20Construct%20Xpath%20notation%20for%20a%20given%20node%20or%20instance%20of%20a%20node.html">3.7 Construct Xpath notation for a given node or instance of a node</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4.1%20Describe%20ETSI%20NFV.html">ETSI NFV</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4.6%20Implement%20XR%20traffic%20controller%20%28including%20topology%20information%20transfer%20to%20XTC%29.html">Implementing XR Traffic Controller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="4.7%20Identify%20the%20uses%20of%20Cisco%20WAE.html">Cisco WAN Automation Engine</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing NSO Evaluation Version (5.5)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Automation%20APIs%20and%20Protocols/index.html">Automation APIs and Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Network%20Device%20Programmability/index.html">Network Device Programmability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Network%20Programmability%20Foundation/index.html">Network Programmability Foundation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Extras</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Deploying NSO (Local install)</a></li>
+</ul>
+</li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
@@ -70,9 +72,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Installing NSO Evaluation Version (5.5)</li>
+          <li><a href="index.html">Extras</a> &raquo;</li>
+      <li>Deploying NSO (Local install)</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/SPAUTO/Network Programmability Foundation/Deploying NSO.md.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/SPAUTO/Extras/Deploying NSO.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -80,8 +83,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="installing-nso-evaluation-version-5-5">
-<h1>Installing NSO Evaluation Version (5.5)<a class="headerlink" href="#installing-nso-evaluation-version-5-5" title="Permalink to this headline"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="deploying-nso-local-install">
+<h1>Deploying NSO (Local install)<a class="headerlink" href="#deploying-nso-local-install" title="Permalink to this headline"></a></h1>
+<section id="installing-nso-evaluation-version-v5-5">
+<h2>Installing NSO Evaluation Version (v5.5)<a class="headerlink" href="#installing-nso-evaluation-version-v5-5" title="Permalink to this headline"></a></h2>
 <p>For my studies, I decided to deploy an Ubuntu VM to host an NSO instance. Keep in mind there are several ways to take advantage of NSO. Within a CI/CD pipeline, as a docker container, a full blown production server and as a local install. An evaluation version has recently been released and is free to download.</p>
 <p>Head on over to the following site and get the installer files.</p>
 <p><a class="reference external" href="https://developer.cisco.com/docs/nso/#%21getting-and-installing-nso/download-your-nso-free-trial-installer-and-cisco-neds">NSO Eval</a></p>
@@ -90,6 +95,7 @@
 <p><a class="reference external" href="https://github.com/NSO-developer/nso-docker">NSO Docker</a></p>
 <p>At this point, you should have downloaded a local copy of the eval version on your machine. I will assume that you have a fresh install of Ubuntu 20.04 server running.</p>
 <p>Our VM will have 2 CPU’s and 4GB of ram. This should be plenty for our operations, although more RAM may be required if we add all 17 routers, as documentation suggests. We will be doing a Local Install on our remote server which allows the creation of multiple, unrelated NSO instances in one host.</p>
+</section>
 <section id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h2>
 <p>I won’t bore you with the details, but the first step is to SCP the .bin file for the NSO appliance and any other NEDs you may have downloaded to our VM.</p>
@@ -276,7 +282,7 @@ From our example above, we created a new directory called ‘example-nso-instanc
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="4.7%20Identify%20the%20uses%20of%20Cisco%20WAE.html" class="btn btn-neutral float-left" title="Cisco WAN Automation Engine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Extras" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../../changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
