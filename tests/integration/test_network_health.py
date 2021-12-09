@@ -67,7 +67,6 @@ class TestBgpConfig:
     def test_assert_no_incompatible_bgp_session(self):
         """Built in assertion to ensure there are no incompatible BGP sessions.
         This looks at the BGP Configuration between all nodes."""
-        breakpoint()
         assert_no_incompatible_bgp_sessions(snapshot="mpls_sdn_era")
 
     def test_assert_no_unestablished_bgp_session(self):
