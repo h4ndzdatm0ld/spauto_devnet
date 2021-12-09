@@ -1,10 +1,29 @@
 repos:
--   repo: https://github.com/ambv/black
-    rev: 21.12b0
+-   repo: local
     hooks:
-    - id: black
-      language_version: python3.9
--   repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.2
-    hooks:
+    - id: isort
+      name: isort
+      entry: isort
+      language: system
+      types: [python]
+      stages: [commit]
     - id: flake8
+      name: flake8
+      language: system
+      entry: flake8
+      types: [python]
+      stages: [commit]
+    # - id: black
+    #   language_version: python3.9
+    #   name: black
+    #   language: system
+    #   entry: black
+    #   types: [python]
+    #   stages: [commit]
+    - id: pytest
+      name: pytest
+      language: system
+      entry: pytest
+      pass_filenames: false
+      always_run: true
+      stages: [push]
