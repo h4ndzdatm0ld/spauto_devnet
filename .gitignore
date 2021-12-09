@@ -12,3 +12,6 @@ docs/public
 
 # ncs files
 ncs*
+
+# Cache
+.cache*
