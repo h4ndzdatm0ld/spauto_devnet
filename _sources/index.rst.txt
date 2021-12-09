@@ -27,8 +27,8 @@ Study Notes
    :maxdepth: 1
    :titlesonly:
 
-
-   SPAUTO/Network Programmability Foundation/index
+   SPAUTO/Network Device Programmability/*
+   SPAUTO/Network Programmability Foundation/*
 
 Changelog
 =========
