@@ -14,9 +14,9 @@ interface {{ interface.get('interface') }}
 {% endif %}
 {% if interface.get('vrrp') %}
 {% for vrrp_group in interface.get('vrrp') %}
-vrrp {{ vrrp_group.get('group' ) }} ip {{ vrrp_group.get('ip_address') }}
+ vrrp {{ vrrp_group.get('group' ) }} ip {{ vrrp_group.get('ip_address') }}
 {% if vrrp_group.get('priority') %}
-vrrp {{ vrrp_group.get('group' ) }} priority {{ vrrp_group.get('priority') }}
+ vrrp {{ vrrp_group.get('group' ) }} priority {{ vrrp_group.get('priority') }}
 {% endif %}
 {% endfor %}
 {% endif %}
