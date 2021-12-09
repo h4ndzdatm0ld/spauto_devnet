@@ -54,3 +54,6 @@ url = "https://pypi.org/simple/"
 name = "test-pypi"
 secondary = true
 url = "https://test.pypi.org/simple/"
+
+[tool.isort]
+profile = "black"

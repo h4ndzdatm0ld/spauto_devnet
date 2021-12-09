@@ -27,10 +27,10 @@ def get_nso_devices(task):
     }
     payload = {}
     resp = requests.get(
-            f"{url}/tailf-ncs:devices/device={task.host}",
-            headers=headers,
-            data=payload,
-            auth=auth,
+        f"{url}/tailf-ncs:devices/device={task.host}",
+        headers=headers,
+        data=payload,
+        auth=auth,
     )
 
     task.host["device-data"] = resp.content

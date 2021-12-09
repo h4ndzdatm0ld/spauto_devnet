@@ -13,13 +13,13 @@ repos:
       entry: flake8
       types: [python]
       stages: [commit]
-    # - id: black
-    #   language_version: python3.9
-    #   name: black
-    #   language: system
-    #   entry: black
-    #   types: [python]
-    #   stages: [commit]
+    - id: black
+      language_version: python3.9
+      name: black
+      language: python
+      entry: black
+      types: [python]
+      stages: [commit]
     - id: pytest
       name: pytest
       language: system
