@@ -2,7 +2,10 @@
 base:
   lldp: true
 ip_interfaces:
-  - interface: Gi1.1001
+  - interface: GigabitEthernet4
+    description: "Parent INT to PE2"
+    admin_status: true
+  - interface: GigabitEthernet4.1001
     description: TO_H1
     ip_address: 10.1.12.1
     mask: 255.255.255.0
@@ -12,36 +15,35 @@ ip_interfaces:
       - group: 1
         ip_address: 10.1.12.100
         priority: 100
-  - interface: Gi2.1001
+  - interface: GigabitEthernet2
+    admin_status: true
     description: TO_PE1
     ip_address: 10.1.0.0
     mask: 255.255.255.254
-    sub_int: true
-    vlan: 1001
-  - interface: Gi3.1001
+  - interface: GigabitEthernet3
     description: TO_PE2
     ip_address: 10.1.0.4
     mask: 255.255.255.254
-    sub_int: true
-    vlan: 1001
+    sub_int: false
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 192.168.10.1
     mask: 255.255.255.255
     passive: true
+    admin_state: true
 bgp:
   asn: 65001
   router_id: 192.168.10.1
   neighbors:
     - remote_as: 65000
       neighbor: 10.1.0.1
-      update_source: Gi2.1001
+      update_source: GigabitEthernet2
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE1-OUT out
     - remote_as: 65000
       neighbor: 10.1.0.5
-      update_source: Gi3.1001
+      update_source: GigabitEthernet3
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE2-OUT out

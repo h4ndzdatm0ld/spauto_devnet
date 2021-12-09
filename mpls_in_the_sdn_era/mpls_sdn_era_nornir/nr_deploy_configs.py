@@ -142,9 +142,9 @@ def main():
     nr.run(task=load_all_data)
     print_result(nr.run(task=generate_full_mesh_list))
     # print_result(nr.run(task=render_main))
-    nr.run(task=render_main)
+    print_result(nr.run(task=render_main))
     # print_result(nr.run(task=push_config))
-    nr.run(task=push_config)
+    # nr.run(task=push_config)
 
 
 if __name__ == "__main__":

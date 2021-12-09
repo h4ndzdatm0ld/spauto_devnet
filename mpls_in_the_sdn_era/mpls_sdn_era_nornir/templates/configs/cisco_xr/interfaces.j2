@@ -12,6 +12,9 @@ interface {{ interface.get('interface') }}
  no shutdown
 {% else %}
 interface {{ interface.get('interface') }}
+{% if interface.get('vrf') %}
+ vrf {{ interface.get('vrf') }}
+{% endif %}
 {% if interface.get('description')%}
  description {{ interface.get('description') }}
 {% endif %}

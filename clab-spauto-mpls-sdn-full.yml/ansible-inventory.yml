@@ -1,0 +1,14 @@
+all:
+  children:
+    vr-csr:
+      hosts:
+        clab-spauto-mpls-sdn-full.yml-vr-csr-ce-1:
+          ansible_host: 172.100.100.15
+        clab-spauto-mpls-sdn-full.yml-vr-csr-ce-2:
+          ansible_host: 172.100.100.20
+    vr-xrv:
+      hosts:
+        clab-spauto-mpls-sdn-full.yml-xrv-pe1:
+          ansible_host: 172.100.100.11
+        clab-spauto-mpls-sdn-full.yml-xrv-pe2:
+          ansible_host: 172.100.100.22

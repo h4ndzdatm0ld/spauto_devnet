@@ -1,5 +1,5 @@
 ---
-name: "spauto-mpls-sdn.yml"
+name: "spauto-mpls-sdn-core.yml"
 
 mgmt:
   network: "spauto"                     # management network name
