@@ -14,4 +14,8 @@ docs/public
 ncs*
 
 # Cache
-.cache*
+*.cache*
+*.pyc
+
+# Testing Docs
+tests/network_data/mpls_sdn_era/configs/*

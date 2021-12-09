@@ -67,6 +67,7 @@ class TestBgpConfig:
     def test_assert_no_incompatible_bgp_session(self):
         """Built in assertion to ensure there are no incompatible BGP sessions.
         This looks at the BGP Configuration between all nodes."""
+        breakpoint()
         assert_no_incompatible_bgp_sessions(snapshot="mpls_sdn_era")
 
     def test_assert_no_unestablished_bgp_session(self):
@@ -94,7 +95,6 @@ class TestBgpConfig:
     def test_unused_structures(self):
         """This tests checks if configuration lines are not used such as ACLs
         or route-maps"""
-        # TODO: "go through this"
         result = bfq.unusedStructures().answer().frame()
         assert len(result) == 0
 
