@@ -1,17 +1,14 @@
 """Interactive Batfish Script."""
-from pybatfish.client.asserts import (
-    assert_no_duplicate_router_ids,
-    assert_no_forwarding_loops,
-    assert_no_incompatible_bgp_sessions,
-    assert_no_undefined_references,
-    assert_no_unestablished_bgp_sessions,
-)
-from pybatfish.client.commands import (
+# from pybatfish.client.asserts import (  # assert_no_duplicate_router_ids,
+#     assert_no_forwarding_loops,
+#     assert_no_incompatible_bgp_sessions,
+#     assert_no_undefined_references,
+#     assert_no_unestablished_bgp_sessions,
+# )
+from pybatfish.client.commands import (  # bf_session,; bf_upload_diagnostics,
     bf_init_snapshot,
-    bf_session,
     bf_set_network,
     bf_set_snapshot,
-    bf_upload_diagnostics,
 )
 from pybatfish.question import bfq, load_questions
 

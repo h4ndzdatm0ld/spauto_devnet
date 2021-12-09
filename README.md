@@ -5,6 +5,15 @@ Alongside all the code documentation, you will find a folder structure for notes
 
 [Documentation + Study Notes](https://h4ndzdatm0ld.github.io/spauto_devnet/index.html)
 
+Build local
+
+```bash
+cd ../..
+sphinx-build -vvv -b html ./docs ./docs/public
+cd docs/public
+python -m http.server
+```
+
 ## A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies
 
 [Cisco Certified DevNet Specialist - Service Provider Automation and Programmability](https://developer.cisco.com/certification/devnet-sp-auto/)

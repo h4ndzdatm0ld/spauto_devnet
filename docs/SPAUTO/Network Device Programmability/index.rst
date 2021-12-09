@@ -1,4 +1,4 @@
-Network Programmability Foundation
+Network Device Programmability
 ========
 
 .. toctree::
