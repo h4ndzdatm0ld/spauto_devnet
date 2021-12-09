@@ -40,6 +40,7 @@ sphinx-autoapi = "^1.8.4"
 sphinx-rtd-theme = "^1.0.0"
 myst-parser = "^0.15.2"
 sphinx = "^4.3.1"
+pre-commit = "^2.16.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
