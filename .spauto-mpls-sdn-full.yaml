@@ -15,7 +15,7 @@ topology:
       image: "h4ndzdatm0ld/vr-csr:17.03.02"
 
   nodes:
-    # CE DEVICES
+    # CE/Customer Devices (West Region)
     vr-csr-ce-1:
       kind: "vr-csr"
       mgmt_ipv4: 172.100.100.15
@@ -24,6 +24,15 @@ topology:
       kind: "vr-csr"
       mgmt_ipv4: 172.100.100.20
       mgmt_ipv6: 2001:172:100:100::20
+    ceos_sw_1:
+      kind: ceos
+      image: "h4ndzdatm0ld/ceos:4.27.0F"
+      mgmt_ipv4: 172.100.100.182
+      mgmt_ipv6: 2001:172:100:100::182
+    xrv-h1:
+      kind: "vr-xrv"
+      mgmt_ipv4: 172.100.100.190
+      mgmt_ipv6: 2001:172:100:100::190
 
     # CORE DEVICES
     xrv-pe1:
@@ -60,16 +69,27 @@ topology:
     #   mgmt_ipv6: 2001:172:100:100::202
 
   links:
-  # ~ CE DEVICES ~
+  # ~ CE DEVICES // West Region
 
   # CE1 <> PE1
     - endpoints: ["vr-csr-ce-1:eth1", "xrv-pe1:eth2"]
   # CE1 <> PE2
-    - endpoints: ["vr-csr-ce-1:eth4", "xrv-pe2:eth2"]
+    - endpoints: ["vr-csr-ce-1:eth2", "xrv-pe2:eth2"]
+
   # CE2 <> PE1
     - endpoints: ["vr-csr-ce-2:eth1", "xrv-pe1:eth3"]
   # CE2 <> PE2
     - endpoints: ["vr-csr-ce-2:eth4", "xrv-pe2:eth1"]
+
+  # SW 1
+  # CE1 <> CEOS_SW_1
+    - endpoints: ["vr-csr-ce-1:eth3", "ceos_sw_1:eth2"]
+  # CE2 <> CEOS_SW_1
+    - endpoints: ["vr-csr-ce-2:eth3", "ceos_sw_1:eth1"]
+
+  # Customer Devices
+  # H1 <> CEOS_SW_1
+    - endpoints: ["xrv-h1:eth2", "ceos_sw_1:eth3"]
 
   # ~ CORE ROUTERS ~
   #   # PE1 <> P1

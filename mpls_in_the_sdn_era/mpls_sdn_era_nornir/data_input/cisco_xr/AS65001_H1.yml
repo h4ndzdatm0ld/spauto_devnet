@@ -1,69 +1,70 @@
 ---
 base:
   lldp: true
+# vrfs:
+#   - name: H1
+#     family: address-family ipv4 unicast
+#     import_rt: 65001:1001
+#     export_rt: 65001:1001
 ip_interfaces:
   - interface: Gi0/0/0/1
     admin_status: true
-  - interface: Gi0/0/0/2
-    admin_status: true
-  - interface: Gi0/0/0/1.1001
-    description: VRF_H1
+    description: H1 Service
     ip_address: 10.1.12.10
-    vrf: H1
+    # vrf: H1
     mask: "/24"
-    sub_int: true
-    vlan: 1001
-  - interface: Gi0/0/0/1.1002
-    description: VRF_H1_A
-    ip_address: 10.1.12.10
-    vrf: H1-A
-    mask: "/24"
-    sub_int: true
-    vlan: 1002
-  - interface: Gi0/0/0/1.1003
-    description: VRF_H1_B
-    ip_address: 10.10.12.10
-    vrf: H1-B
-    mask: "/24"
-    sub_int: true
-    vlan: 1003
-  - interface: Gi0/0/0/2.1001
-    description: VRF_H3
-    ip_address: 10.2.34.30
-    vrf: H3
-    mask: "/24"
-    sub_int: true
-    vlan: 1001
-  - interface: Gi0/0/0/2.1002
-    description: VRF_H3-A
-    ip_address: 10.2.34.30
-    vrf: H3-B
-    mask: "/24"
-    sub_int: true
-    vlan: 1002
-  - interface: Gi0/0/0/2.1003
-    description: VRF_H3-B
-    ip_address: 10.20.34.30
-    vrf: H1
-    mask: "/24"
-    sub_int: true
-    vlan: 1003
+    sub_int: false
+  # - interface: Gi0/0/0/1.1002
+  #   description: VRF_H1_A
+  #   ip_address: 10.1.12.10
+  #   vrf: H1-A
+  #   mask: "/24"
+  #   sub_int: true
+  #   vlan: 1002
+  # - interface: Gi0/0/0/1.1003
+  #   description: VRF_H1_B
+  #   ip_address: 10.10.12.10
+  #   vrf: H1-B
+  #   mask: "/24"
+  #   sub_int: true
+  #   vlan: 1003
+  # - interface: Gi0/0/0/2.1001
+  #   description: VRF_H3
+  #   ip_address: 10.2.34.30
+  #   vrf: H3
+  #   mask: "/24"
+  #   sub_int: true
+  #   vlan: 1001
+  # - interface: Gi0/0/0/2.1002
+  #   description: VRF_H3-A
+  #   ip_address: 10.2.34.30
+  #   vrf: H3-B
+  #   mask: "/24"
+  #   sub_int: true
+  #   vlan: 1002
+  # - interface: Gi0/0/0/2.1003
+  #   description: VRF_H3-B
+  #   ip_address: 10.20.34.30
+  #   vrf: H1
+  #   mask: "/24"
+  #   sub_int: true
+  #   vlan: 1003
 static_routes:
   - vrf: H1
     dst: 0.0.0.0/0
     next_hop: 10.1.12.100
-  - vrf: H3
-    dst: 0.0.0.0/0
-    next_hop: 10.2.34.100
-  - vrf: H1-A
-    dst: 0.0.0.0/0
-    next_hop: 10.1.12.100
-  - vrf: H1-B
-    dst: 0.0.0.0/0
-    next_hop: 10.10.12.100
-  - vrf: H3-A
-    dst: 0.0.0.0/0
-    next_hop: 10.2.34.100
-  - vrf: H3-B
-    dst: 0.0.0.0/0
-    next_hop: 10.20.34.100
+  # - vrf: H3
+  #   dst: 0.0.0.0/0
+  #   next_hop: 10.2.34.100
+  # - vrf: H1-A
+  #   dst: 0.0.0.0/0
+  #   next_hop: 10.1.12.100
+  # - vrf: H1-B
+  #   dst: 0.0.0.0/0
+  #   next_hop: 10.10.12.100
+  # - vrf: H3-A
+  #   dst: 0.0.0.0/0
+  #   next_hop: 10.2.34.100
+  # - vrf: H3-B
+  #   dst: 0.0.0.0/0
+  #   next_hop: 10.20.34.100

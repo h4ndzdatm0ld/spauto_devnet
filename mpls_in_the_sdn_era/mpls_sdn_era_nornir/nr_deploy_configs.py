@@ -143,7 +143,7 @@ def main():
     print_result(nr.run(task=generate_full_mesh_list))
     # print_result(nr.run(task=render_main))
     print_result(nr.run(task=render_main))
-    # print_result(nr.run(task=push_config))
+    print_result(nr.run(task=push_config))
     # nr.run(task=push_config)
 
 

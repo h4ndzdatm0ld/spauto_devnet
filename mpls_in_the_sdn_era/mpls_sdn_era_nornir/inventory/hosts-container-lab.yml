@@ -31,23 +31,23 @@
 #     type: RR
 #     asn: 65000
 
-# AS65000_PE1:
-#   hostname: 172.100.100.11
-#   groups:
-#     - CORE_EDGE_ROUTER
-#   data:
-#     type: PE_ROUTER
-#     mpls_full_mesh: true
-#     asn: 65000
+AS65000_PE1:
+  hostname: 172.100.100.11
+  groups:
+    - CORE_EDGE_ROUTER
+  data:
+    type: PE_ROUTER
+    mpls_full_mesh: true
+    asn: 65000
 
-# AS65000_PE2:
-#   hostname: 172.100.100.22
-#   groups:
-#     - CORE_EDGE_ROUTER
-#   data:
-#     type: PE_ROUTER
-#     mpls_full_mesh: true
-#     asn: 65000
+AS65000_PE2:
+  hostname: 172.100.100.22
+  groups:
+    - CORE_EDGE_ROUTER
+  data:
+    type: PE_ROUTER
+    mpls_full_mesh: true
+    asn: 65000
 
 # AS65000_PE3:
 #   hostname: 172.100.100.33
@@ -101,21 +101,21 @@ AS65001_CE2:
     type: CE_ROUTER
     asn: 65001
 
-# AS65001_SW1:
-#   hostname: 192.168.0.182
-#   groups:
-#     - IOS
-#   data:
-#     type: AGG_SW
-#     asn: 65001
+AS65001-SW1:
+  hostname: 172.100.100.182
+  groups:
+    - EOS
+  data:
+    type: AGG_SW
+    asn: 65001
 
-# AS65001_H1:
-#   hostname: 192.168.0.183
-#   groups:
-#     - XR_65001
-#   data:
-#     type: HOST
-#     asn: 65001
+AS65001_H1:
+  hostname: 172.100.100.190
+  groups:
+    - XR_65001
+  data:
+    type: HOST
+    asn: 65001
 
 # AS65001_CE3:
 #   hostname: 192.168.0.184

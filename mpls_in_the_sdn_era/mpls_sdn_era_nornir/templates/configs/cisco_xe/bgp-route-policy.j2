@@ -1,6 +1,7 @@
+
+!
 {% if host.DATA_INPUT.get('bgp') %}
 {% if host.DATA_INPUT.bgp.get('prefix') %}
-!
 {% for pl in host.DATA_INPUT.bgp.get('prefix') %}
 ip prefix-list {{ pl.get('description') }} seq {{ pl.get('seq') }} {{ pl.get('option') }} {{ pl.get('prefix') }}
 {% endfor %}

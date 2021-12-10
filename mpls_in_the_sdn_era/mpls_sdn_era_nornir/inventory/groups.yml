@@ -55,19 +55,20 @@ CSR:
       protocol: ssh
       ned_id: cisco-ios-cli-6.69:cisco-ios-cli-6.69
       verification: none
-IOS:
+EOS:
   username: admin
   password: admin
-  platform: cisco_ios
+  platform: eos
   port: 22
   connection_options:
     napalm:
-      platform: cisco_ios
+      platform: eos
       username: admin
       password: admin
-  data:
-    nso:
-      authgroup: nso-auth
-      protocol: ssh
-      ned_id: cisco-ios-cli-6.69:cisco-ios-cli-6.69
-      verification: none
+
+  # data:
+  #   nso:
+  #     authgroup: nso-auth
+  #     protocol: ssh
+  #     ned_id: cisco-ios-cli-6.69:cisco-ios-cli-6.69
+  #     verification: none

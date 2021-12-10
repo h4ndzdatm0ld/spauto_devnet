@@ -1,0 +1,8 @@
+---
+interfaces:
+  - name: Ethernet 1
+    trunk: true
+  - name: Ethernet 2
+    trunk: true
+  - name: Ethernet 3
+    trunk: true

@@ -4,18 +4,15 @@ base:
 
 ip_interfaces:
   - interface: GigabitEthernet4
-    description: "Parent INT to H1"
     admin_status: true
-  - interface: GigabitEthernet4.1001
     description: TO_H1
     ip_address: 10.1.12.2
     mask: 255.255.255.0
-    sub_int: true
-    vlan: 1001
+    sub_int: false
     vrrp:
       - group: 1
         ip_address: 10.1.12.100
-        priority: 100
+        priority: 200
   - interface: GigabitEthernet2
     description: TO_PE1
     ip_address: 10.1.0.6
