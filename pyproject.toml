@@ -21,13 +21,13 @@ ntc-templates = "^2.0.0"
 xmltodict = "^0.12.0"
 jxmlease = "^1.0.3"
 ttp = "^0.7.2"
-pytest = "^6.2.5"
 nornir = "^3.2.0"
 hier-config = "^2.2.0"
 nornir-hier-config = "^0.1.0"
 netmiko = "^3.4.0"
 napalm = "^3.3.1"
 pyiosxr = "^0.53"
+markupsafe = "2.0.1"
 
 [tool.poetry.dev-dependencies]
 isort = "*"
@@ -41,6 +41,8 @@ myst-parser = "*"
 sphinx = "*"
 pre-commit = "*"
 ipython = "*"
+pytest = "*"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -32,7 +32,7 @@ services:
     pid: "host"
     command: "containerlab deploy -t spauto-mpls-sdn-core.yml"
     # If you want to destroy the lab, ovveride the command while executing docker-compose service
-    # docker-compose run clab containerlab destroy -t spauto-mpls-sdn.yml
+    # docker-compose run clab containerlab deploy -t spauto-mpls-sdn-core.yml
     privileged: true
     tty: true
   nso:
