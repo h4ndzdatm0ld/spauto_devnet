@@ -1,11 +1,10 @@
-# MPLS in the SDN Era --> DevNet SPAUTO
+# DevNet SP Automation Playground & Study Notes!
 
-All of the study notes have now been moved to use auto-generated documentation to build a static site with Github Pages.
-Alongside all the code documentation, you will find a folder structure for notes in markdown broken down by test categories.
+All of the study notes have now been moved to use auto-generated documentation to build a static site with Github Pages. Alongside all the code documentation, you will find a folder structure for notes in markdown broken down by test categories.
 
 [Documentation + Study Notes](https://h4ndzdatm0ld.github.io/spauto_devnet/index.html)
 
-## A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies
+## A lab topology based on MPLS in the SDN era book is used for 300-535 SPAUTO studies
 
 [Cisco Certified DevNet Specialist - Service Provider Automation and Programmability](https://developer.cisco.com/certification/devnet-sp-auto/)
 
@@ -13,12 +12,12 @@ Alongside all the code documentation, you will find a folder structure for notes
 
 Simple. This is an incredible book for any and all Network Engineers interested
 in learning technologies used in Service Provider environments. The book is heavily focused
-on MPLS, SDN, Segment-Routing, BGP, L2VPN/L3VPNs, over-all traffic engineering and much more. These are common terms within SP networks and the book does an incredible job in guiding the readers while exploring the device configurations in this topology. However, many other topics are not covered by the book and this REPO will hopefully fill in the gaps. This book lays the foundation for our lab topology, but it has increased and grown over time. Other material that has been helpful in studying is the Network Programmability with YANG book, which does cover a lot of the topics in the blueprint!
+on MPLS, SDN, Segment-Routing, BGP, L2VPN/L3VPNs, over-all traffic engineering and much more. These are common terms within SP networks and the book does an incredible job in guiding the readers while exploring the device configurations in this topology. However, many other topics are not covered by the book and this repository will hopefully fill in the gaps. This book lays the foundation for our lab topology, but it has increased and grown over time. Additional material used for studying is the book `Network Programmability with YANG`, which covers a lot of the topics in the blueprint!
 
 ![MPLS IN THE SDN ERA](mpls_in_the_sdn_era/images/mpls_sdn_era_topology.png)
+
 This book goes through a number of device configurations in a multi-vendor lab topology
-(Cisco IOSXR && Juniper). However, *For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a
-Cisco Certification.*
+(Cisco IOSXR && Juniper). However, *For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a Cisco Certification.*
 
 ### To fully automate Service Provider Networks, you must understand Service Provider Networks
 
@@ -28,47 +27,34 @@ Cisco Certification.*
 
 ## What does this repository include & cover
 
-My goal is to gather all of my self-training in this repository and cover all the major
-Cisco Certified DevNet Specialist (300-535 SPAUTO) topics.
-
-## Extras
-
-There will be some extra material in this repository that can be an aid for other areas
-including but not limited to:
-
-    - Batfish
-    - Nornir
+My goal is to gather all of my self-training in this repository and cover all the topics of the 
+Cisco Certified DevNet Specialist (300-535 SPAUTO) certification.
 
 ## How can I use this repo to study?
 
-I recommend you read the Documentation for my study notes and if you want to play around creating scripts with Nornir, Ansible using SSH/NETCONF, etc.
-Go ahead and start the topology using ContainerLab and have fun automating the network!
+I recommend you read the documentation and additionally, take advantage of the ContainerLab topology provided. Use and abuse the topology. Destroy and rebuild. Learn by breaking!
 
-[Checkout the Wiki!](https://github.com/h4ndzdatm0ld/mpls_in_the_sdn_era/wiki)
+Go ahead and start the topology using ContainerLab and have fun automating the network!
 
 30% of the SPAUTO exam is around Automation and Orchestration platforms, such as NSO. I can't stress enough the importance of taking the time to setup an NSO instance to explore and take advantage of the many examples in this repository. Containerizing NSO for CI/CD is also part of the blueprint, which we will cover.
 
-## Why rely on this complicated lab topology?
+## Recommended Study Material & Resources
 
-I learn better when I am doing, not just reading and specially when breaking things. Having this complicated topology, building all the services in an automated way will be key to our success in passing the certification. There will be tons of material in the end that will cover all the topics in the exam.
-
-## Study Material & Resources
-
-    - MPLS in the SDN Era
-    - Network Programmability with YANG
-    - Nicholas Russo DEVNET Material (Pluralsight)
+    - MPLS in the SDN Era (Book)
+    - Network Programmability with YANG (Book)
+    - Nicholas Russo DevNet Material (Pluralsight)
 
 ## Container Lab
 
-After exploring [ContainerLab](https://containerlab.srlinux.dev/), I have begun to move away from EVE-NG and completely dockerize this entire topology. The default branch on this project is now `containerlab`. Initially, I thought I would share an exported lab from EVE-NG, but including the CLAB topology in this lab makes it so much more portable.
+After exploring [ContainerLab](https://containerlab.srlinux.dev/), I have begun to move away from EVE-NG and completely dockerized this topology. Initially, I thought I would share an exported lab from EVE-NG, but including the CLAB topology in this lab makes it so much more portable.
 
 I've created a simple to use docker-compose service to start the lab. ContainerLab it's self is pulled down as a docker container, so you don't need a local installation of ContainerLab unless you want to have one. I recommend you deploy this lab in a Linux environment, as docker virtualization will prevent you from starting in a Mac or Windows env.
 
 ### Requirements
 
 - Docker
-- Docker-Compose
-- Roughly 32Gb of available RAM, give or take a few depending on usage.
+- Docker Compose
+- Roughly 32Gb of available RAM
 
 ### Starting Lab
 
@@ -219,4 +205,3 @@ ssh admin@localhost -p 2024
 ```
 
 The docker-compose service is mapping port 2024 to 22.
-More to come!

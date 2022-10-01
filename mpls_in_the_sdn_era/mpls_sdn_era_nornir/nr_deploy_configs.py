@@ -20,6 +20,7 @@ __email__ = "hugotinoco@icloud.com"
 
 nr = InitNornir("config.yml")
 
+
 def load_all_data(task):
     """Read all the data from the associated YAML files inside data_input dir.
 

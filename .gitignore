@@ -363,3 +363,4 @@ mpls_in_the_sdn_era/mpls_sdn_era_nornir/Logs/
 *__pycache__*
 *.log
 *config*
+clab-spauto-topology.yml
