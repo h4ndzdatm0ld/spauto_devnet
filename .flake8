@@ -5,4 +5,4 @@ ignore = E203, E266, E501, W503
 max-line-length = 120
 max-complexity = 18
 ; select = B,C,E,F,W,T4,B9
-exclude = ./mpls_in_the_sdn_era/mpls_sdn_era_batfish/
+exclude = ./mpls_in_the_sdn_era/spauto_batfish/

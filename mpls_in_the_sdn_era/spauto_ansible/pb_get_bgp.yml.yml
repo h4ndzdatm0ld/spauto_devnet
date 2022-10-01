@@ -7,9 +7,9 @@
       ansible.netcommon.cli_parse:
         command: "show ip bgp summary"
         parser:
-          name: ansible.netcommon.ntc_templates
+          name: "ansible.netcommon.ntc_templates"
         set_fact: "bgp_sum"
 
     - name: "DEBUG"
-      debug:
-        msg: "IOSXR VERSION: {{ bgp_sum }}"
+      ansible.builtin.debug:
+        msg: "BGP Summary: {{ bgp_sum }}"

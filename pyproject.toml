@@ -20,7 +20,6 @@ ntc-templates = "^2.0.0"
 xmltodict = "^0.12.0"
 jxmlease = "^1.0.3"
 ttp = "^0.7.2"
-pytest = "^6.2.5"
 nornir = "^3.2.0"
 hier-config = "^2.2.0"
 nornir-hier-config = "^0.1.0"
@@ -43,6 +42,7 @@ sphinx = "*"
 pytest = "*"
 ipython = "*"
 pybandit = "^0.0.1"
+ansible-lint = "^6.7.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

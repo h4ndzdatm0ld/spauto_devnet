@@ -1,9 +1,0 @@
-
-!
-{% for interface in host.DATA_INPUT.interfaces %}
-interface {{ interface['name'] }}
-{% if interface['trunk'] %}
- switchport trunk encapsulation dot1q
- switchport mode trunk
- {% endif %}
-{% endfor %}

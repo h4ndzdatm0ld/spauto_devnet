@@ -10,7 +10,7 @@ from pybatfish.question import load_questions
 # import itertools
 
 # # Tell nornir where our inventory data is
-nornir_path = "mpls_in_the_sdn_era/mpls_sdn_era_nornir"
+nornir_path = "mpls_in_the_sdn_era/spauto_nornir"
 
 # Evaluate wether running this locally or not to allow pipeline to execute
 # properly and as well as local testing with docker-compose. The batfish
