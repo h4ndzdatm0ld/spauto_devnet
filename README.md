@@ -7,7 +7,6 @@ All of the study notes have now been moved to use auto-generated documentation t
 Build local
 
 ```bash
-cd ../..
 sphinx-build -vvv -b html ./docs ./docs/public
 cd docs/public
 python -m http.server

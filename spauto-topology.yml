@@ -1,15 +1,16 @@
+# clab/clab@123
 ---
 name: "spauto-topology.yml"
 
 mgmt:
-  network: "spauto" # management network name
-  ipv4_subnet: "172.20.100.0/24" # ipv4 range
-  ipv6_subnet: "2001:172:100:100::/80" # ipv6 range (optional)
+  network: "spauto"
+  ipv4_subnet: "172.20.100.0/24"
+  ipv6_subnet: "2001:172:100:100::/80"
 
 topology:
   defaults:
   kinds:
-    vr-xrv: # clab/clab@123
+    vr-xrv:
       image: "h4ndzdatm0ld/vr-xrv:6.1.3"
 
   nodes:
