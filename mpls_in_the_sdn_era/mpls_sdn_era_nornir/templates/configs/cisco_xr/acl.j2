@@ -1,8 +1,0 @@
-{% for acl in host.DATA_INPUT.get('acls') %}
-{% if acl.get('ipv4') %}
-ipv4 access-list {{ acl.get('name') }}
-{% for seq in acl.get('entry') %}
-{{ seq.get('seq') }} {{ seq.get('action') }} {{ seq.get('protocol') }} {{ seq.get('ip') }} {{ seq.get('wildcard') }} {{ seq.get('target') }}
-{% endfor %}
-{% endif %}
-{% endfor %}

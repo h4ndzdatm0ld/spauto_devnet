@@ -33,7 +33,7 @@ release = "0.1.0"
 # ones.
 extensions = ["autoapi.extension", "myst_parser"]  # Document Python Code
 autoapi_type = "python"
-autoapi_dirs = ["../mpls_in_the_sdn_era/"]
+autoapi_dirs = ["../spauto/"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

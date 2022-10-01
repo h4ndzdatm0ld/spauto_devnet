@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "spauto_devnet"
+name = "spauto"
 version = "0.1.0"
 description = "Playground to study for Cisco Devnet Service Provider Automation exam."
 authors = ["h4ndzdatm0ld <hugotinoco@icloud.com>"]
@@ -14,7 +14,6 @@ pynso = "^1.2.0"
 prettyprint = "^0.1.5"
 PyYAML = "^5.4.1"
 pybatfish = "^2021.2.26"
-pybandit = "^0.0.1"
 nornir-napalm = "^0.1.2"
 docker = "^5.0.0"
 ntc-templates = "^2.0.0"
@@ -33,16 +32,17 @@ markupsafe = "2.0.1"
 isort = "*"
 flake8 = "*"
 pydocstyle = "*"
-black = "*"
+black  = "*"
 yamllint = "*"
 sphinx-autoapi = "*"
 sphinx-rtd-theme = "*"
 myst-parser = "*"
 sphinx = "*"
-pre-commit = "*"
-ipython = "*"
 pytest = "*"
-
+ipython = "*"
+pybandit = "*"
+ansible-lint = "*"
+pre-commit = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

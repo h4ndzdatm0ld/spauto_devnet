@@ -1,0 +1,10 @@
+---
+interfaces:
+  - name: Gi0/0
+    trunk: true
+  - name: Gi0/1
+    trunk: true
+  - name: Gi0/2
+    trunk: true
+  - name: Gi0/3
+    trunk: true

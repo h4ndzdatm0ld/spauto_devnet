@@ -59,6 +59,6 @@ rules:
     level: "warning"
 extends: default
 ignore: |
-  mpls_in_the_sdn_era/mpls_sdn_era_batfish/
+  spauto/spauto_batfish/
   .github/
-  clab-spauto-mpls-sdn.yml/
+  clab-spauto-topology.yml/

@@ -37,11 +37,6 @@ class TestNornirConfigs(object):
         data = nr.run(task=load_data)
         assert node in data.keys()
 
-    # def test_generate_loopbacks(self, nr):
-    #     """Test full-mesh loopback."""
-    #     print("HEEeeeeEEEeEeE----------------->>>")
-    #     nr.run(task=generate_full_mesh_list, nr=nr)
-
     @pytest.mark.parametrize("node", devices)
     def test_config_gen(self, nr, node):
         """Render J2 Templates/Configs."""
@@ -56,7 +51,7 @@ def batfish_setup():
     """Initialize the test setup with correctly setting the snapshot
     into memory"""
     SNAPSHOT_PATH = "tests/network_data/mpls_sdn_era"
-    # configs_dir = "mpls_in_the_sdn_era/mpls_sdn_era_nornir/napalm_getters/ASN65000"
+    # configs_dir = "spauto/spauto_nornir/napalm_getters/ASN65000"
     snapshot_loader(SNAPSHOT_PATH, "mpls_sdn_era")
     yield
     # At the moment, there is no tear down necessary.
@@ -123,21 +118,11 @@ class TestBgpConfig:
         for i, row in bgp_sess_status.iterrows():
             assert row.get("Established_Status") == "ESTABLISHED"
 
-        # #     @pytest.mark.parametrize("node", network_inventory)
-        # #     def test_default_vrf(self, node):
-        # #         """Testing to ensure configuration compliance of all
-        # #         BGP configurations are under the default VRF."""
-
-        # #         conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
-        # #         for i, row in conf.iterrows():
-        # #             assert row.get("VRF") == "default"
-
     ce_devices = ["AS65001_CE2", "AS65001_CE1"]
 
     @pytest.mark.parametrize("node", ce_devices)
     def test_interface_vrrp(self, node):
         """Testing to ensure our CE Devices have at least 1 VRRP group, as expected."""
-
         vrrp = (
             bfq.interfaceProperties(
                 nodes=node,
