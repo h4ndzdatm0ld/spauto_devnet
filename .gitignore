@@ -359,7 +359,7 @@ docs/public
 # ncs files
 ncs*
 
-mpls_in_the_sdn_era/spauto_nornir/Logs/
+spauto/spauto_nornir/Logs/
 *__pycache__*
 *.log
 *config*

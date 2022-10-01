@@ -8,13 +8,13 @@ All of the study notes have now been moved to use auto-generated documentation t
 
 [Cisco Certified DevNet Specialist - Service Provider Automation and Programmability](https://developer.cisco.com/certification/devnet-sp-auto/)
 
-## Why MPLS in the SDN Era?
+### Why MPLS in the SDN Era?
 
 Simple. This is an incredible book for any and all Network Engineers interested
 in learning technologies used in Service Provider environments. The book is heavily focused
 on MPLS, SDN, Segment-Routing, BGP, L2VPN/L3VPNs, over-all traffic engineering and much more. These are common terms within SP networks and the book does an incredible job in guiding the readers while exploring the device configurations in this topology. However, many other topics are not covered by the book and this repository will hopefully fill in the gaps. This book lays the foundation for our lab topology, but it has increased and grown over time. Additional material used for studying is the book `Network Programmability with YANG`, which covers a lot of the topics in the blueprint!
 
-![MPLS IN THE SDN ERA](mpls_in_the_sdn_era/images/mpls_sdn_era_topology.png)
+![MPLS IN THE SDN ERA](./docs/images/mpls_sdn_era_topology.png)
 
 This book goes through a number of device configurations in a multi-vendor lab topology
 (Cisco IOSXR && Juniper). However, *For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a Cisco Certification.*
@@ -140,7 +140,7 @@ poetry shell
 Locate the Nornir playground
 
 ```
-cd mpls_in_the_sdn_era/spauto_nornir
+cd spauto/spauto_nornir
 ```
 
 Automate
