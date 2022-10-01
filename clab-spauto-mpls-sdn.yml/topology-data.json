@@ -239,13 +239,13 @@
       "a": {
         "node": "xrv-pe1",
         "interface": "eth5",
-        "mac": "aa:c1:ab:a1:89:74",
+        "mac": "aa:c1:ab:71:20:ff",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p1",
         "interface": "eth2",
-        "mac": "aa:c1:ab:0a:45:8a",
+        "mac": "aa:c1:ab:c3:ec:88",
         "peer": "a"
       }
     },
@@ -253,13 +253,13 @@
       "a": {
         "node": "xrv-pe1",
         "interface": "eth4",
-        "mac": "aa:c1:ab:e1:ed:6b",
+        "mac": "aa:c1:ab:98:c4:e7",
         "peer": "z"
       },
       "z": {
         "node": "xrv-pe2",
         "interface": "eth3",
-        "mac": "aa:c1:ab:ee:16:66",
+        "mac": "aa:c1:ab:72:32:19",
         "peer": "a"
       }
     },
@@ -267,13 +267,13 @@
       "a": {
         "node": "xrv-pe2",
         "interface": "eth4",
-        "mac": "aa:c1:ab:b2:6c:a8",
+        "mac": "aa:c1:ab:d0:e1:1a",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:57:ea:77",
+        "mac": "aa:c1:ab:69:6b:b4",
         "peer": "a"
       }
     },
@@ -281,13 +281,13 @@
       "a": {
         "node": "xrv-pe3",
         "interface": "eth2",
-        "mac": "aa:c1:ab:02:e0:a7",
+        "mac": "aa:c1:ab:21:79:63",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p1",
         "interface": "eth7",
-        "mac": "aa:c1:ab:00:66:87",
+        "mac": "aa:c1:ab:d8:55:c4",
         "peer": "a"
       }
     },
@@ -295,13 +295,13 @@
       "a": {
         "node": "xrv-pe3",
         "interface": "eth3",
-        "mac": "aa:c1:ab:cc:0f:57",
+        "mac": "aa:c1:ab:f3:df:f2",
         "peer": "z"
       },
       "z": {
         "node": "xrv-pe4",
         "interface": "eth2",
-        "mac": "aa:c1:ab:ab:7d:5f",
+        "mac": "aa:c1:ab:e4:85:03",
         "peer": "a"
       }
     },
@@ -309,13 +309,13 @@
       "a": {
         "node": "xrv-pe4",
         "interface": "eth1",
-        "mac": "aa:c1:ab:f1:11:1e",
+        "mac": "aa:c1:ab:4a:f1:69",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p2",
         "interface": "eth6",
-        "mac": "aa:c1:ab:97:32:63",
+        "mac": "aa:c1:ab:69:a6:ff",
         "peer": "a"
       }
     },
@@ -323,13 +323,13 @@
       "a": {
         "node": "xrv-p1",
         "interface": "eth5",
-        "mac": "aa:c1:ab:6d:b1:de",
+        "mac": "aa:c1:ab:80:04:00",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p2",
         "interface": "eth4",
-        "mac": "aa:c1:ab:7e:ac:ae",
+        "mac": "aa:c1:ab:f5:5f:18",
         "peer": "a"
       }
     },
@@ -337,13 +337,13 @@
       "a": {
         "node": "xrv-p1",
         "interface": "eth4",
-        "mac": "aa:c1:ab:34:13:f5",
+        "mac": "aa:c1:ab:c3:74:fe",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p2",
         "interface": "eth3",
-        "mac": "aa:c1:ab:27:1a:93",
+        "mac": "aa:c1:ab:56:f9:be",
         "peer": "a"
       }
     },
@@ -351,13 +351,13 @@
       "a": {
         "node": "xrv-rr-1",
         "interface": "eth2",
-        "mac": "aa:c1:ab:51:7a:d0",
+        "mac": "aa:c1:ab:bf:c3:29",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p1",
         "interface": "eth3",
-        "mac": "aa:c1:ab:e0:7b:80",
+        "mac": "aa:c1:ab:30:7f:87",
         "peer": "a"
       }
     },
@@ -365,13 +365,13 @@
       "a": {
         "node": "xrv-rr-1",
         "interface": "eth4",
-        "mac": "aa:c1:ab:5e:3a:ab",
+        "mac": "aa:c1:ab:40:06:4c",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p2",
         "interface": "eth2",
-        "mac": "aa:c1:ab:fe:91:83",
+        "mac": "aa:c1:ab:c9:82:02",
         "peer": "a"
       }
     },
@@ -379,13 +379,13 @@
       "a": {
         "node": "xrv-rr-2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:76:a1:bf",
+        "mac": "aa:c1:ab:84:8d:31",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p1",
         "interface": "eth6",
-        "mac": "aa:c1:ab:69:77:0d",
+        "mac": "aa:c1:ab:dc:98:c7",
         "peer": "a"
       }
     },
@@ -393,13 +393,13 @@
       "a": {
         "node": "xrv-rr-2",
         "interface": "eth3",
-        "mac": "aa:c1:ab:7b:75:de",
+        "mac": "aa:c1:ab:95:62:50",
         "peer": "z"
       },
       "z": {
         "node": "xrv-p2",
         "interface": "eth5",
-        "mac": "aa:c1:ab:01:66:a3",
+        "mac": "aa:c1:ab:15:d3:83",
         "peer": "a"
       }
     },
@@ -407,13 +407,13 @@
       "a": {
         "node": "xrv-rr-1",
         "interface": "eth3",
-        "mac": "aa:c1:ab:51:e6:17",
+        "mac": "aa:c1:ab:fc:09:d7",
         "peer": "z"
       },
       "z": {
         "node": "xrv-rr-2",
         "interface": "eth2",
-        "mac": "aa:c1:ab:59:e6:02",
+        "mac": "aa:c1:ab:d3:fd:c1",
         "peer": "a"
       }
     }

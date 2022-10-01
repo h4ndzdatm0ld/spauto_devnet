@@ -1,16 +1,16 @@
 ---
 runner:
-  plugin: threaded
+  plugin: "threaded"
   options:
     num_workers: 100
 
 inventory:
-  plugin: SimpleInventory
+  plugin: "SimpleInventory"
   options:
     host_file: "inventory/hosts-container-lab.yml"
     group_file: "inventory/groups.yml"
     defaults_file: "inventory/defaults.yml"
 
 logging:
-  log_file: logs/nornir.log
-  level: DEBUG
+  log_file: "logs/nornir.log"
+  level: "DEBUG"

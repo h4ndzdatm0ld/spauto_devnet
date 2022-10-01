@@ -83,8 +83,8 @@ You should see something similar to this
 ```text
 ➜  spauto_devnet git:(containerlab) ✗ docker-compose run clab
 Creating spauto_devnet_clab_run ... done
-INFO[0000] Parsing & checking topology file: spauto-mpls-sdn.yml 
-INFO[0000] Creating lab directory: /src/clab-spauto-mpls-sdn.yml 
+INFO[0000] Parsing & checking topology file: spauto-topology.yml 
+INFO[0000] Creating lab directory: /src/clab-spauto-topology.yml 
 INFO[0000] Creating docker network: Name='spauto', IPv4Subnet='172.100.100.0/24', IPv6Subnet='2001:172:100:100::/80', MTU='1500' 
 INFO[0000] Creating container: xrv-pe1                  
 INFO[0000] Creating container: xrv-rr-1                 
@@ -112,14 +112,14 @@ Run 'containerlab version upgrade' to upgrade or go check other installation opt
 +---+-----------------------------------+--------------+---------------------------+--------+---------+--------------------+--------------------------+
 | # |               Name                | Container ID |           Image           |  Kind  |  State  |    IPv4 Address    |       IPv6 Address       |
 +---+-----------------------------------+--------------+---------------------------+--------+---------+--------------------+--------------------------+
-| 1 | clab-spauto-mpls-sdn.yml-xrv-p1   | eef17ad66ff1 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.101/24 | 2001:172:100:100::101/80 |
-| 2 | clab-spauto-mpls-sdn.yml-xrv-p2   | 24e5fc6af015 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.102/24 | 2001:172:100:100::102/80 |
-| 3 | clab-spauto-mpls-sdn.yml-xrv-pe1  | efb11d90a5eb | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.11/24  | 2001:172:100:100::11/80  |
-| 4 | clab-spauto-mpls-sdn.yml-xrv-pe2  | 7d604f4f06f8 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.22/24  | 2001:172:100:100::22/80  |
-| 5 | clab-spauto-mpls-sdn.yml-xrv-pe3  | 285733f28608 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.33/24  | 2001:172:100:100::33/80  |
-| 6 | clab-spauto-mpls-sdn.yml-xrv-pe4  | 5af4945fab68 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.44/24  | 2001:172:100:100::44/80  |
-| 7 | clab-spauto-mpls-sdn.yml-xrv-rr-1 | b5084e97738d | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.201/24 | 2001:172:100:100::201/80 |
-| 8 | clab-spauto-mpls-sdn.yml-xrv-rr-2 | 6a80d3285c2e | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.202/24 | 2001:172:100:100::202/80 |
+| 1 | clab-spauto-topology.yml-xrv-p1   | eef17ad66ff1 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.101/24 | 2001:172:100:100::101/80 |
+| 2 | clab-spauto-topology.yml-xrv-p2   | 24e5fc6af015 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.102/24 | 2001:172:100:100::102/80 |
+| 3 | clab-spauto-topology.yml-xrv-pe1  | efb11d90a5eb | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.11/24  | 2001:172:100:100::11/80  |
+| 4 | clab-spauto-topology.yml-xrv-pe2  | 7d604f4f06f8 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.22/24  | 2001:172:100:100::22/80  |
+| 5 | clab-spauto-topology.yml-xrv-pe3  | 285733f28608 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.33/24  | 2001:172:100:100::33/80  |
+| 6 | clab-spauto-topology.yml-xrv-pe4  | 5af4945fab68 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.44/24  | 2001:172:100:100::44/80  |
+| 7 | clab-spauto-topology.yml-xrv-rr-1 | b5084e97738d | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.201/24 | 2001:172:100:100::201/80 |
+| 8 | clab-spauto-topology.yml-xrv-rr-2 | 6a80d3285c2e | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.202/24 | 2001:172:100:100::202/80 |
 +---+-----------------------------------+--------------+---------------------------+--------+---------+--------------------+--------------------------+
 ```
 
@@ -163,26 +163,32 @@ Automate
 python nr_deploy_configs.py
 ```
 
+>>> NOTE: If you have issues with `no matching key exchange method found, add the below line to `~/.ssh/config`
+
+```bash
+Ciphers aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc 
+KexAlgorithms +diffie-hellman-group1-sha1
+```
 ### Destroying the lab
 
 To destroy the lab, simply override the docker-compose service command and destroy it.
 
 ```
-docker-compose run clab containerlab destroy -t spauto-mpls-sdn.yml
+docker-compose run clab containerlab destroy -t spauto-topology.yml
 ```
 
 Example stats of running all 8 core XR Routers simultaneously.
 
 ```
 CONTAINER ID   NAME                                CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
-9d6acb79bcbe   clab-spauto-mpls-sdn.yml-xrv-pe4    2.56%     1.769GiB / 62.71GiB   2.82%     259kB / 207kB    0B / 82.8MB   13
-de723690af86   clab-spauto-mpls-sdn.yml-xrv-p1     2.42%     1.719GiB / 62.71GiB   2.74%     204kB / 212kB    0B / 60.2MB   13
-f0e0710d1edb   clab-spauto-mpls-sdn.yml-xrv-pe1    2.41%     1.793GiB / 62.71GiB   2.86%     213kB / 168kB    0B / 59.2MB   13
-aca6fb91120c   clab-spauto-mpls-sdn.yml-xrv-pe3    1.89%     1.758GiB / 62.71GiB   2.80%     121kB / 56.9kB   0B / 52MB     13
-63277aac88ef   clab-spauto-mpls-sdn.yml-xrv-p2     1.47%     1.718GiB / 62.71GiB   2.74%     198kB / 204kB    0B / 59.1MB   13
-c83b2faa5ea8   clab-spauto-mpls-sdn.yml-xrv-pe2    2.02%     1.796GiB / 62.71GiB   2.86%     206kB / 146kB    0B / 57.7MB   13
-35fcceedc92a   clab-spauto-mpls-sdn.yml-xrv-rr-2   4.33%     1.744GiB / 62.71GiB   2.78%     185kB / 186kB    0B / 60.5MB   13
-3f62259d2ae9   clab-spauto-mpls-sdn.yml-xrv-rr-1   1.45%     1.745GiB / 62.71GiB   2.78%     190kB / 190kB    0B / 59.5MB   13
+9d6acb79bcbe   clab-spauto-topology.yml-xrv-pe4    2.56%     1.769GiB / 62.71GiB   2.82%     259kB / 207kB    0B / 82.8MB   13
+de723690af86   clab-spauto-topology.yml-xrv-p1     2.42%     1.719GiB / 62.71GiB   2.74%     204kB / 212kB    0B / 60.2MB   13
+f0e0710d1edb   clab-spauto-topology.yml-xrv-pe1    2.41%     1.793GiB / 62.71GiB   2.86%     213kB / 168kB    0B / 59.2MB   13
+aca6fb91120c   clab-spauto-topology.yml-xrv-pe3    1.89%     1.758GiB / 62.71GiB   2.80%     121kB / 56.9kB   0B / 52MB     13
+63277aac88ef   clab-spauto-topology.yml-xrv-p2     1.47%     1.718GiB / 62.71GiB   2.74%     198kB / 204kB    0B / 59.1MB   13
+c83b2faa5ea8   clab-spauto-topology.yml-xrv-pe2    2.02%     1.796GiB / 62.71GiB   2.86%     206kB / 146kB    0B / 57.7MB   13
+35fcceedc92a   clab-spauto-topology.yml-xrv-rr-2   4.33%     1.744GiB / 62.71GiB   2.78%     185kB / 186kB    0B / 60.5MB   13
+3f62259d2ae9   clab-spauto-topology.yml-xrv-rr-1   1.45%     1.745GiB / 62.71GiB   2.78%     190kB / 190kB    0B / 59.5MB   13
 ```
 
 ## NSO

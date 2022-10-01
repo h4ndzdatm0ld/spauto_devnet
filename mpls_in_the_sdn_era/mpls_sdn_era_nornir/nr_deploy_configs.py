@@ -20,17 +20,6 @@ __email__ = "hugotinoco@icloud.com"
 
 nr = InitNornir("config.yml")
 
-# Test Filter, unused.
-# full_mesh = nr.filter(mpls_full_mesh=True)
-
-
-def assert_data():
-    """Error checking of input data."""
-    pass
-    # Add schema enforcer
-    # However, assert simple things like ip addresses, etc
-
-
 def load_all_data(task):
     """Read all the data from the associated YAML files inside data_input dir.
 
@@ -105,9 +94,7 @@ def render_main(task):
         path=f"templates/configs/{task.host.platform}",
         template="main.j2",
     )
-
     task.host["staged"] = config.result
-
     write_file(
         task,
         filename=f"staged/configs/ASN{task.host.get('asn')}/{task.host}.cfg",
@@ -118,12 +105,6 @@ def render_main(task):
 def push_config(task):
     """Push configurations to devices."""
     if task.host.platform == "cisco_xr":
-        # task.run(
-        #     netmiko_send_config,
-        #     config_commands=f"{task.host['staged']}",
-        #     cmd_verify=False,
-        # )
-        # task.run(netmiko_commit)
         task.run(
             napalm_configure,
             dry_run=False,
@@ -141,10 +122,8 @@ def main():
     """Execute our Nornir runbook."""
     nr.run(task=load_all_data)
     print_result(nr.run(task=generate_full_mesh_list))
-    # print_result(nr.run(task=render_main))
-    nr.run(task=render_main)
-    # print_result(nr.run(task=push_config))
-    nr.run(task=push_config)
+    print_result(nr.run(task=render_main))
+    print_result(nr.run(task=push_config))
 
 
 if __name__ == "__main__":
