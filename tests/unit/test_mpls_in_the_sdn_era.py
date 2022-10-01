@@ -1,4 +1,4 @@
-from mpls_in_the_sdn_era import __version__
+from spauto import __version__
 
 
 def test_version():

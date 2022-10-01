@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "mpls_in_the_sdn_era"
+name = "spauto"
 version = "0.1.0"
 description = "Playground to study for Cisco Devnet Service Provider Automation exam."
 authors = ["h4ndzdatm0ld <hugotinoco@icloud.com>"]
@@ -28,7 +28,6 @@ napalm = "^3.3.1"
 pyiosxr = "^0.53"
 markupsafe = "2.0.1"
 
-
 [tool.poetry.dev-dependencies]
 isort = "*"
 flake8 = "*"
@@ -41,8 +40,8 @@ myst-parser = "*"
 sphinx = "*"
 pytest = "*"
 ipython = "*"
-pybandit = "^0.0.1"
-ansible-lint = "^6.7.0"
+pybandit = "*"
+ansible-lint = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
