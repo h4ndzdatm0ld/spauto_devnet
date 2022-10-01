@@ -140,7 +140,7 @@ poetry shell
 Locate the Nornir playground
 
 ```
-cd mpls_in_the_sdn_era/mpls_sdn_era_nornir
+cd mpls_in_the_sdn_era/spauto_nornir
 ```
 
 Automate
