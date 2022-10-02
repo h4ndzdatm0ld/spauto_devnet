@@ -66,22 +66,22 @@ AS65000_PE4:
     type: PE_ROUTER
     mpls_full_mesh: true
     asn: 65000
-# AS65001_CE1:
-#   hostname: 172.100.100.15
-#   groups:
-#     - CSR
-#   data:
-#     type: CE_ROUTER
-#     asn: 65001
 
-# AS65001_CE2:
-#   hostname: 172.100.100.20
-#   groups:
-#     - CSR
-#   data:
-#     type: CE_ROUTER
-#     asn: 65001
+AS65001_CE1:
+  hostname: 172.100.100.15
+  groups:
+    - CSR
+  data:
+    type: CE_ROUTER
+    asn: 65001
 
+AS65001_CE2:
+  hostname: 172.100.100.20
+  groups:
+    - CSR
+  data:
+    type: CE_ROUTER
+    asn: 65001
 # AS65001-SW1:
 #   hostname: 172.100.100.182
 #   groups:
