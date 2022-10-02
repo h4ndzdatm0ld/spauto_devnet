@@ -3,7 +3,7 @@ name: "spauto-mpls-sdn-full.yml"
 
 mgmt:
   network: "spauto"
-  ipv4_subnet: "172.20.100.0/24"
+  ipv4_subnet: "172.100.100.0/24" # via 192.168.2.227
   ipv6_subnet: "2001:172:100:100::/80"
 
 topology:
@@ -18,54 +18,54 @@ topology:
     # CE/Customer Devices (West Region)
     vr-csr-ce-1:
       kind: "vr-csr"
-      mgmt_ipv4: 172.20.100.15
+      mgmt_ipv4: 172.100.100.15
       mgmt_ipv6: 2001:172:100:100::15
     vr-csr-ce-2:
       kind: "vr-csr"
-      mgmt_ipv4: 172.20.100.20
+      mgmt_ipv4: 172.100.100.20
       mgmt_ipv6: 2001:172:100:100::20
     ceos_sw_1:
       kind: ceos
       image: "h4ndzdatm0ld/ceos:4.27.0F"
-      mgmt_ipv4: 172.20.100.182
+      mgmt_ipv4: 172.100.100.182
       mgmt_ipv6: 2001:172:100:100::182
     xrv-h1:
       kind: "vr-xrv"
-      mgmt_ipv4: 172.20.100.190
+      mgmt_ipv4: 172.100.100.190
       mgmt_ipv6: 2001:172:100:100::190
 
     # CORE DEVICES
     xrv-pe1:
       kind: "vr-xrv"
-      mgmt_ipv4: 172.20.100.11
+      mgmt_ipv4: 172.100.100.11
       mgmt_ipv6: 2001:172:100:100::11
     xrv-pe2:
       kind: "vr-xrv"
-      mgmt_ipv4: 172.20.100.22
+      mgmt_ipv4: 172.100.100.22
       mgmt_ipv6: 2001:172:100:100::22
     xrv-pe3:
       kind: "vr-xrv"
-      mgmt_ipv4: 172.20.100.33
+      mgmt_ipv4: 172.100.100.33
       mgmt_ipv6: 2001:172:100:100::33
     xrv-pe4:
       kind: "vr-xrv"
-      mgmt_ipv4: 172.20.100.44
+      mgmt_ipv4: 172.100.100.44
       mgmt_ipv6: 2001:172:100:100::44
     xrv-p1:
       kind: "vr-xrv"
-      mgmt_ipv4: 172.20.100.101
+      mgmt_ipv4: 172.100.100.101
       mgmt_ipv6: 2001:172:100:100::101
     xrv-p2:
       kind: vr-xrv
-      mgmt_ipv4: 172.20.100.102
+      mgmt_ipv4: 172.100.100.102
       mgmt_ipv6: 2001:172:100:100::102
     xrv-rr-1:
       kind: "vr-xrv"
-      mgmt_ipv4: 172.20.100.201
+      mgmt_ipv4: 172.100.100.201
       mgmt_ipv6: 2001:172:100:100::201
     xrv-rr-2:
       kind: "vr-xrv"
-      mgmt_ipv4: 172.20.100.202
+      mgmt_ipv4: 172.100.100.202
       mgmt_ipv6: 2001:172:100:100::202
 
   links:

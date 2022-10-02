@@ -20,9 +20,6 @@ RUN poetry install --no-root
 ############
 # Unit Tests
 #
-# This test stage runs true unit tests (no outside services) at build time, as
-# well as enforcing codestyle and performing fast syntax checks. It is built
-# into an image with docker-compose for running the full test suite.
 FROM base AS test_spauto
 
 COPY . .

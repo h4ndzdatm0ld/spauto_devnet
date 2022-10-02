@@ -5,7 +5,7 @@ description = "Playground to study for Cisco Devnet Service Provider Automation 
 authors = ["h4ndzdatm0ld <hugotinoco@icloud.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.10"
+python = "^3.8"
 ncclient = "^0.6.10"
 nornir-utils = "^0.1.2"
 nornir-netmiko = "^0.1.1"
@@ -20,8 +20,6 @@ xmltodict = "^0.12.0"
 jxmlease = "^1.0.3"
 ttp = "^0.7.2"
 nornir = "^3.2.0"
-hier-config = "^2.2.0"
-nornir-hier-config = "^0.1.0"
 netmiko = "^3.4.0"
 napalm = "^3.3.1"
 pyiosxr = "^0.53"

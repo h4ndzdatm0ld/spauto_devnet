@@ -108,7 +108,10 @@ python-versions = ">=3.7.2"
 [package.dependencies]
 lazy-object-proxy = ">=1.4.0"
 typing-extensions = {version = ">=3.10", markers = "python_version < \"3.10\""}
-wrapt = {version = ">=1.11,<2", markers = "python_version < \"3.11\""}
+wrapt = [
+    {version = ">=1.11,<2", markers = "python_version < \"3.11\""},
+    {version = ">=1.14,<2", markers = "python_version >= \"3.11\""},
+]
 
 [package.source]
 type = "legacy"
@@ -611,22 +614,6 @@ description = "Clean single-source support for Python 3 and 2"
 category = "main"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-
-[package.source]
-type = "legacy"
-url = "https://pypi.org/simple"
-reference = "pypi_"
-
-[[package]]
-name = "hier-config"
-version = "2.2.2"
-description = "A network configuration comparison tool, used to build remediation configurations."
-category = "main"
-optional = false
-python-versions = ">=3.8,<4.0"
-
-[package.dependencies]
-PyYAML = ">=5.4"
 
 [package.source]
 type = "legacy"
@@ -1228,22 +1215,6 @@ url = "https://pypi.org/simple"
 reference = "pypi_"
 
 [[package]]
-name = "nornir-hier-config"
-version = "0.1.0"
-description = "Collection of tasks using the hier-config module."
-category = "main"
-optional = false
-python-versions = ">=3.8,<3.10"
-
-[package.dependencies]
-deepdiff = ">=5.6.0,<6.0.0"
-
-[package.source]
-type = "legacy"
-url = "https://pypi.org/simple"
-reference = "pypi_"
-
-[[package]]
 name = "nornir-jinja2"
 version = "0.1.2"
 description = "Jinja2 plugins for nornir"
@@ -1649,7 +1620,7 @@ reference = "pypi_"
 
 [[package]]
 name = "pybatfish"
-version = "2022.10.1.158"
+version = "2022.10.2.160"
 description = "Python API and utilities for Batfish"
 category = "main"
 optional = false
@@ -1911,7 +1882,7 @@ reference = "pypi_"
 
 [[package]]
 name = "pytz"
-version = "2022.2.1"
+version = "2022.4"
 description = "World timezone definitions, modern and historical"
 category = "main"
 optional = false
@@ -2008,7 +1979,7 @@ reference = "pypi_"
 
 [[package]]
 name = "rich"
-version = "12.5.1"
+version = "12.6.0"
 description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
 category = "dev"
 optional = false
@@ -2650,8 +2621,8 @@ reference = "pypi_"
 
 [metadata]
 lock-version = "1.1"
-python-versions = ">=3.8,<3.10"
-content-hash = "6a33883afc481ced2851ab459761920e7f23cfc0534a6095721238b4e1029fab"
+python-versions = "^3.8"
+content-hash = "81e8f74c3d3e9da49dfb4774e41c45937b00bdfd951cf4dbd8b748ad9c5187ee"
 
 [metadata.files]
 alabaster = [
@@ -2911,10 +2882,6 @@ flake8 = [
 ]
 future = [
     {file = "future-0.18.2.tar.gz", hash = "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"},
-]
-hier-config = [
-    {file = "hier-config-2.2.2.tar.gz", hash = "sha256:a394f6783de2f93f641cbb3a819da931585281fed81cfc7adc71268eb340c632"},
-    {file = "hier_config-2.2.2-py3-none-any.whl", hash = "sha256:cb5af71a765cb92d7478cb3695291220d9680696fbc77a790089ec8ca1f743cd"},
 ]
 identify = [
     {file = "identify-2.5.5-py2.py3-none-any.whl", hash = "sha256:ef78c0d96098a3b5fe7720be4a97e73f439af7cf088ebf47b620aeaa10fadf97"},
@@ -3209,10 +3176,6 @@ nornir = [
     {file = "nornir-3.3.0-py3-none-any.whl", hash = "sha256:4590d96edb5044e6a9e6f84e15625d32932177a10654040f99e145d73b352479"},
     {file = "nornir-3.3.0.tar.gz", hash = "sha256:1c6fd283bcdff9972358b126703c0990e9076dff1dfdc211e3077d45ada937d5"},
 ]
-nornir-hier-config = [
-    {file = "nornir_hier_config-0.1.0-py3-none-any.whl", hash = "sha256:6eb8c861b2020a4459e7b4c2d5e3c0b2b9d1d4f353883cabeaf822f08713f5ae"},
-    {file = "nornir_hier_config-0.1.0.tar.gz", hash = "sha256:378dc5e9471ddc792f2a5623c904633be0d6b24c227761e7f2ccd74355a4a3b1"},
-]
 nornir-jinja2 = [
     {file = "nornir_jinja2-0.1.2-py3-none-any.whl", hash = "sha256:9a1c9e8ef2b3d72966f68e415a77c10b0ef5f4d7dbc730acd0bc78d57d4ba716"},
     {file = "nornir_jinja2-0.1.2.tar.gz", hash = "sha256:83520fa59076bfebe17cbacf54de6040eb7daefe564d2dd7563c13785140fa93"},
@@ -3361,7 +3324,7 @@ pybandit = [
     {file = "pybandit-0.0.1.tar.gz", hash = "sha256:800f2bd7bbf1efe8eed6f194c0ed19b5815ccee7da274143dad0234843e7caa2"},
 ]
 pybatfish = [
-    {file = "pybatfish-2022.10.1.158-py2.py3-none-any.whl", hash = "sha256:7cb53d641d3828aab96533f13fe11db3f215404c35d7ec9509c0541296a84bb6"},
+    {file = "pybatfish-2022.10.2.160-py2.py3-none-any.whl", hash = "sha256:e8d80900659a8e2611d6882182bf6e2d786562759fc4f30182637bfb325097d0"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.9.1-py2.py3-none-any.whl", hash = "sha256:d1735fc58b418fd7c5f658d28d943854f8a849b01a5d0a1e6f3f3fdd0166804b"},
@@ -3444,8 +3407,8 @@ python-dateutil = [
     {file = "python_dateutil-2.8.2-py2.py3-none-any.whl", hash = "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9"},
 ]
 pytz = [
-    {file = "pytz-2022.2.1-py2.py3-none-any.whl", hash = "sha256:220f481bdafa09c3955dfbdddb7b57780e9a94f5127e35456a48589b9e0c0197"},
-    {file = "pytz-2022.2.1.tar.gz", hash = "sha256:cea221417204f2d1a2aa03ddae3e867921971d0d76f14d87abb4414415bbdcf5"},
+    {file = "pytz-2022.4-py2.py3-none-any.whl", hash = "sha256:2c0784747071402c6e99f0bafdb7da0fa22645f06554c7ae06bf6358897e9c91"},
+    {file = "pytz-2022.4.tar.gz", hash = "sha256:48ce799d83b6f8aab2020e369b627446696619e79645419610b9facd909b3174"},
 ]
 pywin32 = [
     {file = "pywin32-227-cp27-cp27m-win32.whl", hash = "sha256:371fcc39416d736401f0274dd64c2302728c9e034808e37381b5e1b22be4a6b0"},
@@ -3505,8 +3468,8 @@ resolvelib = [
     {file = "resolvelib-0.5.5.tar.gz", hash = "sha256:123de56548c90df85137425a3f51eb93df89e2ba719aeb6a8023c032758be950"},
 ]
 rich = [
-    {file = "rich-12.5.1-py3-none-any.whl", hash = "sha256:2eb4e6894cde1e017976d2975ac210ef515d7548bc595ba20e195fb9628acdeb"},
-    {file = "rich-12.5.1.tar.gz", hash = "sha256:63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"},
+    {file = "rich-12.6.0-py3-none-any.whl", hash = "sha256:a4eb26484f2c82589bd9a17c73d32a010b1e29d89f1604cd9bf3a2097b81bb5e"},
+    {file = "rich-12.6.0.tar.gz", hash = "sha256:ba3a3775974105c221d31141f2c116f4fd65c5ceb0698657a11e9f295ec93fd0"},
 ]
 "ruamel.yaml" = [
     {file = "ruamel.yaml-0.17.21-py3-none-any.whl", hash = "sha256:742b35d3d665023981bd6d16b3d24248ce5df75fdb4e2924e93a05c1f8b61ca7"},
