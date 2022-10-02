@@ -18,14 +18,11 @@ python -m http.server
 
 ### Why MPLS in the SDN Era?
 
-Simple. This is an incredible book for any and all Network Engineers interested
-in learning technologies used in Service Provider environments. The book is heavily focused
-on MPLS, SDN, Segment-Routing, BGP, L2VPN/L3VPNs, over-all traffic engineering and much more. These are common terms within SP networks and the book does an incredible job in guiding the readers while exploring the device configurations in this topology. However, many other topics are not covered by the book and this repository will hopefully fill in the gaps. This book lays the foundation for our lab topology, but it has increased and grown over time. Additional material used for studying is the book `Network Programmability with YANG`, which covers a lot of the topics in the blueprint!
+Simple. This is an incredible book for any and all Network Engineers interested in learning technologies used in Service Provider environments. The book is heavily focused on MPLS, SDN, Segment-Routing, BGP, L2VPN/L3VPNs, over-all traffic engineering and much more. These are common terms within SP networks and the book does an incredible job in guiding the readers while exploring the device configurations in this topology. However, many other topics are not covered by the book and this repository will hopefully fill in the gaps. This book lays the foundation for our lab topology, but it has increased and grown over time. Additional material used for studying is the book `Network Programmability with YANG`, which covers a lot of the topics in the blueprint!
 
 ![MPLS IN THE SDN ERA](./docs/images/mpls_sdn_era_topology.png)
 
-This book goes through a number of device configurations in a multi-vendor lab topology
-(Cisco IOSXR && Juniper). However, *For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a Cisco Certification.*
+This book goes through a number of device configurations in a multi-vendor lab topology (Cisco IOSXR && Juniper). However, _For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a Cisco Certification._
 
 ### To fully automate Service Provider Networks, you must understand Service Provider Networks
 
@@ -35,8 +32,7 @@ This book goes through a number of device configurations in a multi-vendor lab t
 
 ## What does this repository include & cover
 
-My goal is to gather all of my self-training in this repository and cover all the topics of the 
-Cisco Certified DevNet Specialist (300-535 SPAUTO) certification.
+My goal is to gather all of my self-training in this repository and cover all the topics of the Cisco Certified DevNet Specialist (300-535 SPAUTO) certification.
 
 ## How can I use this repo to study?
 
@@ -77,32 +73,32 @@ You should see something similar to this
 ```text
 ➜  spauto_devnet git:(containerlab) ✗ docker-compose run clab
 Creating spauto_devnet_clab_run ... done
-INFO[0000] Parsing & checking topology file: spauto-topology.yml 
-INFO[0000] Creating lab directory: /src/clab-spauto-topology.yml 
-INFO[0000] Creating docker network: Name='spauto', IPv4Subnet='172.100.100.0/24', IPv6Subnet='2001:172:100:100::/80', MTU='1500' 
-INFO[0000] Creating container: xrv-pe1                  
-INFO[0000] Creating container: xrv-rr-1                 
-INFO[0000] Creating container: xrv-p2                   
-INFO[0000] Creating container: xrv-p1                   
-INFO[0000] Creating container: xrv-rr-2                 
-INFO[0000] Creating container: xrv-pe2                  
-INFO[0000] Creating container: xrv-pe3                  
-INFO[0000] Creating container: xrv-pe4                  
-INFO[0001] Creating virtual wire: xrv-pe1:eth4 <--> xrv-pe2:eth3 
-INFO[0002] Creating virtual wire: xrv-pe2:eth4 <--> xrv-p2:eth1 
-INFO[0002] Creating virtual wire: xrv-pe4:eth1 <--> xrv-p2:eth6 
-INFO[0002] Creating virtual wire: xrv-pe1:eth5 <--> xrv-p1:eth2 
-INFO[0002] Creating virtual wire: xrv-p1:eth5 <--> xrv-p2:eth4 
-INFO[0002] Creating virtual wire: xrv-p1:eth4 <--> xrv-p2:eth3 
-INFO[0002] Creating virtual wire: xrv-rr-2:eth1 <--> xrv-p1:eth6 
-INFO[0002] Creating virtual wire: xrv-rr-2:eth3 <--> xrv-p2:eth5 
-INFO[0003] Creating virtual wire: xrv-pe3:eth3 <--> xrv-pe4:eth2 
-INFO[0003] Creating virtual wire: xrv-pe3:eth2 <--> xrv-p1:eth7 
-INFO[0003] Creating virtual wire: xrv-rr-1:eth4 <--> xrv-p2:eth2 
-INFO[0003] Creating virtual wire: xrv-rr-1:eth2 <--> xrv-p1:eth3 
-INFO[0003] Creating virtual wire: xrv-rr-1:eth3 <--> xrv-rr-2:eth2 
-INFO[0004] Adding containerlab host entries to /etc/hosts file 
-Run 'containerlab version upgrade' to upgrade or go check other installation options at https://containerlab.srlinux.dev/install/ 
+INFO[0000] Parsing & checking topology file: spauto-topology.yml
+INFO[0000] Creating lab directory: /src/clab-spauto-topology.yml
+INFO[0000] Creating docker network: Name='spauto', IPv4Subnet='172.100.100.0/24', IPv6Subnet='2001:172:100:100::/80', MTU='1500'
+INFO[0000] Creating container: xrv-pe1
+INFO[0000] Creating container: xrv-rr-1
+INFO[0000] Creating container: xrv-p2
+INFO[0000] Creating container: xrv-p1
+INFO[0000] Creating container: xrv-rr-2
+INFO[0000] Creating container: xrv-pe2
+INFO[0000] Creating container: xrv-pe3
+INFO[0000] Creating container: xrv-pe4
+INFO[0001] Creating virtual wire: xrv-pe1:eth4 <--> xrv-pe2:eth3
+INFO[0002] Creating virtual wire: xrv-pe2:eth4 <--> xrv-p2:eth1
+INFO[0002] Creating virtual wire: xrv-pe4:eth1 <--> xrv-p2:eth6
+INFO[0002] Creating virtual wire: xrv-pe1:eth5 <--> xrv-p1:eth2
+INFO[0002] Creating virtual wire: xrv-p1:eth5 <--> xrv-p2:eth4
+INFO[0002] Creating virtual wire: xrv-p1:eth4 <--> xrv-p2:eth3
+INFO[0002] Creating virtual wire: xrv-rr-2:eth1 <--> xrv-p1:eth6
+INFO[0002] Creating virtual wire: xrv-rr-2:eth3 <--> xrv-p2:eth5
+INFO[0003] Creating virtual wire: xrv-pe3:eth3 <--> xrv-pe4:eth2
+INFO[0003] Creating virtual wire: xrv-pe3:eth2 <--> xrv-p1:eth7
+INFO[0003] Creating virtual wire: xrv-rr-1:eth4 <--> xrv-p2:eth2
+INFO[0003] Creating virtual wire: xrv-rr-1:eth2 <--> xrv-p1:eth3
+INFO[0003] Creating virtual wire: xrv-rr-1:eth3 <--> xrv-rr-2:eth2
+INFO[0004] Adding containerlab host entries to /etc/hosts file
+Run 'containerlab version upgrade' to upgrade or go check other installation options at https://containerlab.srlinux.dev/install/
 +---+-----------------------------------+--------------+---------------------------+--------+---------+--------------------+--------------------------+
 | # |               Name                | Container ID |           Image           |  Kind  |  State  |    IPv4 Address    |       IPv6 Address       |
 +---+-----------------------------------+--------------+---------------------------+--------+---------+--------------------+--------------------------+
@@ -135,45 +131,46 @@ After starting the lab and waiting around 7 Minutes, launch off the Nornir scrip
 
 Install the project venv
 
-```
+```bash
 poetry install
 ```
 
 Activate venv
 
-```
+```bash
 poetry shell
 ```
 
 Locate the Nornir playground
 
-```
+```bash
 cd spauto/spauto_nornir
 ```
 
-Automate
+Deploy configs with Nornir
 
-```
+```bash
 python nr_deploy_configs.py
 ```
 
->>> NOTE: If you have issues with `no matching key exchange method found, add the below line to `~/.ssh/config`
+> > > NOTE: If you have issues with `no matching key exchange method found, add the below line to `~/.ssh/config`
 
 ```bash
-Ciphers aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc 
+Ciphers aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
 KexAlgorithms +diffie-hellman-group1-sha1
 ```
+
 ### Destroying the lab
 
 To destroy the lab, simply override the docker-compose service command and destroy it.
 
-```
+```bash
 docker-compose run clab containerlab destroy -t spauto-topology.yml
 ```
 
 Example stats of running all 8 core XR Routers simultaneously.
 
-```
+```bash
 CONTAINER ID   NAME                                CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O     PIDS
 9d6acb79bcbe   clab-spauto-topology.yml-xrv-pe4    2.56%     1.769GiB / 62.71GiB   2.82%     259kB / 207kB    0B / 82.8MB   13
 de723690af86   clab-spauto-topology.yml-xrv-p1     2.42%     1.719GiB / 62.71GiB   2.74%     204kB / 212kB    0B / 60.2MB   13
@@ -196,19 +193,19 @@ cisco-iosxr-cli-7.33
 
 To spin up the NSO instance
 
-```
+```bash
 docker-compose up -d nso
 ```
 
 To access via UI (admin/admin) get the IP address of the NSO instance and open it in your browser
 
-```
+```bash
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
 ```
 
 If you want to simply ssh from the same machine that's hosting the container
 
-```
+```bash
 ssh admin@localhost -p 2024
 ```
 

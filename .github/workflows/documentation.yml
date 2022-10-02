@@ -1,11 +1,10 @@
+# yamllint disable rule:truthy
 ---
 name: "Documentation"
-
 on:
   push:
     branches:
       - "main"
-
 jobs:
   documentation:
     name: "Documentation"

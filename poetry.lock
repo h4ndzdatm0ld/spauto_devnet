@@ -1649,7 +1649,7 @@ reference = "pypi_"
 
 [[package]]
 name = "pybatfish"
-version = "2021.12.31.1165"
+version = "2022.10.1.158"
 description = "Python API and utilities for Batfish"
 category = "main"
 optional = false
@@ -2651,7 +2651,7 @@ reference = "pypi_"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.10"
-content-hash = "d56615bba66646919a2effa35ebe71b16cf861e044f0839896db56315b94999c"
+content-hash = "6a33883afc481ced2851ab459761920e7f23cfc0534a6095721238b4e1029fab"
 
 [metadata.files]
 alabaster = [
@@ -3361,7 +3361,7 @@ pybandit = [
     {file = "pybandit-0.0.1.tar.gz", hash = "sha256:800f2bd7bbf1efe8eed6f194c0ed19b5815ccee7da274143dad0234843e7caa2"},
 ]
 pybatfish = [
-    {file = "pybatfish-2021.12.31.1165-py2.py3-none-any.whl", hash = "sha256:3e2f0ff0b0b3003af3720784b5fe01f73ccf4233112f10645a66ee987f04d0a7"},
+    {file = "pybatfish-2022.10.1.158-py2.py3-none-any.whl", hash = "sha256:7cb53d641d3828aab96533f13fe11db3f215404c35d7ec9509c0541296a84bb6"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.9.1-py2.py3-none-any.whl", hash = "sha256:d1735fc58b418fd7c5f658d28d943854f8a849b01a5d0a1e6f3f3fdd0166804b"},

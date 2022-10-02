@@ -7,10 +7,9 @@ from nornir_utils.plugins.tasks.files import write_file
 from pybatfish.client.commands import bf_init_snapshot, bf_session, bf_set_network
 from pybatfish.question import load_questions
 
-# import itertools
 
 # # Tell nornir where our inventory data is
-nornir_path = "spauto/spauto_nornir"
+NORNIR_PATH = "spauto/spauto_nornir"
 
 # Evaluate wether running this locally or not to allow pipeline to execute
 # properly and as well as local testing with docker-compose. The batfish
@@ -44,21 +43,19 @@ def snapshot_loader(snap_path, name, overwrite=True):
     """Simple function to load a snapshot into Batfish. This function allows
     up to use a setup fixture and extend to multiple test cases against
     different snapshots of the network."""
-
     bf_init_snapshot(snap_path, name=name, overwrite=overwrite)
 
 
 @pytest.fixture(scope="class", autouse=True)
 def nr():
     """Initializes Nornir. Disable Logging to avoid pytest warnings."""
-
     nornir = InitNornir(
         inventory={
             "plugin": "SimpleInventory",
             "options": {
-                "host_file": f"{nornir_path}/inventory/hosts.yml",
-                "group_file": f"{nornir_path}/inventory/groups.yml",
-                "defaults_file": f"{nornir_path}/inventory/defaults.yml",
+                "host_file": f"{NORNIR_PATH}/inventory/clab-hosts.yml",
+                "group_file": f"{NORNIR_PATH}/inventory/groups.yml",
+                "defaults_file": f"{NORNIR_PATH}/inventory/defaults.yml",
             },
         },
         logging={"enabled": True},
@@ -72,12 +69,10 @@ def load_data(task):
     Add all the variables into a DATA_INPUT dictionary for the individual
     task.host.
     """
-
     data = task.run(
         task=load_yaml,
-        file=f"{nornir_path}/data_input/{task.host.platform}/{task.host}.yml",
+        file=f"{NORNIR_PATH}/data_input/{task.host.platform}/{task.host}.yml",
     )
-
     task.host["DATA_INPUT"] = data.result
 
 
@@ -143,7 +138,7 @@ def render_configs(task):
     """
     config = task.run(
         task=template_file,
-        path=f"{nornir_path}/templates/configs/{task.host.platform}",
+        path=f"{NORNIR_PATH}/templates/configs/{task.host.platform}",
         template="main.j2",
     )
 
@@ -164,11 +159,11 @@ devices = [
     "AS65000_PE1",
     "AS65000_PE2",
     "AS65000_PE3",
-    "AS65000_PE100",
-    "AS65000_PE101",
+    # "AS65000_PE100",
+    # "AS65000_PE101",
     "AS65000_PE4",
-    "AS65001_CE1",
-    "AS65001_CE2",
-    "AS65001_CE3",
-    "AS65001_CE4",
+    # "AS65001_CE1",
+    # "AS65001_CE2",
+    # "AS65001_CE3",
+    # "AS65001_CE4",
 ]

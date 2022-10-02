@@ -17,6 +17,8 @@ services:
     build:
       context: "."
       target: "spauto"
+    volumes:
+      - ".:/usr/src/app"
     depends_on:
       - "batfish"
   clab:

@@ -66,25 +66,6 @@ AS65000_PE4:
     type: PE_ROUTER
     mpls_full_mesh: true
     asn: 65000
-
-AS65000_PE100:
-  hostname: 192.168.0.186
-  groups:
-    - CORE_EDGE_ROUTER
-  data:
-    type: PE_ROUTER
-    mpls_full_mesh: false
-    asn: 65000
-
-AS65000_PE101:
-  hostname: 192.168.0.187
-  groups:
-    - CORE_EDGE_ROUTER
-  data:
-    type: PE_ROUTER
-    mpls_full_mesh: false
-    asn: 65000
-
 # AS65001_CE1:
 #   hostname: 172.100.100.15
 #   groups:
