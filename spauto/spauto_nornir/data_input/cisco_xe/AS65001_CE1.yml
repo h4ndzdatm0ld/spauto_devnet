@@ -2,7 +2,7 @@
 base:
   lldp: true
 ip_interfaces:
-  - interface: GigabitEthernet4
+  - interface: GigabitEthernet3
     description: TO_H1
     ip_address: 10.1.12.1
     mask: 255.255.255.0
@@ -16,11 +16,11 @@ ip_interfaces:
     description: TO_PE1
     ip_address: 10.1.0.0
     mask: 255.255.255.254
-  - interface: GigabitEthernet3
-    description: TO_PE2
-    ip_address: 10.1.0.4
-    mask: 255.255.255.254
-    sub_int: false
+  # - interface: GigabitEthernet3
+  #   description: TO_PE2
+  #   ip_address: 10.1.0.4
+  #   mask: 255.255.255.254
+  #   sub_int: false
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 192.168.10.1
@@ -37,12 +37,12 @@ bgp:
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE1-OUT out
-    - remote_as: 65000
-      neighbor: 10.1.0.5
-      update_source: GigabitEthernet3
-      afi: ipv4 unicast
-      route_policy:
-        - PL-EBGP-PE2-OUT out
+    # - remote_as: 65000
+    #   neighbor: 10.1.0.5
+    #   update_source: GigabitEthernet3
+    #   afi: ipv4 unicast
+    #   route_policy:
+    #     - PL-EBGP-PE2-OUT out
   prefix:
     - description: PL-EBGP-PE-OUT-PREFIX-LIST
       option: permit
@@ -55,11 +55,6 @@ bgp:
   route_map:
     - name: PL-EBGP-PE1-OUT
       metric: 100
-      option: permit
-      num: 1
-      match: PL-EBGP-PE-OUT-PREFIX-LIST
-    - name: PL-EBGP-PE2-OUT
-      metric: 200
       option: permit
       num: 1
       match: PL-EBGP-PE-OUT-PREFIX-LIST

@@ -49,6 +49,10 @@ CSR:
       platform: ios
       username: admin
       password: admin
+    netmiko:
+      extras:
+        fast_cli: false
+        timeout: 4
   data:
     nso:
       authgroup: nso-auth

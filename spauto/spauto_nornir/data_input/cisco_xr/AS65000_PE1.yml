@@ -13,13 +13,6 @@ ip_interfaces:
     vrf: VRF-A
     ip_address: 10.1.0.1
     mask: "/31"
-  - interface: Gi0/0/0/2
-    description: TO_AS65001_CE2
-    vrf: VRF-A
-    ip_address: 10.1.0.7
-    mask: "/31"
-    sub_int: false
-    admin_status: true
   - interface: Gi0/0/0/3
     description: TO_EDGE_PE2
     ip_address: 10.0.100.0
@@ -49,7 +42,6 @@ ip_interfaces:
     passive: true
     system: true
     admin_status: true
-
 isis:
   - domain: core
     net: 49.0000.1720.1600.0011.00
@@ -63,22 +55,14 @@ bgp:
     - 172.16.0.201
     - 172.16.0.202
   add_pe_policy: true
-  add_asbr_policy: true
   add_65001_in_out: false
   add_65001_in: true
   CE1_MED: 100
-  CE2_MED: 200
   vrf_neighbors:
     - vrf: VRF-A
       router_id: 100.1.1.1
       RD: 1001
       neighbors:
-        - remote_as: 65001
-          neighbor: 10.1.0.6
-          update_source: Gi0/0/0/2
-          route_policy:
-            - PL-EBGP-65001-IN in
-            - PL-EBGP-CE2-OUT out
         - remote_as: 65001
           neighbor: 10.1.0.0
           update_source: Gi0/0/0/1

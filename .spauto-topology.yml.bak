@@ -1,4 +1,5 @@
 # clab/clab@123
+# admin/admin
 ---
 name: "spauto-topology.yml"
 
@@ -93,7 +94,10 @@ topology:
     # RR1 <> RR2
     - endpoints: ["xrv-rr-1:eth3", "xrv-rr-2:eth2"]
 
-    # CE NODES - AS 65001
-    - endpoints: ["vr-csr-ce-1:eth2", "xrv-pe1:eth1"]
-    - endpoints: ["vr-csr-ce-1:eth3", "xrv-pe2:eth1"]
+    # CE NODES - AS 65001 [CE1]
+    - endpoints: ["vr-csr-ce-1:eth1", "xrv-pe1:eth2"]
+    # - endpoints: ["vr-csr-ce-1:eth2", "xrv-pe2:eth2"]
+    # CE NODES - AS 65001 [CE2]
+    - endpoints: ["vr-csr-ce-2:eth1", "xrv-pe2:eth2"]
+    # - endpoints: ["vr-csr-ce-1:eth2", "xrv-pe2:eth2"]
 
