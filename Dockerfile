@@ -20,7 +20,7 @@ RUN poetry install --no-root
 ############
 # Unit Tests
 #
-FROM base AS test_spauto
+FROM base AS test
 
 COPY . .
 
@@ -42,6 +42,6 @@ FROM base as spauto
 
 WORKDIR /usr/src/app/
 
-COPY --from=test_spauto /usr/src/app /usr/src/app
+COPY --from=base /usr/src/app /usr/src/app
 
 ENTRYPOINT ["pytest", "--disable-pytest-warnings", "tests"]

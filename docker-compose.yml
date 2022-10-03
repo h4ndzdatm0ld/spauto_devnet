@@ -7,11 +7,6 @@ services:
     ports:
       - "9996:9996"
       - "9997:9997"
-  test_spauto:
-    container_name: "test_spauto"
-    build:
-      context: "."
-      target: "test_spauto"
   spauto:
     container_name: "spauto"
     build:

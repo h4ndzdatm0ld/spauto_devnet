@@ -13,17 +13,12 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      - uses: "actions/checkout@v2"
-      - name: "Set up Python 3.8"
-        uses: "actions/setup-python@v2"
-        with:
-          python-version: 3.8
-      - name: "Docker Compose"
+      - name: "Check out repository code"
+        uses: "actions/checkout@v2"
+      - name: "Setup environment"
+        uses: "networktocode/gh-action-setup-poetry-environment@v3"
+      - name: "Deploy Batfish"
         run: "docker-compose up -d batfish"
-      - name: "Install dependencies"
-        run: |
-          pip install poetry
-          poetry install --no-interaction
       - name: "Lint & Code Format"
         run: |
           echo 'Running Flake8' && \
@@ -35,5 +30,4 @@ jobs:
           echo 'Running pydocstyle' && \
           poetry run pydocstyle .
       - name: "Test with pytest"
-        run: |
-          "poetry run pytest"
+        run: "poetry run pytest"
