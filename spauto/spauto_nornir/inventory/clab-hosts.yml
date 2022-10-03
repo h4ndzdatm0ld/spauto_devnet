@@ -67,51 +67,31 @@ AS65000_PE4:
     mpls_full_mesh: true
     asn: 65000
 
-# AS65000_PE100:
-#   hostname: 192.168.0.186
-#   groups:
-#     - CORE_EDGE_ROUTER
-#   data:
-#     type: PE_ROUTER
-#     mpls_full_mesh: false
-#     asn: 65000
+AS65001_CE1:
+  hostname: 172.100.100.15
+  groups:
+    - CSR
+  data:
+    type: CE_ROUTER
+    asn: 65001
 
-# AS65000_PE101:
-#   hostname: 192.168.0.187
+AS65001_CE2:
+  hostname: 172.100.100.20
+  groups:
+    - CSR
+  data:
+    type: CE_ROUTER
+    asn: 65001
+# AS65001-SW1:
+#   hostname: 172.100.100.182
 #   groups:
-#     - CORE_EDGE_ROUTER
-#   data:
-#     type: PE_ROUTER
-#     mpls_full_mesh: false
-#     asn: 65000
-
-# AS65001_CE1:
-#   # hostname: 192.168.0.180
-#   hostname: 192.168.2.145
-#   groups:
-#     - CSR
-#   data:
-#     type: CE_ROUTER
-#     asn: 65001
-
-# AS65001_CE2:
-#   hostname: 192.168.0.181
-#   groups:
-#     - CSR
-#   data:
-#     type: CE_ROUTER
-#     asn: 65001
-
-# AS65001_SW1:
-#   hostname: 192.168.0.182
-#   groups:
-#     - IOS
+#     - EOS
 #   data:
 #     type: AGG_SW
 #     asn: 65001
 
 # AS65001_H1:
-#   hostname: 192.168.0.183
+#   hostname: 172.100.100.190
 #   groups:
 #     - XR_65001
 #   data:

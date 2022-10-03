@@ -21,7 +21,7 @@ from tests.conftest import devices, load_data, render_configs, snapshot_loader
 of our network.
 
 - Initiate a instance of Nornir to generate all configs and create a proper
-  snapshot folder to provide Batfish via the pybatfish client.
+snapshot folder to provide Batfish via the pybatfish client.
 - BGP Assertions to ensure all peers will be established.
 - Validate all core-routers are configured to be route-reflectors.
 - Validate BGP is healthy, no unestablished peers, etc.
@@ -89,7 +89,6 @@ class TestBgpConfig:
     def test_unused_structures(self):
         """This tests checks if configuration lines are not used such as ACLs
         or route-maps"""
-        # TODO: "go through this"
         result = bfq.unusedStructures().answer().frame()
         assert len(result) == 0
 

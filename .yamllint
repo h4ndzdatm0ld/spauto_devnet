@@ -57,8 +57,6 @@ rules:
   trailing-spaces: "enable"
   truthy:
     level: "warning"
-extends: default
+extends: "default"
 ignore: |
-  spauto/spauto_batfish/
-  .github/
   clab-spauto-topology.yml/

@@ -1,4 +1,4 @@
-Network Programmability Foundation
+Automation APIs and Protocols
 ========
 
 .. toctree::

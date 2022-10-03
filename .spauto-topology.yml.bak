@@ -100,3 +100,4 @@ topology:
     # CE NODES - AS 65001 [CE2]
     - endpoints: ["vr-csr-ce-2:eth1", "xrv-pe2:eth2"]
     # - endpoints: ["vr-csr-ce-1:eth2", "xrv-pe2:eth2"]
+

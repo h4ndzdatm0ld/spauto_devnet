@@ -24,9 +24,15 @@ Study Notes
 
 .. toctree::
    :glob:
-   :maxdepth: 1
+   :maxdepth: 2
+   :titlesonly:
+   :includehidden:
 
-   SPAUTO/Network Programmability Foundation/*
+   SPAUTO/Automation and Orchestration Platforms/index
+   SPAUTO/Automation APIs and Protocols/index
+   SPAUTO/Network Device Programmability/index
+   SPAUTO/Network Programmability Foundation/index
+   SPAUTO/Extras/index.rst
 
 Changelog
 =========

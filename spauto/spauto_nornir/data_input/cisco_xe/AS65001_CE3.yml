@@ -2,7 +2,7 @@
 base:
   lldp: true
 ip_interfaces:
-  - interface: Gi1.1001
+  - interface: GigabitEthernet1.1001
     description: TO_PE
     ip_address: 10.2.0.3
     mask: 255.255.255.0
@@ -19,7 +19,7 @@ bgp:
   neighbors:
     - remote_as: 65000
       neighbor: 10.2.0.33
-      update_source: Gi1.1001
+      update_source: GigabitEthernet1.1001
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE3-OUT out
