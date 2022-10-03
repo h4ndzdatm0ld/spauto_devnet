@@ -11,11 +11,6 @@ from pybatfish.question import load_questions
 # # Tell nornir where our inventory data is
 NORNIR_PATH = "spauto/spauto_nornir"
 
-# Evaluate wether running this locally or not to allow pipeline to execute
-# properly and as well as local testing with docker-compose. The batfish
-# initializing takes a long time to time out and completely errors out if it
-# can't reach the batfish host.
-
 # Get all containers running in our environment.
 # This is a try block, as docker service won't be installed in our pipeline
 # container and well resort to our exception and know were running this locally
@@ -25,9 +20,7 @@ try:
     containers = client.containers.list()
     # Loop through all our container and extract the container names and create a
     # list to work with.
-    container_names = [container.name for container in containers]
-    # Simple python conditional to ensure we use the correct batfish host
-    if "batfish" in container_names:
+    if "batfish" in [container.name for container in containers]:
         bf_session.host = "localhost"
 except docker.errors.DockerException:
     bf_session.host = "batfish"
