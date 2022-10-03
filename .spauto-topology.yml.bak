@@ -26,6 +26,11 @@ topology:
       kind: "vr-csr"
       mgmt_ipv4: 172.100.100.20
       mgmt_ipv6: 2001:172:100:100::20
+    ceos_sw_1:
+      kind: ceos
+      image: "h4ndzdatm0ld/ceos:4.27.0F"
+      mgmt_ipv4: 172.100.100.182
+      mgmt_ipv6: 2001:172:100:100::182
     # CORE / PE Nodes
     xrv-pe1:
       kind: "vr-xrv"
@@ -96,8 +101,8 @@ topology:
 
     # CE NODES - AS 65001 [CE1]
     - endpoints: ["vr-csr-ce-1:eth1", "xrv-pe1:eth2"]
-    # - endpoints: ["vr-csr-ce-1:eth2", "xrv-pe2:eth2"]
+    - endpoints: ["vr-csr-ce-1:eth2", "ceos_sw_1:eth1"]
     # CE NODES - AS 65001 [CE2]
     - endpoints: ["vr-csr-ce-2:eth1", "xrv-pe2:eth2"]
-    # - endpoints: ["vr-csr-ce-1:eth2", "xrv-pe2:eth2"]
+    - endpoints: ["vr-csr-ce-1:eth2", "ceos_sw_1:eth2"]
 
