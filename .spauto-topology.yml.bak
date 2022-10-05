@@ -11,6 +11,8 @@ mgmt:
 topology:
   defaults:
   kinds:
+    ceos:
+      image: "h4ndzdatm0ld/ceosimage:4.28.0F"
     vr-xrv:
       image: "h4ndzdatm0ld/vr-xrv:6.1.3"
     vr-csr:
@@ -28,9 +30,12 @@ topology:
       mgmt_ipv6: 2001:172:100:100::20
     ceos_sw_1:
       kind: ceos
-      image: "h4ndzdatm0ld/ceos:4.27.0F"
-      mgmt_ipv4: 172.100.100.182
-      mgmt_ipv6: 2001:172:100:100::182
+      mgmt_ipv4: 172.100.100.180
+      mgmt_ipv6: 2001:172:100:100::180
+    xrv-h1:
+      kind: "vr-xrv"
+      mgmt_ipv4: 172.100.100.150
+      mgmt_ipv6: 2001:172:100:100::150
     # CORE / PE Nodes
     xrv-pe1:
       kind: "vr-xrv"
@@ -104,5 +109,11 @@ topology:
     - endpoints: ["vr-csr-ce-1:eth2", "ceos_sw_1:eth1"]
     # CE NODES - AS 65001 [CE2]
     - endpoints: ["vr-csr-ce-2:eth1", "xrv-pe2:eth2"]
-    - endpoints: ["vr-csr-ce-1:eth2", "ceos_sw_1:eth2"]
+    - endpoints: ["vr-csr-ce-2:eth2", "ceos_sw_1:eth2"]
+
+    # H1 NODE TO SW 1
+    - endpoints: ["xrv-h1:eth1", "ceos_sw_1:eth3"]
+    - endpoints: ["xrv-h1:eth2", "ceos_sw_1:eth4"]
+    - endpoints: ["xrv-h1:eth3", "ceos_sw_1:eth5"]
+    - endpoints: ["xrv-h1:eth4", "ceos_sw_1:eth6"]
 

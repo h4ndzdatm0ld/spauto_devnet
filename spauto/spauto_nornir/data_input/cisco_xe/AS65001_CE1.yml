@@ -7,20 +7,11 @@ ip_interfaces:
     ip_address: 10.1.12.1
     mask: 255.255.255.0
     sub_int: false
-    vrrp:
-      - group: 1
-        ip_address: 10.1.12.100
-        priority: 100
   - interface: GigabitEthernet2
     admin_status: true
     description: TO_PE1
     ip_address: 10.1.0.0
     mask: 255.255.255.254
-  # - interface: GigabitEthernet3
-  #   description: TO_PE2
-  #   ip_address: 10.1.0.4
-  #   mask: 255.255.255.254
-  #   sub_int: false
   - interface: Loopback0
     description: SYSTEM_LO_IP
     ip_address: 192.168.10.1
