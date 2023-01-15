@@ -3,9 +3,8 @@
   hosts: "CSR"
 
   tasks:
-
-  - name: remove bgp as 65001 from config
-    ios_bgp:
-      config:
-        bgp_as: 65001
-      operation: delete
+    - name: remove bgp as 65001 from config
+      ios_bgp:
+        config:
+          bgp_as: 65001
+        operation: delete
