@@ -3,7 +3,7 @@ name: "spauto-mpls-sdn-full.yml"
 
 mgmt:
   network: "spauto"
-  ipv4_subnet: "172.100.100.0/24" # via 192.168.2.227
+  ipv4_subnet: "172.100.100.0/24"
   ipv6_subnet: "2001:172:100:100::/80"
 
 topology:
@@ -11,7 +11,6 @@ topology:
   kinds:
     vr-xrv:
       image: "h4ndzdatm0ld/vr-xrv:6.1.3"
-      # clab/clab@123
     vr-csr:
       image: "h4ndzdatm0ld/vr-csr:17.03.02"
   nodes:

@@ -1,35 +1,37 @@
-import docker
 import pytest
 from nornir import InitNornir
 from nornir_jinja2.plugins.tasks import template_file
 from nornir_utils.plugins.tasks.data import load_yaml
 from nornir_utils.plugins.tasks.files import write_file
-from pybatfish.client.commands import bf_init_snapshot, bf_session, bf_set_network
-from pybatfish.question import load_questions
+from pybatfish.client.commands import bf_init_snapshot
+from pybatfish.question import load_questions, bfq
+from pybatfish.client.session import Session
 
-
-# # Tell nornir where our inventory data is
 NORNIR_PATH = "spauto/spauto_nornir"
+BATFISH_HOST = "localhost"
+SNAPSHOT_PATH = "tests/network_data/mpls_sdn_era"
+NETWORK_NAME = "mpls_sdn_era"
 
-# Get all containers running in our environment.
-# This is a try block, as docker service won't be installed in our pipeline
-# container and well resort to our exception and know were running this locally
-# and connect to our batfish docker service by name.
-try:
-    client = docker.from_env()
-    containers = client.containers.list()
-    # Loop through all our container and extract the container names and create a
-    # list to work with.
-    if "batfish" in [container.name for container in containers]:
-        bf_session.host = "localhost"
-except docker.errors.DockerException:
-    bf_session.host = "batfish"
-####################################
 
-# Tell batfish which network we are working with
-bf_set_network("mpls_sdn_era")
-# Load Questions
-load_questions()
+@pytest.fixture(scope="session")
+def snapshot_name():
+    return NETWORK_NAME
+
+
+@pytest.fixture(scope="session", autouse=True)
+def batfish_session():
+    batfish = Session(host=BATFISH_HOST)
+    batfish.set_network(NETWORK_NAME)
+    snapshot_loader(SNAPSHOT_PATH, NETWORK_NAME)
+    load_questions()
+    return batfish
+
+
+@pytest.fixture
+def bgp_config():
+    """Use the pybatfish SDK to extract Panda Data frame answer
+    to our network's BGP configuration"""
+    return bfq.bgpProcessConfiguration().answer().frame()
 
 
 def snapshot_loader(snap_path, name, overwrite=True):

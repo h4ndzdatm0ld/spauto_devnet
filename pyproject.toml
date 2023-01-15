@@ -11,7 +11,6 @@ nornir-utils = "^0.1.2"
 nornir-netmiko = "^0.1.1"
 nornir-jinja2 = "^0.1.2"
 pynso = "^1.2.0"
-prettyprint = "^0.1.5"
 PyYAML = "^5.4.1"
 nornir-napalm = "^0.1.2"
 ntc-templates = "^2.0.0"
@@ -23,8 +22,7 @@ netmiko = "^3.4.0"
 napalm = "^3.3.1"
 pyiosxr = "^0.53"
 markupsafe = "2.0.1"
-pybatfish = "^2022.10.1"
-docker = "^6.0.0"
+pybatfish = "^2023.1.14"
 
 [tool.poetry.dev-dependencies]
 isort = "*"
@@ -40,6 +38,7 @@ ipython = "*"
 pybandit = "*"
 ansible-lint = "*"
 pre-commit = "*"
+prettyprint = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
