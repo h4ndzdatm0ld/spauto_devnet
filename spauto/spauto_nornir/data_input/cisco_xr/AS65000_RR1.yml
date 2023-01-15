@@ -3,7 +3,7 @@ base:
   lldp: true
 
 ip_interfaces:
-  - interface: Gi0/0/0/1
+  - interface: GigabitEthernet0/0/0/1
     description: TO_CORE_P1
     ip_address: 10.0.100.17
     mask: "/31"
@@ -11,7 +11,7 @@ ip_interfaces:
     isis_domain: core
     admin_status: true
 
-  - interface: Gi0/0/0/2
+  - interface: GigabitEthernet0/0/0/2
     description: TO_CORE_RR2
     ip_address: 10.0.100.14
     mask: "/31"
@@ -19,7 +19,7 @@ ip_interfaces:
     isis_domain: core
     admin_status: true
 
-  - interface: Gi0/0/0/3
+  - interface: GigabitEthernet0/0/0/3
     description: TO_CORE_P2
     ip_address: 10.0.100.19
     mask: "/31"

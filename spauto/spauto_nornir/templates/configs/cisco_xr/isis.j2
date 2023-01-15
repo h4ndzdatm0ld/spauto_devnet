@@ -1,0 +1,48 @@
+!
+{% if host.data_input.get('isis') %}
+{% for domain in host.data_input.get('isis') %}
+router isis {{ domain.get('domain') }}
+{% if domain.get('link_state') %}
+ distribute bgp-ls
+{% endif %}
+ is-type level-2-only
+ net {{ domain.get('net') }}
+ address-family ipv4 unicast
+  metric-style wide
+  mpls traffic-eng level-2-only
+{% if domain.get('router_id') %}
+  mpls traffic-eng router-id {{ domain.get('router_id') }}
+  router-id {{ domain.get('router_id') }}
+{% else %}
+  mpls traffic-eng router-id Loopback0
+  router-id Loopback0
+{% endif %}
+  maximum-paths 8
+  segment-routing mpls
+ !
+{% for interface in host.data_input.ip_interfaces %}
+{% if interface.get('isis') %}
+{% if interface.get('isis_domain') == domain.get('domain') %}
+{% if interface.get('system') %}
+interface {{ interface.get('interface') }}
+ passive
+ address-family ipv4 unicast
+{% if domain.get('sid_index') %}
+ prefix-sid index {{ domain.get('sid_index') }}
+{% endif %}
+!
+{% else %}
+interface {{ interface.get('interface') }}
+ point-to-point
+ address-family ipv4 unicast
+{% if interface.get('metric') %}
+  metric {{interface.get('metric') }} level {{interface.get('level') }}
+{% endif %}
+{% endif %}
+ !
+!
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endfor %}
+{% endif %}

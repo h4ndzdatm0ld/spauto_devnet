@@ -2,7 +2,7 @@
 base:
   lldp: true
 ip_interfaces:
-  - interface: Gi0/0/0/0
+  - interface: GigabitEthernet0/0/0/0
     description: TO_CORE_P2
     ip_address: 10.0.100.11
     mask: "/31"
@@ -13,7 +13,7 @@ ip_interfaces:
     level: 2
     admin_status: true
 
-  - interface: Gi0/0/0/1
+  - interface: GigabitEthernet0/0/0/1
     description: TO_CORE_PE3
     ip_address: 10.0.100.13
     mask: "/31"
@@ -24,10 +24,10 @@ ip_interfaces:
     mpls: true
     admin_status: true
 
-  - interface: Gi0/0/0/2
+  - interface: GigabitEthernet0/0/0/2
     description: "Parent INT to CPE2"
     admin_status: true
-  - interface: Gi0/0/0/2.1001
+  - interface: GigabitEthernet0/0/0/2.1001
     vrf: VRF-A
     description: TO_CPE_4
     ip_address: 10.2.0.44
@@ -45,16 +45,16 @@ ip_interfaces:
     passive: true
     system: true
 
-  # - interface: Gi0/0/0/3
-  #   description: TO_CORE_PE101
-  #   ip_address: 11.0.0.5
-  #   mask: "/31"
-  #   isis: true
-  #   isis_domain: 100
-  #   metric: 100
-  #   level: 2
-  #   admin_status: true
-  #   mpls: true
+    # - interface: GigabitEthernet0/0/0/3
+    #   description: TO_CORE_PE101
+    #   ip_address: 11.0.0.5
+    #   mask: "/31"
+    #   isis: true
+    #   isis_domain: 100
+    #   metric: 100
+    #   level: 2
+    #   admin_status: true
+    #   mpls: true
 
   - interface: Loopback100
     description: ISIS_100_SYSTEM_ADDRESS
@@ -69,11 +69,11 @@ isis:
   - domain: core
     net: 49.0000.1720.1600.0044.00
     sid_index: 1004
-  # - domain: 100
-  #   net: 49.0000.1720.1610.0044.00
-  #   link_state: true
-  #   sid_index: 1044
-  #   router_id: 172.16.100.44
+    # - domain: 100
+    #   net: 49.0000.1720.1610.0044.00
+    #   link_state: true
+    #   sid_index: 1044
+    #   router_id: 172.16.100.44
 bgp:
   asn: 65000
   router_id: 172.16.0.44
@@ -90,7 +90,7 @@ bgp:
       RD: 1004
       neighbors:
         - remote_as: 65001
-          update_source: Gi0/0/0/2.1001
+          update_source: GigabitEthernet0/0/0/2.1001
           neighbor: 10.2.0.4
           as_override: true
           route_policy:

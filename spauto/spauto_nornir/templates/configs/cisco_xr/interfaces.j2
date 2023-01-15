@@ -1,0 +1,25 @@
+ipv4 unnumbered mpls traffic-eng Loopback0
+{% for interface in host.data_input.ip_interfaces %}
+!
+{% if interface.get('sub_int') %}
+interface {{ interface.get('interface') }}
+{% if interface.get('vrf') %}
+ vrf {{ interface.get('vrf') }}
+{% endif %}
+ description {{ interface.get('description') }}
+ ipv4 address {{ interface.get('ip_address') }}{{ interface.get('mask') }}
+ encapsulation dot1q {{ interface.get('vlan') }}
+ no shutdown
+{% else %}
+interface {{ interface.get('interface') }}
+{% if interface.get('description')%}
+ description {{ interface.get('description') }}
+{% endif %}
+{% if interface.get('ip_address')%}
+ ipv4 address {{ interface.get('ip_address') }}{{ interface.get('mask') }}
+{% endif %}
+{% if interface.get('admin_status'|default(True)) %}
+ no shutdown
+{% endif %}
+{% endif %}
+{% endfor %}

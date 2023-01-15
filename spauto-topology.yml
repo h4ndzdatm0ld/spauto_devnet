@@ -19,7 +19,7 @@ topology:
       image: "h4ndzdatm0ld/vr-csr:17.03.02"
 
   nodes:
-    # CE Nodes - AS65001
+    # CE Nodes - AS65001 - West
     vr-csr-ce-1:
       kind: "vr-csr"
       mgmt_ipv4: 172.100.100.15
@@ -36,6 +36,19 @@ topology:
       kind: "vr-xrv"
       mgmt_ipv4: 172.100.100.150
       mgmt_ipv6: 2001:172:100:100::150
+    # CE Nodes - AS65001 - East
+    vr-csr-ce-3:
+      kind: "vr-csr"
+      mgmt_ipv4: 172.100.100.25
+      mgmt_ipv6: 2001:172:100:100::25
+    vr-csr-ce-4:
+      kind: "vr-csr"
+      mgmt_ipv4: 172.100.100.30
+      mgmt_ipv6: 2001:172:100:100::30
+    xrv-h2:
+      kind: "vr-xrv"
+      mgmt_ipv4: 172.100.100.155
+      mgmt_ipv6: 2001:172:100:100::155
     # CORE / PE Nodes
     xrv-pe1:
       kind: "vr-xrv"

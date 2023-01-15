@@ -3,12 +3,14 @@ version: "3.8"
 services:
   batfish:
     container_name: "batfish"
+    network_mode: "host"
     image: "batfish/batfish:latest"
     ports:
       - "9996:9996"
       - "9997:9997"
   spauto:
     container_name: "spauto"
+    network_mode: "host"
     build:
       context: "."
       target: "spauto"

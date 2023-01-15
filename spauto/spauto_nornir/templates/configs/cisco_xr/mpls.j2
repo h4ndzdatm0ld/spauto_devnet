@@ -1,0 +1,22 @@
+
+mpls oam
+!
+mpls traffic-eng
+{% for interface in host.data_input.ip_interfaces %}
+{% if interface.get('mpls') %}
+ !
+ interface {{ interface.get('interface')}}
+{% endif %}
+{% endfor %}
+!
+mpls ldp
+!
+lldp
+!
+xml agent tty
+netconf-yang agent
+ ssh
+!
+segment-routing 
+  global-block 16000 17000
+!

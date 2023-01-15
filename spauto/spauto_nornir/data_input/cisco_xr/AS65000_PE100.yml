@@ -7,7 +7,7 @@ vrfs:
     import_rt: 65000:1001
     export_rt: 65000:1001
 ip_interfaces:
-  - interface: Gi0/0/0/0
+  - interface: GigabitEthernet0/0/0/0
     description: TO_CORE_PE2
     ip_address: 11.0.0.0
     mask: "/31"
@@ -16,7 +16,7 @@ ip_interfaces:
     metric: 100
     level: 2
     mpls: true
-  - interface: Gi0/0/0/1
+  - interface: GigabitEthernet0/0/0/1
     description: TO_CORE_PE101
     ip_address: 11.0.0.2
     mask: "/31"

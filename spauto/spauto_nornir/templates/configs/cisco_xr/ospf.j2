@@ -1,0 +1,12 @@
+router ospf CORE
+area 0.0.0.0
+{% for int in host.data_input.ip_interfaces %}
+{% if int.get('ospf') %}
+{% if int.get('passive') %}
+interface {{int.get('interface')}} passive
+{% else %}
+interface {{int.get('interface')}}
+{% endif %}
+{% endif %}
+exit
+{% endfor %}

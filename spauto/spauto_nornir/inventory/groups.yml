@@ -7,11 +7,12 @@ CORE_EDGE_ROUTER:
   connection_options:
     napalm:
       platform: iosxr
-      username: clab
-      password: clab@123
+      username: admin
+      password: admin
     netmiko:
       extras:
         fast_cli: false
+        conn_timeout: 10
   data:
     nso:
       authgroup: nso-auth
@@ -32,7 +33,8 @@ XR_65001:
     netmiko:
       extras:
         fast_cli: false
-        timeout: 4
+        timeout: 10
+        config_encoding: cli
   data:
     nso:
       authgroup: nso-auth

@@ -1,0 +1,10 @@
+{% if host.data_input.get('static_routes') %}
+{% for route in host.data_input.static_routes %}
+router static
+{% if route.get('vrf') %}
+ vrf {{ route.get('vrf') }}
+{% endif %}
+ address-family ipv4 unicast
+  {{ route.get('dst') }} {{ route.get('next_hop') }}
+ !
+{% endfor %}{% endif %}
