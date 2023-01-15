@@ -369,4 +369,5 @@ tests/network_data/mpls_sdn_era/configs/*
 
 *__pycache__*
 *.log
-clab-spauto-topology.yml
+clab-spauto
+.clab-spauto.yml.bak

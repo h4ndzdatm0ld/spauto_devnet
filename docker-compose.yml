@@ -27,9 +27,9 @@ services:
       - "/var/run/netns:/var/run/netns"
       - "/etc/hosts:/etc/hosts"
       - "./:/src"
-      - "./clab-spauto-topology.yml:/src/clab-spauto-topology.yml"
+      - "./clab-spauto-clab.yml:/src/clab-spauto-clab.yml"
     pid: "host"
-    command: "containerlab deploy -t spauto-topology.yml"
+    command: "containerlab deploy -t spauto-clab.yml"
     # If you want to destroy the lab, ovveride the command while executing docker-compose service
     # docker-compose run clab containerlab destroy -t spauto-topology.yml
     # Redeploy

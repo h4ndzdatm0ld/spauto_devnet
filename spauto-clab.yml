@@ -1,7 +1,7 @@
 # clab/clab@123
 # admin/admin
 ---
-name: "spauto-topology.yml"
+name: "spauto"
 
 mgmt:
   network: "spauto"
