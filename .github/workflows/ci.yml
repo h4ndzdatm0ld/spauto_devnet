@@ -29,5 +29,5 @@ jobs:
           poetry run yamllint . && \
           echo 'Running pydocstyle' && \
           poetry run pydocstyle .
-      # - name: "Run Tests"
-      #   run: "docker compose run spauto"
+      - name: "Run Tests"
+        run: "docker compose run spauto"

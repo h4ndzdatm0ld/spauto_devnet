@@ -1,0 +1,24 @@
+all:
+  children:
+    ceos:
+      hosts:
+        clab-spauto-mpls-sdn-core.yml-ceos2:
+          ansible_host: 172.20.100.2
+    vr-xrv:
+      hosts:
+        clab-spauto-mpls-sdn-core.yml-xrv-p1:
+          ansible_host: 172.20.100.101
+        clab-spauto-mpls-sdn-core.yml-xrv-p2:
+          ansible_host: 172.20.100.102
+        clab-spauto-mpls-sdn-core.yml-xrv-pe1:
+          ansible_host: 172.20.100.11
+        clab-spauto-mpls-sdn-core.yml-xrv-pe2:
+          ansible_host: 172.20.100.22
+        clab-spauto-mpls-sdn-core.yml-xrv-pe3:
+          ansible_host: 172.20.100.33
+        clab-spauto-mpls-sdn-core.yml-xrv-pe4:
+          ansible_host: 172.20.100.44
+        clab-spauto-mpls-sdn-core.yml-xrv-rr-1:
+          ansible_host: 172.20.100.201
+        clab-spauto-mpls-sdn-core.yml-xrv-rr-2:
+          ansible_host: 172.20.100.202
