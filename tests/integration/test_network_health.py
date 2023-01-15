@@ -10,7 +10,6 @@ from pybatfish.client.asserts import (
 )
 from pybatfish.client.commands import bf_upload_diagnostics
 from pybatfish.question import bfq
-from nornir_utils.plugins.functions import print_result
 
 from tests.conftest import devices, load_data, render_configs, CONFIGS_DIR
 
