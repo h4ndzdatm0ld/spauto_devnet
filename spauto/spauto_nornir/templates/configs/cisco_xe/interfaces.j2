@@ -1,0 +1,23 @@
+{% for interface in host.DATA_INPUT.ip_interfaces %}
+!
+{% if interface.get('sub_int') %}
+interface {{ interface.get('interface') }}
+ description {{ interface.get('description') }}
+ encapsulation dot1q {{ interface.get('vlan') }}
+ ip address {{ interface.get('ip_address') }} {{ interface.get('mask') }}
+ no shutdown
+{% else %}
+interface {{ interface.get('interface') }}
+ description {{ interface.get('description') }}
+ ip address {{ interface.get('ip_address') }} {{ interface.get('mask') }}
+ no shutdown
+{% endif %}
+{% if interface.get('vrrp') %}
+{% for vrrp_group in interface.get('vrrp') %}
+vrrp {{ vrrp_group.get('group' ) }} ip {{ vrrp_group.get('ip_address') }}
+{% if vrrp_group.get('priority') %}
+vrrp {{ vrrp_group.get('group' ) }} priority {{ vrrp_group.get('priority') }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}

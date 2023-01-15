@@ -1,0 +1,18 @@
+{% if host.DATA_INPUT.get('bgp') %}
+{% if host.DATA_INPUT.bgp.get('prefix') %}
+{% for pl in host.DATA_INPUT.bgp.get('prefix') %}
+!
+ip prefix-list {{ pl.get('description') }} seq {{ pl.get('seq') }} {{ pl.get('option') }} {{ pl.get('prefix') }}
+{% endfor %}
+{% endif %}
+{% if host.DATA_INPUT.bgp.get('route_map') %}
+{% for map in host.DATA_INPUT.bgp.get('route_map') %}
+!
+route-map {{ map.get('name') }} {{ map.get('option') }} {{ map.get('num') }}
+ {% if map.get('metric') %}
+ set metric {{ map.get('metric') }}
+ {% endif %}
+ match ip address prefix-list {{ map.get('match') }}
+{% endfor %}
+{% endif %}
+{% endif %}

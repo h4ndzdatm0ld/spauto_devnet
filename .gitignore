@@ -367,8 +367,6 @@ ncs*
 # Testing Docs
 tests/network_data/mpls_sdn_era/configs/*
 
-spauto/spauto_nornir/Logs/
 *__pycache__*
 *.log
-*config*
 clab-spauto-topology.yml

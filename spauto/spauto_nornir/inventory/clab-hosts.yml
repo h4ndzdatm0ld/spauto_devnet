@@ -82,34 +82,3 @@ AS65001_CE2:
   data:
     type: CE_ROUTER
     asn: 65001
-# AS65001-SW1:
-#   hostname: 172.100.100.182
-#   groups:
-#     - EOS
-#   data:
-#     type: AGG_SW
-#     asn: 65001
-
-# AS65001_H1:
-#   hostname: 172.100.100.190
-#   groups:
-#     - XR_65001
-#   data:
-#     type: HOST
-#     asn: 65001
-
-# AS65001_CE3:
-#   hostname: 192.168.0.184
-#   groups:
-#     - CSR
-#   data:
-#     type: CE_ROUTER
-#     asn: 65001
-
-# AS65001_CE4:
-#   hostname: 192.168.0.185
-#   groups:
-#     - CSR
-#   data:
-#     type: CE_ROUTER
-#     asn: 65001

@@ -28,10 +28,6 @@ topology:
       image: "h4ndzdatm0ld/ceos:4.27.0F"
       mgmt_ipv4: 172.100.100.182
       mgmt_ipv6: 2001:172:100:100::182
-    xrv-h1:
-      kind: "vr-xrv"
-      mgmt_ipv4: 172.100.100.190
-      mgmt_ipv6: 2001:172:100:100::190
 
     # CORE DEVICES
     xrv-pe1:

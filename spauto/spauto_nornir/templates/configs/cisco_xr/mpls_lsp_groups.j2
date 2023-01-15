@@ -1,0 +1,24 @@
+
+{% set hostname = host | string %}
+{% if host.get('loopbacks') %}
+{% if host.get('mpls_full_mesh') %}
+group GR-LSP
+interface 'tunnel-te.*'
+ipv4 unnumbered Loopback0
+fast-reroute protect node
+autoroute announce
+exit
+record-route
+path-option 1 dynamic
+no shutdown
+exit
+exit
+{% endif %}
+{% for loopback in host.get('loopbacks') %}
+interface tunnel-te{{ host['tunnel'].get(loopback) }}
+ apply-group GR-LSP
+ signalled-name "{{ host['local_tunn'].get(hostname) }}—to-{{ host['far_end'].get(loopback) }}"
+ destination {{ loopback }}
+ no shutdown
+{% endfor %}
+{% endif %}
