@@ -59,4 +59,4 @@ rules:
     level: "warning"
 extends: "default"
 ignore: |
-  clab-spauto-topology.yml/
+  clab-spauto/

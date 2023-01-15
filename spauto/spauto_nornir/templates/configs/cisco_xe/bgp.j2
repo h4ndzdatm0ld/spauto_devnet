@@ -1,12 +1,12 @@
-{% if host.DATA_INPUT.get('bgp') %}
+{% if host.data_input.get('bgp') %}
 !
-router bgp {{ host.DATA_INPUT.bgp.get('asn') }}
+router bgp {{ host.data_input.bgp.get('asn') }}
 bgp log-neighbor-changes
-bgp router-id {{ host.DATA_INPUT.bgp.get('router_id') }}
+bgp router-id {{ host.data_input.bgp.get('router_id') }}
 address-family ipv4 unicast
 !
-{% if host.DATA_INPUT.bgp.get('neighbors') %}
-{% for nx in host.DATA_INPUT.bgp.get('neighbors') %}
+{% if host.data_input.bgp.get('neighbors') %}
+{% for nx in host.data_input.bgp.get('neighbors') %}
 neighbor {{ nx.get('neighbor') }} remote-as {{ nx.get('remote_as') }}
 neighbor {{ nx.get('neighbor') }} update-source {{ nx.get('update_source') }}
  address-family {{ nx.get('afi') }}

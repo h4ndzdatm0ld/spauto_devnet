@@ -2,7 +2,7 @@
 base:
   lldp: true
 ip_interfaces:
-  - interface: Gi0/0/0/0
+  - interface: GigabitEthernet0/0/0/0
     description: TO_CORE_PE4
     ip_address: 11.0.0.4
     mask: "/31"
@@ -11,7 +11,7 @@ ip_interfaces:
     metric: 100
     level: 2
     mpls: true
-  - interface: Gi0/0/0/1
+  - interface: GigabitEthernet0/0/0/1
     description: TO_CORE_PE100
     ip_address: 11.0.0.3
     mask: "/31"

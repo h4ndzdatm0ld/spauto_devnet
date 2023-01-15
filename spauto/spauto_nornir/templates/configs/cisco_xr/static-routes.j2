@@ -1,5 +1,5 @@
-{% if host.DATA_INPUT.get('static_routes') %}
-{% for route in host.DATA_INPUT.static_routes %}
+{% if host.data_input.get('static_routes') %}
+{% for route in host.data_input.static_routes %}
 router static
 {% if route.get('vrf') %}
  vrf {{ route.get('vrf') }}

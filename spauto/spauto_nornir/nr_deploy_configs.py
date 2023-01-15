@@ -24,13 +24,13 @@ nr = InitNornir("config.yml")
 def load_all_data(task):
     """Read all the data from the associated YAML files inside data_input dir.
 
-    Add all the variables into a DATA_INPUT dictionary for the individual
+    Add all the variables into a data_input dictionary for the individual
     task.host.
     """
     data = task.run(
         task=load_yaml, file=f"data_input/{task.host.platform}/{task.host}.yml"
     )
-    task.host["DATA_INPUT"] = data.result
+    task.host["data_input"] = data.result
 
 
 def generate_full_mesh_list(task):
@@ -60,10 +60,10 @@ def generate_full_mesh_list(task):
         pass
 
     # The only reason we are able to access some of these external data values is because
-    # we loaded the external data in a previous task and added to the task.host['DATA_INPUT] dict.
+    # we loaded the external data in a previous task and added to the task.host['data_input] dict.
     # We use some more list comprehension to extract all the interfaces from each host.
     all_hosts_interfaces = [
-        nr.inventory.hosts[device]["DATA_INPUT"]["ip_interfaces"]
+        nr.inventory.hosts[device]["data_input"]["ip_interfaces"]
         for device in FULL_MESH_DEVICES
     ]
     # Combine lists of lists into one list. We compile ALL interfaces from ALL devices besides

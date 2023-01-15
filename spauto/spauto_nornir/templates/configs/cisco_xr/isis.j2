@@ -1,6 +1,6 @@
 !
-{% if host.DATA_INPUT.get('isis') %}
-{% for domain in host.DATA_INPUT.get('isis') %}
+{% if host.data_input.get('isis') %}
+{% for domain in host.data_input.get('isis') %}
 router isis {{ domain.get('domain') }}
 {% if domain.get('link_state') %}
  distribute bgp-ls
@@ -20,7 +20,7 @@ router isis {{ domain.get('domain') }}
   maximum-paths 8
   segment-routing mpls
  !
-{% for interface in host.DATA_INPUT.ip_interfaces %}
+{% for interface in host.data_input.ip_interfaces %}
 {% if interface.get('isis') %}
 {% if interface.get('isis_domain') == domain.get('domain') %}
 {% if interface.get('system') %}

@@ -1,5 +1,5 @@
 ipv4 unnumbered mpls traffic-eng Loopback0
-{% for interface in host.DATA_INPUT.ip_interfaces %}
+{% for interface in host.data_input.ip_interfaces %}
 !
 {% if interface.get('sub_int') %}
 interface {{ interface.get('interface') }}

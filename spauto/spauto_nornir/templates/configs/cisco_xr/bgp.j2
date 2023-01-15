@@ -1,20 +1,20 @@
-{% if host.DATA_INPUT.get('bgp') %}
-router bgp {{ host.DATA_INPUT.bgp.get('asn') }}
-  bgp router-id {{ host.DATA_INPUT.bgp.get('router_id') }}
+{% if host.data_input.get('bgp') %}
+router bgp {{ host.data_input.bgp.get('asn') }}
+  bgp router-id {{ host.data_input.bgp.get('router_id') }}
   address-family ipv4 unicast
   !
   address-family vpnv4 unicast
-{% if host.DATA_INPUT.bgp.get('add_paths') %}
+{% if host.data_input.bgp.get('add_paths') %}
    additional-paths receive
    additional-paths send
   !
   address-family link-state link-state
 {% endif %}
 !
-{% if host.DATA_INPUT.bgp.get('route_reflector') %}
+{% if host.data_input.bgp.get('route_reflector') %}
  neighbor-group CLIENTS
   remote-as 65000
-  cluster-id {{ host.DATA_INPUT.bgp.get('cluster_id') }}
+  cluster-id {{ host.data_input.bgp.get('cluster_id') }}
   update-source Loopback0
   address-family ipv4 unicast
    route-reflector-client
@@ -24,7 +24,7 @@ router bgp {{ host.DATA_INPUT.bgp.get('asn') }}
    route-reflector-client
 {% else %}
  neighbor-group RR
-  remote-as {{ host.DATA_INPUT.bgp.get('asn') }}
+  remote-as {{ host.data_input.bgp.get('asn') }}
   update-source Loopback0
   address-family ipv4 unicast
    route-policy PL-iBGP-RR-OUT out
@@ -36,15 +36,15 @@ router bgp {{ host.DATA_INPUT.bgp.get('asn') }}
   !
  !
 ! 
-{% for rr in host.DATA_INPUT.bgp.get('route_reflectors') %}
+{% for rr in host.data_input.bgp.get('route_reflectors') %}
  neighbor {{ rr }}
   use neighbor-group RR
  !
 {% endfor %}
 {% endif %}
 !
-{% if host.DATA_INPUT.bgp.get('neighbors') %}
-{% for nx in host.DATA_INPUT.bgp.get('neighbors') %}
+{% if host.data_input.bgp.get('neighbors') %}
+{% for nx in host.data_input.bgp.get('neighbors') %}
 {% if nx.get('group') %}
 neighbor {{ nx.get('neighbor') }}
  use neighbor-group {{ nx.get('group') }}
@@ -63,10 +63,10 @@ neighbor {{ nx.get('neighbor') }}
 !
 {% endfor %}
 {% endif %}
-{% if host.DATA_INPUT.bgp.get('vrf_neighbors') %}
-{% for vrf in host.DATA_INPUT.bgp.get( 'vrf_neighbors') %}
+{% if host.data_input.bgp.get('vrf_neighbors') %}
+{% for vrf in host.data_input.bgp.get( 'vrf_neighbors') %}
  vrf {{ vrf.get('vrf') }}
- rd {{ host.DATA_INPUT.bgp.get('router_id') }}:{{ vrf.get('RD') }}
+ rd {{ host.data_input.bgp.get('router_id') }}:{{ vrf.get('RD') }}
  bgp router-id {{ vrf.get('router_id') }}
  address-family ipv4 unicast
  !

@@ -11,7 +11,7 @@ from pybatfish.client.asserts import (
 from pybatfish.client.commands import bf_upload_diagnostics
 from pybatfish.question import bfq
 
-from tests.conftest import devices, load_data, render_configs
+from tests.conftest import devices, load_data, render_configs, CONFIGS_DIR
 
 # # ######################################################################
 # # #   Example Configuration Compliance Checks to use within Pipeline   #
@@ -29,23 +29,32 @@ snapshot folder to provide Batfish via the pybatfish client.
 - Validate no duplicate router-ids.
 """
 
-CE_DEVICES = ["AS65001_CE2", "AS65001_CE1"]
+CE_DEVICES = ["AS65001_CE2", "AS65001_CE1", "AS65001_CE3", "AS65001_CE4"]
+ALL_NETWORK_DEVICES = devices()
 
 
-@pytest.mark.parametrize("node", devices)
+@pytest.mark.parametrize("node", ALL_NETWORK_DEVICES)
 def test_load_yaml(nr, node):
     """Assert all devices exist in the loaded yaml keys."""
     data = nr.run(task=load_data)
     assert node in data.keys()
 
 
-@pytest.mark.parametrize("node", devices)
+@pytest.mark.parametrize("node", ALL_NETWORK_DEVICES)
 def test_config_gen(nr, node):
     """Render J2 Templates/Configs."""
-    nr.run(task=render_configs)
-    configs_dir = "tests/network_data/mpls_sdn_era/configs"
-    files = os.listdir(configs_dir)
-    assert f"{node}.cfg" in files
+    nr.run(task=load_data)
+    result = nr.run(task=render_configs)
+    assert node in result.keys()
+
+
+@pytest.mark.parametrize("node", ALL_NETWORK_DEVICES)
+def test_config_gen_output(nr, node):
+    """Render J2 Templates/Configs."""
+    files = os.listdir(CONFIGS_DIR)
+    # Default Config, nothing to render/install.
+    if not node == "AS65001_SW_01":
+        assert f"{node}.cfg" in files
 
 
 def test_assert_no_incompatible_bgp_session(snapshot_name):
@@ -102,7 +111,7 @@ def test_no_undefined_ref():
     assert assert_no_undefined_references()
 
 
-@pytest.mark.parametrize("node", devices)
+@pytest.mark.parametrize("node", ALL_NETWORK_DEVICES)
 def test_bgp_state_routers(node):
     """Testing to ensure BGP Sessions are in an Established state."""
     bgp_sess_status = bfq.bgpSessionStatus(nodes=node).answer().frame()

@@ -39,6 +39,7 @@ pybandit = "*"
 ansible-lint = "*"
 pre-commit = "*"
 prettyprint = "*"
+pydantic = "^1.10.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

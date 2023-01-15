@@ -1,7 +1,8 @@
+"""Nornir data tests."""
 import os
+from tests.conftest import CONFIGS_DIR
 
 
-class TestNornir(object):
-    # Assert our network directory folder exists.
-    def test_directory_configs(self):
-        assert os.path.exists("tests/network_data/mpls_sdn_era/configs/")
+def test_directory_configs():
+    """Assert our testing config directory exists."""
+    assert os.path.exists(CONFIGS_DIR)

@@ -6,16 +6,40 @@ from nornir_utils.plugins.tasks.files import write_file
 from pybatfish.client.commands import bf_init_snapshot
 from pybatfish.question import load_questions, bfq
 from pybatfish.client.session import Session
+from typing import List
 
-NORNIR_PATH = "spauto/spauto_nornir"
-BATFISH_HOST = "localhost"
-SNAPSHOT_PATH = "tests/network_data/mpls_sdn_era"
-NETWORK_NAME = "mpls_sdn_era"
+NORNIR_PATH: str = "spauto/spauto_nornir"
+BATFISH_HOST: str = "localhost"
+SNAPSHOT_PATH: str = "tests/network_data/mpls_sdn_era"
+CONFIGS_DIR: str = f"{SNAPSHOT_PATH}/configs/"
+NETWORK_NAME: str = "mpls_sdn_era"
 
 
 @pytest.fixture(scope="session")
 def snapshot_name():
     return NETWORK_NAME
+
+
+def devices():
+    """Network Devices."""
+    network_devices: List = [
+        "AS65000_P1",
+        "AS65000_P2",
+        "AS65000_RR1",
+        "AS65000_RR2",
+        "AS65000_PE1",
+        "AS65000_PE2",
+        "AS65000_PE3",
+        "AS65000_PE4",
+        "AS65001_CE1",
+        "AS65001_CE2",
+        "AS65001_CE3",
+        "AS65001_CE4",
+        "AS65001_H1",
+        "AS65001_H2",
+        "AS65001_SW_01",
+    ]
+    return network_devices
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -48,7 +72,7 @@ def nr():
         inventory={
             "plugin": "SimpleInventory",
             "options": {
-                "host_file": f"{NORNIR_PATH}/inventory/clab-hosts.yml",
+                "host_file": f"{NORNIR_PATH}/inventory/hosts.yml",
                 "group_file": f"{NORNIR_PATH}/inventory/groups.yml",
                 "defaults_file": f"{NORNIR_PATH}/inventory/defaults.yml",
             },
@@ -61,14 +85,14 @@ def nr():
 def load_data(task):
     """Read all the data from the associated YAML files inside data_input dir.
 
-    Add all the variables into a DATA_INPUT dictionary for the individual
+    Add all the variables into a data_input dictionary for the individual
     task.host.
     """
     data = task.run(
         task=load_yaml,
         file=f"{NORNIR_PATH}/data_input/{task.host.platform}/{task.host}.yml",
     )
-    task.host["DATA_INPUT"] = data.result
+    task.host["data_input"] = data.result
 
 
 # # def generate_full_mesh_list(task):
@@ -98,10 +122,10 @@ def load_data(task):
 # #         pass
 
 # #     # The only reason we are able to access some of these external data values is because
-# #     # we loaded the external data in a previous task and added to the task.host['DATA_INPUT] dict.
+# #     # we loaded the external data in a previous task and added to the task.host['data_input] dict.
 # #     # We use some more list comprehension to extract all the interfaces from each host.
 # #     all_hosts_interfaces = [
-# #         nornir.inventory.hosts[device]["DATA_INPUT"]["ip_interfaces"]
+# #         nornir.inventory.hosts[device]["data_input"]["ip_interfaces"]
 # #         for device in FULL_MESH_DEVICES
 # #     ]
 
@@ -144,19 +168,3 @@ def render_configs(task):
         filename=f"tests/network_data/mpls_sdn_era/configs/{task.host}.cfg",
         content=f"{task.host['staged']}",
     )
-
-
-devices = [
-    "AS65000_P1",
-    "AS65000_P2",
-    "AS65000_RR1",
-    "AS65000_RR2",
-    "AS65000_PE1",
-    "AS65000_PE2",
-    "AS65000_PE3",
-    "AS65000_PE4",
-    "AS65001_CE1",
-    "AS65001_CE2",
-    # "AS65001_CE3",
-    # "AS65001_CE4",
-]

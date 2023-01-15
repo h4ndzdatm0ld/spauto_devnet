@@ -8,7 +8,7 @@ vrfs:
     export_rt: 65000:1001
 
 ip_interfaces:
-  - interface: Gi0/0/0/1
+  - interface: GigabitEthernet0/0/0/1
     description: TO_CORE_P1
     ip_address: 10.0.100.9
     mask: "/31"
@@ -18,7 +18,7 @@ ip_interfaces:
     level: 2
     admin_status: true
 
-  - interface: Gi0/0/0/2
+  - interface: GigabitEthernet0/0/0/2
     description: TO_CORE_PE4
     ip_address: 10.0.100.12
     mask: "/31"
@@ -28,10 +28,10 @@ ip_interfaces:
     level: 2
     admin_status: true
 
-  - interface: Gi0/0/0/3
+  - interface: GigabitEthernet0/0/0/3
     description: "Parent INT to CPE-3"
     admin_status: true
-  - interface: Gi0/0/0/3.1001
+  - interface: GigabitEthernet0/0/0/3.1001
     vrf: VRF-A
     description: TO_CPE_3
     ip_address: 10.2.0.33
@@ -70,7 +70,7 @@ bgp:
       RD: 1003
       neighbors:
         - remote_as: 65001
-          update_source: Gi0/0/0/3.1001
+          update_source: GigabitEthernet0/0/0/3.1001
           neighbor: 10.2.0.3
           as_override: true
           route_policy:

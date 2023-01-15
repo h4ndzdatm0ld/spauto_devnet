@@ -1,24 +1,24 @@
-{% if host.DATA_INPUT.get('bgp') %}
-{% if host.DATA_INPUT.bgp.get('add_pe_policy') %}
+{% if host.data_input.get('bgp') %}
+{% if host.data_input.bgp.get('add_pe_policy') %}
 route-policy PL-iBGP-RR-OUT
 set next-hop self
 end-policy
 !
 {% endif %}
-{% if host.DATA_INPUT.bgp.get('add_asbr_policy') %}
+{% if host.data_input.bgp.get('add_asbr_policy') %}
 route-policy PL-EBGP-CE1-OUT
-  set med {{ host.DATA_INPUT.bgp.get('CE1_MED') }}
+  set med {{ host.data_input.bgp.get('CE1_MED') }}
   pass
 end-policy
 !
 route-policy PL-EBGP-CE2-OUT
-  set med {{ host.DATA_INPUT.bgp.get('CE2_MED') }}
+  set med {{ host.data_input.bgp.get('CE2_MED') }}
   pass
 end-policy
 !
 !
 {% endif %}
-{% if host.DATA_INPUT.bgp.get('add_65001_in_out') %}
+{% if host.data_input.bgp.get('add_65001_in_out') %}
 route-policy PL-EBGP-65001-IN
   pass
 end-policy
@@ -28,7 +28,7 @@ route-policy PL-EBGP-65001-OUT
 end-policy
 !
 {% endif %}
-{% if host.DATA_INPUT.bgp.get('add_65001_in') %}
+{% if host.data_input.bgp.get('add_65001_in') %}
 !
 route-policy PL-EBGP-65001-IN
   pass
