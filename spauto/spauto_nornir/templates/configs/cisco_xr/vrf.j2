@@ -1,8 +1,0 @@
-{% if host.data_input.get('vrfs') %}
-{% for vrf in host.data_input.get('vrfs') %}
-vrf {{ vrf.get('name') }}
- {{ vrf.get('family') }}
- import route-target {{ vrf.get('import_rt') }}
- export route-target {{ vrf.get('export_rt') }}
-{% endfor %}
-{% endif %}

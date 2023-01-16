@@ -8,7 +8,7 @@ from pybatfish.question import load_questions, bfq
 from pybatfish.client.session import Session
 from typing import List
 
-NORNIR_PATH: str = "spauto/spauto_nornir"
+NORNIR_PATH: str = "spauto/nornir"
 BATFISH_HOST: str = "localhost"
 SNAPSHOT_PATH: str = "tests/network_data/mpls_sdn_era"
 CONFIGS_DIR: str = f"{SNAPSHOT_PATH}/configs/"

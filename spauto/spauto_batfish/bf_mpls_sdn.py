@@ -15,7 +15,7 @@ from pybatfish.question import bfq, load_questions
 # At the moment this doesn't work. NAPALM Getters is extracting these configurations, however
 # the top line of the config is being stipped out, which identifies the IOSXR version - this is how
 # Batfish determines this is an iosxr device. (One method at least)
-# CONFIGS = "../../spauto/spauto_nornir/napalm_getters/mpls_sdn_era/"
+# CONFIGS = "../../spauto/nornir/napalm_getters/mpls_sdn_era/"
 
 # Run 'pytest' from root dir to rebuild the latest configs before running interactive
 CONFIGS = "../../tests/network_data/mpls_sdn_era"

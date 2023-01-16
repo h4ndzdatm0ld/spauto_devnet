@@ -1,0 +1,77 @@
+---
+ip_interfaces:
+  - interface: GigabitEthernet0/0/0/1
+    description: "Parent INT to PE1"
+    admin_status: true
+  - interface: GigabitEthernet0/0/0/1
+    description: TO_CORE_PE1
+    ip_address: 10.0.100.3
+    mask: "/31"
+    isis: true
+    isis_domain: core
+    mpls: true
+    level: 2
+    metric: 100
+    admin_status: true
+  - interface: GigabitEthernet0/0/0/2
+    description: "Parent INT to PE2"
+    admin_status: true
+  - interface: GigabitEthernet0/0/0/2
+    description: TO_CORE_RR1
+    ip_address: 10.0.100.16
+    mask: "/31"
+    isis: true
+    isis_domain: core
+    admin_status: true
+  - interface: GigabitEthernet0/0/0/3
+    description: TO_CORE_P2_1
+    ip_address: 10.0.100.6
+    mask: "/31"
+    isis: true
+    isis_domain: core
+    mpls: true
+    admin_status: true
+  - interface: GigabitEthernet0/0/0/4
+    description: TO_CORE_P2_2
+    ip_address: 10.1.0.24
+    mask: "/31"
+    isis: true
+    isis_domain: core
+    mpls: true
+    level: 2
+    metric: 100
+    admin_status: true
+  - interface: GigabitEthernet0/0/0/5
+    description: TO_CORE_RR2
+    ip_address: 10.0.100.20
+    mask: "/31"
+    isis: true
+    isis_domain: core
+    admin_status: true
+  - interface: GigabitEthernet0/0/0/6
+    description: TO_CORE_PE3
+    ip_address: 10.0.100.8
+    mask: "/31"
+    isis: true
+    isis_domain: core
+    mpls: true
+    level: 2
+    metric: 100
+    admin_status: true
+  - interface: Loopback0
+    description: SYSTEM_LO_IP
+    ip_address: 172.16.0.1
+    mask: "/32"
+    isis: true
+    isis_domain: core
+    passive: true
+    system: true
+    admin_status: true
+isis:
+  - domain: core
+    net: 49.0000.1720.1600.0001.00
+    sid_index: 100
+    link_state: true
+static_routes:
+  - dst: 0.0.0.0/0
+    next_hop: Null0

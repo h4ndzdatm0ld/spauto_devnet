@@ -144,7 +144,7 @@ poetry shell
 Locate the Nornir playground
 
 ```bash
-cd spauto/spauto_nornir
+cd spauto/nornir
 ```
 
 Deploy configs with Nornir
