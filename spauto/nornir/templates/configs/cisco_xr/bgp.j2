@@ -75,9 +75,11 @@ neighbor {{ nx.get('neighbor') }}
   remote-as {{ nx.get('remote_as') }}
   update-source {{ nx.get('update_source') }}
    address-family ipv4 unicast
+{% if nx.get('route_policy') %}
 {% for policy in nx.get('route_policy') %}
    route-policy {{ policy }}
 {% endfor %}
+{% endif %}
 {% if nx.get('as_override') %}
    as-override
    !

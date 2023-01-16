@@ -19,7 +19,7 @@ bgp:
   neighbors:
     - remote_as: 65000
       neighbor: 10.2.0.33
-      update_source: GigabitEthernet1
+      update_source: GigabitEthernet2
       afi: ipv4 unicast
       route_policy:
         - PL-EBGP-PE3-OUT out

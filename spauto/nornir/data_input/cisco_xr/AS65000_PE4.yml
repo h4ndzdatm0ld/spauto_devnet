@@ -81,7 +81,6 @@ bgp:
     - 172.16.0.201
     - 172.16.0.202
   add_pe_policy: true
-  add_65001_in_out: true
   vrf_neighbors:
     - vrf: VRF-A
       router_id: 100.1.1.4
@@ -91,6 +90,3 @@ bgp:
           update_source: GigabitEthernet0/0/0/2.1001
           neighbor: 10.2.0.4
           as_override: true
-          route_policy:
-            - PL-EBGP-65001-IN in
-            - PL-EBGP-65001-OUT out

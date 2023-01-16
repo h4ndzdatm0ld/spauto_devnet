@@ -15,6 +15,9 @@ interface {{ interface.get('interface') }}
 {% if interface.get('description')%}
  description {{ interface.get('description') }}
 {% endif %}
+{% if interface.get('vrf') %}
+ vrf {{ interface.get('vrf') }}
+{% endif %}
 {% if interface.get('ip_address')%}
  ipv4 address {{ interface.get('ip_address') }}{{ interface.get('mask') }}
 {% endif %}

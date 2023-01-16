@@ -1,5 +1,6 @@
 """Nornir data tests."""
 import os
+
 from tests.conftest import CONFIGS_DIR
 
 

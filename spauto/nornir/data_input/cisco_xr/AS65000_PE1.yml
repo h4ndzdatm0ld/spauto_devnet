@@ -48,13 +48,11 @@ bgp:
   asn: 65000
   router_id: 172.16.0.11
   add_paths: true
+  add_pe_policy: true
   route_reflector: false
   route_reflectors:
     - 172.16.0.201
     - 172.16.0.202
-  add_pe_policy: true
-  add_65001_in_out: false
-  add_65001_in: true
   CE1_MED: 100
   vrf_neighbors:
     - vrf: VRF-A
@@ -64,9 +62,6 @@ bgp:
         - remote_as: 65001
           neighbor: 10.1.0.0
           update_source: GigabitEthernet0/0/0/1
-          route_policy:
-            - PL-EBGP-65001-IN in
-            - PL-EBGP-CE1-OUT out
 static_routes:
   - dst: 0.0.0.0/0
     next_hop: Null0

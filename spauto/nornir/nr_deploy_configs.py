@@ -6,6 +6,7 @@ Before using this script, make sure you update the inventory host file with
 the correct Out of Band IP devices assigned to your lab topology.
 """
 import itertools
+import os
 
 from nornir import InitNornir
 from nornir_jinja2.plugins.tasks import template_file
@@ -14,7 +15,6 @@ from nornir_netmiko.tasks import netmiko_send_config
 from nornir_utils.plugins.functions import print_result
 from nornir_utils.plugins.tasks.data import load_yaml
 from nornir_utils.plugins.tasks.files import write_file
-import os
 
 __author__ = "Hugo Tinoco"
 __email__ = "hugotinoco@icloud.com"
@@ -132,7 +132,7 @@ def push_config(task):
 
 def main():
     """Execute our Nornir runbook."""
-    nr.run(task=load_all_data)
+    print_result(nr.run(task=load_all_data))
     print_result(nr.run(task=generate_full_mesh_list))
     print_result(nr.run(task=render_main))
     print_result(nr.run(task=push_config))

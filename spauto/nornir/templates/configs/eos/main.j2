@@ -1,0 +1,47 @@
+! Command: show running-config
+! device: {{host|replace("_","-")}} (cEOSLab, EOS-4.28.0F-26924507.4280F (engineering build))
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$ZY93FpLnviItXJWD$ngdNjmx1eXavX8UyDvxqRVRdsppRiAajTpO.jBTCCaIXPjtch0w.soUZPWuSehyfMSuf/AGF0scJEa/SIsn9w/
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model multi-agent
+!
+hostname AS65001_SW_01
+!
+spanning-tree mode mstp
+!
+management api http-commands
+   no shutdown
+!
+management api gnmi
+   transport grpc default
+!
+management api netconf
+   transport ssh default
+!
+interface Ethernet1
+!
+interface Ethernet2
+!
+interface Ethernet3
+!
+interface Ethernet4
+!
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Management0
+   ip address 172.100.100.180/24
+   ipv6 address 2001:172:100:100::180/80
+!
+no ip routing
+!
+ip route 0.0.0.0/0 172.100.100.1
+!
+ipv6 route ::/0 2001:172:100:100::1
+!
+end
