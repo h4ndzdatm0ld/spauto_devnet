@@ -32,7 +32,7 @@ Attributes
 
 
 .. py:data:: CONFIGS
-   :annotation: = ../../tests/network_data/mpls_sdn_era
+   :value: '../../tests/network_data/mpls_sdn_era'
 
    
 

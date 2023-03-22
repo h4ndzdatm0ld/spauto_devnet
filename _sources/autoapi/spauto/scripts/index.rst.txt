@@ -1,0 +1,20 @@
+:py:mod:`spauto.scripts`
+========================
+
+.. py:module:: spauto.scripts
+
+.. autoapi-nested-parse::
+
+   Example Scripts used for the Training documentation.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   restconf_get_interfaces/index.rst
+
+

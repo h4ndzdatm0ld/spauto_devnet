@@ -37,17 +37,16 @@ Attributes
 
 
 .. py:data:: __author__
-   :annotation: = Hugo Tinoco
+   :value: 'Hugo Tinoco'
 
    
 
 .. py:data:: __email__
-   :annotation: = hugotinoco@icloud.com
+   :value: 'hugotinoco@icloud.com'
 
    
 
 .. py:data:: nr
-   
 
    
 

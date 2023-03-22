@@ -13,16 +13,15 @@ Module Contents
 ---------------
 
 .. py:data:: data_to_parse
-   :annotation: = Multiline-String
+   :value: Multiline-String
 
     .. raw:: html
 
         <details><summary>Show Value</summary>
 
-    .. code-block:: text
-        :linenos:
+    .. code-block:: python
 
-        
+        """
         router bgp 65001
          bgp router-id 192.168.10.1
          bgp log-neighbor-changes
@@ -40,7 +39,7 @@ Module Contents
           neighbor 10.1.0.5 send-community both
           neighbor 10.1.0.5 route-map PL-EBGP-PE2-OUT out
          exit-address-family
-
+        """
 
     .. raw:: html
 
@@ -49,23 +48,22 @@ Module Contents
    
 
 .. py:data:: ttp_template
-   :annotation: = Multiline-String
+   :value: Multiline-String
 
     .. raw:: html
 
         <details><summary>Show Value</summary>
 
-    .. code-block:: text
-        :linenos:
+    .. code-block:: python
 
-        
+        """
         <macro>
         def to_bool(captured_data):
             represent_as_bools = ["activate", "log-neighbor-changes"]
             if captured_data in represent_as_bools:
                 return captured_data, {captured_data: True}
         </macro>
-
+        
         <group name="bgp">
         router bgp {{ asn }}
          bgp router-id {{ router-id }}
@@ -82,7 +80,7 @@ Module Contents
          exit-address-family {{ ignore }}
          </group>
         </group>
-
+        """
 
     .. raw:: html
 
@@ -91,12 +89,10 @@ Module Contents
    
 
 .. py:data:: parser
-   
 
    
 
 .. py:data:: results
-   
 
    
 

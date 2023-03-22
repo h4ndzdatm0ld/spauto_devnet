@@ -1,0 +1,29 @@
+:py:mod:`spauto.scripts.restconf_get_interfaces`
+================================================
+
+.. py:module:: spauto.scripts.restconf_get_interfaces
+
+.. autoapi-nested-parse::
+
+   Example Python RESTCONF script.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   spauto.scripts.restconf_get_interfaces.main
+
+
+
+.. py:function:: main()
+
+   Main function.
+
+

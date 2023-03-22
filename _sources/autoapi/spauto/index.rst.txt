@@ -1,0 +1,23 @@
+:py:mod:`spauto`
+================
+
+.. py:module:: spauto
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   scripts/index.rst
+
+
+Package Contents
+----------------
+
+.. py:data:: __version__
+   :value: '0.1.0'
+
+   
+

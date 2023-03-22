@@ -6,15 +6,14 @@ This page contains auto-generated API reference documentation [#f1]_.
 .. toctree::
    :titlesonly:
 
-   /autoapi/mpls_in_the_sdn_era/index
-   /autoapi/nc/index
-   /autoapi/ttpex/index
-   /autoapi/xml_to_json/index
-   /autoapi/bf_mpls_sdn/index
-   /autoapi/nr_add_device_nso/index
-   /autoapi/nr_get_nso_device_facts/index
+   /autoapi/spauto/index
    /autoapi/nr_get_napalm_configs/index
+   /autoapi/nr_add_device_nso/index
    /autoapi/nr_deploy_configs/index
    /autoapi/nr_remediate/index
+   /autoapi/nr_get_nso_device_facts/index
+   /autoapi/bf_mpls_sdn/index
+   /autoapi/ttpex/index
+   /autoapi/xml_to_json/index
 
 .. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

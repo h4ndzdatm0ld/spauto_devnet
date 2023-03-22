@@ -41,22 +41,20 @@ Attributes
 
 
 .. py:data:: __author__
-   :annotation: = Hugo Tinoco
+   :value: 'Hugo Tinoco'
 
    
 
 .. py:data:: __email__
-   :annotation: = hugotinoco@icloud.com
+   :value: 'hugotinoco@icloud.com'
 
    
 
 .. py:data:: nornir
-   
 
    
 
 .. py:data:: nr
-   
 
    
 
@@ -64,7 +62,7 @@ Attributes
 
    Read all the data from the associated YAML files inside data_input dir.
 
-   Add all the variables into a DATA_INPUT dictionary for the individual
+   Add all the variables into a data_input dictionary for the individual
    task.host.
 
 

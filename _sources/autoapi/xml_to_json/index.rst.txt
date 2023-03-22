@@ -28,22 +28,22 @@ Classes
 
    Filter Module.
 
-   .. py:method:: etree_to_dict(self, t)
+   .. py:method:: etree_to_dict(t)
 
       Etree to Dict.
 
 
-   .. py:method:: filters(self)
+   .. py:method:: filters()
 
       Filters.
 
 
-   .. py:method:: from_xml(self, data)
+   .. py:method:: from_xml(data)
 
       From XML.
 
 
-   .. py:method:: xml_to_json(self, data)
+   .. py:method:: xml_to_json(data)
 
       XML TO JSON.
 

@@ -1,8 +1,8 @@
-.. Devnet SPAUTO documentation master file, created by
+.. Devnet spauto documentation master file, created by
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DevNet SPATUO - documentation!
+Welcome to DevNet SP Automation - documentation!
 ==========================================
 
 Overview
@@ -28,11 +28,11 @@ Study Notes
    :titlesonly:
    :includehidden:
 
-   SPAUTO/Automation and Orchestration Platforms/index
-   SPAUTO/Automation APIs and Protocols/index
-   SPAUTO/Network Device Programmability/index
-   SPAUTO/Network Programmability Foundation/index
-   SPAUTO/Extras/index.rst
+   spauto/Automation and Orchestration Platforms/index
+   spauto/Automation APIs and Protocols/index
+   spauto/Network Device Programmability/index
+   spauto/Network Programmability Foundation/index
+   spauto/Extras/index.rst
 
 Changelog
 =========

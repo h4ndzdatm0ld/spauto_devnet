@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MPLS in the SDN Era –&gt; DevNet SPAUTO &mdash; Devnet SPAUTO 0.1.0 documentation</title>
+  <title>Cisco DevNet SP Automation Playground &amp; Study Notes! &mdash; Devnet SPAUTO 0.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
@@ -15,12 +15,13 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Automation APIs and Protocols" href="SPAUTO/Automation%20APIs%20and%20Protocols/index.html" />
-    <link rel="prev" title="Welcome to DevNet SPATUO - documentation!" href="index.html" /> 
+    <link rel="next" title="Automation APIs and Protocols" href="spauto/Automation%20APIs%20and%20Protocols/index.html" />
+    <link rel="prev" title="Welcome to DevNet SP Automation - documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -28,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Devnet SPAUTO
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Devnet SPAUTO
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -41,16 +46,14 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Readme</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#a-lab-topology-based-on-mpls-in-the-sdn-era-book-used-for-300-535-spauto-studies">A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#why-mpls-in-the-sdn-era">Why MPLS in the SDN Era?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-lab-topology-based-on-mpls-in-the-sdn-era-book-used-for-300-535-spauto-studies">A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-mpls-in-the-sdn-era">Why MPLS in the SDN Era?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#to-fully-automate-service-provider-networks-you-must-understand-service-provider-networks">To fully automate Service Provider Networks, you must understand Service Provider Networks</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#what-does-this-repository-include-cover">What does this repository include &amp; cover</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#extras">Extras</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-can-i-use-this-repo-to-study">How can I use this repo to study?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#why-rely-on-this-complicated-lab-topology">Why rely on this complicated lab topology?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#study-material-resources">Study Material &amp; Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recommended-study-material-resources">Recommended Study Material &amp; Resources</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#container-lab">Container Lab</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#starting-lab">Starting Lab</a></li>
@@ -63,10 +66,10 @@
 </li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Automation%20APIs%20and%20Protocols/index.html">Automation APIs and Protocols</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Network%20Device%20Programmability/index.html">Network Device Programmability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Network%20Programmability%20Foundation/index.html">Network Programmability Foundation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SPAUTO/Extras/index.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spauto/Automation%20APIs%20and%20Protocols/index.html">Automation APIs and Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spauto/Network%20Device%20Programmability/index.html">Network Device Programmability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spauto/Network%20Programmability%20Foundation/index.html">Network Programmability Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spauto/Extras/index.html">Extras</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -88,8 +91,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>MPLS in the SDN Era –&gt; DevNet SPAUTO</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Cisco DevNet SP Automation Playground &amp; Study Notes!</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -99,128 +102,107 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="mpls-in-the-sdn-era-devnet-spauto">
-<h1>MPLS in the SDN Era –&gt; DevNet SPAUTO<a class="headerlink" href="#mpls-in-the-sdn-era-devnet-spauto" title="Permalink to this headline"></a></h1>
-<p>All of the study notes have now been moved to use auto-generated documentation to build a static site with Github Pages.
-Alongside all the code documentation, you will find a folder structure for notes in markdown broken down by test categories.</p>
+  <section id="cisco-devnet-sp-automation-playground-study-notes">
+<h1>Cisco DevNet SP Automation Playground &amp; Study Notes!<a class="headerlink" href="#cisco-devnet-sp-automation-playground-study-notes" title="Permalink to this heading"></a></h1>
+<p>All of the study notes have now been moved to use auto-generated documentation to build a static site with Github Pages. Alongside all the code documentation, you will find a folder structure for notes in markdown broken down by test categories.</p>
 <p><a class="reference external" href="https://h4ndzdatm0ld.github.io/spauto_devnet/index.html">Documentation + Study Notes</a></p>
 <p>Build local</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ../..
-sphinx-build -vvv -b html ./docs ./docs/public
-<span class="nb">cd</span> docs/public
-python -m http.server
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sphinx-build<span class="w"> </span>-vvv<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>./docs<span class="w"> </span>./docs/public
+<span class="nb">cd</span><span class="w"> </span>docs/public
+python<span class="w"> </span>-m<span class="w"> </span>http.server
 </pre></div>
 </div>
 <section id="a-lab-topology-based-on-mpls-in-the-sdn-era-book-used-for-300-535-spauto-studies">
-<h2>A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies<a class="headerlink" href="#a-lab-topology-based-on-mpls-in-the-sdn-era-book-used-for-300-535-spauto-studies" title="Permalink to this headline"></a></h2>
+<h2>A lab topology based on MPLS in the SDN era book used for 300-535 SPAUTO studies<a class="headerlink" href="#a-lab-topology-based-on-mpls-in-the-sdn-era-book-used-for-300-535-spauto-studies" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://developer.cisco.com/certification/devnet-sp-auto/">Cisco Certified DevNet Specialist - Service Provider Automation and Programmability</a></p>
-</section>
 <section id="why-mpls-in-the-sdn-era">
-<h2>Why MPLS in the SDN Era?<a class="headerlink" href="#why-mpls-in-the-sdn-era" title="Permalink to this headline"></a></h2>
-<p>Simple. This is an incredible book for any and all Network Engineers interested
-in learning technologies used in Service Provider environments. The book is heavily focused
-on MPLS, SDN, Segment-Routing, BGP, L2VPN/L3VPNs, over-all traffic engineering and much more. These are common terms within SP networks and the book does an incredible job in guiding the readers while exploring the device configurations in this topology. However, many other topics are not covered by the book and this REPO will hopefully fill in the gaps. This book lays the foundation for our lab topology, but it has increased and grown over time. Other material that has been helpful in studying is the Network Programmability with YANG book, which does cover a lot of the topics in the blueprint!</p>
-<p><img alt="MPLS IN THE SDN ERA" src="mpls_in_the_sdn_era/images/mpls_sdn_era_topology.png" />
-This book goes through a number of device configurations in a multi-vendor lab topology
-(Cisco IOSXR &amp;&amp; Juniper). However, <em>For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a
-Cisco Certification.</em></p>
+<h3>Why MPLS in the SDN Era?<a class="headerlink" href="#why-mpls-in-the-sdn-era" title="Permalink to this heading"></a></h3>
+<p>Simple. This is an incredible book for any and all Network Engineers interested in learning technologies used in Service Provider environments. The book is heavily focused on MPLS, SDN, Segment-Routing, BGP, L2VPN/L3VPNs, over-all traffic engineering and much more. These are common terms within SP networks and the book does an incredible job in guiding the readers while exploring the device configurations in this topology. However, many other topics are not covered by the book and this repository will hopefully fill in the gaps. This book lays the foundation for our lab topology, but it has increased and grown over time. Additional material used for studying is the book <code class="docutils literal notranslate"><span class="pre">Network</span> <span class="pre">Programmability</span> <span class="pre">with</span> <span class="pre">YANG</span></code>, which covers a lot of the topics in the blueprint!</p>
+<p><img alt="MPLS IN THE SDN ERA" src="docs/images/mpls_sdn_era_topology.png" /></p>
+<p>This book goes through a number of device configurations in a multi-vendor lab topology (Cisco IOSXR &amp;&amp; Juniper). However, <em>For this lab, all devices have been replaced with Cisco-IOSXR/XE as we are working on a Cisco Certification.</em></p>
+</section>
 <section id="to-fully-automate-service-provider-networks-you-must-understand-service-provider-networks">
-<h3>To fully automate Service Provider Networks, you must understand Service Provider Networks<a class="headerlink" href="#to-fully-automate-service-provider-networks-you-must-understand-service-provider-networks" title="Permalink to this headline"></a></h3>
-<p><a class="reference external" href="https://www.amazon.com/MPLS-SDN-Era-Interoperable-Scenarios/dp/149190545X/ref=sr_1_1?dchild=1&amp;keywords=mpls+in+the+sdn+era&amp;qid=1618100065&amp;s=books&amp;sr=1-1">MPLS in the SDN Era</a></p>
+<h3>To fully automate Service Provider Networks, you must understand Service Provider Networks<a class="headerlink" href="#to-fully-automate-service-provider-networks-you-must-understand-service-provider-networks" title="Permalink to this heading"></a></h3>
+<p><a class="reference external" href="https://www.amazon.com/MPLS-SDN-Era-Interoperable-Scenarios/dp/149190545X/ref=sr_1_1?dchild=1&amp;amp;keywords=mpls+in+the+sdn+era&amp;amp;qid=1618100065&amp;amp;s=books&amp;amp;sr=1-1">MPLS in the SDN Era</a></p>
 <p><a class="reference external" href="https://www.amazon.com/Network-Programmability-YANG-Modeling-driven-Management/dp/0135180392">Network Programmability with YANG</a></p>
 </section>
 </section>
 <section id="what-does-this-repository-include-cover">
-<h2>What does this repository include &amp; cover<a class="headerlink" href="#what-does-this-repository-include-cover" title="Permalink to this headline"></a></h2>
-<p>My goal is to gather all of my self-training in this repository and cover all the major
-Cisco Certified DevNet Specialist (300-535 SPAUTO) topics.</p>
-</section>
-<section id="extras">
-<h2>Extras<a class="headerlink" href="#extras" title="Permalink to this headline"></a></h2>
-<p>There will be some extra material in this repository that can be an aid for other areas
-including but not limited to:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Batfish
-- Nornir
-</pre></div>
-</div>
+<h2>What does this repository include &amp; cover<a class="headerlink" href="#what-does-this-repository-include-cover" title="Permalink to this heading"></a></h2>
+<p>My goal is to gather all of my self-training in this repository and cover all the topics of the Cisco Certified DevNet Specialist (300-535 SPAUTO) certification.</p>
 </section>
 <section id="how-can-i-use-this-repo-to-study">
-<h2>How can I use this repo to study?<a class="headerlink" href="#how-can-i-use-this-repo-to-study" title="Permalink to this headline"></a></h2>
-<p>I recommend you read the Documentation for my study notes and if you want to play around creating scripts with Nornir, Ansible using SSH/NETCONF, etc.
-Go ahead and start the topology using ContainerLab and have fun automating the network!</p>
-<p><a class="reference external" href="https://github.com/h4ndzdatm0ld/mpls_in_the_sdn_era/wiki">Checkout the Wiki!</a></p>
+<h2>How can I use this repo to study?<a class="headerlink" href="#how-can-i-use-this-repo-to-study" title="Permalink to this heading"></a></h2>
+<p>I recommend you read the documentation and additionally, take advantage of the ContainerLab topology provided. Use and abuse the topology. Destroy and rebuild. Learn by breaking!</p>
+<p>Go ahead and start the topology using ContainerLab and have fun automating the network!</p>
 <p>30% of the SPAUTO exam is around Automation and Orchestration platforms, such as NSO. I can’t stress enough the importance of taking the time to setup an NSO instance to explore and take advantage of the many examples in this repository. Containerizing NSO for CI/CD is also part of the blueprint, which we will cover.</p>
 </section>
-<section id="why-rely-on-this-complicated-lab-topology">
-<h2>Why rely on this complicated lab topology?<a class="headerlink" href="#why-rely-on-this-complicated-lab-topology" title="Permalink to this headline"></a></h2>
-<p>I learn better when I am doing, not just reading and specially when breaking things. Having this complicated topology, building all the services in an automated way will be key to our success in passing the certification. There will be tons of material in the end that will cover all the topics in the exam.</p>
-</section>
-<section id="study-material-resources">
-<h2>Study Material &amp; Resources<a class="headerlink" href="#study-material-resources" title="Permalink to this headline"></a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- MPLS in the SDN Era
-- Network Programmability with YANG
-- Nicholas Russo DEVNET Material (Pluralsight)
+<section id="recommended-study-material-resources">
+<h2>Recommended Study Material &amp; Resources<a class="headerlink" href="#recommended-study-material-resources" title="Permalink to this heading"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- MPLS in the SDN Era (Book)
+- Network Programmability with YANG (Book)
+- Nicholas Russo DevNet Material (Pluralsight)
 </pre></div>
 </div>
 </section>
 <section id="container-lab">
-<h2>Container Lab<a class="headerlink" href="#container-lab" title="Permalink to this headline"></a></h2>
-<p>After exploring <a class="reference external" href="https://containerlab.srlinux.dev/">ContainerLab</a>, I have begun to move away from EVE-NG and completely dockerize this entire topology. The default branch on this project is now <code class="docutils literal notranslate"><span class="pre">containerlab</span></code>. Initially, I thought I would share an exported lab from EVE-NG, but including the CLAB topology in this lab makes it so much more portable.</p>
+<h2>Container Lab<a class="headerlink" href="#container-lab" title="Permalink to this heading"></a></h2>
+<p>After exploring <a class="reference external" href="https://containerlab.srlinux.dev/">ContainerLab</a>, I have begun to move away from EVE-NG and completely dockerized this topology. Initially, I thought I would share an exported lab from EVE-NG, but including the CLAB topology in this lab makes it so much more portable.</p>
 <p>I’ve created a simple to use docker-compose service to start the lab. ContainerLab it’s self is pulled down as a docker container, so you don’t need a local installation of ContainerLab unless you want to have one. I recommend you deploy this lab in a Linux environment, as docker virtualization will prevent you from starting in a Mac or Windows env.</p>
 <section id="requirements">
-<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h3>
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Docker</p></li>
-<li><p>Docker-Compose</p></li>
-<li><p>Roughly 32Gb of available RAM, give or take a few depending on usage.</p></li>
+<li><p>Docker Compose</p></li>
+<li><p>Roughly 32Gb of available RAM</p></li>
 </ul>
 </section>
 <section id="starting-lab">
-<h3>Starting Lab<a class="headerlink" href="#starting-lab" title="Permalink to this headline"></a></h3>
+<h3>Starting Lab<a class="headerlink" href="#starting-lab" title="Permalink to this heading"></a></h3>
 <p>Simply run the service using docker-compose</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose run clab
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>run<span class="w"> </span>clab
 </pre></div>
 </div>
 <p>You should see something similar to this</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>➜  spauto_devnet git:(containerlab) ✗ docker-compose run clab
 Creating spauto_devnet_clab_run ... done
-INFO[0000] Parsing &amp; checking topology file: spauto-mpls-sdn.yml 
-INFO[0000] Creating lab directory: /src/clab-spauto-mpls-sdn.yml 
-INFO[0000] Creating docker network: Name=&#39;spauto&#39;, IPv4Subnet=&#39;172.100.100.0/24&#39;, IPv6Subnet=&#39;2001:172:100:100::/80&#39;, MTU=&#39;1500&#39; 
-INFO[0000] Creating container: xrv-pe1                  
-INFO[0000] Creating container: xrv-rr-1                 
-INFO[0000] Creating container: xrv-p2                   
-INFO[0000] Creating container: xrv-p1                   
-INFO[0000] Creating container: xrv-rr-2                 
-INFO[0000] Creating container: xrv-pe2                  
-INFO[0000] Creating container: xrv-pe3                  
-INFO[0000] Creating container: xrv-pe4                  
-INFO[0001] Creating virtual wire: xrv-pe1:eth4 &lt;--&gt; xrv-pe2:eth3 
-INFO[0002] Creating virtual wire: xrv-pe2:eth4 &lt;--&gt; xrv-p2:eth1 
-INFO[0002] Creating virtual wire: xrv-pe4:eth1 &lt;--&gt; xrv-p2:eth6 
-INFO[0002] Creating virtual wire: xrv-pe1:eth5 &lt;--&gt; xrv-p1:eth2 
-INFO[0002] Creating virtual wire: xrv-p1:eth5 &lt;--&gt; xrv-p2:eth4 
-INFO[0002] Creating virtual wire: xrv-p1:eth4 &lt;--&gt; xrv-p2:eth3 
-INFO[0002] Creating virtual wire: xrv-rr-2:eth1 &lt;--&gt; xrv-p1:eth6 
-INFO[0002] Creating virtual wire: xrv-rr-2:eth3 &lt;--&gt; xrv-p2:eth5 
-INFO[0003] Creating virtual wire: xrv-pe3:eth3 &lt;--&gt; xrv-pe4:eth2 
-INFO[0003] Creating virtual wire: xrv-pe3:eth2 &lt;--&gt; xrv-p1:eth7 
-INFO[0003] Creating virtual wire: xrv-rr-1:eth4 &lt;--&gt; xrv-p2:eth2 
-INFO[0003] Creating virtual wire: xrv-rr-1:eth2 &lt;--&gt; xrv-p1:eth3 
-INFO[0003] Creating virtual wire: xrv-rr-1:eth3 &lt;--&gt; xrv-rr-2:eth2 
-INFO[0004] Adding containerlab host entries to /etc/hosts file 
-Run &#39;containerlab version upgrade&#39; to upgrade or go check other installation options at https://containerlab.srlinux.dev/install/ 
+INFO[0000] Parsing &amp; checking topology file: spauto-topology.yml
+INFO[0000] Creating lab directory: /src/clab-spauto-topology.yml
+INFO[0000] Creating docker network: Name=&#39;spauto&#39;, IPv4Subnet=&#39;172.100.100.0/24&#39;, IPv6Subnet=&#39;2001:172:100:100::/80&#39;, MTU=&#39;1500&#39;
+INFO[0000] Creating container: xrv-pe1
+INFO[0000] Creating container: xrv-rr-1
+INFO[0000] Creating container: xrv-p2
+INFO[0000] Creating container: xrv-p1
+INFO[0000] Creating container: xrv-rr-2
+INFO[0000] Creating container: xrv-pe2
+INFO[0000] Creating container: xrv-pe3
+INFO[0000] Creating container: xrv-pe4
+INFO[0001] Creating virtual wire: xrv-pe1:eth4 &lt;--&gt; xrv-pe2:eth3
+INFO[0002] Creating virtual wire: xrv-pe2:eth4 &lt;--&gt; xrv-p2:eth1
+INFO[0002] Creating virtual wire: xrv-pe4:eth1 &lt;--&gt; xrv-p2:eth6
+INFO[0002] Creating virtual wire: xrv-pe1:eth5 &lt;--&gt; xrv-p1:eth2
+INFO[0002] Creating virtual wire: xrv-p1:eth5 &lt;--&gt; xrv-p2:eth4
+INFO[0002] Creating virtual wire: xrv-p1:eth4 &lt;--&gt; xrv-p2:eth3
+INFO[0002] Creating virtual wire: xrv-rr-2:eth1 &lt;--&gt; xrv-p1:eth6
+INFO[0002] Creating virtual wire: xrv-rr-2:eth3 &lt;--&gt; xrv-p2:eth5
+INFO[0003] Creating virtual wire: xrv-pe3:eth3 &lt;--&gt; xrv-pe4:eth2
+INFO[0003] Creating virtual wire: xrv-pe3:eth2 &lt;--&gt; xrv-p1:eth7
+INFO[0003] Creating virtual wire: xrv-rr-1:eth4 &lt;--&gt; xrv-p2:eth2
+INFO[0003] Creating virtual wire: xrv-rr-1:eth2 &lt;--&gt; xrv-p1:eth3
+INFO[0003] Creating virtual wire: xrv-rr-1:eth3 &lt;--&gt; xrv-rr-2:eth2
+INFO[0004] Adding containerlab host entries to /etc/hosts file
+Run &#39;containerlab version upgrade&#39; to upgrade or go check other installation options at https://containerlab.srlinux.dev/install/
 +---+-----------------------------------+--------------+---------------------------+--------+---------+--------------------+--------------------------+
 | # |               Name                | Container ID |           Image           |  Kind  |  State  |    IPv4 Address    |       IPv6 Address       |
 +---+-----------------------------------+--------------+---------------------------+--------+---------+--------------------+--------------------------+
-| 1 | clab-spauto-mpls-sdn.yml-xrv-p1   | eef17ad66ff1 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.101/24 | 2001:172:100:100::101/80 |
-| 2 | clab-spauto-mpls-sdn.yml-xrv-p2   | 24e5fc6af015 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.102/24 | 2001:172:100:100::102/80 |
-| 3 | clab-spauto-mpls-sdn.yml-xrv-pe1  | efb11d90a5eb | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.11/24  | 2001:172:100:100::11/80  |
-| 4 | clab-spauto-mpls-sdn.yml-xrv-pe2  | 7d604f4f06f8 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.22/24  | 2001:172:100:100::22/80  |
-| 5 | clab-spauto-mpls-sdn.yml-xrv-pe3  | 285733f28608 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.33/24  | 2001:172:100:100::33/80  |
-| 6 | clab-spauto-mpls-sdn.yml-xrv-pe4  | 5af4945fab68 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.44/24  | 2001:172:100:100::44/80  |
-| 7 | clab-spauto-mpls-sdn.yml-xrv-rr-1 | b5084e97738d | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.201/24 | 2001:172:100:100::201/80 |
-| 8 | clab-spauto-mpls-sdn.yml-xrv-rr-2 | 6a80d3285c2e | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.202/24 | 2001:172:100:100::202/80 |
+| 1 | clab-spauto-topology.yml-xrv-p1   | eef17ad66ff1 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.101/24 | 2001:172:100:100::101/80 |
+| 2 | clab-spauto-topology.yml-xrv-p2   | 24e5fc6af015 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.102/24 | 2001:172:100:100::102/80 |
+| 3 | clab-spauto-topology.yml-xrv-pe1  | efb11d90a5eb | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.11/24  | 2001:172:100:100::11/80  |
+| 4 | clab-spauto-topology.yml-xrv-pe2  | 7d604f4f06f8 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.22/24  | 2001:172:100:100::22/80  |
+| 5 | clab-spauto-topology.yml-xrv-pe3  | 285733f28608 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.33/24  | 2001:172:100:100::33/80  |
+| 6 | clab-spauto-topology.yml-xrv-pe4  | 5af4945fab68 | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.44/24  | 2001:172:100:100::44/80  |
+| 7 | clab-spauto-topology.yml-xrv-rr-1 | b5084e97738d | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.201/24 | 2001:172:100:100::201/80 |
+| 8 | clab-spauto-topology.yml-xrv-rr-2 | 6a80d3285c2e | h4ndzdatm0ld/vr-xrv:6.1.3 | vr-xrv | running | 172.100.100.202/24 | 2001:172:100:100::202/80 |
 +---+-----------------------------------+--------------+---------------------------+--------+---------+--------------------+--------------------------+
 </pre></div>
 </div>
@@ -232,67 +214,77 @@ Run &#39;containerlab version upgrade&#39; to upgrade or go check other installa
 <p>The status should say (healthy)</p>
 </section>
 <section id="load-configurations">
-<h3>Load Configurations<a class="headerlink" href="#load-configurations" title="Permalink to this headline"></a></h3>
+<h3>Load Configurations<a class="headerlink" href="#load-configurations" title="Permalink to this heading"></a></h3>
 <p>Unfortunately, these vrnetlab based nodes don’t support providing a startup-config via ContainerLab. However, I’ve provided a Nornir job to simply deploy all the configs to each one of the devices.</p>
 <p>After starting the lab and waiting around 7 Minutes, launch off the Nornir script to deploy the configurations.</p>
 <p>Install the project venv</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">install</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>install
 </pre></div>
 </div>
 <p>Activate venv</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poetry</span> <span class="n">shell</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>shell
 </pre></div>
 </div>
 <p>Locate the Nornir playground</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">mpls_in_the_sdn_era</span><span class="o">/</span><span class="n">mpls_sdn_era_nornir</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>spauto/nornir
 </pre></div>
 </div>
-<p>Automate</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">nr_deploy_configs</span><span class="o">.</span><span class="n">py</span>
+<p>Deploy configs with Nornir</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>nr_deploy_configs.py
+</pre></div>
+</div>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>NOTE: If you have issues with <code class="docutils literal notranslate"><span class="pre">no</span> <span class="pre">matching</span> <span class="pre">key</span> <span class="pre">exchange</span> <span class="pre">method</span> <span class="pre">found,</span> <span class="pre">add</span> <span class="pre">the</span> <span class="pre">below</span> <span class="pre">line</span> <span class="pre">to</span> </code>~/.ssh/config`</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Ciphers<span class="w"> </span>aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
+KexAlgorithms<span class="w"> </span>+diffie-hellman-group1-sha1
 </pre></div>
 </div>
 </section>
 <section id="destroying-the-lab">
-<h3>Destroying the lab<a class="headerlink" href="#destroying-the-lab" title="Permalink to this headline"></a></h3>
+<h3>Destroying the lab<a class="headerlink" href="#destroying-the-lab" title="Permalink to this heading"></a></h3>
 <p>To destroy the lab, simply override the docker-compose service command and destroy it.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">run</span> <span class="n">clab</span> <span class="n">containerlab</span> <span class="n">destroy</span> <span class="o">-</span><span class="n">t</span> <span class="n">spauto</span><span class="o">-</span><span class="n">mpls</span><span class="o">-</span><span class="n">sdn</span><span class="o">.</span><span class="n">yml</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>run<span class="w"> </span>clab<span class="w"> </span>containerlab<span class="w"> </span>destroy<span class="w"> </span>-t<span class="w"> </span>spauto-topology.yml
 </pre></div>
 </div>
 <p>Example stats of running all 8 core XR Routers simultaneously.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONTAINER</span> <span class="n">ID</span>   <span class="n">NAME</span>                                <span class="n">CPU</span> <span class="o">%</span>     <span class="n">MEM</span> <span class="n">USAGE</span> <span class="o">/</span> <span class="n">LIMIT</span>     <span class="n">MEM</span> <span class="o">%</span>     <span class="n">NET</span> <span class="n">I</span><span class="o">/</span><span class="n">O</span>          <span class="n">BLOCK</span> <span class="n">I</span><span class="o">/</span><span class="n">O</span>     <span class="n">PIDS</span>
-<span class="mi">9</span><span class="n">d6acb79bcbe</span>   <span class="n">clab</span><span class="o">-</span><span class="n">spauto</span><span class="o">-</span><span class="n">mpls</span><span class="o">-</span><span class="n">sdn</span><span class="o">.</span><span class="n">yml</span><span class="o">-</span><span class="n">xrv</span><span class="o">-</span><span class="n">pe4</span>    <span class="mf">2.56</span><span class="o">%</span>     <span class="mf">1.769</span><span class="n">GiB</span> <span class="o">/</span> <span class="mf">62.71</span><span class="n">GiB</span>   <span class="mf">2.82</span><span class="o">%</span>     <span class="mi">259</span><span class="n">kB</span> <span class="o">/</span> <span class="mi">207</span><span class="n">kB</span>    <span class="mi">0</span><span class="n">B</span> <span class="o">/</span> <span class="mf">82.8</span><span class="n">MB</span>   <span class="mi">13</span>
-<span class="n">de723690af86</span>   <span class="n">clab</span><span class="o">-</span><span class="n">spauto</span><span class="o">-</span><span class="n">mpls</span><span class="o">-</span><span class="n">sdn</span><span class="o">.</span><span class="n">yml</span><span class="o">-</span><span class="n">xrv</span><span class="o">-</span><span class="n">p1</span>     <span class="mf">2.42</span><span class="o">%</span>     <span class="mf">1.719</span><span class="n">GiB</span> <span class="o">/</span> <span class="mf">62.71</span><span class="n">GiB</span>   <span class="mf">2.74</span><span class="o">%</span>     <span class="mi">204</span><span class="n">kB</span> <span class="o">/</span> <span class="mi">212</span><span class="n">kB</span>    <span class="mi">0</span><span class="n">B</span> <span class="o">/</span> <span class="mf">60.2</span><span class="n">MB</span>   <span class="mi">13</span>
-<span class="n">f0e0710d1edb</span>   <span class="n">clab</span><span class="o">-</span><span class="n">spauto</span><span class="o">-</span><span class="n">mpls</span><span class="o">-</span><span class="n">sdn</span><span class="o">.</span><span class="n">yml</span><span class="o">-</span><span class="n">xrv</span><span class="o">-</span><span class="n">pe1</span>    <span class="mf">2.41</span><span class="o">%</span>     <span class="mf">1.793</span><span class="n">GiB</span> <span class="o">/</span> <span class="mf">62.71</span><span class="n">GiB</span>   <span class="mf">2.86</span><span class="o">%</span>     <span class="mi">213</span><span class="n">kB</span> <span class="o">/</span> <span class="mi">168</span><span class="n">kB</span>    <span class="mi">0</span><span class="n">B</span> <span class="o">/</span> <span class="mf">59.2</span><span class="n">MB</span>   <span class="mi">13</span>
-<span class="n">aca6fb91120c</span>   <span class="n">clab</span><span class="o">-</span><span class="n">spauto</span><span class="o">-</span><span class="n">mpls</span><span class="o">-</span><span class="n">sdn</span><span class="o">.</span><span class="n">yml</span><span class="o">-</span><span class="n">xrv</span><span class="o">-</span><span class="n">pe3</span>    <span class="mf">1.89</span><span class="o">%</span>     <span class="mf">1.758</span><span class="n">GiB</span> <span class="o">/</span> <span class="mf">62.71</span><span class="n">GiB</span>   <span class="mf">2.80</span><span class="o">%</span>     <span class="mi">121</span><span class="n">kB</span> <span class="o">/</span> <span class="mf">56.9</span><span class="n">kB</span>   <span class="mi">0</span><span class="n">B</span> <span class="o">/</span> <span class="mi">52</span><span class="n">MB</span>     <span class="mi">13</span>
-<span class="mi">63277</span><span class="n">aac88ef</span>   <span class="n">clab</span><span class="o">-</span><span class="n">spauto</span><span class="o">-</span><span class="n">mpls</span><span class="o">-</span><span class="n">sdn</span><span class="o">.</span><span class="n">yml</span><span class="o">-</span><span class="n">xrv</span><span class="o">-</span><span class="n">p2</span>     <span class="mf">1.47</span><span class="o">%</span>     <span class="mf">1.718</span><span class="n">GiB</span> <span class="o">/</span> <span class="mf">62.71</span><span class="n">GiB</span>   <span class="mf">2.74</span><span class="o">%</span>     <span class="mi">198</span><span class="n">kB</span> <span class="o">/</span> <span class="mi">204</span><span class="n">kB</span>    <span class="mi">0</span><span class="n">B</span> <span class="o">/</span> <span class="mf">59.1</span><span class="n">MB</span>   <span class="mi">13</span>
-<span class="n">c83b2faa5ea8</span>   <span class="n">clab</span><span class="o">-</span><span class="n">spauto</span><span class="o">-</span><span class="n">mpls</span><span class="o">-</span><span class="n">sdn</span><span class="o">.</span><span class="n">yml</span><span class="o">-</span><span class="n">xrv</span><span class="o">-</span><span class="n">pe2</span>    <span class="mf">2.02</span><span class="o">%</span>     <span class="mf">1.796</span><span class="n">GiB</span> <span class="o">/</span> <span class="mf">62.71</span><span class="n">GiB</span>   <span class="mf">2.86</span><span class="o">%</span>     <span class="mi">206</span><span class="n">kB</span> <span class="o">/</span> <span class="mi">146</span><span class="n">kB</span>    <span class="mi">0</span><span class="n">B</span> <span class="o">/</span> <span class="mf">57.7</span><span class="n">MB</span>   <span class="mi">13</span>
-<span class="mi">35</span><span class="n">fcceedc92a</span>   <span class="n">clab</span><span class="o">-</span><span class="n">spauto</span><span class="o">-</span><span class="n">mpls</span><span class="o">-</span><span class="n">sdn</span><span class="o">.</span><span class="n">yml</span><span class="o">-</span><span class="n">xrv</span><span class="o">-</span><span class="n">rr</span><span class="o">-</span><span class="mi">2</span>   <span class="mf">4.33</span><span class="o">%</span>     <span class="mf">1.744</span><span class="n">GiB</span> <span class="o">/</span> <span class="mf">62.71</span><span class="n">GiB</span>   <span class="mf">2.78</span><span class="o">%</span>     <span class="mi">185</span><span class="n">kB</span> <span class="o">/</span> <span class="mi">186</span><span class="n">kB</span>    <span class="mi">0</span><span class="n">B</span> <span class="o">/</span> <span class="mf">60.5</span><span class="n">MB</span>   <span class="mi">13</span>
-<span class="mi">3</span><span class="n">f62259d2ae9</span>   <span class="n">clab</span><span class="o">-</span><span class="n">spauto</span><span class="o">-</span><span class="n">mpls</span><span class="o">-</span><span class="n">sdn</span><span class="o">.</span><span class="n">yml</span><span class="o">-</span><span class="n">xrv</span><span class="o">-</span><span class="n">rr</span><span class="o">-</span><span class="mi">1</span>   <span class="mf">1.45</span><span class="o">%</span>     <span class="mf">1.745</span><span class="n">GiB</span> <span class="o">/</span> <span class="mf">62.71</span><span class="n">GiB</span>   <span class="mf">2.78</span><span class="o">%</span>     <span class="mi">190</span><span class="n">kB</span> <span class="o">/</span> <span class="mi">190</span><span class="n">kB</span>    <span class="mi">0</span><span class="n">B</span> <span class="o">/</span> <span class="mf">59.5</span><span class="n">MB</span>   <span class="mi">13</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CONTAINER<span class="w"> </span>ID<span class="w">   </span>NAME<span class="w">                                </span>CPU<span class="w"> </span>%<span class="w">     </span>MEM<span class="w"> </span>USAGE<span class="w"> </span>/<span class="w"> </span>LIMIT<span class="w">     </span>MEM<span class="w"> </span>%<span class="w">     </span>NET<span class="w"> </span>I/O<span class="w">          </span>BLOCK<span class="w"> </span>I/O<span class="w">     </span>PIDS
+9d6acb79bcbe<span class="w">   </span>clab-spauto-topology.yml-xrv-pe4<span class="w">    </span><span class="m">2</span>.56%<span class="w">     </span><span class="m">1</span>.769GiB<span class="w"> </span>/<span class="w"> </span><span class="m">62</span>.71GiB<span class="w">   </span><span class="m">2</span>.82%<span class="w">     </span>259kB<span class="w"> </span>/<span class="w"> </span>207kB<span class="w">    </span>0B<span class="w"> </span>/<span class="w"> </span><span class="m">82</span>.8MB<span class="w">   </span><span class="m">13</span>
+de723690af86<span class="w">   </span>clab-spauto-topology.yml-xrv-p1<span class="w">     </span><span class="m">2</span>.42%<span class="w">     </span><span class="m">1</span>.719GiB<span class="w"> </span>/<span class="w"> </span><span class="m">62</span>.71GiB<span class="w">   </span><span class="m">2</span>.74%<span class="w">     </span>204kB<span class="w"> </span>/<span class="w"> </span>212kB<span class="w">    </span>0B<span class="w"> </span>/<span class="w"> </span><span class="m">60</span>.2MB<span class="w">   </span><span class="m">13</span>
+f0e0710d1edb<span class="w">   </span>clab-spauto-topology.yml-xrv-pe1<span class="w">    </span><span class="m">2</span>.41%<span class="w">     </span><span class="m">1</span>.793GiB<span class="w"> </span>/<span class="w"> </span><span class="m">62</span>.71GiB<span class="w">   </span><span class="m">2</span>.86%<span class="w">     </span>213kB<span class="w"> </span>/<span class="w"> </span>168kB<span class="w">    </span>0B<span class="w"> </span>/<span class="w"> </span><span class="m">59</span>.2MB<span class="w">   </span><span class="m">13</span>
+aca6fb91120c<span class="w">   </span>clab-spauto-topology.yml-xrv-pe3<span class="w">    </span><span class="m">1</span>.89%<span class="w">     </span><span class="m">1</span>.758GiB<span class="w"> </span>/<span class="w"> </span><span class="m">62</span>.71GiB<span class="w">   </span><span class="m">2</span>.80%<span class="w">     </span>121kB<span class="w"> </span>/<span class="w"> </span><span class="m">56</span>.9kB<span class="w">   </span>0B<span class="w"> </span>/<span class="w"> </span>52MB<span class="w">     </span><span class="m">13</span>
+63277aac88ef<span class="w">   </span>clab-spauto-topology.yml-xrv-p2<span class="w">     </span><span class="m">1</span>.47%<span class="w">     </span><span class="m">1</span>.718GiB<span class="w"> </span>/<span class="w"> </span><span class="m">62</span>.71GiB<span class="w">   </span><span class="m">2</span>.74%<span class="w">     </span>198kB<span class="w"> </span>/<span class="w"> </span>204kB<span class="w">    </span>0B<span class="w"> </span>/<span class="w"> </span><span class="m">59</span>.1MB<span class="w">   </span><span class="m">13</span>
+c83b2faa5ea8<span class="w">   </span>clab-spauto-topology.yml-xrv-pe2<span class="w">    </span><span class="m">2</span>.02%<span class="w">     </span><span class="m">1</span>.796GiB<span class="w"> </span>/<span class="w"> </span><span class="m">62</span>.71GiB<span class="w">   </span><span class="m">2</span>.86%<span class="w">     </span>206kB<span class="w"> </span>/<span class="w"> </span>146kB<span class="w">    </span>0B<span class="w"> </span>/<span class="w"> </span><span class="m">57</span>.7MB<span class="w">   </span><span class="m">13</span>
+35fcceedc92a<span class="w">   </span>clab-spauto-topology.yml-xrv-rr-2<span class="w">   </span><span class="m">4</span>.33%<span class="w">     </span><span class="m">1</span>.744GiB<span class="w"> </span>/<span class="w"> </span><span class="m">62</span>.71GiB<span class="w">   </span><span class="m">2</span>.78%<span class="w">     </span>185kB<span class="w"> </span>/<span class="w"> </span>186kB<span class="w">    </span>0B<span class="w"> </span>/<span class="w"> </span><span class="m">60</span>.5MB<span class="w">   </span><span class="m">13</span>
+3f62259d2ae9<span class="w">   </span>clab-spauto-topology.yml-xrv-rr-1<span class="w">   </span><span class="m">1</span>.45%<span class="w">     </span><span class="m">1</span>.745GiB<span class="w"> </span>/<span class="w"> </span><span class="m">62</span>.71GiB<span class="w">   </span><span class="m">2</span>.78%<span class="w">     </span>190kB<span class="w"> </span>/<span class="w"> </span>190kB<span class="w">    </span>0B<span class="w"> </span>/<span class="w"> </span><span class="m">59</span>.5MB<span class="w">   </span><span class="m">13</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="nso">
-<h2>NSO<a class="headerlink" href="#nso" title="Permalink to this headline"></a></h2>
+<h2>NSO<a class="headerlink" href="#nso" title="Permalink to this heading"></a></h2>
 <p>A pre-packaged NSO Docker container is available. This will be a fresh docker container with the following NEDs:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cisco-ios-cli-6.69
 cisco-iosxr-cli-7.33
 </pre></div>
 </div>
 <p>To spin up the NSO instance</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span> <span class="o">-</span><span class="n">d</span> <span class="n">nso</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>nso
 </pre></div>
 </div>
 <p>To access via UI (admin/admin) get the IP address of the NSO instance and open it in your browser</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">inspect</span> <span class="o">--</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>inspect<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span>
 </pre></div>
 </div>
 <p>If you want to simply ssh from the same machine that’s hosting the container</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">admin</span><span class="nd">@localhost</span> <span class="o">-</span><span class="n">p</span> <span class="mi">2024</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>admin@localhost<span class="w"> </span>-p<span class="w"> </span><span class="m">2024</span>
 </pre></div>
 </div>
-<p>The docker-compose service is mapping port 2024 to 22.
-More to come!</p>
+<p>The docker-compose service is mapping port 2024 to 22.</p>
 </section>
 </section>
 
@@ -300,8 +292,8 @@ More to come!</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to DevNet SPATUO - documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="SPAUTO/Automation%20APIs%20and%20Protocols/index.html" class="btn btn-neutral float-right" title="Automation APIs and Protocols" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to DevNet SP Automation - documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="spauto/Automation%20APIs%20and%20Protocols/index.html" class="btn btn-neutral float-right" title="Automation APIs and Protocols" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

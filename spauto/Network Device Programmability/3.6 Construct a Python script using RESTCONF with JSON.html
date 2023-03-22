@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.6 Constructing a Python Script using RESTCONF with JSON for Cisco IOS-XE Devices &mdash; Devnet SPAUTO 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.7 Construct Xpath notation for a given node or instance of a node" href="3.7%20Construct%20Xpath%20notation%20for%20a%20given%20node%20or%20instance%20of%20a%20node.html" />
+    <link rel="prev" title="Network Device Programmability" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Devnet SPAUTO
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Readme</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Automation%20APIs%20and%20Protocols/index.html">Automation APIs and Protocols</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Network Device Programmability</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.6 Constructing a Python Script using RESTCONF with JSON for Cisco IOS-XE Devices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3.7%20Construct%20Xpath%20notation%20for%20a%20given%20node%20or%20instance%20of%20a%20node.html">3.7 Construct Xpath notation for a given node or instance of a node</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Network%20Programmability%20Foundation/index.html">Network Programmability Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Extras/index.html">Extras</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Devnet SPAUTO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Network Device Programmability</a></li>
+      <li class="breadcrumb-item active">3.6 Constructing a Python Script using RESTCONF with JSON for Cisco IOS-XE Devices</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/spauto/Network Device Programmability/3.6 Construct a Python script using RESTCONF with JSON.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="constructing-a-python-script-using-restconf-with-json-for-cisco-ios-xe-devices">
+<h1>3.6 Constructing a Python Script using RESTCONF with JSON for Cisco IOS-XE Devices<a class="headerlink" href="#constructing-a-python-script-using-restconf-with-json-for-cisco-ios-xe-devices" title="Permalink to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h2>
+<p>Lets discuss RESTCONF, a protocol that enables network devices to be configured and managed using a standard set of APIs. We will demonstrate how to use RESTCONF with Python and JSON to manage Cisco IOS-XE devices effectively. By the end of this tutorial, you should have a better understanding of RESTCONF and how to leverage it to configure and manage Cisco IOS-XE devices using Python scripts.</p>
+</section>
+<section id="what-is-restconf">
+<h2>What is RESTCONF?<a class="headerlink" href="#what-is-restconf" title="Permalink to this heading"></a></h2>
+<p>RESTCONF is a network management protocol that uses HTTP/HTTPS as a transport mechanism and follows REST principles (Representational State Transfer). It is an IETF standard designed to provide a uniform API for managing network devices’ configuration and operational data. RESTCONF allows developers to access and manipulate network device data using standard HTTP methods like GET, PUT, POST, and DELETE. The data can be represented in JSON or XML format, with JSON being the most widely adopted.</p>
+<p>Using RESTCONF with Python and Cisco IOS-XE Devices:</p>
+<p>To interact with Cisco IOS-XE devices using RESTCONF, we need to perform the following high-level steps:</p>
+<ol class="arabic simple">
+<li><p>Enable RESTCONF on the Cisco device</p></li>
+<li><p>Install Python dependencies</p></li>
+<li><p>Create a Python script to interact with the device using RESTCONF</p></li>
+</ol>
+</section>
+<section id="step-1-enable-restconf-on-the-cisco-device">
+<h2>Step 1: Enable RESTCONF on the Cisco device<a class="headerlink" href="#step-1-enable-restconf-on-the-cisco-device" title="Permalink to this heading"></a></h2>
+<p>Before you can use RESTCONF with a Cisco IOS-XE device, you need to enable it. Log into the device and execute the following commands:</p>
+<blockquote>
+<div><p>NOTE: Our example will be using the IOSXE always-on sandbox from DevNet</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conf<span class="w"> </span>t
+netconf-yang
+restconf
+end
+write
+</pre></div>
+</div>
+<p>Step 2: Install Python dependencies</p>
+<p>To interact with RESTCONF using Python, we need to install the ‘requests’ library. You can do this using pip:</p>
+<p>pip install requests</p>
+<p>Step 3: Create a Python script to interact with the device using RESTCONF</p>
+<p>Now that we have installed the necessary dependencies, we can create a Python script to interact with the Cisco IOS-XE device using RESTCONF. In this example, we will create a simple script to retrieve the device’s interfaces information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Example Python RESTCONF script.&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">requests.auth</span> <span class="kn">import</span> <span class="n">HTTPBasicAuth</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Device information | This is the always-on IOS-XE sandbox from DevNet</span>
+    <span class="c1"># However, the script in the repo is using a local container lab node.</span>
+    <span class="n">device_ip</span> <span class="o">=</span> <span class="s2">&quot;sandbox-iosxe-recomm-1.cisco.com&quot;</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;developer&quot;</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;C1sco12345&quot;</span>
+
+    <span class="c1"># RESTCONF headers</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/yang-data+json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/yang-data+json&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># URL for RESTCONF request</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">device_ip</span><span class="si">}</span><span class="s2">/restconf/data/Cisco-IOS-XE-interfaces-oper:interfaces/&quot;</span>
+
+    <span class="c1"># Send RESTCONF request to the device</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">HTTPBasicAuth</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">),</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Check if the request was successful</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">interfaces</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">interfaces</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+</pre></div>
+</div>
+<p>An example output would look like this:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Cisco-IOS-XE-interfaces-oper:interfaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GigabitEthernet1&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;interface-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;iana-iftype-ethernet-csmacd&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;admin-status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;if-state-up&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;oper-status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;if-oper-state-ready&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;last-change&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-03-13T04:56:17.929+00:00&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;if-index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;phys-address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;52:54:00:ae:af:00&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;speed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1000000000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;statistics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;discontinuity-time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-03-13T04:54:28+00:00&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5829760&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-unicast-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;77811&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-broadcast-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-multicast-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-discards&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-unknown-protos&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">33399060</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-unicast-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;72373&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-broadcast-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-multicast-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-discards&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;rx-pps&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;rx-kbps&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;tx-pps&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;tx-kbps&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;num-flaps&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-crc-errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-discards-64&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-errors-64&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-unknown-protos-64&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-octets-64&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;33399060&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;vrf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ipv4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.0.0.15&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ipv4-subnet-mask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;255.255.255.0&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NORNIR-NETCONF-DESCRIPTION-31&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;mtu&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;input-security-acl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;output-security-acl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;v4-protocol-stats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;in-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;75746&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;5605048&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-error-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-forwarded-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-forwarded-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-discarded-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;72319&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;33395820&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-error-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-forwarded-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;72319&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-forwarded-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-discarded-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;v6-protocol-stats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;in-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-error-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-forwarded-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-forwarded-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-discarded-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-error-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-forwarded-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-forwarded-octets&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-discarded-pkts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;bia-address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;52:54:00:ae:af:00&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ipv4-tcp-adjust-mss&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ipv6-tcp-adjust-mss&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;storm-control&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;broadcast&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;filter-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inactive&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;multicast&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;filter-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inactive&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;unicast&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;filter-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inactive&quot;</span>
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">&quot;unknown-unicast&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;filter-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inactive&quot;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;ether-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;negotiated-duplex-mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;full-duplex&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;negotiated-port-speed&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;speed-1gb&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;auto-negotiate&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;enable-flow-control&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;media-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ether-media-type-virtual&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;ether-stats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;in-mac-control-frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-mac-pause-frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-oversize-frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-jabber-frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-fragment-frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;in-8021q-frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-mac-control-frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-mac-pause-frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;out-8021q-frames&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This script is available in <code class="docutils literal notranslate"><span class="pre">/spauto/scripts/</span></code> directory. You can run the script using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>get_interfaces.py
+</pre></div>
+</div>
+<p>If the script runs successfully, you should see the JSON output with the device’s interfaces information.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Network Device Programmability" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3.7%20Construct%20Xpath%20notation%20for%20a%20given%20node%20or%20instance%20of%20a%20node.html" class="btn btn-neutral float-right" title="3.7 Construct Xpath notation for a given node or instance of a node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Hugo Tinoco.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

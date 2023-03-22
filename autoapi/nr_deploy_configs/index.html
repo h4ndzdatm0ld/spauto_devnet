@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>nr_deploy_configs &mdash; Devnet SPAUTO 0.1.0 documentation</title>
@@ -15,6 +15,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -26,11 +27,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> Devnet SPAUTO
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Devnet SPAUTO
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -41,10 +46,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../README.html">Readme</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../SPAUTO/Automation%20APIs%20and%20Protocols/index.html">Automation APIs and Protocols</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../SPAUTO/Network%20Device%20Programmability/index.html">Network Device Programmability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../SPAUTO/Network%20Programmability%20Foundation/index.html">Network Programmability Foundation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../SPAUTO/Extras/index.html">Extras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spauto/Automation%20APIs%20and%20Protocols/index.html">Automation APIs and Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spauto/Network%20Device%20Programmability/index.html">Network Device Programmability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spauto/Network%20Programmability%20Foundation/index.html">Network Programmability Foundation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../spauto/Extras/index.html">Extras</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
@@ -66,8 +71,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">nr_deploy_configs</span></code></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nr_deploy_configs</span></code></li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/autoapi/nr_deploy_configs/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -78,49 +83,38 @@
            <div itemprop="articleBody">
              
   <section id="module-nr_deploy_configs">
-<span id="nr-deploy-configs"></span><h1><a class="reference internal" href="#module-nr_deploy_configs" title="nr_deploy_configs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nr_deploy_configs</span></code></a><a class="headerlink" href="#module-nr_deploy_configs" title="Permalink to this headline"></a></h1>
+<span id="nr-deploy-configs"></span><h1><a class="reference internal" href="#module-nr_deploy_configs" title="nr_deploy_configs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">nr_deploy_configs</span></code></a><a class="headerlink" href="#module-nr_deploy_configs" title="Permalink to this heading"></a></h1>
 <p>This script will generate configurations by rendering our Jinja templates.</p>
 <p>Configurations are deployed via Netmiko/Nornir to our devices.
 Before using this script, make sure you update the inventory host file with
 the correct Out of Band IP devices assigned to your lab topology.</p>
 <section id="module-contents">
-<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline"></a></h2>
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline"></a></h3>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#nr_deploy_configs.assert_data" title="nr_deploy_configs.assert_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">assert_data</span></code></a>()</p></td>
-<td><p>Error checking of input data.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#nr_deploy_configs.load_all_data" title="nr_deploy_configs.load_all_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_all_data</span></code></a>(task)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nr_deploy_configs.load_all_data" title="nr_deploy_configs.load_all_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_all_data</span></code></a>(task)</p></td>
 <td><p>Read all the data from the associated YAML files inside data_input dir.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#nr_deploy_configs.generate_full_mesh_list" title="nr_deploy_configs.generate_full_mesh_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_full_mesh_list</span></code></a>(task)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#nr_deploy_configs.generate_full_mesh_list" title="nr_deploy_configs.generate_full_mesh_list"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_full_mesh_list</span></code></a>(task)</p></td>
 <td><p>Loop through inventory hosts which are MPLS enabled devices.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#nr_deploy_configs.render_main" title="nr_deploy_configs.render_main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">render_main</span></code></a>(task)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nr_deploy_configs.render_main" title="nr_deploy_configs.render_main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">render_main</span></code></a>(task)</p></td>
 <td><p>Render device configuration using our Jinja2 Templates.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#nr_deploy_configs.push_config" title="nr_deploy_configs.push_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">push_config</span></code></a>(task)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#nr_deploy_configs.push_config" title="nr_deploy_configs.push_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">push_config</span></code></a>(task)</p></td>
 <td><p>Push configurations to devices.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#nr_deploy_configs.main" title="nr_deploy_configs.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nr_deploy_configs.main" title="nr_deploy_configs.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>()</p></td>
 <td><p>Execute our Nornir runbook.</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="attributes">
-<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline"></a></h3>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h3>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#nr_deploy_configs.__author__" title="nr_deploy_configs.__author__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__author__</span></code></a></p></td>
 <td><p></p></td>
@@ -128,19 +122,27 @@ the correct Out of Band IP devices assigned to your lab topology.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#nr_deploy_configs.__email__" title="nr_deploy_configs.__email__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__email__</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#nr_deploy_configs.nr" title="nr_deploy_configs.nr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nr</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#nr_deploy_configs.DIR_PATH" title="nr_deploy_configs.DIR_PATH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DIR_PATH</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#nr_deploy_configs.nr" title="nr_deploy_configs.nr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nr</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py data">
 <dt class="sig sig-object py" id="nr_deploy_configs.__author__">
-<span class="sig-prename descclassname"><span class="pre">nr_deploy_configs.</span></span><span class="sig-name descname"><span class="pre">__author__</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">Hugo</span> <span class="pre">Tinoco</span></em><a class="headerlink" href="#nr_deploy_configs.__author__" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">nr_deploy_configs.</span></span><span class="sig-name descname"><span class="pre">__author__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Hugo</span> <span class="pre">Tinoco'</span></em><a class="headerlink" href="#nr_deploy_configs.__author__" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="nr_deploy_configs.__email__">
-<span class="sig-prename descclassname"><span class="pre">nr_deploy_configs.</span></span><span class="sig-name descname"><span class="pre">__email__</span></span><em class="property"><span class="w"> </span><span class="pre">=</span> <span class="pre">hugotinoco&#64;icloud.com</span></em><a class="headerlink" href="#nr_deploy_configs.__email__" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">nr_deploy_configs.</span></span><span class="sig-name descname"><span class="pre">__email__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hugotinoco&#64;icloud.com'</span></em><a class="headerlink" href="#nr_deploy_configs.__email__" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="nr_deploy_configs.DIR_PATH">
+<span class="sig-prename descclassname"><span class="pre">nr_deploy_configs.</span></span><span class="sig-name descname"><span class="pre">DIR_PATH</span></span><a class="headerlink" href="#nr_deploy_configs.DIR_PATH" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
@@ -149,16 +151,10 @@ the correct Out of Band IP devices assigned to your lab topology.</p>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="nr_deploy_configs.assert_data">
-<span class="sig-prename descclassname"><span class="pre">nr_deploy_configs.</span></span><span class="sig-name descname"><span class="pre">assert_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#nr_deploy_configs.assert_data" title="Permalink to this definition"></a></dt>
-<dd><p>Error checking of input data.</p>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="nr_deploy_configs.load_all_data">
 <span class="sig-prename descclassname"><span class="pre">nr_deploy_configs.</span></span><span class="sig-name descname"><span class="pre">load_all_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#nr_deploy_configs.load_all_data" title="Permalink to this definition"></a></dt>
 <dd><p>Read all the data from the associated YAML files inside data_input dir.</p>
-<p>Add all the variables into a DATA_INPUT dictionary for the individual
+<p>Add all the variables into a data_input dictionary for the individual
 task.host.</p>
 </dd></dl>
 
