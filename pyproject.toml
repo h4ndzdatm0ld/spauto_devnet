@@ -5,7 +5,7 @@ description = "Playground to study for Cisco Devnet Service Provider Automation 
 authors = ["h4ndzdatm0ld <hugotinoco@icloud.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 nornir-utils = "^0.1.2"
 nornir-jinja2 = "^0.1.2"
 pynso = "^1.2.0"
@@ -16,13 +16,13 @@ jxmlease = "^1.0.3"
 ttp = "^0.7.2"
 pyiosxr = "^0.53"
 markupsafe = "2.0.1"
-pybatfish = "^2023.1.14"
 ncclient = "^0.6.13"
 nornir = "^3.3.0"
 napalm = "^4.0.0"
 nornir-napalm = "^0.3.0"
 netmiko = "^4.1.2"
 nornir-netmiko = "^0.2.0"
+pybatfish = "^2022.9.7"
 
 [tool.poetry.dev-dependencies]
 isort = "*"
@@ -30,16 +30,15 @@ flake8 = "*"
 pydocstyle = "*"
 black  = "*"
 yamllint = "*"
-sphinx-autoapi = "*"
-myst-parser = "*"
-sphinx = "*"
 pytest = "*"
 ipython = "*"
 pybandit = "*"
-ansible-lint = "*"
 pre-commit = "*"
 prettyprint = "*"
-pydantic = "^1.10.4"
+sphinx = "5.1.1"
+sphinx-rtd-theme = "^1.2.0"
+myst-parser = "^1.0.0"
+sphinx-autoapi = "^2.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -48,11 +47,6 @@ build-backend = "poetry.core.masonry.api"
 [[tool.poetry.source]]
 name = "pypi_"
 url = "https://pypi.org/simple/"
-
-[[tool.poetry.source]]
-name = "test-pypi"
-secondary = true
-url = "https://test.pypi.org/simple/"
 
 [tool.isort]
 profile = "black"

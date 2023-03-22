@@ -1,10 +1,12 @@
 """Example Python RESTCONF script."""
+import json
+
 import requests
 from requests.auth import HTTPBasicAuth
-import json
 
 
 def main():
+    """Main function."""
     # Device information
     device_ip = "172.200.100.13"
     username = "admin"
