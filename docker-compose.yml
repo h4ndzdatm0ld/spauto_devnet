@@ -7,7 +7,6 @@ services:
     image: "batfish/batfish:latest"
     ports:
       - "9996:9996"
-      - "9997:9997"
   spauto:
     container_name: "spauto"
     network_mode: "host"
@@ -27,7 +26,6 @@ services:
       - "/var/run/netns:/var/run/netns"
       - "/etc/hosts:/etc/hosts"
       - "./:/src"
-      - "./clab-spauto-clab.yml:/src/clab-spauto-clab.yml"
     pid: "host"
     command: "containerlab deploy -t spauto-clab.yml"
     # If you want to destroy the lab, ovveride the command while executing docker-compose service
@@ -39,9 +37,14 @@ services:
   nso:
     # docker-compose up -d nso // Accessible via web w/ neds (iosxr/xe)
     container_name: "nso"
-    image: "h4ndzdatm0ld/nso-spauto:5.5-neds"
+    image: "h4ndzdatm0ld/mpls-sdn-era-nso:5.5-neds"
     ports:
       - "2024:22"
+      - "80:80"
+      - "443:443"
+      - "830:830"
+      - "4334:4334"
+      - "4570:4570"
     environment:
       - "ADMIN_PASSWORD=admin"
       - "HTTP_ENABLE=true"

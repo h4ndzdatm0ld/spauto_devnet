@@ -8,7 +8,11 @@ services:
       - influxdb-storage:/var/lib/influxdb2:rw
     env_file:
       - tig/.env
-    entrypoint: ["./entrypoint.sh"]
+    environment:
+      INFLUX_DATABASE: "telegraf"
+      INLFUX_ADMIN_USER: "grafana"
+      INFLUX_ADMIN_PASS: "grafana"
+    entrypoint: [ "./entrypoint.sh" ]
     restart: on-failure:10
     ports:
       - ${DOCKER_INFLUXDB_INIT_PORT:-8086}:8086
@@ -26,6 +30,11 @@ services:
       - influxdb
     networks:
       - spauto_devnet_default
+    environment:
+      HOST_NAME: "telegraf"
+      INFLUXDB_HOST: "influxdb"
+      INFLUXDB_PORT: "8086"
+      DATABASE: "telegraf"
 
   grafana:
     # image: grafana/grafana-oss:8.4.3
@@ -38,10 +47,22 @@ services:
       - ${GRAFANA_PORT:-3000}:3000
     networks:
       - spauto_devnet_default
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_SECURITY_SECRET_KEY: grafana
+      GF_USERS_ALLOW_SIGN_UP: "true"
+      GF_USERS_ALLOW_ORG_CREATE: "true"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_NAME: grafana
+      GF_DASHBOARDS_JSON_ENABLED: "true"
+      GF_DASHBOARDS_JSON_PATH: /opt/grafana
 
 volumes:
   grafana-storage:
   influxdb-storage:
-    
-# https://www.cisco.com/c/en/us/td/docs/iosxr/asr9000/telemetry/b-telemetry-cg-asr9000-61x/b-telemetry-cg-asr9000-61x_chapter_010.html#id_36445
 
+
+networks:
+  spauto_devnet_default:
+    external: true

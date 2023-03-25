@@ -44,15 +44,15 @@ Go ahead and start the topology using ContainerLab and have fun automating the n
 
 ## Recommended Study Material & Resources
 
-    - MPLS in the SDN Era (Book)
-    - Network Programmability with YANG (Book)
-    - Nicholas Russo DevNet Material (Pluralsight)
+- MPLS in the SDN Era (Book)
+- Network Programmability with YANG (Book)
+- Nicholas Russo DevNet Material (Pluralsight)
 
 ## Container Lab
 
-After exploring [ContainerLab](https://containerlab.srlinux.dev/), I have begun to move away from EVE-NG and completely dockerized this topology. Initially, I thought I would share an exported lab from EVE-NG, but including the CLAB topology in this lab makes it so much more portable.
+After exploring [ContainerLab](https://containerlab.srlinux.dev/), I have begun to move away from EVE-NG and completely dockerized this topology. Initially, I thought I would share an exported lab from EVE-NG, but including the Container Lab topology in this lab makes it so much more portable.
 
-I've created a simple to use docker-compose service to start the lab. ContainerLab it's self is pulled down as a docker container, so you don't need a local installation of ContainerLab unless you want to have one. I recommend you deploy this lab in a Linux environment, as docker virtualization will prevent you from starting in a Mac or Windows env.
+I've created a simple to use docker-compose service to start the lab. ContainerLab itself is pulled down as a docker container, so you don't need a local installation of ContainerLab unless you want to have one. I recommend you deploy this lab in a Linux environment, as docker virtualization will prevent you from starting in a Mac or Windows env.
 
 ### Requirements
 
@@ -115,9 +115,9 @@ Run 'containerlab version upgrade' to upgrade or go check other installation opt
 
 This will start a lab topology for you and all the devices should be accessible via SSH/NETCONF/gNMI. The topology YAML file has been crafted with a custom Docker Management Network to statically assign the IP's to each node as well. This network is reserved under 172.100.100.0/24. From your local machine, after starting the devices, you should be able to ssh into each one.
 
-You will know the lab has been successfully started once all devices show healthy state. Validate via docker command
+You will know the lab has been successfully started once all devices show a healthy state. Validate via the docker command
 
-```
+```bash
 docker ps
 ```
 
@@ -127,7 +127,7 @@ The status should say (healthy)
 
 Unfortunately, these vrnetlab based nodes don't support providing a startup-config via ContainerLab. However, I've provided a Nornir job to simply deploy all the configs to each one of the devices.
 
-After starting the lab and waiting around 7 Minutes, launch off the Nornir script to deploy the configurations.
+After starting the lab and waiting around 7 Minutes, launch the Nornir script to deploy the configurations.
 
 Install the project venv
 
@@ -153,7 +153,7 @@ Deploy configs with Nornir
 python nr_deploy_configs.py
 ```
 
-> > > NOTE: If you have issues with `no matching key exchange method found, add the below line to `~/.ssh/config`
+> > > NOTE: If you have issues with `no matching key exchange method found, add the below line to ~/.ssh/config`
 
 ```bash
 Ciphers aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc
@@ -200,7 +200,7 @@ docker-compose up -d nso
 To access via UI (admin/admin) get the IP address of the NSO instance and open it in your browser
 
 ```bash
-docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+docker inspect nso --format='{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
 ```
 
 If you want to simply ssh from the same machine that's hosting the container

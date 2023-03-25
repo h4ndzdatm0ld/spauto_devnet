@@ -10,7 +10,6 @@ from pybatfish.client.asserts import (
     assert_no_unestablished_bgp_sessions,
 )
 
-# from pybatfish.client.commands import bf_upload_diagnostics
 from pybatfish.question import bfq
 
 from tests.conftest import CONFIGS_DIR, devices, load_data, render_configs
@@ -47,7 +46,6 @@ def test_config_gen(nr, node):
     """Render J2 Templates/Configs."""
     nr.run(task=load_data)
     result = nr.run(task=render_configs)
-    print_result(result)
     assert node in result.keys()
 
 
@@ -82,15 +80,9 @@ def test_parse_status():
     batfish recognize a full config correctly."""
     result = bfq.fileParseStatus().answer().frame()
     for i, row in result.iterrows():
-        if row.get("File_Name") == "configs/AS65001_SW_01.cfg":
-            # Skip over generic EOS switch for now.
+        if not row.get("File_format") == "CISCO_IOS":
             continue
-        if row.get("Status") == "PARTIALLY_UNRECOGNIZED":
-            # bf_upload_diagnostics()
-            # Commenting to not blast developers w/ random uploads
-            pass
-        else:
-            assert row.get("Status") == "PASSED"
+        assert row.get("Status") == "PASSED"
 
 
 @pytest.mark.usefixtures("batfish_session")
@@ -132,7 +124,6 @@ def test_no_undefined_ref():
 @pytest.mark.parametrize("node", ALL_NETWORK_DEVICES)
 def test_bgp_state_routers(node):
     """Testing to ensure BGP Sessions are in an Established state."""
-    # result = bfq.bgpSessionStatus().answer().frame()
     bgp_sess_status = bfq.bgpSessionStatus(nodes=node).answer().frame()
     for i, row in bgp_sess_status.iterrows():
         assert row.get("Established_Status") == "ESTABLISHED"

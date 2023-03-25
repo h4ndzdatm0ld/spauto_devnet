@@ -1,10 +1,11 @@
 """Interactive Batfish Script."""
-# from pybatfish.client.asserts import (  # assert_no_duplicate_router_ids,
-#     assert_no_forwarding_loops,
-#     assert_no_incompatible_bgp_sessions,
-#     assert_no_undefined_references,
-#     assert_no_unestablished_bgp_sessions,
-# )
+from pybatfish.client.asserts import (
+    assert_no_duplicate_router_ids,
+    assert_no_forwarding_loops,
+    assert_no_incompatible_bgp_sessions,
+    assert_no_undefined_references,
+    assert_no_unestablished_bgp_sessions,
+)
 from pybatfish.client.commands import (  # bf_session,; bf_upload_diagnostics,
     bf_init_snapshot,
     bf_set_network,
@@ -33,9 +34,7 @@ def snapshot_loader(snap_path, name, overwrite=True):
 def main():
     """Execute Batfish Interactive."""
     bf_set_network("mpls_sdn_era")
-    # Load Questions
     load_questions()
-
     snapshot_loader(CONFIGS, "MPLS_SDN_ERA")
     bf_set_snapshot("MPLS_SDN_ERA")
 
@@ -43,6 +42,12 @@ def main():
     bfq.unusedStructures().answer().frame()
     bfq.fileParseStatus().answer().frame()
     bfq.initIssues().answer()
+    assert_no_duplicate_router_ids()
+    assert_no_forwarding_loops()
+    assert_no_incompatible_bgp_sessions()
+    assert_no_undefined_references()
+    assert_no_unestablished_bgp_sessions()
 
 
-main()
+if __name__ == "__main__":
+    main()
