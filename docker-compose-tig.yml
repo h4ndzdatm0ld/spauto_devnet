@@ -30,6 +30,8 @@ services:
       - influxdb
     networks:
       - spauto_devnet_default
+    ports:
+      - 42518:42518
     environment:
       HOST_NAME: "telegraf"
       INFLUXDB_HOST: "influxdb"
