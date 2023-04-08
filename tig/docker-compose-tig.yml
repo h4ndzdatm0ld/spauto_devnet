@@ -2,45 +2,39 @@ version: "3.8"
 
 services:
   influxdb:
-    # image: influxdb:2.1.1
-    image: influxdb:latest
+    build: influxdb
+    container_name: ${CONTAINER_PREFIX}_influxdb
     volumes:
       - influxdb-storage:/var/lib/influxdb2:rw
     env_file:
-      - tig/.env
-    environment:
-      INFLUX_DATABASE: "telegraf"
-      INLFUX_ADMIN_USER: "grafana"
-      INFLUX_ADMIN_PASS: "grafana"
-    entrypoint: [ "./entrypoint.sh" ]
+      - .env
     restart: on-failure:10
     ports:
-      - ${DOCKER_INFLUXDB_INIT_PORT:-8086}:8086
+      - ${INFLUXDB_INIT_PORT:-8086}:8086
     networks:
       - spauto_devnet_default
 
   telegraf:
-    # image: telegraf:1.19
-    image: telegraf:latest
+    build: telegraf
+    container_name: ${CONTAINER_PREFIX}_telegraf
+    privileged: true
+    restart: always
     volumes:
-      - ${TELEGRAF_CFG_PATH:-./tig/telegraf/telegraf.conf}:/etc/telegraf/telegraf.conf:rw
+      - ${TELEGRAF_CFG_PATH:-./telegraf/telegraf.conf}:/etc/telegraf/telegraf.conf
     env_file:
-      - tig/.env
+      - .env
     depends_on:
       - influxdb
     networks:
       - spauto_devnet_default
     ports:
       - 42518:42518
-    environment:
-      HOST_NAME: "telegraf"
-      INFLUXDB_HOST: "influxdb"
-      INFLUXDB_PORT: "8086"
-      DATABASE: "telegraf"
 
   grafana:
-    # image: grafana/grafana-oss:8.4.3
-    image: grafana/grafana-oss:latest
+    build: grafana
+    container_name: ${CONTAINER_PREFIX}_grafana
+    restart: always
+    privileged: true
     volumes:
       - grafana-storage:/var/lib/grafana:rw
     depends_on:
@@ -49,6 +43,8 @@ services:
       - ${GRAFANA_PORT:-3000}:3000
     networks:
       - spauto_devnet_default
+    env_file:
+      - .env
     environment:
       GF_SECURITY_ADMIN_USER: admin
       GF_SECURITY_ADMIN_PASSWORD: admin

@@ -5,15 +5,18 @@ from nornir import InitNornir
 from nornir_jinja2.plugins.tasks import template_file
 from nornir_utils.plugins.tasks.data import load_yaml
 from nornir_utils.plugins.tasks.files import write_file
-from pybatfish.client.commands import bf_init_snapshot
 from pybatfish.client.session import Session
-from pybatfish.question import bfq, load_questions
 
 NORNIR_PATH: str = "spauto/nornir"
+# BATFISH_HOST: str = "Batfi-Batfi-IOAEBILWU9HK-1589597337.us-west-2.elb.amazonaws.com"
 BATFISH_HOST: str = "localhost"
 SNAPSHOT_PATH: str = "tests/network_data/mpls_sdn_era"
 CONFIGS_DIR: str = f"{SNAPSHOT_PATH}/configs/"
 NETWORK_NAME: str = "mpls_sdn_era"
+
+import logging
+
+logging.getLogger("pybatfish").setLevel(logging.DEBUG)
 
 
 @pytest.fixture(scope="session")
@@ -47,24 +50,16 @@ def devices():
 def batfish_session():
     batfish = Session(host=BATFISH_HOST)
     batfish.set_network(NETWORK_NAME)
-    snapshot_loader(SNAPSHOT_PATH, NETWORK_NAME)
-    load_questions()
+    batfish.init_snapshot(SNAPSHOT_PATH, NETWORK_NAME, overwrite=True)
     return batfish
 
 
 @pytest.mark.usefixtures("batfish_session")
 @pytest.fixture
-def bgp_config():
+def bgp_config(batfish_session):
     """Use the pybatfish SDK to extract Panda Data frame answer
     to our network's BGP configuration"""
-    return bfq.bgpProcessConfiguration().answer().frame()
-
-
-def snapshot_loader(snap_path, name, overwrite=True):
-    """Simple function to load a snapshot into Batfish. This function allows
-    up to use a setup fixture and extend to multiple test cases against
-    different snapshots of the network."""
-    bf_init_snapshot(snap_path, name=name, overwrite=overwrite)
+    return batfish_session.q.bgpProcessConfiguration().answer().frame()
 
 
 @pytest.fixture(scope="class", autouse=True)

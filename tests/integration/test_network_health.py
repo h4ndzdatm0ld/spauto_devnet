@@ -1,7 +1,6 @@
 import os
 
 import pytest
-from nornir_utils.plugins.functions import print_result
 from pybatfish.client.asserts import (
     assert_no_duplicate_router_ids,
     assert_no_forwarding_loops,
@@ -9,8 +8,6 @@ from pybatfish.client.asserts import (
     assert_no_undefined_references,
     assert_no_unestablished_bgp_sessions,
 )
-
-from pybatfish.question import bfq
 
 from tests.conftest import CONFIGS_DIR, devices, load_data, render_configs
 
@@ -32,6 +29,10 @@ snapshot folder to provide Batfish via the pybatfish client.
 
 CE_DEVICES = ["AS65001_CE2", "AS65001_CE1", "AS65001_CE3", "AS65001_CE4"]
 ALL_NETWORK_DEVICES = devices()
+
+
+def test_bgp_data(bgp_config):
+    breakpoint()
 
 
 @pytest.mark.parametrize("node", ALL_NETWORK_DEVICES)
@@ -59,26 +60,28 @@ def test_config_gen_output(nr, node):
 
 
 @pytest.mark.usefixtures("batfish_session")
-def test_assert_no_incompatible_bgp_session(snapshot_name):
+def test_assert_no_incompatible_bgp_session(batfish_session, snapshot_name):
     """Built in assertion to ensure there are no incompatible BGP sessions.
 
     This looks at the BGP Configuration between all nodes."""
-    assert_no_incompatible_bgp_sessions(snapshot=snapshot_name)
+    assert_no_incompatible_bgp_sessions(snapshot=snapshot_name, session=batfish_session)
 
 
 @pytest.mark.usefixtures("batfish_session")
-def test_assert_no_unestablished_bgp_session(snapshot_name):
+def test_assert_no_unestablished_bgp_session(batfish_session, snapshot_name):
     """Assert there are no unestablished bgp sessions in our network."""
-    assert_no_unestablished_bgp_sessions(snapshot=snapshot_name)
+    assert_no_unestablished_bgp_sessions(
+        snapshot=snapshot_name, session=batfish_session
+    )
 
 
 @pytest.mark.usefixtures("batfish_session")
-def test_parse_status():
+def test_parse_status(batfish_session):
     """Validate all files in the current snapshot have been parsed
     successfully. If a file is parsed but partially unrecognized,
     upload diagnostics and skip it. Unfortunately, not always does
     batfish recognize a full config correctly."""
-    result = bfq.fileParseStatus().answer().frame()
+    result = batfish_session.q.fileParseStatus().answer().frame()
     for i, row in result.iterrows():
         if not row.get("File_format") == "CISCO_IOS":
             continue
@@ -86,61 +89,48 @@ def test_parse_status():
 
 
 @pytest.mark.usefixtures("batfish_session")
-def test_unused_structures():
+def test_unused_structures(batfish_session):
     """This tests checks if configuration lines are not used such as ACLs
     or route-maps"""
-    result = bfq.unusedStructures().answer().frame()
+    result = batfish_session.q.unusedStructures().answer().frame()
     assert len(result) == 0
 
 
 @pytest.mark.usefixtures("batfish_session")
 @pytest.mark.parametrize("node", ["AS65000_RR1", "AS65000_RR2"])
-def test_rr(node):
+def test_rr(batfish_session, node):
     """Testing to ensure configuration compliance against route reflectors."""
-    conf = bfq.bgpProcessConfiguration(nodes=node).answer().frame()
+    conf = batfish_session.q.bgpProcessConfiguration(nodes=node).answer().frame()
     for i, row in conf.iterrows():
         assert row.get("Route_Reflector")
 
 
 @pytest.mark.usefixtures("batfish_session")
-def test_no_duplicate_routerids():
+def test_no_duplicate_routerids(snapshot_name, batfish_session):
     """Built in assertion, validate router-ids."""
-    assert assert_no_duplicate_router_ids()
+    assert assert_no_duplicate_router_ids(
+        snapshot=snapshot_name, session=batfish_session
+    )
 
 
 @pytest.mark.usefixtures("batfish_session")
-def test_no_fw_loops():
+def test_no_fw_loops(batfish_session, snapshot_name):
     """ "Built in assertion, no forwarding loops"""
-    assert assert_no_forwarding_loops()
+    assert assert_no_forwarding_loops(session=batfish_session, snapshot=snapshot_name)
 
 
 @pytest.mark.usefixtures("batfish_session")
-def test_no_undefined_ref():
+def test_no_undefined_ref(batfish_session, snapshot_name):
     """Validate no unused ref, such as route-maps are present, but unused."""
-    assert assert_no_undefined_references()
+    assert assert_no_undefined_references(
+        session=batfish_session, snapshot=snapshot_name
+    )
 
 
 @pytest.mark.usefixtures("batfish_session")
 @pytest.mark.parametrize("node", ALL_NETWORK_DEVICES)
-def test_bgp_state_routers(node):
+def test_bgp_state_routers(node, batfish_session):
     """Testing to ensure BGP Sessions are in an Established state."""
-    bgp_sess_status = bfq.bgpSessionStatus(nodes=node).answer().frame()
+    bgp_sess_status = batfish_session.q.bgpSessionStatus(nodes=node).answer().frame()
     for i, row in bgp_sess_status.iterrows():
         assert row.get("Established_Status") == "ESTABLISHED"
-
-
-# @pytest.mark.parametrize("node", CE_DEVICES)
-# def test_interface_vrrp(node):
-#     """Testing to ensure our CE Devices have at least 1 VRRP group, as expected."""
-#     vrrp = (
-#         bfq.interfaceProperties(
-#             nodes=node,
-#             interfaces="GigabitEthernet1.1001",
-#             properties="VRRP_Groups",
-#         )
-#         .answer()
-#         .frame()
-#     )
-#     for i, row in vrrp.iterrows():
-#         print(row.get("Vrrp"))
-#         print(row.get(len("VRRP_Groups")))
