@@ -1,3 +1,4 @@
+import logging
 from typing import List
 
 import pytest
@@ -8,13 +9,11 @@ from nornir_utils.plugins.tasks.files import write_file
 from pybatfish.client.session import Session
 
 NORNIR_PATH: str = "spauto/nornir"
-# BATFISH_HOST: str = "Batfi-Batfi-IOAEBILWU9HK-1589597337.us-west-2.elb.amazonaws.com"
 BATFISH_HOST: str = "localhost"
 SNAPSHOT_PATH: str = "tests/network_data/mpls_sdn_era"
 CONFIGS_DIR: str = f"{SNAPSHOT_PATH}/configs/"
 NETWORK_NAME: str = "mpls_sdn_era"
 
-import logging
 
 logging.getLogger("pybatfish").setLevel(logging.DEBUG)
 

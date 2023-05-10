@@ -2,7 +2,8 @@ version: "3.8"
 
 services:
   influxdb:
-    build: influxdb
+    build:
+      context: ./influxdb/
     container_name: ${CONTAINER_PREFIX}_influxdb
     volumes:
       - influxdb-storage:/var/lib/influxdb2:rw
@@ -10,12 +11,14 @@ services:
       - .env
     restart: on-failure:10
     ports:
-      - ${INFLUXDB_INIT_PORT:-8086}:8086
+      - ${INFLUXDB_PORT:-8086}:8086
+      - "8083:8083"
     networks:
       - spauto_devnet_default
 
   telegraf:
-    build: telegraf
+    build:
+      context: ./telegraf/
     container_name: ${CONTAINER_PREFIX}_telegraf
     privileged: true
     restart: always
@@ -28,15 +31,17 @@ services:
     networks:
       - spauto_devnet_default
     ports:
-      - 42518:42518
+      - ${TELEGRAF_PORT:-42518}:42518
 
   grafana:
-    build: grafana
+    build:
+      context: ./grafana/
     container_name: ${CONTAINER_PREFIX}_grafana
     restart: always
     privileged: true
     volumes:
       - grafana-storage:/var/lib/grafana:rw
+      - ./grafana/provisioning:/etc/grafana/provisioning
     depends_on:
       - influxdb
     ports:
@@ -45,16 +50,6 @@ services:
       - spauto_devnet_default
     env_file:
       - .env
-    environment:
-      GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: admin
-      GF_SECURITY_SECRET_KEY: grafana
-      GF_USERS_ALLOW_SIGN_UP: "true"
-      GF_USERS_ALLOW_ORG_CREATE: "true"
-      GF_AUTH_ANONYMOUS_ENABLED: "true"
-      GF_AUTH_ANONYMOUS_ORG_NAME: grafana
-      GF_DASHBOARDS_JSON_ENABLED: "true"
-      GF_DASHBOARDS_JSON_PATH: /opt/grafana
 
 volumes:
   grafana-storage:

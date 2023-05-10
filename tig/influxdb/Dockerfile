@@ -1,8 +1,11 @@
-FROM influxdb:latest
+FROM influxdb:latest as influxdb
 
 USER root
 
-ADD ./influxdb.template.conf /influxdb.template.conf
+ADD ./influxdb.template.conf /etc/influxdb/influxdb.conf
 
-ADD run.sh /run.sh
-ENTRYPOINT ["bash", "/run.sh"]
+RUN mkdir -p /var/log/influxdb/ && touch /var/log/influxdb/influxdb.log
+
+# ADD run.sh /run.sh
+
+# ENTRYPOINT ["bash", "/run.sh"]

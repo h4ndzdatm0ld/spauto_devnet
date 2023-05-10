@@ -31,10 +31,6 @@ CE_DEVICES = ["AS65001_CE2", "AS65001_CE1", "AS65001_CE3", "AS65001_CE4"]
 ALL_NETWORK_DEVICES = devices()
 
 
-def test_bgp_data(bgp_config):
-    breakpoint()
-
-
 @pytest.mark.parametrize("node", ALL_NETWORK_DEVICES)
 def test_load_yaml(nr, node):
     """Assert all devices exist in the loaded yaml keys."""
