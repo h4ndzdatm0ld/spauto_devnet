@@ -5,14 +5,13 @@ services:
     build:
       context: ./influxdb/
     container_name: ${CONTAINER_PREFIX}_influxdb
-    volumes:
-      - influxdb-storage:/var/lib/influxdb2:rw
+    # volumes:
+    #   - influxdb-storage:/var/lib/influxdb2:rw
     env_file:
       - .env
     restart: on-failure:10
     ports:
       - ${INFLUXDB_PORT:-8086}:8086
-      - "8083:8083"
     networks:
       - spauto_devnet_default
 
@@ -31,7 +30,7 @@ services:
     networks:
       - spauto_devnet_default
     ports:
-      - ${TELEGRAF_PORT:-42518}:42518
+      - ${TELEGRAF_PORT:-42518}:57500
 
   grafana:
     build:

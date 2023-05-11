@@ -1,4 +1,4 @@
-FROM telegraf:latest
+FROM telegraf:latest as telegraf
 
 USER root
 

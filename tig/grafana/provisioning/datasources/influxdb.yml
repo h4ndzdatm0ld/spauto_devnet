@@ -8,16 +8,12 @@ deleteDatasources:
 datasources:
   - name: InfluxDB
     type: influxdb
-    orgId: 1
+    access: proxy
     url: http://influxdb:8086
-    password: "${DOCKER_INFLUXDB_INIT_PASSWORD}"
-    user: "${DOCKER_INFLUXDB_INIT_USERNAME}"
-    database: "${INFLUXDB_DATABASE}"
-    basicAuth: false
-    isDefault: true
     jsonData:
-      httpMode: POST
       version: Flux
-      organization: "${INFLUXDB_ORG}"
+      defaultBucket: "${DOCKER_INFLUXDB_INIT_BUCKET}"
+      organization: "${DOCKER_INFLUXDB_INIT_ORG}"
+      tlsSkipVerify: true
     secureJsonData:
       token: "${DOCKER_INFLUXDB_INIT_ADMIN_TOKEN}"
